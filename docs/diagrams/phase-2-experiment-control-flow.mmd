@@ -1,0 +1,13 @@
+flowchart TD
+    M["Versioned experiment manifest"] --> C["Portable experiment controller"]
+    C --> Z["Clean reset and health check"]
+    Z --> B["Selected deployment condition"]
+    B --> L["Fixed workload"]
+    C --> F["Deterministic fault scenario"]
+    F --> L
+    L --> T["Telemetry and event capture"]
+    B --> T
+    T --> R["Raw event bundle"]
+    R --> P["Later processing and analysis"]
+    H["Human-participant evidence"] -.-> P
+

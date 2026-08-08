@@ -1,10 +1,10 @@
 # Diagrams
 
-Planned diagrams:
+Phase 2 diagrams:
 
-- candidate-system architecture;
-- experimental conditions and fault-injection flow;
+- [`phase-2-candidate-architecture.mmd`](phase-2-candidate-architecture.mmd) — candidate OrderFlow architecture and telemetry boundary;
+- [`phase-2-experiment-control-flow.mmd`](phase-2-experiment-control-flow.mmd) — reset, deployment, fault, capture and later analysis flow;
 - technical and human evidence provenance; and
 - repository/data lifecycle.
 
-Diagrams should describe the selected design after the relevant ADR or protocol, not silently become design decisions themselves.
+The latter two diagrams remain planned. Diagrams should describe the selected design after the relevant ADR or protocol, not silently become design decisions themselves.

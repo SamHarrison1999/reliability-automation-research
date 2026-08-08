@@ -12,6 +12,12 @@ $Required = @(
     'docs/literature/search-log.csv', 'docs/literature/screening-log.csv',
     'docs/literature/references.bib', 'docs/adr/0001-repository-boundaries.md',
     'docs/adr/0002-provisional-technology-selection.md',
+    'docs/research-design/phase-2.md', 'docs/technology-selection/README.md',
+    'docs/technology-selection/selection-matrix.csv', 'docs/technology-selection/source-register.md',
+    'docs/adr/0003-candidate-system-selection.md', 'docs/adr/0004-experimental-deployment-model.md',
+    'docs/adr/0005-observability-and-provenance-boundary.md', 'docs/adr/0006-fault-injection-boundary.md',
+    'docs/protocols/phase-2-fit-probe.md',
+    'docs/diagrams/phase-2-candidate-architecture.mmd', 'docs/diagrams/phase-2-experiment-control-flow.mmd',
     'scripts/bootstrap.sh', 'scripts/bootstrap.ps1', 'scripts/verify-repository.sh',
     '.github/workflows/validate-repository.yml'
 )
@@ -44,5 +50,5 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 1 - scoping review and literature map.'
+Write-Host 'Phase: 2 - software-system and technology selection.'
 Write-Host 'Application implementation: intentionally absent.'

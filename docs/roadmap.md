@@ -16,4 +16,4 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-Phase 1 is in progress. No system implementation should be started until the scoping review is complete and the Phase 2 technology-selection decisions provide a defensible basis for it.
+Phase 2 is in progress. The current work compares the candidate experimental system and technology boundary and prepares a fit probe. No full application implementation, human-participant work or empirical-effect claim should be started until the Phase 1 evidence status and Phase 2 validation criteria are reviewed.
