@@ -2,8 +2,8 @@
 
 ## Project status
 
-- **Current phase:** Phase 2 - software-system and technology selection
-- **Status:** In progress; local fit probe passed; Kubernetes/OpenTelemetry compatibility and Phase 1 database searches/full-text charting remain outstanding
+- **Current phase:** Phase 3 - fault model, metrics and experiment protocol
+- **Status:** Phase 2 technical fit-probe close-out complete; Phase 1 literature completion and OpenTelemetry SDK/collector compatibility remain outstanding
 - **Empirical data collected:** Synthetic technical-feasibility records only; no participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
@@ -73,13 +73,20 @@ Select and justify the candidate experimental system and technology boundary usi
 - [x] Candidate architecture and experiment-control diagrams
 - [x] Fit-probe protocol
 - [x] Portable local fit probe completed and measured evidence recorded
+- [x] Docker Desktop Kubernetes fit probe completed; all Kubernetes checks passed
 - [ ] Provisional choices accepted or rejected after validation
 
 ### Validation status
 
-The portable local fit probe establishes that the minimal OrderFlow slice can be reset, exercised, observed and faulted under the local-process target. It does not establish Kubernetes or OpenTelemetry SDK/collector feasibility. No participant data or empirical-effect claim has been added.
+Phase 2 technical fit-probe evidence is complete for the local-process and Docker Desktop Kubernetes targets as of 2026-08-08. The evidence demonstrates technical feasibility only; it does not estimate reliability effects, provide participant evidence, establish production readiness, or validate compatibility with a real OpenTelemetry SDK/collector pipeline. No participant data or empirical-effect claim has been added.
 
 ### Phase 2 decision log
+
+<!-- BEGIN PHASE-3-HANDOFF -->
+Phase 3 may now define the fault model, metric operationalisations and experiment protocol. Phase 1 literature completion and the OpenTelemetry SDK/collector compatibility check remain explicit carry-forward limitations.
+
+The next working phase is **Phase 3 - fault model, metrics and experiment protocol**. The Phase 2 implementation and evidence remain a fit-probe slice; full application implementation is intentionally deferred.
+<!-- END PHASE-3-HANDOFF -->
 
 | Date | Decision | Reason | Evidence/status |
 |---|---|---|---|

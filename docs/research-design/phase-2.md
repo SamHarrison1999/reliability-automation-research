@@ -3,7 +3,7 @@
 **Project:** PhD Preparation – Reliability Automation and Software Engineering Practice
 **Working title:** An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments
 **Phase:** 2
-**Status:** In progress; the portable local fit probe passed, but Kubernetes and the OpenTelemetry SDK/collector path remain unvalidated
+**Status:** Technical fit-probe close-out complete; Phase 1 literature completion and the OpenTelemetry SDK/collector path remain outstanding
 **Date started:** 2026-08-08
 
 ## Objective
@@ -116,4 +116,10 @@ The local fit-probe result is recorded in [`docs/fit-probe/phase-2-fit-probe-res
 
 ## Phase 2 exit record
 
-This document remains **in progress** until the fit-probe evidence is recorded. The next phase is the fault model, metric operationalisation and experiment protocol; it must not begin as a completed phase until the selection decisions have been validated.
+<!-- BEGIN PHASE-2-KUBERNETES-CLOSEOUT -->
+### Kubernetes fit-probe close-out
+
+The Docker Desktop Kubernetes execution completed successfully on **2026-08-08** using the no-fault, service-termination and dependency-latency scenarios. It produced **4** passing runs, with 1 clean-reset repeat recorded. The summary reports `all_kubernetes_checks_passed: true`. The result is technical feasibility evidence only and does not establish a reliability effect, participant outcome, production readiness or real OpenTelemetry SDK/collector compatibility.
+<!-- END PHASE-2-KUBERNETES-CLOSEOUT -->
+
+The technical fit-probe evidence is now recorded for the local-process and Docker Desktop Kubernetes targets. The next working phase is **Phase 3 - fault model, metrics and experiment protocol**. This does not remove the outstanding Phase 1 literature or OpenTelemetry SDK/collector limitations, and no reliability-effect or participant claim is made.

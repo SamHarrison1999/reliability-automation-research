@@ -58,5 +58,5 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 2 - software-system and technology selection.'
+Write-Host 'Phase: 3 - fault model, metrics and experiment protocol.'
 Write-Host 'Full application implementation: intentionally absent; fit-probe slice only.'
