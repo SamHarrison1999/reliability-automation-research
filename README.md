@@ -4,9 +4,15 @@ Research repository for the provisional PhD project:
 
 > An Empirical Investigation of Reliability Automation and Human Decision-Making in Continuous Delivery Environments
 
-This repository is currently in **Phase 2: software-system and technology selection**. It contains only the bounded implementation needed for the technical fit probe; it contains no full experimental application and no empirical findings. The purpose of this stage is to compare candidate systems and tools against research criteria before a larger implementation determines the study.
+This repository is currently in **Phase 3 - fault model, metrics and experiment protocol**. Phase 2 technical fit-probe evidence is complete for the local-process and Docker Desktop Kubernetes targets. The repository still contains only the bounded fit-probe implementation; it contains no full experimental application, participant data or empirical findings.
 
 ## Research direction
+
+<!-- BEGIN PHASE-2-CLOSEOUT -->
+Phase 2 technical fit-probe evidence is complete for the local-process and Docker Desktop Kubernetes targets as of 2026-08-08. The evidence demonstrates technical feasibility only; it does not estimate reliability effects, provide participant evidence, establish production readiness, or validate compatibility with a real OpenTelemetry SDK/collector pipeline.
+
+Phase 3 may now define the fault model, metric operationalisations and experiment protocol. Phase 1 literature completion and the OpenTelemetry SDK/collector compatibility check remain explicit carry-forward limitations.
+<!-- END PHASE-2-CLOSEOUT -->
 
 The working design separates two evidence streams:
 

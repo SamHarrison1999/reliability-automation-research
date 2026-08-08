@@ -1,6 +1,6 @@
 # Phase 2 fit-probe protocol
 
-**Status:** Local execution passed on 2026-08-08; the Kubernetes runner is prepared for Docker Desktop execution, while Kubernetes results and the OpenTelemetry SDK/collector path remain untested.
+**Status:** Local and Docker Desktop Kubernetes execution passed on 2026-08-08; the OpenTelemetry SDK/collector path remains untested.
 **Purpose:** Challenge the provisional Phase 2 system and technology choices.
 **Evidence type:** Technical feasibility only; no human-participant data.
 
@@ -46,7 +46,7 @@ Determine whether the provisional OrderFlow/Kubernetes/OpenTelemetry/fault-bound
 
 The executed local probe and its limitations are recorded in [`docs/fit-probe/phase-2-fit-probe-results.md`](../fit-probe/phase-2-fit-probe-results.md). It completed one no-fault run, one service-termination run, one dependency-latency run and one clean-reset repeat. The no-fault run included a version update and rollback.
 
-The first probe environment did not contain `docker`, `kubectl`, `kind` or `minikube`, so it used a local-process surrogate. The Kubernetes runner is now available for a separately recorded Docker Desktop execution. Service events use an OpenTelemetry-compatible structured field contract, but no OpenTelemetry SDK or collector is claimed until that path is separately tested.
+The first probe environment used a local-process surrogate because the required container tools were unavailable. A separately recorded Docker Desktop Kubernetes execution subsequently completed with **4** passing runs and `all_kubernetes_checks_passed: true`. Service events use an OpenTelemetry-compatible structured field contract, but no OpenTelemetry SDK or collector is claimed until that path is separately tested.
 
 ## Exclusions
 

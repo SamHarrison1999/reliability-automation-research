@@ -16,4 +16,4 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-Phase 2 is in progress. The current work compares the candidate experimental system and technology boundary and prepares a fit probe. No full application implementation, human-participant work or empirical-effect claim should be started until the Phase 1 evidence status and Phase 2 validation criteria are reviewed.
+The Phase 2 technical fit-probe close-out is complete for the local-process and Docker Desktop Kubernetes targets. The current gate is **Phase 3 - fault model, metrics and experiment protocol**: define the fault model, metric operationalisations and experiment protocol while retaining the Phase 1 literature and OpenTelemetry SDK/collector limitations. No full application implementation, human-participant work or empirical-effect claim is authorised by this close-out.

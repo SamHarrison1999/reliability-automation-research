@@ -3,7 +3,7 @@
 **Probe:** `phase-2-fit-probe-v1`  
 **Execution date:** 2026-08-08  
 **Evidence type:** Synthetic technical feasibility only  
-**Status:** Local fit probe passed; Kubernetes and a real OpenTelemetry collector remain untested
+**Status:** Local and Docker Desktop Kubernetes fit probes passed; a real OpenTelemetry SDK/collector path remains untested
 
 ## Scope
 
@@ -51,6 +51,14 @@ The no-fault run also recorded an `order-api-v1` to `order-api-v2` deployment tr
 
 ## Interpretation
 
+<!-- BEGIN KUBERNETES-EXECUTION -->
+## Kubernetes execution
+
+The Docker Desktop Kubernetes fit probe completed on **2026-08-08** for the no-fault, service-termination and dependency-latency scenarios. All **4** recorded runs passed, and the summary reports `all_kubernetes_checks_passed: true`. The target model recorded in the evidence is docker-desktop-kubernetes. Raw Kubernetes event bundles are stored under [`results/fit-probe/kubernetes-raw/`](../../results/fit-probe/kubernetes-raw/), with the aggregate summary at [`results/fit-probe/kubernetes-fit-probe-summary.json`](../../results/fit-probe/kubernetes-fit-probe-summary.json).
+
+This result demonstrates technical feasibility only. It does not estimate an automation effect, provide participant evidence, establish production readiness, or validate a real OpenTelemetry SDK/collector pipeline.
+<!-- END KUBERNETES-EXECUTION -->
+
 The local probe supports carrying the following provisional choices forward:
 
 1. OrderFlow is sufficiently small and controllable for the next technical design stage.
@@ -61,8 +69,8 @@ The probe does not establish that Kubernetes is a suitable experimental target, 
 
 ## Limitations and required follow-up
 
-- Execute the same manifests against a pinned Kubernetes environment and record deployment, reset, targeting and rollback behaviour.
-- Use `scripts/run-phase-2-kubernetes-fit-probe.ps1` after Docker Desktop Kubernetes is ready; its output must be reviewed and added as a separate Kubernetes evidence record rather than replacing these local results.
+- Treat the completed Docker Desktop Kubernetes execution as local technical-feasibility evidence; a pinned external Kubernetes environment remains future validation.
+- The repeatable Kubernetes runner is retained for future reruns; the recorded result is preserved separately from the local-process evidence.
 - Replace or augment the structured event exporter with the selected OpenTelemetry SDK/collector path and test export loss, ordering and correlation.
 - Compare the local contract with Docker Compose only if Compose remains a candidate development path.
 - Complete the Phase 1 literature searches and full-text charting before treating the Phase 2 decisions as final.
