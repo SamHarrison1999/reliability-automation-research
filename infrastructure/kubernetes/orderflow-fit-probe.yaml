@@ -21,6 +21,18 @@ spec:
       containers:
         - name: inventory
           image: orderflow/inventory:fit-probe-v1
+          imagePullPolicy: Never
+          env:
+            - name: ORDERFLOW_ROLE
+              value: inventory
+            - name: ORDERFLOW_PORT
+              value: "8081"
+            - name: ORDERFLOW_VERSION
+              value: inventory-v1
+            - name: ORDERFLOW_RUN_ID
+              value: kubernetes-run-placeholder
+            - name: ORDERFLOW_SCENARIO_ID
+              value: kubernetes-scenario-placeholder
           ports:
             - containerPort: 8081
           readinessProbe:
@@ -58,7 +70,20 @@ spec:
       containers:
         - name: order-api
           image: orderflow/order-api:fit-probe-v1
+          imagePullPolicy: Never
           env:
+            - name: ORDERFLOW_ROLE
+              value: order-api
+            - name: ORDERFLOW_PORT
+              value: "8080"
+            - name: ORDERFLOW_VERSION
+              value: order-api-v1
+            - name: ORDERFLOW_RUN_ID
+              value: kubernetes-run-placeholder
+            - name: ORDERFLOW_SCENARIO_ID
+              value: kubernetes-scenario-placeholder
+            - name: ORDERFLOW_DEPENDENCY_URL
+              value: http://inventory:8081
             - name: INVENTORY_URL
               value: http://inventory:8081
           ports:

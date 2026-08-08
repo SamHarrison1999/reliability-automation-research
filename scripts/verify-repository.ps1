@@ -19,9 +19,12 @@ $Required = @(
     'docs/protocols/phase-2-fit-probe.md',
     'docs/fit-probe/phase-2-fit-probe-results.md', 'data/schemas/technical-event-record.md',
     'infrastructure/local-fit-probe.json', 'infrastructure/kubernetes/orderflow-fit-probe.yaml',
+    'infrastructure/kubernetes/Dockerfile', 'infrastructure/kubernetes/entrypoint.sh',
     'experiments/scenarios/no-fault.json', 'experiments/scenarios/service-termination.json',
     'experiments/scenarios/dependency-latency.json', 'experiments/harness/fit_probe.py',
+    'experiments/harness/kubernetes_fit_probe.py',
     'system/orderflow/service.py', 'scripts/run-phase-2-fit-probe.sh', 'scripts/run-phase-2-fit-probe.ps1',
+    'scripts/run-phase-2-kubernetes-fit-probe.ps1',
     'docs/diagrams/phase-2-candidate-architecture.mmd', 'docs/diagrams/phase-2-experiment-control-flow.mmd',
     'scripts/bootstrap.sh', 'scripts/bootstrap.ps1', 'scripts/verify-repository.sh',
     '.github/workflows/validate-repository.yml'

@@ -62,6 +62,7 @@ The probe does not establish that Kubernetes is a suitable experimental target, 
 ## Limitations and required follow-up
 
 - Execute the same manifests against a pinned Kubernetes environment and record deployment, reset, targeting and rollback behaviour.
+- Use `scripts/run-phase-2-kubernetes-fit-probe.ps1` after Docker Desktop Kubernetes is ready; its output must be reviewed and added as a separate Kubernetes evidence record rather than replacing these local results.
 - Replace or augment the structured event exporter with the selected OpenTelemetry SDK/collector path and test export loss, ordering and correlation.
 - Compare the local contract with Docker Compose only if Compose remains a candidate development path.
 - Complete the Phase 1 literature searches and full-text charting before treating the Phase 2 decisions as final.

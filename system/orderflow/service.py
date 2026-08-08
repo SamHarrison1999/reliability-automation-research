@@ -49,8 +49,11 @@ class ServiceState:
             **fields,
         }
         self.event_file.parent.mkdir(parents=True, exist_ok=True)
+        encoded = json.dumps(event, sort_keys=True)
         with self.event_file.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(event, sort_keys=True) + "\n")
+            handle.write(encoded + "\n")
+        # Containerised runs use stdout as the portable log transport.
+        print(encoded, flush=True)
         return event
 
 
@@ -148,13 +151,14 @@ def main() -> int:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--scenario-id", required=True)
     parser.add_argument("--dependency-url", default="")
+    parser.add_argument("--host", default="127.0.0.1")
     args = parser.parse_args()
 
     state = ServiceState(args.role, args.port, args.version, args.event_file, args.run_id, args.scenario_id)
     handler_type = type("OrderFlowHandler", (Handler,), {})
     handler_type.state = state
     handler_type.dependency_url = args.dependency_url
-    server = ThreadingHTTPServer(("127.0.0.1", args.port), handler_type)
+    server = ThreadingHTTPServer((args.host, args.port), handler_type)
 
     def stop(_signum: int, _frame: Any) -> None:
         state.emit("service_stopped", reason="signal")
