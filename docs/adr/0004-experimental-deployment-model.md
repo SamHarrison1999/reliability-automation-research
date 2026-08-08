@@ -1,6 +1,6 @@
 # ADR 0004: Evaluate Kubernetes as the primary experimental target
 
-- **Status:** Accepted for Phase 2 fit probe
+- **Status:** Provisional; local surrogate passed, Kubernetes execution pending
 - **Date:** 2026-08-08
 
 ## Context
@@ -30,3 +30,7 @@ Evaluate **Kubernetes as the primary experimental target**. Docker Compose may s
 ## Consequences
 
 Kubernetes is a methodological dependency and a possible confounder. The protocol must distinguish application recovery from orchestration recovery. If the fit probe shows that the control plane prevents reliable repeated runs, this ADR must be revisited before implementation proceeds.
+
+## Fit-probe result
+
+The local-process surrogate passed reset, readiness, version update, rollback and repeated fault checks. Kubernetes was not executed because no cluster or Kubernetes client was available, so the primary deployment decision remains provisional.

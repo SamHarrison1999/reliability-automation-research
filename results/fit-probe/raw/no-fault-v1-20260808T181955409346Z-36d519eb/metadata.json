@@ -1,0 +1,86 @@
+{
+  "created_at": "2026-08-08T18:20:04.373Z",
+  "environment_manifest_sha256": "0a20144ede77591db2a91b7483020dfb475d41d584ad82e95a973d3f2d7d0e01",
+  "event_count": 116,
+  "event_file": "results/fit-probe/raw/no-fault-v1-20260808T181955409346Z-36d519eb/events.jsonl",
+  "experimental_target": "kubernetes",
+  "host": {
+    "hostname": "73b9b2798819",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "python": "3.12.13"
+  },
+  "manifest_version": "1.0.0",
+  "outcomes": [
+    {
+      "latency_ms": 10.774,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-baseline-v1-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 5.05,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-baseline-v1-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 6.93,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-baseline-v1-003",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 7.06,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-baseline-v1-004",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 4.848,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-baseline-v1-005",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 4.045,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-baseline-v1-006",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 11.483,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-deployment-v2-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 7.32,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-deployment-v2-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 10.959,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-rollback-v1-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 6.988,
+      "order_id": "no-fault-v1-20260808T181955409346Z-36d519eb-rollback-v1-002",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "repeat_of": null,
+  "run_id": "no-fault-v1-20260808T181955409346Z-36d519eb",
+  "scenario_id": "no-fault-v1",
+  "scenario_manifest_sha256": "c87d1960eae5349fb8b0f5d148e5128e1679803db8951f9826181f009c5cec9d",
+  "target_model": "local-process-fit-probe",
+  "tool_availability": {
+    "docker": false,
+    "kind": false,
+    "kubectl": false,
+    "minikube": false
+  }
+}

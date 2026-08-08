@@ -1,6 +1,6 @@
 # ADR 0005: Use an OpenTelemetry-centred telemetry boundary
 
-- **Status:** Accepted for Phase 2 fit probe
+- **Status:** Structured contract supported locally; SDK/collector path pending
 - **Date:** 2026-08-08
 
 ## Context

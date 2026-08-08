@@ -1,9 +1,9 @@
 # Phase 2 research-design record: software-system and technology selection
 
-**Project:** PhD Preparation – Reliability Automation and Software Engineering Practice  
-**Working title:** An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments  
-**Phase:** 2  
-**Status:** In progress; selections are provisional until the fit probe is completed  
+**Project:** PhD Preparation – Reliability Automation and Software Engineering Practice
+**Working title:** An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments
+**Phase:** 2
+**Status:** In progress; the portable local fit probe passed, but Kubernetes and the OpenTelemetry SDK/collector path remain unvalidated
 **Date started:** 2026-08-08
 
 ## Objective
@@ -54,10 +54,10 @@ These are decisions about what to test next. They are not claims that one techno
 - [x] Candidate architecture diagram.
 - [x] Experimental-control/data-flow diagram.
 - [x] Phase 2 fit-probe plan.
-- [ ] Complete the fit probe without collecting human-participant data.
-- [ ] Record measured reset, startup, telemetry and fault-reversion results.
+- [x] Complete the portable local fit probe without collecting human-participant data.
+- [x] Record measured reset, startup, telemetry and fault-reversion results for the local target.
 - [ ] Review Phase 1 literature completion and update the decision evidence.
-- [ ] Accept or reject the provisional choices in a follow-up ADR update.
+- [ ] Accept or reject the provisional choices in a follow-up ADR update after the target-environment and telemetry compatibility checks.
 
 ## Fit-probe plan
 
@@ -109,6 +109,10 @@ Phase 2 may be closed only when:
 - Observability pipelines can lose, reorder or timestamp events differently across components.
 - A fit probe may demonstrate feasibility but cannot establish the effect of an automation strategy.
 - The Phase 1 review may later change the appropriate system or technology criteria.
+
+## Fit-probe evidence
+
+The local fit-probe result is recorded in [`docs/fit-probe/phase-2-fit-probe-results.md`](../fit-probe/phase-2-fit-probe-results.md). It supports the local OrderFlow slice, portable controller and deterministic harness-fault boundary, but does not close the Kubernetes deployment or OpenTelemetry transport decisions.
 
 ## Phase 2 exit record
 

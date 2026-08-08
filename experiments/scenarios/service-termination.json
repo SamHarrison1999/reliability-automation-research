@@ -1,0 +1,8 @@
+{
+  "manifest_version": "1.0.0",
+  "scenario_id": "service-termination-v1",
+  "scenario_type": "service-termination",
+  "fault": {"mode": "service-termination", "target": "inventory", "after_successful_requests": 2},
+  "workload": {"requests_before_fault": 2, "requests_during_fault": 3, "requests_after_fault": 2},
+  "expected_event_types": ["run_started", "reset_completed", "workload_started", "injection_started", "injection_ended", "workload_request", "workload_response", "recovery_started", "recovery_completed", "run_completed"]
+}

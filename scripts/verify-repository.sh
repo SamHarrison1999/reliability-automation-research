@@ -17,6 +17,11 @@ required=(
   docs/adr/0003-candidate-system-selection.md docs/adr/0004-experimental-deployment-model.md
   docs/adr/0005-observability-and-provenance-boundary.md docs/adr/0006-fault-injection-boundary.md
   docs/protocols/phase-2-fit-probe.md
+  docs/fit-probe/phase-2-fit-probe-results.md data/schemas/technical-event-record.md
+  infrastructure/local-fit-probe.json infrastructure/kubernetes/orderflow-fit-probe.yaml
+  experiments/scenarios/no-fault.json experiments/scenarios/service-termination.json
+  experiments/scenarios/dependency-latency.json experiments/harness/fit_probe.py
+  system/orderflow/service.py scripts/run-phase-2-fit-probe.sh scripts/run-phase-2-fit-probe.ps1
   docs/diagrams/phase-2-candidate-architecture.mmd docs/diagrams/phase-2-experiment-control-flow.mmd
   scripts/bootstrap.sh scripts/bootstrap.ps1 scripts/verify-repository.ps1
   .github/workflows/validate-repository.yml
@@ -33,33 +38,29 @@ if (( ${#missing[@]} > 0 )); then
   exit 1
 fi
 
-placeholder_matches=""
-if placeholder_matches="$(grep -RInE --binary-files=without-match \
+if grep -R -I -n -E \
   --exclude='verify-repository.sh' \
   --exclude='verify-repository.ps1' \
   --exclude-dir='source' \
-  'TODO|TBD|REPLACE_ME' README.md docs scripts .github 2>&1)"; then
-  printf '%s\n' "$placeholder_matches" >&2
+  'TODO|TBD|REPLACE_ME' README.md docs scripts .github; then
   printf 'Unexpected unresolved placeholder found in committed scaffolding.\n' >&2
   exit 1
 else
   scan_status=$?
   if (( scan_status > 1 )); then
-    printf 'Placeholder scan failed with status %s:\n%s\n' "$scan_status" "$placeholder_matches" >&2
-    exit 1
+    printf 'Placeholder scan failed (grep exit %d).\n' "${scan_status}" >&2
+    exit "${scan_status}"
   fi
 fi
 
-protected_file=""
-for protected_dir in data/raw data/processed data/external results/generated; do
-  [[ -d "$protected_dir" ]] || continue
-  protected_file="$(find "$protected_dir" -type f ! -name .gitkeep -print -quit)"
-  [[ -n "$protected_file" ]] && break
-done
+if ! protected_file="$(find data/raw data/processed data/external results/generated \
+  -type f ! -name .gitkeep -print -quit)"; then
+  printf 'Protected-directory scan failed.\n' >&2
+  exit 1
+fi
 
-if [[ -n "$protected_file" ]]; then
-  printf 'Generated or research data is present in a protected data directory: %s\n' \
-    "$protected_file" >&2
+if [[ -n "${protected_file}" ]]; then
+  printf 'Generated or research data is present in a protected data directory.\n' >&2
   exit 1
 fi
 
@@ -73,4 +74,4 @@ fi
 printf '%s\n' \
   'Repository verification passed.' \
   'Phase: 2 - software-system and technology selection.' \
-  'Application implementation: intentionally absent.'
+  'Full application implementation: intentionally absent; fit-probe slice only.'

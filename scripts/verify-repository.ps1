@@ -17,6 +17,11 @@ $Required = @(
     'docs/adr/0003-candidate-system-selection.md', 'docs/adr/0004-experimental-deployment-model.md',
     'docs/adr/0005-observability-and-provenance-boundary.md', 'docs/adr/0006-fault-injection-boundary.md',
     'docs/protocols/phase-2-fit-probe.md',
+    'docs/fit-probe/phase-2-fit-probe-results.md', 'data/schemas/technical-event-record.md',
+    'infrastructure/local-fit-probe.json', 'infrastructure/kubernetes/orderflow-fit-probe.yaml',
+    'experiments/scenarios/no-fault.json', 'experiments/scenarios/service-termination.json',
+    'experiments/scenarios/dependency-latency.json', 'experiments/harness/fit_probe.py',
+    'system/orderflow/service.py', 'scripts/run-phase-2-fit-probe.sh', 'scripts/run-phase-2-fit-probe.ps1',
     'docs/diagrams/phase-2-candidate-architecture.mmd', 'docs/diagrams/phase-2-experiment-control-flow.mmd',
     'scripts/bootstrap.sh', 'scripts/bootstrap.ps1', 'scripts/verify-repository.sh',
     '.github/workflows/validate-repository.yml'
@@ -51,4 +56,4 @@ if ($LASTEXITCODE -eq 0) {
 
 Write-Host 'Repository verification passed.'
 Write-Host 'Phase: 2 - software-system and technology selection.'
-Write-Host 'Application implementation: intentionally absent.'
+Write-Host 'Full application implementation: intentionally absent; fit-probe slice only.'

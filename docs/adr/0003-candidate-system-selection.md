@@ -1,6 +1,6 @@
 # ADR 0003: Carry OrderFlow into the Phase 2 fit probe
 
-- **Status:** Accepted for Phase 2 fit probe
+- **Status:** Supported by local fit probe; final empirical-object acceptance remains open
 - **Date:** 2026-08-08
 
 ## Context
@@ -31,3 +31,7 @@ Carry **OrderFlow** as the primary candidate into the fit probe. The candidate s
 ## Consequences
 
 The design prioritises experimental control and clear interpretation. Results from the eventual benchmark must not be presented as universal evidence about production systems. Real payments, personal data and production traffic remain excluded.
+
+## Fit-probe result
+
+The local OrderFlow slice passed the reset, workload, service-termination, dependency-latency, telemetry-contract and repeatability checks. This supports carrying OrderFlow into the next design stage. The probe did not compare the adapted open-source alternative and therefore does not resolve the external-validity trade-off.

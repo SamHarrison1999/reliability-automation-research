@@ -1,0 +1,13 @@
+{
+  "manifest_version": "1.0.0",
+  "environment_id": "orderflow-local-process-v1",
+  "target_model": "local-process-fit-probe",
+  "experimental_target": "kubernetes",
+  "execution_note": "This portable manifest exercises the service and telemetry contracts locally when Kubernetes tooling is unavailable.",
+  "services": {
+    "order-api": {"port": 18380, "version": "order-api-v1"},
+    "inventory": {"port": 18381, "version": "inventory-v1"}
+  },
+  "telemetry_contract": "otel-compatible-structured-event-v1",
+  "reset_contract": ["stop all service processes", "start from empty process state", "wait for both readiness checks", "record clean_state_verified"]
+}

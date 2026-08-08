@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-08-08T18:20:11.048Z",
+  "environment_manifest_sha256": "0a20144ede77591db2a91b7483020dfb475d41d584ad82e95a973d3f2d7d0e01",
+  "event_count": 81,
+  "event_file": "results/fit-probe/raw/service-termination-v1-20260808T182004377879Z-51acf959/events.jsonl",
+  "experimental_target": "kubernetes",
+  "host": {
+    "hostname": "73b9b2798819",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "python": "3.12.13"
+  },
+  "manifest_version": "1.0.0",
+  "outcomes": [
+    {
+      "latency_ms": 12.705,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-before-fault-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 5.871,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-before-fault-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 3.944,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-during-fault-001",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 3.354,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-during-fault-002",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 3.147,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-during-fault-003",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 4.73,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-after-recovery-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 5.385,
+      "order_id": "service-termination-v1-20260808T182004377879Z-51acf959-after-recovery-002",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "repeat_of": null,
+  "run_id": "service-termination-v1-20260808T182004377879Z-51acf959",
+  "scenario_id": "service-termination-v1",
+  "scenario_manifest_sha256": "a2a069835628dff8b3cf6338037b4b5e182421a2fba01ea3cc455599da9bdfaa",
+  "target_model": "local-process-fit-probe",
+  "tool_availability": {
+    "docker": false,
+    "kind": false,
+    "kubectl": false,
+    "minikube": false
+  }
+}
