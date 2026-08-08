@@ -8,7 +8,9 @@ Set-Location $RepoRoot
 $Required = @(
     'README.md', '.gitignore', '.gitattributes', '.editorconfig', 'Makefile',
     'docs/research-design/phase-0.md', 'docs/roadmap.md', 'docs/progress-ledger.md',
-    'docs/literature/evidence-matrix.csv', 'docs/adr/0001-repository-boundaries.md',
+    'docs/literature/evidence-matrix.csv', 'docs/literature/phase-1-review-protocol.md',
+    'docs/literature/search-log.csv', 'docs/literature/screening-log.csv',
+    'docs/literature/references.bib', 'docs/adr/0001-repository-boundaries.md',
     'docs/adr/0002-provisional-technology-selection.md',
     'scripts/bootstrap.sh', 'scripts/bootstrap.ps1', 'scripts/verify-repository.sh',
     '.github/workflows/validate-repository.yml'
@@ -42,5 +44,5 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 0 - research design and repository bootstrap.'
+Write-Host 'Phase: 1 - scoping review and literature map.'
 Write-Host 'Application implementation: intentionally absent.'

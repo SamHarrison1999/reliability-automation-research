@@ -1,0 +1,11 @@
+paper_id,record_title,source_type,screening_stage,decision,exclusion_reason,full_text_status,reviewer,notes
+P01,"Beyond Continuous Delivery: An Empirical Investigation of Continuous Deployment Challenges",primary empirical study,title_abstract,include,,abstract_checked,SH,"Seed candidate; full-text charting still required."
+P02,"An Empirical Study of Architecting for Continuous Delivery and Deployment",primary empirical study,title_abstract,include,,abstract_checked,SH,"Seed candidate; mixed-methods industrial study."
+P03,"Getting Started with Chaos Engineering - design of an implementation framework in practice",primary empirical study,title_abstract,include,,abstract_checked,SH,"Seed candidate; case-study/framework evidence."
+P04,"How Incidental are the Incidents? Characterizing and Prioritizing Incidents for Large-Scale Online Service Systems",primary empirical study,title_abstract,include,,full_text_checked,SH,"Author-hosted full text checked."
+P05,"Software Analytics for Incident Management of Online Services: An Experience Report",primary empirical study,title_abstract,include,,abstract_checked,SH,"Seed candidate; Microsoft experience report."
+P06,"Service-Level Fault Injection Testing",primary empirical study,title_abstract,include,,full_text_checked,SH,"Author-hosted full text checked."
+P07,"Exploring the Impact of Chaos Engineering with Various User Loads on Cloud-Native Applications: An Exploratory Empirical Study",primary empirical study,title_abstract,include,,abstract_checked,SH,"Seed candidate; full-text charting still required."
+P08,"Introducing Responsibly Self-Healing into the Incident Management Lifecycle",conceptual or framework paper,title_abstract,exclude,No empirical evaluation identified at seed-screen stage,abstract_checked,SH,"Retain for citation chasing; do not use as primary empirical evidence unless full text demonstrates evaluation."
+P09,"Chaos Engineering: A Multi-Vocal Literature Review",secondary review,title_abstract,include,,abstract_checked,SH,"Use for citation chaining and taxonomy context, not as a primary study."
+

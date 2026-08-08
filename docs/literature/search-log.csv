@@ -1,0 +1,7 @@
+search_id,database_or_source,search_date,query_or_method,filters,result_count,export_file,status,notes
+S001,ACM Digital Library,2026-08-08,"Draft concept-block query in phase-1-review-protocol.md",,not_run,,planned,"Run in ACM DL and record the returned count before screening."
+S002,IEEE Xplore,2026-08-08,"Draft concept-block query in phase-1-review-protocol.md",,not_run,,planned,"Run in IEEE Xplore and record the returned count before screening."
+S003,Scopus or Web of Science,2026-08-08,"Draft concept-block query in phase-1-review-protocol.md",,not_run,,planned,"Use the institutionally available index and record which one was used."
+S004,Google Scholar,2026-08-08,"Backward and forward citation chasing from seed papers",,not_run,,planned,"Use for citation chasing, not as the sole source of database coverage."
+S005,Web-assisted source identification,2026-08-08,"Targeted searches for primary papers and review-method guidance",,not_applicable,,completed_seed,"Seed discovery only; not a reproducible database search or final screening count."
+
