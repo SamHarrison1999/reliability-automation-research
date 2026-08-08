@@ -4,7 +4,7 @@ Research repository for the provisional PhD project:
 
 > An Empirical Investigation of Reliability Automation and Human Decision-Making in Continuous Delivery Environments
 
-This repository is currently in **Phase 0: research design and repository bootstrap**. It contains no experimental application and no empirical findings. The purpose of this stage is to make the research design, evidence boundaries and later implementation decisions explicit before application code is written.
+This repository is currently in **Phase 1: scoping review and literature map**. It contains no experimental application and no empirical findings. The purpose of this stage is to make the research design, evidence boundaries and later implementation decisions explicit before application code is written.
 
 ## Research direction
 
@@ -82,4 +82,4 @@ The bootstrap scripts are intentionally idempotent and do not overwrite existing
 
 Work is phase-gated. Each phase must record its objective, rationale, deliverables, implementation tasks, validation criteria and threats to validity. Do not begin application implementation until the research design and technology choices justify it.
 
-The next phase is the literature-review protocol and evidence matrix. See [`docs/roadmap.md`](docs/roadmap.md) and [`docs/progress-ledger.md`](docs/progress-ledger.md).
+Phase 1 is currently in progress. See the [`Phase 1 review protocol`](docs/literature/phase-1-review-protocol.md), [`docs/roadmap.md`](docs/roadmap.md) and [`docs/progress-ledger.md`](docs/progress-ledger.md).

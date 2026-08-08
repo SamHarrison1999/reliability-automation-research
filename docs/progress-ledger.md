@@ -2,8 +2,8 @@
 
 ## Project status
 
-- **Current phase:** Phase 0 - research design and repository bootstrap
-- **Status:** Scaffolded; awaiting review and confirmation before Phase 1
+- **Current phase:** Phase 1 - scoping review and literature map
+- **Status:** In progress; protocol and seed evidence map created, database searches and full-text charting outstanding
 - **Empirical data collected:** None
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
@@ -27,8 +27,11 @@ The proposal combines system reliability and human decision-making. Those claims
 - [x] Provisional variables and evidence sources
 - [x] Phase-gated roadmap
 - [x] ADRs for repository boundaries and provisional technology decisions
-- [ ] Literature-review protocol reviewed and approved
-- [ ] Evidence matrix populated with primary studies
+- [x] Literature-review protocol drafted and versioned
+- [x] Seed evidence matrix created with primary/secondary status labels
+- [ ] Named database searches executed and provenance recorded
+- [ ] Evidence matrix fully charted from full text
+- [ ] Preliminary literature map and evidence gaps reviewed
 
 ### Validation
 
@@ -52,3 +55,6 @@ The proposal combines system reliability and human decision-making. Those claims
 | 2026-08-08 | Start with repository and research design only | The proposal does not yet justify implementation details | Phase 0 scaffold |
 | 2026-08-08 | Treat technical and human evidence as separate streams | System telemetry cannot establish workload or decision rationale | Methodological constraint |
 | 2026-08-08 | Defer canary deployment from the first pilot | It introduces another major intervention dimension | Provisional scope decision |
+| 2026-08-08 | Use a scoping review/evidence map for Phase 1 | The expected evidence is heterogeneous across industrial studies, operational datasets, fault-injection experiments and human-factors evidence | `docs/literature/phase-1-review-protocol.md` v0.1 |
+| 2026-08-08 | Separate primary studies from secondary reviews and conceptual papers | Reviews support citation chaining, while conceptual proposals cannot establish empirical findings | `docs/literature/evidence-matrix.csv` status fields |
+| 2026-08-08 | Treat human evidence as a dedicated extraction dimension | Telemetry and incident logs do not by themselves establish workload, trust or decision rationale | Phase 0 validity boundary; review question RQ-S3 |
