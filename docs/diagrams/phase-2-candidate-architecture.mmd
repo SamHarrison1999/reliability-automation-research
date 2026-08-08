@@ -1,0 +1,17 @@
+flowchart LR
+    W["Versioned synthetic workload"] --> G["OrderFlow API gateway"]
+    G --> O["Order service"]
+    O --> I["Inventory service"]
+    O --> P["Payment simulator"]
+    O --> N["Notification service"]
+    O --> D["State store"]
+    F["Scenario controller"] --> O
+    F --> I
+    F --> P
+    A["Automation condition"] --> G
+    O --> T["OpenTelemetry boundary"]
+    I --> T
+    P --> T
+    N --> T
+    T --> R["Versioned raw event bundle"]
+
