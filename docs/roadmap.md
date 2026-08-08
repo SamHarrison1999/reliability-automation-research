@@ -16,4 +16,4 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-The repository is being created for Phase 0. No system implementation should be started until Phase 1 and the technology-selection decisions provide a defensible basis for it.
+Phase 1 is in progress. No system implementation should be started until the scoping review is complete and the Phase 2 technology-selection decisions provide a defensible basis for it.
