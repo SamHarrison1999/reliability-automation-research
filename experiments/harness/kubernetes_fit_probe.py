@@ -312,7 +312,9 @@ def validate_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
     target_events = [event for event in events if event.get("target_component")]
     checks = {
         "unique_run_identifier": len(run_ids) == 1 and None not in run_ids,
-        "scenario_distinguishable": scenario["scenario_id"] in run_ids if len(run_ids) == 1 else False,
+        "scenario_distinguishable": {
+            event.get("scenario_id") for event in events
+        } == {scenario["scenario_id"]},
         "versioned_manifest": bool((run_dir / "metadata.json").exists()),
         "required_event_classes": not missing,
         "timestamps_present": all(event.get("timestamp") for event in events),

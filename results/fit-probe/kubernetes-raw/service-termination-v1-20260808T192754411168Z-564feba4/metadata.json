@@ -1,0 +1,67 @@
+{
+  "cluster_context": "docker-desktop",
+  "created_at": "2026-08-08T19:29:57.513Z",
+  "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+  "event_count": 77,
+  "event_file": "results\\fit-probe\\kubernetes-raw\\service-termination-v1-20260808T192754411168Z-564feba4\\events.jsonl",
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "manifest_version": "1.0.0",
+  "outcomes": [
+    {
+      "latency_ms": 20.611,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-before-fault-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 20.408,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-before-fault-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 20.429,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-during-fault-001",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 26.662,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-during-fault-002",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 21.501,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-during-fault-003",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 10.686,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-after-recovery-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 31.7,
+      "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-after-recovery-002",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "repeat_of": null,
+  "run_id": "service-termination-v1-20260808T192754411168Z-564feba4",
+  "scenario_id": "service-termination-v1",
+  "scenario_manifest_sha256": "a2a069835628dff8b3cf6338037b4b5e182421a2fba01ea3cc455599da9bdfaa",
+  "service_event_file": "results\\fit-probe\\kubernetes-raw\\service-termination-v1-20260808T192754411168Z-564feba4\\service-events.jsonl",
+  "target_model": "docker-desktop-kubernetes",
+  "tool_availability": {
+    "docker": true,
+    "kubectl": true
+  }
+}

@@ -260,7 +260,9 @@ def check_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
     checks = {
         "unique_run_identifier": len(run_ids) == 1 and None not in run_ids,
         "versioned_manifest": bool((run_dir / "metadata.json").exists()) and bool(scenario.get("manifest_version")),
-        "scenario_distinguishable": scenario["scenario_id"] in run_ids.pop() if len(run_ids) == 1 else False,
+        "scenario_distinguishable": {
+            event.get("scenario_id") for event in events
+        } == {scenario["scenario_id"]},
         "required_event_classes": not missing,
         "timestamps_present": timestamps_present,
         "telemetry_trace_fields_present": trace_fields_present,
