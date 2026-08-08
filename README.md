@@ -4,7 +4,7 @@ Research repository for the provisional PhD project:
 
 > An Empirical Investigation of Reliability Automation and Human Decision-Making in Continuous Delivery Environments
 
-This repository is currently in **Phase 2: software-system and technology selection**. It contains no experimental application and no empirical findings. The purpose of this stage is to compare candidate systems and tools against research criteria before implementation is allowed to determine the study.
+This repository is currently in **Phase 2: software-system and technology selection**. It contains only the bounded implementation needed for the technical fit probe; it contains no full experimental application and no empirical findings. The purpose of this stage is to compare candidate systems and tools against research criteria before a larger implementation determines the study.
 
 ## Research direction
 
@@ -36,6 +36,7 @@ Reproducibility is currently a methodological objective supporting both question
 - Manual recovery is the baseline. Automated rollback and monitoring-triggered recovery are candidate comparison conditions.
 - Progressive/canary deployment is deferred until the literature review and initial pilot show that it can be added without making the design unmanageably broad.
 - The system will not use real payments, personal data or production systems.
+- The Phase 2 fit probe uses only synthetic orders and a minimal order/inventory slice.
 - Human-participant work requires a separate protocol, recruitment plan and ethics approval. This repository does not imply that approval has been obtained.
 
 ## Repository map
@@ -50,9 +51,9 @@ docs/
   diagrams/              Architecture and experimental-design diagrams
   adr/                   Architecture/research decision records
   templates/             Reusable research documentation templates
-system/                  Reserved for the benchmark application (later phase)
-infrastructure/          Reserved for reproducible environments (later phase)
-experiments/              Scenarios, manifests and harness (later phase)
+system/                  Minimal fit-probe service slice; full benchmark later
+infrastructure/          Fit-probe manifests and later reproducible environments
+experiments/              Versioned fit-probe scenarios and harness
 data/                    Raw/processed/external data boundaries
 analysis/                 Reproducible analysis code (later phase)
 scripts/                  Bootstrap and repository validation scripts
@@ -82,4 +83,4 @@ The bootstrap scripts are intentionally idempotent and do not overwrite existing
 
 Work is phase-gated. Each phase must record its objective, rationale, deliverables, implementation tasks, validation criteria and threats to validity. Do not begin application implementation until the research design and technology choices justify it.
 
-The current Phase 2 selection record is [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
+The current Phase 2 selection record is [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md). The local fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.

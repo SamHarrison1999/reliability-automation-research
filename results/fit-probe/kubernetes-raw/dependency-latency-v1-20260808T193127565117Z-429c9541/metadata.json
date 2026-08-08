@@ -1,0 +1,67 @@
+{
+  "cluster_context": "docker-desktop",
+  "created_at": "2026-08-08T19:32:57.189Z",
+  "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+  "event_count": 79,
+  "event_file": "results\\fit-probe\\kubernetes-raw\\dependency-latency-v1-20260808T193127565117Z-429c9541\\events.jsonl",
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "manifest_version": "1.0.0",
+  "outcomes": [
+    {
+      "latency_ms": 26.931,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-before-fault-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 24.817,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-before-fault-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 131.065,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-during-fault-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 139.121,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-during-fault-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 150.411,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-during-fault-003",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 29.643,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-after-recovery-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 11.18,
+      "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-after-recovery-002",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "repeat_of": "dependency-latency-v1-20260808T192957526933Z-f65f3db7",
+  "run_id": "dependency-latency-v1-20260808T193127565117Z-429c9541",
+  "scenario_id": "dependency-latency-v1",
+  "scenario_manifest_sha256": "cd398f4946ccbff9b1abf03350c05b6e26679638693f91c07cc8ec583d5c9d84",
+  "service_event_file": "results\\fit-probe\\kubernetes-raw\\dependency-latency-v1-20260808T193127565117Z-429c9541\\service-events.jsonl",
+  "target_model": "docker-desktop-kubernetes",
+  "tool_availability": {
+    "docker": true,
+    "kubectl": true
+  }
+}

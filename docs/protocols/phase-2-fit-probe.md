@@ -1,7 +1,7 @@
 # Phase 2 fit-probe protocol
 
-**Status:** Planned; do not run until the environment and scenario manifests are versioned.  
-**Purpose:** Challenge the provisional Phase 2 system and technology choices.  
+**Status:** Local execution passed on 2026-08-08; the Kubernetes runner is prepared for Docker Desktop execution, while Kubernetes results and the OpenTelemetry SDK/collector path remain untested.
+**Purpose:** Challenge the provisional Phase 2 system and technology choices.
 **Evidence type:** Technical feasibility only; no human-participant data.
 
 ## Objective
@@ -10,14 +10,15 @@ Determine whether the provisional OrderFlow/Kubernetes/OpenTelemetry/fault-bound
 
 ## Required inputs
 
-- versioned system and infrastructure manifests;
-- a fixed synthetic workload;
-- one no-fault manifest;
-- one service-termination manifest;
-- one dependency-latency or dependency-failure manifest;
-- a clean-reset command;
-- a health-readiness check; and
-- a raw-event capture location outside protected source data directories.
+- versioned system and infrastructure manifests (`infrastructure/local-fit-probe.json` and `infrastructure/kubernetes/orderflow-fit-probe.yaml`);
+- a fixed synthetic workload implemented by `experiments/harness/fit_probe.py`;
+- `experiments/scenarios/no-fault.json`;
+- `experiments/scenarios/service-termination.json`;
+- `experiments/scenarios/dependency-latency.json`;
+- the versioned clean-reset procedure in the controller;
+- service health-readiness checks; and
+- `results/fit-probe/raw/` as the raw-event capture location outside protected source-data directories.
+- `experiments/harness/kubernetes_fit_probe.py` and `scripts/run-phase-2-kubernetes-fit-probe.ps1` for Docker Desktop execution.
 
 ## Procedure
 
@@ -41,7 +42,12 @@ Determine whether the provisional OrderFlow/Kubernetes/OpenTelemetry/fault-bound
 - The next run starts from the documented clean state.
 - Raw records can be copied and inspected without access to a live cluster.
 
+## Execution record
+
+The executed local probe and its limitations are recorded in [`docs/fit-probe/phase-2-fit-probe-results.md`](../fit-probe/phase-2-fit-probe-results.md). It completed one no-fault run, one service-termination run, one dependency-latency run and one clean-reset repeat. The no-fault run included a version update and rollback.
+
+The first probe environment did not contain `docker`, `kubectl`, `kind` or `minikube`, so it used a local-process surrogate. The Kubernetes runner is now available for a separately recorded Docker Desktop execution. Service events use an OpenTelemetry-compatible structured field contract, but no OpenTelemetry SDK or collector is claimed until that path is separately tested.
+
 ## Exclusions
 
 Do not recruit participants, collect participant data, use real payment data, use production systems or publish the fit-probe outputs as reliability findings.
-

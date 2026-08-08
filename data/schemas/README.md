@@ -1,3 +1,5 @@
 # Data schemas
 
-Schemas for experiment manifests and technical event records will be added after the Phase 2 fit-probe contract is reviewed. Participant-data schemas must remain separate and require the relevant approved protocol. No empirical data is present in this directory.
+The current technical event-record contract is documented in [`technical-event-record.md`](technical-event-record.md). Experiment manifests are versioned under `experiments/scenarios/` and `infrastructure/`.
+
+Participant-data schemas must remain separate and require the relevant approved protocol. The Phase 2 records are synthetic technical-feasibility evidence, not participant or production data.

@@ -1,0 +1,380 @@
+{
+  "all_kubernetes_checks_passed": true,
+  "created_at": "2026-08-08T19:33:39.992Z",
+  "execution_environment": "docker-desktop-kubernetes",
+  "interpretation_boundary": "Technical feasibility evidence only; no reliability-effect estimate or participant evidence.",
+  "kubernetes_execution": "completed",
+  "probe_id": "phase-2-fit-probe-v1",
+  "runs": [
+    {
+      "metadata": {
+        "cluster_context": "docker-desktop",
+        "created_at": "2026-08-08T19:27:54.399Z",
+        "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+        "event_count": 83,
+        "event_file": "results\\fit-probe\\kubernetes-raw\\no-fault-v1-20260808T192652199113Z-ae628c8a\\events.jsonl",
+        "host": {
+          "hostname": "DESKTOP-BP0C686",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "python": "3.14.6"
+        },
+        "manifest_version": "1.0.0",
+        "outcomes": [
+          {
+            "latency_ms": 31.101,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-baseline-v1-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 29.824,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-baseline-v1-002",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 23.493,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-baseline-v1-003",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 11.561,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-baseline-v1-004",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 22.223,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-baseline-v1-005",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 23.733,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-baseline-v1-006",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 3002.872,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-deployment-v2-001",
+            "result": "failure",
+            "status": 0
+          },
+          {
+            "latency_ms": 3005.375,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-deployment-v2-002",
+            "result": "failure",
+            "status": 0
+          },
+          {
+            "latency_ms": 3005.823,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-rollback-v1-001",
+            "result": "failure",
+            "status": 0
+          },
+          {
+            "latency_ms": 3031.009,
+            "order_id": "no-fault-v1-20260808T192652199113Z-ae628c8a-rollback-v1-002",
+            "result": "failure",
+            "status": 0
+          }
+        ],
+        "repeat_of": null,
+        "run_id": "no-fault-v1-20260808T192652199113Z-ae628c8a",
+        "scenario_id": "no-fault-v1",
+        "scenario_manifest_sha256": "c87d1960eae5349fb8b0f5d148e5128e1679803db8951f9826181f009c5cec9d",
+        "service_event_file": "results\\fit-probe\\kubernetes-raw\\no-fault-v1-20260808T192652199113Z-ae628c8a\\service-events.jsonl",
+        "target_model": "docker-desktop-kubernetes",
+        "tool_availability": {
+          "docker": true,
+          "kubectl": true
+        }
+      },
+      "passed": true,
+      "validation": {
+        "checks": {
+          "clean_reset_recorded": true,
+          "raw_records_inspectable": true,
+          "required_event_classes": true,
+          "scenario_distinguishable": true,
+          "target_identifiable": true,
+          "telemetry_trace_fields_present": true,
+          "timestamps_present": true,
+          "unique_run_identifier": true,
+          "versioned_manifest": true
+        },
+        "event_count": 83,
+        "missing_event_types": [],
+        "passed": true,
+        "run_id": "no-fault-v1-20260808T192652199113Z-ae628c8a",
+        "scenario_id": "no-fault-v1"
+      }
+    },
+    {
+      "metadata": {
+        "cluster_context": "docker-desktop",
+        "created_at": "2026-08-08T19:29:57.513Z",
+        "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+        "event_count": 77,
+        "event_file": "results\\fit-probe\\kubernetes-raw\\service-termination-v1-20260808T192754411168Z-564feba4\\events.jsonl",
+        "host": {
+          "hostname": "DESKTOP-BP0C686",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "python": "3.14.6"
+        },
+        "manifest_version": "1.0.0",
+        "outcomes": [
+          {
+            "latency_ms": 20.611,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-before-fault-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 20.408,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-before-fault-002",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 20.429,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-during-fault-001",
+            "result": "failure",
+            "status": 502
+          },
+          {
+            "latency_ms": 26.662,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-during-fault-002",
+            "result": "failure",
+            "status": 502
+          },
+          {
+            "latency_ms": 21.501,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-during-fault-003",
+            "result": "failure",
+            "status": 502
+          },
+          {
+            "latency_ms": 10.686,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-after-recovery-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 31.7,
+            "order_id": "service-termination-v1-20260808T192754411168Z-564feba4-after-recovery-002",
+            "result": "success",
+            "status": 201
+          }
+        ],
+        "repeat_of": null,
+        "run_id": "service-termination-v1-20260808T192754411168Z-564feba4",
+        "scenario_id": "service-termination-v1",
+        "scenario_manifest_sha256": "a2a069835628dff8b3cf6338037b4b5e182421a2fba01ea3cc455599da9bdfaa",
+        "service_event_file": "results\\fit-probe\\kubernetes-raw\\service-termination-v1-20260808T192754411168Z-564feba4\\service-events.jsonl",
+        "target_model": "docker-desktop-kubernetes",
+        "tool_availability": {
+          "docker": true,
+          "kubectl": true
+        }
+      },
+      "passed": true,
+      "validation": {
+        "checks": {
+          "clean_reset_recorded": true,
+          "raw_records_inspectable": true,
+          "required_event_classes": true,
+          "scenario_distinguishable": true,
+          "target_identifiable": true,
+          "telemetry_trace_fields_present": true,
+          "timestamps_present": true,
+          "unique_run_identifier": true,
+          "versioned_manifest": true
+        },
+        "event_count": 77,
+        "missing_event_types": [],
+        "passed": true,
+        "run_id": "service-termination-v1-20260808T192754411168Z-564feba4",
+        "scenario_id": "service-termination-v1"
+      }
+    },
+    {
+      "metadata": {
+        "cluster_context": "docker-desktop",
+        "created_at": "2026-08-08T19:31:27.548Z",
+        "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+        "event_count": 80,
+        "event_file": "results\\fit-probe\\kubernetes-raw\\dependency-latency-v1-20260808T192957526933Z-f65f3db7\\events.jsonl",
+        "host": {
+          "hostname": "DESKTOP-BP0C686",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "python": "3.14.6"
+        },
+        "manifest_version": "1.0.0",
+        "outcomes": [
+          {
+            "latency_ms": 23.377,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-before-fault-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 10.877,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-before-fault-002",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 132.993,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-during-fault-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 133.779,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-during-fault-002",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 144.797,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-during-fault-003",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 10.116,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-after-recovery-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 16.695,
+            "order_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7-after-recovery-002",
+            "result": "success",
+            "status": 201
+          }
+        ],
+        "repeat_of": null,
+        "run_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7",
+        "scenario_id": "dependency-latency-v1",
+        "scenario_manifest_sha256": "cd398f4946ccbff9b1abf03350c05b6e26679638693f91c07cc8ec583d5c9d84",
+        "service_event_file": "results\\fit-probe\\kubernetes-raw\\dependency-latency-v1-20260808T192957526933Z-f65f3db7\\service-events.jsonl",
+        "target_model": "docker-desktop-kubernetes",
+        "tool_availability": {
+          "docker": true,
+          "kubectl": true
+        }
+      },
+      "passed": true,
+      "validation": {
+        "checks": {
+          "clean_reset_recorded": true,
+          "raw_records_inspectable": true,
+          "required_event_classes": true,
+          "scenario_distinguishable": true,
+          "target_identifiable": true,
+          "telemetry_trace_fields_present": true,
+          "timestamps_present": true,
+          "unique_run_identifier": true,
+          "versioned_manifest": true
+        },
+        "event_count": 80,
+        "missing_event_types": [],
+        "passed": true,
+        "run_id": "dependency-latency-v1-20260808T192957526933Z-f65f3db7",
+        "scenario_id": "dependency-latency-v1"
+      }
+    },
+    {
+      "metadata": {
+        "cluster_context": "docker-desktop",
+        "created_at": "2026-08-08T19:32:57.189Z",
+        "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+        "event_count": 79,
+        "event_file": "results\\fit-probe\\kubernetes-raw\\dependency-latency-v1-20260808T193127565117Z-429c9541\\events.jsonl",
+        "host": {
+          "hostname": "DESKTOP-BP0C686",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "python": "3.14.6"
+        },
+        "manifest_version": "1.0.0",
+        "outcomes": [
+          {
+            "latency_ms": 26.931,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-before-fault-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 24.817,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-before-fault-002",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 131.065,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-during-fault-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 139.121,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-during-fault-002",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 150.411,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-during-fault-003",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 29.643,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-after-recovery-001",
+            "result": "success",
+            "status": 201
+          },
+          {
+            "latency_ms": 11.18,
+            "order_id": "dependency-latency-v1-20260808T193127565117Z-429c9541-after-recovery-002",
+            "result": "success",
+            "status": 201
+          }
+        ],
+        "repeat_of": "dependency-latency-v1-20260808T192957526933Z-f65f3db7",
+        "run_id": "dependency-latency-v1-20260808T193127565117Z-429c9541",
+        "scenario_id": "dependency-latency-v1",
+        "scenario_manifest_sha256": "cd398f4946ccbff9b1abf03350c05b6e26679638693f91c07cc8ec583d5c9d84",
+        "service_event_file": "results\\fit-probe\\kubernetes-raw\\dependency-latency-v1-20260808T193127565117Z-429c9541\\service-events.jsonl",
+        "target_model": "docker-desktop-kubernetes",
+        "tool_availability": {
+          "docker": true,
+          "kubectl": true
+        }
+      },
+      "passed": true,
+      "validation": {
+        "checks": {
+          "clean_reset_recorded": true,
+          "raw_records_inspectable": true,
+          "required_event_classes": true,
+          "scenario_distinguishable": true,
+          "target_identifiable": true,
+          "telemetry_trace_fields_present": true,
+          "timestamps_present": true,
+          "unique_run_identifier": true,
+          "versioned_manifest": true
+        },
+        "event_count": 79,
+        "missing_event_types": [],
+        "passed": true,
+        "run_id": "dependency-latency-v1-20260808T193127565117Z-429c9541",
+        "scenario_id": "dependency-latency-v1"
+      }
+    }
+  ]
+}

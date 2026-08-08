@@ -3,11 +3,11 @@
 ## Project status
 
 - **Current phase:** Phase 2 - software-system and technology selection
-- **Status:** In progress; provisional choices and fit-probe plan recorded; Phase 1 database searches and full-text charting remain outstanding
-- **Empirical data collected:** None
+- **Status:** In progress; local fit probe passed; Kubernetes/OpenTelemetry compatibility and Phase 1 database searches/full-text charting remain outstanding
+- **Empirical data collected:** Synthetic technical-feasibility records only; no participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
-- **Application implementation:** Not started
+- **Application implementation:** Full application deferred; minimal fit-probe slice and harness are present
 
 ## Phase 0 record
 
@@ -72,12 +72,12 @@ Select and justify the candidate experimental system and technology boundary usi
 - [x] Candidate-system, deployment, observability and fault-injection ADRs
 - [x] Candidate architecture and experiment-control diagrams
 - [x] Fit-probe protocol
-- [ ] Fit probe completed and measured evidence recorded
+- [x] Portable local fit probe completed and measured evidence recorded
 - [ ] Provisional choices accepted or rejected after validation
 
 ### Validation status
 
-The Phase 2 documents are design artefacts only. They do not establish that the proposed system or tools can be reset, observed or fault-injected reliably. No application implementation or participant data has been added.
+The portable local fit probe establishes that the minimal OrderFlow slice can be reset, exercised, observed and faulted under the local-process target. It does not establish Kubernetes or OpenTelemetry SDK/collector feasibility. No participant data or empirical-effect claim has been added.
 
 ### Phase 2 decision log
 
@@ -87,3 +87,4 @@ The Phase 2 documents are design artefacts only. They do not establish that the 
 | 2026-08-08 | Evaluate Kubernetes as the primary experimental target | Deployment and rollback behaviour are part of the proposed intervention | ADR 0004; validation required |
 | 2026-08-08 | Use an OpenTelemetry-centred telemetry boundary | Separates instrumentation from the eventual telemetry backend | ADR 0005; validation required |
 | 2026-08-08 | Start with harness-controlled deterministic faults | Protects repeatability before adding platform-level fault-tool complexity | ADR 0006; validation required |
+| 2026-08-08 | Execute the portable local fit probe | Test the smallest authorised OrderFlow slice before introducing Kubernetes control-plane complexity | `docs/fit-probe/phase-2-fit-probe-results.md`; local checks passed |

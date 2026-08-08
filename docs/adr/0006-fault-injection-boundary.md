@@ -1,6 +1,6 @@
 # ADR 0006: Start with deterministic harness-controlled faults
 
-- **Status:** Accepted for Phase 2 fit probe
+- **Status:** Supported for local fit probe; platform-fault comparison pending
 - **Date:** 2026-08-08
 
 ## Context

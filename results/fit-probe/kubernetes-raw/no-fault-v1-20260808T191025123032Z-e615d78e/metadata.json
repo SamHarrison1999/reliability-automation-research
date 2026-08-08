@@ -1,0 +1,85 @@
+{
+  "cluster_context": "docker-desktop",
+  "created_at": "2026-08-08T19:11:20.072Z",
+  "environment_manifest_sha256": "ebe6b85f7d57da4425507eb3970e518f5580995fce75a7e1fdaaa486e6df9706",
+  "event_count": 83,
+  "event_file": "results\\fit-probe\\kubernetes-raw\\no-fault-v1-20260808T191025123032Z-e615d78e\\events.jsonl",
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "manifest_version": "1.0.0",
+  "outcomes": [
+    {
+      "latency_ms": 22.042,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-baseline-v1-001",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 23.491,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-baseline-v1-002",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 25.193,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-baseline-v1-003",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 22.643,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-baseline-v1-004",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 23.611,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-baseline-v1-005",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 9.56,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-baseline-v1-006",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 3016.007,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-deployment-v2-001",
+      "result": "failure",
+      "status": 0
+    },
+    {
+      "latency_ms": 3002.899,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-deployment-v2-002",
+      "result": "failure",
+      "status": 0
+    },
+    {
+      "latency_ms": 3006.989,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-rollback-v1-001",
+      "result": "failure",
+      "status": 0
+    },
+    {
+      "latency_ms": 3028.352,
+      "order_id": "no-fault-v1-20260808T191025123032Z-e615d78e-rollback-v1-002",
+      "result": "failure",
+      "status": 0
+    }
+  ],
+  "repeat_of": null,
+  "run_id": "no-fault-v1-20260808T191025123032Z-e615d78e",
+  "scenario_id": "no-fault-v1",
+  "scenario_manifest_sha256": "c87d1960eae5349fb8b0f5d148e5128e1679803db8951f9826181f009c5cec9d",
+  "service_event_file": "results\\fit-probe\\kubernetes-raw\\no-fault-v1-20260808T191025123032Z-e615d78e\\service-events.jsonl",
+  "target_model": "docker-desktop-kubernetes",
+  "tool_availability": {
+    "docker": true,
+    "kubectl": true
+  }
+}
