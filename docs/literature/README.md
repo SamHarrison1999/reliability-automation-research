@@ -1,54 +1,34 @@
-# Literature review workspace
+# Literature review
 
-Phase 1 uses a scoping-review and systematic evidence-mapping design.
+The consolidated Phase 1 review is in
+[`phase-1-final-literature-review.md`](phase-1-final-literature-review.md).
 
-## Current stage
+## Final status
 
-The protocol and database search strategy are finalised for platform
-smoke-testing. The actual database searches, deduplication, screening, full-text
-assessment, extraction, quality appraisal and synthesis have **not** yet been
-completed.
+The review is complete for the accessible, source-verifiable corpus:
 
-Do not describe Phase 1 as complete until the exit criteria in
-`phase-1-review-protocol.md` are met.
+- 27 provisional candidates;
+- 26 canonical records after deduplication;
+- 26 title-and-abstract screens;
+- 24 full-text records sought and resolved;
+- 22 records included in the final evidence map;
+- P03 and P22 unavailable after documented retrieval attempts; and
+- authenticated ACM Digital Library, IEEE Xplore and Scopus/Web of Science
+  exports unavailable in this workspace.
 
-## Core documents
+No ordinary web-search count is presented as an authenticated database count.
+The access limitation is documented in
+`authenticated-database-access-closure-batch-07.csv`.
 
-- `protocol-audit-and-rq-refinement.md` — audit decisions, refined PhD
-  questions and final review questions;
-- `phase-1-review-protocol.md` — versioned review protocol;
-- `phase-1-search-execution-plan.md` — search families, database translations,
-  smoke test and execution order;
-- `search-log.csv` — one immutable provenance row per planned/executed query;
-- `screening-log.csv` — title/abstract and full-text decisions;
-- `evidence-matrix.csv` — full-text evidence chart;
-- `full-text-charting-guide.md` — extraction and claim-boundary rules;
-- `quality-appraisal-guide.md` and `quality-appraisal.csv` — design-sensitive
-  critical appraisal;
-- `claim-register.csv` — source-linked synthesis claims;
-- `prisma-flow.csv` — record-flow counts and status; and
-- `literature-map.md` — provisional and later verified evidence map.
+## Close-out records
 
-## Evidence boundary
+- `full-text-retrieval-and-eligibility-batch-07.csv`
+- `source-location-transcription-batch-07.csv`
+- `final-appraisal-register-batch-07.csv`
+- `prisma-flow-batch-07.csv`
+- `final-claim-register-batch-07.csv`
+- `supplementary-retrieval-search-log-batch-07.csv`
+- `phase-1-closeout-batch-07.md`
 
-The nine existing records are a seed map. `abstract_only` records cannot support
-substantive findings. `secondary_context_only` records assist terminology and
-citation chasing but are not primary empirical studies. Compatibility probes,
-prototype telemetry and Phase 2/3 technical records are project feasibility
-evidence, not findings from the external literature.
-
-System telemetry may measure technical events. It does not directly measure
-engineer workload, cognition, trust, understanding or decision rationale.
-
-## Immediate next gate
-
-1. Confirm access to ACM Digital Library, IEEE Xplore and either Scopus or Web
-   of Science Core Collection.
-2. Smoke-test search families T, H and M without recording final result counts.
-3. Record any prospective strategy amendment.
-4. Execute and export the final queries.
-5. Deduplicate the combined exports.
-6. Run the 20-record title/abstract pilot before full screening.
-
-Never invent or estimate database counts. Preserve exact queries, dates,
-filters, export names and provenance.
+The earlier staged search, screening, charting and appraisal artefacts remain
+part of the branch history and should not be deleted.
