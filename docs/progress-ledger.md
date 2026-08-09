@@ -3,7 +3,7 @@
 ## Project status
 
 - **Current phase:** Phase 3 - fault model, metrics and experiment protocol
-- **Status:** Design draft in progress; Phase 2 fit-probe evidence is retained as technical feasibility only; OpenTelemetry compatibility and Phase 1 database searches/full-text charting remain outstanding
+- **Status:** Design draft in progress; Phase 2 technology decisions are closed for the bounded technical pilot; Phase 1 remains an accessible-corpus baseline with database-comprehensive updating deferred
 - **Empirical data collected:** Synthetic technical-feasibility records only; no participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
@@ -73,11 +73,14 @@ Select and justify the candidate experimental system and technology boundary usi
 - [x] Candidate architecture and experiment-control diagrams
 - [x] Fit-probe protocol
 - [x] Portable local fit probe completed and measured evidence recorded
-- [ ] Provisional choices accepted or rejected after validation
+- [x] Provisional choices accepted, deferred or bounded after validation
 
 ### Validation status
 
-The portable local fit probe establishes that the minimal OrderFlow slice can be reset, exercised, observed and faulted under the local-process target. It does not establish Kubernetes or OpenTelemetry SDK/collector feasibility. No participant data or empirical-effect claim has been added.
+The local-process and Docker Desktop Kubernetes fit probes establish technical
+feasibility for the bounded OrderFlow slice and controlled fault boundary. The
+real OpenTelemetry SDK/Collector trace compatibility probe also passed for the
+pinned versions. No participant data or empirical-effect claim has been added.
 
 ### Phase 2 decision log
 
@@ -88,6 +91,11 @@ The portable local fit probe establishes that the minimal OrderFlow slice can be
 | 2026-08-08 | Use an OpenTelemetry-centred telemetry boundary | Separates instrumentation from the eventual telemetry backend | ADR 0005; validation required |
 | 2026-08-08 | Start with harness-controlled deterministic faults | Protects repeatability before adding platform-level fault-tool complexity | ADR 0006; validation required |
 | 2026-08-08 | Execute the portable local fit probe | Test the smallest authorised OrderFlow slice before introducing Kubernetes control-plane complexity | `docs/fit-probe/phase-2-fit-probe-results.md`; local checks passed |
+| 2026-08-09 | Accept Docker images and Docker Desktop Kubernetes for the bounded technical pilot | Four Kubernetes fit-probe runs passed their declared checks, including a clean-reset repeat | ADR 0004; `results/fit-probe/kubernetes-fit-probe-summary.json` |
+| 2026-08-09 | Accept the pinned OpenTelemetry SDK/Collector trace path | Five spans were received, decoded, correlated and ordered; gzip transport was retained | ADR 0008; `docs/observability/phase-2-otel-compatibility-result.md` |
+| 2026-08-09 | Separate CI/CD validation from experiment execution | Keeps hosted-runner state out of the experimental condition | ADR 0009 |
+| 2026-08-09 | Use monitoring-triggered recovery and defer deployment rollback/progressive delivery | Preserves a one-dimension first comparison and a bounded dry-run gate | ADRs 0010–0011 |
+| 2026-08-09 | Close Phase 2 technology decisions | Every choice is accepted, deferred or bounded with explicit evidence limits | ADR 0012 |
 
 ## Phase 3 record
 

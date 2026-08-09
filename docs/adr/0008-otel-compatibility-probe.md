@@ -1,42 +1,37 @@
 # ADR 0008: Validate the OpenTelemetry SDK/Collector boundary with a raw sink
 
-- **Status:** Proposed until the Docker-backed probe passes
+- **Status:** Accepted for the pinned technical trace path; broader telemetry validation remains open
 - **Date:** 2026-08-09
 
 ## Context
 
 Phase 2 selected an OpenTelemetry-centred instrumentation and transport
-boundary provisionally, but the repository had only an OpenTelemetry-compatible
-JSONL event contract. A real SDK-to-Collector path must be tested before it is
-used as the technical experiment's primary telemetry path.
-
-## Options considered
-
-| Option | Evidence | Advantages | Risks/limitations |
-|---|---|---|---|
-| Python SDK -> OTLP Collector -> independent raw HTTP sink | Phase 2 observability ADR; official OpenTelemetry exporter and Collector documentation | Tests the real transport while retaining raw payloads for independent verification | Trace-only probe; does not establish load behaviour or backend suitability |
-| SDK -> vendor/backend directly | Not selected | Fewer local components | Couples the research evidence boundary to a backend and makes payload verification less independent |
-| Continue with structured JSONL only | Existing fit-probe evidence | Minimal and easy to inspect | Does not validate the intended SDK/Collector compatibility boundary |
+boundary provisionally, but the original fit probe used only an
+OpenTelemetry-compatible JSONL event contract. A real SDK-to-Collector path
+was required before it could be used as a technical-pilot telemetry path.
 
 ## Decision
 
-Add a separate, version-pinned compatibility probe using the Python SDK, OTLP
-HTTP, a local OpenTelemetry Collector and a repository-controlled raw sink.
-The probe sends sequence-labelled spans and decodes the Collector's forwarded
-OTLP protobuf payloads. The JSONL event contract remains authoritative until a
-passing result is reviewed.
+Use a version-pinned Python SDK, OTLP/HTTP, local OpenTelemetry Collector and
+repository-controlled raw sink for the technical trace path. Retain the raw
+transport body and decoded OTLP protobuf separately. Keep the JSONL event
+bundle as an audit-friendly evidence boundary; a dashboard is never required
+to interpret a trial.
 
-## Validation
+## Result
 
-The probe passes only when the Collector and sink are reachable, every emitted
-sequence is received exactly once, timestamps are parseable, the run identifier
-survives the path, and the raw transport plus decoded payload/result bundle is
-retained. The sink explicitly handles the Collector's gzip-compressed OTLP/HTTP
-export and records its content encoding.
+The corrected v2 probe passed on 2026-08-09 under run
+`otel-compat-20260809T140133761014Z-9e9c46bf`: five emitted spans were received,
+decoded and matched to sequence values 1–5 exactly once, with parseable
+non-decreasing timestamps. The transport was recorded as `gzip`, and both the
+raw transport payload and decoded payload were retained. The tested package
+set was OpenTelemetry Python `1.44.0`; the Collector image was
+`otel/opentelemetry-collector:0.158.0`.
 
-## Consequences
+## Interpretation boundary
 
-The result establishes only the tested Python/Collector/OTLP path for small
-technical traces. It does not establish losslessness under load, Kubernetes
-compatibility, cross-host clock accuracy, metrics/logs compatibility or human
-participant validity. Those remain separate validation tasks.
+This result establishes only the tested small-trace Python/Collector/OTLP path.
+It does not establish losslessness under load, metrics/logs compatibility,
+cross-host clock accuracy, Kubernetes telemetry equivalence, backend
+suitability or human-participant validity.
+

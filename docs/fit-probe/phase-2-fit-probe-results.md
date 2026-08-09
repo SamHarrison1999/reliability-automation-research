@@ -1,15 +1,17 @@
 # Phase 2 fit-probe results
 
-**Probe:** `phase-2-fit-probe-v1`  
-**Execution date:** 2026-08-08  
-**Evidence type:** Synthetic technical feasibility only  
-**Status:** Local and Docker Desktop Kubernetes fit probes passed; a real OpenTelemetry SDK/collector path remains untested
+**Probe:** `phase-2-fit-probe-v1`
+**Execution date:** 2026-08-08
+**Evidence type:** Synthetic technical feasibility only
+**Status:** Local and Docker Desktop Kubernetes fit probes passed; the real OpenTelemetry SDK/Collector trace path also passed
 
 ## Scope
 
 The probe challenged the smallest OrderFlow slice authorised by Phase 2: an order API calling an inventory dependency. It used a fixed synthetic order workload, versioned JSON manifests, a clean-reset procedure, controller events and service events written to JSON Lines bundles.
 
-The local execution target was `local-process-fit-probe`. Docker, Kubernetes, Kind and Minikube were unavailable in the execution environment. The Kubernetes manifest is versioned under [`infrastructure/kubernetes/orderflow-fit-probe.yaml`](../../infrastructure/kubernetes/orderflow-fit-probe.yaml), but it was not executed and no Kubernetes result is claimed.
+The local execution target was `local-process-fit-probe`. A separate Docker
+Desktop Kubernetes execution used the same bounded service/scenario boundary
+and is recorded separately under `results/fit-probe/kubernetes-raw/`.
 
 ## Reproduction
 
@@ -51,27 +53,24 @@ The no-fault run also recorded an `order-api-v1` to `order-api-v2` deployment tr
 
 ## Interpretation
 
-<!-- BEGIN KUBERNETES-EXECUTION -->
-## Kubernetes execution
-
-The Docker Desktop Kubernetes fit probe completed on **2026-08-08** for the no-fault, service-termination and dependency-latency scenarios. All **4** recorded runs passed, and the summary reports `all_kubernetes_checks_passed: true`. The target model recorded in the evidence is docker-desktop-kubernetes. Raw Kubernetes event bundles are stored under [`results/fit-probe/kubernetes-raw/`](../../results/fit-probe/kubernetes-raw/), with the aggregate summary at [`results/fit-probe/kubernetes-fit-probe-summary.json`](../../results/fit-probe/kubernetes-fit-probe-summary.json).
-
-This result demonstrates technical feasibility only. It does not estimate an automation effect, provide participant evidence, establish production readiness, or validate a real OpenTelemetry SDK/collector pipeline.
-<!-- END KUBERNETES-EXECUTION -->
-
-The local probe supports carrying the following provisional choices forward:
+The local and Kubernetes probes support carrying the following bounded choices
+forward:
 
 1. OrderFlow is sufficiently small and controllable for the next technical design stage.
 2. Harness-controlled service and dependency faults are targetable, timestamped and reversible in the local slice.
 3. A portable controller and structured telemetry contract can produce raw records without dashboard access.
+4. Docker image packaging and Docker Desktop Kubernetes are feasible for the
+   declared technical pilot environment.
 
-The probe does not establish that Kubernetes is a suitable experimental target, that OpenTelemetry SDK/collector export is complete, or that any automation strategy improves reliability. It also does not compare OrderFlow with the adapted open-source benchmark alternative.
+The probes do not establish runtime equivalence across environments, lossless
+telemetry under load, backend suitability, or that any automation strategy
+improves reliability. They also do not compare OrderFlow with the adapted
+open-source benchmark alternative.
 
 ## Limitations and required follow-up
 
-- Treat the completed Docker Desktop Kubernetes execution as local technical-feasibility evidence; a pinned external Kubernetes environment remains future validation.
-- The repeatable Kubernetes runner is retained for future reruns; the recorded result is preserved separately from the local-process evidence.
-- Replace or augment the structured event exporter with the selected OpenTelemetry SDK/collector path and test export loss, ordering and correlation.
+- Preserve local-process and Docker Desktop Kubernetes records as separate evidence streams.
+- Use the selected OpenTelemetry path in Phase 3 trials and exclude any trial whose telemetry boundaries cannot be established.
 - Compare the local contract with Docker Compose only if Compose remains a candidate development path.
-- Complete the Phase 1 literature searches and full-text charting before treating the Phase 2 decisions as final.
+- Validate load, metrics/logs, cross-host clock and Kubernetes telemetry equivalence separately if they become necessary.
 - Keep the raw records classified as synthetic technical-feasibility evidence; they are not reliability findings, participant data or human evidence.
