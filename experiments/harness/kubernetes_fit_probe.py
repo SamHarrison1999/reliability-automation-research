@@ -380,12 +380,13 @@ def validate_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
     ]
     event_types = {event.get("event_type") for event in events}
     run_ids = {event.get("run_id") for event in events}
+    scenario_ids = {event.get("scenario_id") for event in events}
     missing = sorted(set(scenario["expected_event_types"]) - event_types)
     service_events = [event for event in events if event.get("source_component") in {"inventory", "order-api"}]
     target_events = [event for event in events if event.get("target_component")]
     checks = {
         "unique_run_identifier": len(run_ids) == 1 and None not in run_ids,
-        "scenario_distinguishable": scenario["scenario_id"] in run_ids if len(run_ids) == 1 else False,
+        "scenario_distinguishable": scenario_ids == {scenario["scenario_id"]},
         "versioned_manifest": bool((run_dir / "metadata.json").exists()),
         "required_event_classes": not missing,
         "timestamps_present": all(event.get("timestamp") for event in events),
