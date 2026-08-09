@@ -1,6 +1,6 @@
 # ADR 0007: Bound the first technical comparison to recovery initiation
 
-- **Status:** Accepted for implementation; dry-run validation pending
+- **Status:** Accepted; implementation and repeat dry-run validation complete
 - **Date:** 2026-08-09
 - **Related records:** ADR 0003, ADR 0004, ADR 0005 and ADR 0006
 
@@ -35,12 +35,12 @@ The initial fit-probe scenarios are suitable feasibility cases, but the existing
 
 The design has stronger internal control and a clear measurement boundary, but the scripted baseline cannot answer the human engineering-practice question. The first comparison has narrower fault coverage and should be reported as a technical pilot. A later protocol amendment may add deployment rollback or platform faults only after their own fault, reset and validity criteria are defined.
 
-## Validation required before acceptance
+## Validation record
 
-- Implement the trial-manifest and condition fields from the committed Phase 3 manifest.
-- Demonstrate that manual and automated conditions invoke the same recovery operation.
-- Record explicit detection and recovery decision events.
-- Run dry-runs for every scenario and condition without treating them as pilot evidence.
-- Verify clean reset and contamination checks between trials.
-- Test event export, ordering and loss using the selected OpenTelemetry path or document the structured-contract limitation.
-- Review the design against the accessible Phase 1 evidence map and carry forward its authenticated-database limitation.
+- The trial-manifest and condition fields from the committed Phase 3 manifest are implemented.
+- Manual and automated conditions invoke the same recovery operation in the local-process harness.
+- Explicit detection and recovery decision events are recorded.
+- Initial and repeat dry-run matrices each selected five trials, produced five valid trials and excluded none; these are feasibility checks, not pilot evidence.
+- Clean reset and contamination checks are performed between trials.
+- Event export, ordering and validity records are exercised by the harness; the structured event-contract limitation remains documented.
+- The design was reviewed against the accessible Phase 1 evidence map, including its authenticated-database limitation.

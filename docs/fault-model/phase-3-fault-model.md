@@ -1,6 +1,6 @@
 # Phase 3 fault model and scenario catalogue
 
-**Status:** Final design boundary for implementation; scenarios require protocol-supporting implementation and dry-run validation
+**Status:** Final design boundary; protocol-supporting implementation and repeat dry-run validation complete
 
 **System boundary:** Minimal OrderFlow slice (`order-api` → `inventory`)
 
