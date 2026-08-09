@@ -1,0 +1,2 @@
+old_paper_id,new_paper_id,source_record_id,action,reason,apply_before
+P21,P09,C21|P21,remap,"The Phase 1B evidence row P21 and candidate C21 have DOI 10.1145/3777375, which is the same source already represented by seed record P09.",full_title_abstract_screening
