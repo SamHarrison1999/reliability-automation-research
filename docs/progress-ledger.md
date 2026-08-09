@@ -3,7 +3,7 @@
 ## Project status
 
 - **Current phase:** Phase 3 - fault model, metrics and experiment protocol
-- **Status:** Design draft in progress; Phase 2 technology decisions are closed for the bounded technical pilot; Phase 1 remains an accessible-corpus baseline with database-comprehensive updating deferred
+- **Status:** Phase 3 design package, implementation and repeat dry-run validation complete; Phase 2 technology decisions are closed for the bounded technical pilot; Phase 1 remains an accessible-corpus baseline with database-comprehensive updating deferred
 - **Empirical data collected:** Synthetic technical-feasibility records only; no participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
@@ -105,27 +105,35 @@ Define a bounded technical comparison of recovery initiation strategies under th
 
 ### Design package
 
-- [x] Fault model and scenario catalogue drafted (`docs/fault-model/phase-3-fault-model.md`)
-- [x] Manual versus rule-based automated recovery boundary drafted
-- [x] Technical metric catalogue drafted (`docs/metrics/technical-metrics.md`)
-- [x] Technical experiment protocol drafted (`docs/protocols/phase-3-technical-experiment.md`)
+- [x] Fault model and scenario catalogue finalised (`docs/fault-model/phase-3-fault-model.md`)
+- [x] Manual versus rule-based automated recovery boundary finalised
+- [x] Technical metric catalogue operationalised (`docs/metrics/technical-metrics.md`)
+- [x] Developer-practice measurement boundary specified separately (`docs/metrics/developer-practice-metrics.md`)
+- [x] Technical experiment protocol finalised for implementation (`docs/protocols/phase-3-technical-experiment.md`)
+- [x] Machine-readable trial manifest and contract committed (`experiments/manifests/phase-3-trial-manifest.json`)
 - [x] Metric provenance record documented (`data/schemas/metric-observation-record.md`)
 - [x] Phase 3 decision ADR drafted (`docs/adr/0007-phase-3-fault-metrics-protocol.md`)
 - [x] Trial-flow diagram drafted
-- [ ] Review against completed Phase 1 evidence map
-- [ ] Implement and validate the Phase 3 trial manifest/event additions
-- [ ] Complete dry-runs for each scenario and recovery condition
+- [x] Review against the accessible Phase 1 evidence map (`docs/research-design/phase-3-evidence-review.md`)
+- [x] Implement and validate the Phase 3 trial harness/event additions
+- [x] Complete dry-runs for each scenario and recovery condition
 
 ### Phase 3 evidence boundary
 
 The existing Phase 2 raw bundles are not Phase 3 comparison trials: they lack the final automation-condition and explicit detection-event contract. They remain synthetic technical-feasibility evidence. No metric from them should be presented as evidence that an automation strategy improves reliability.
 
+The Phase 3 local-process harness was validated with an initial and a repeat
+five-trial dry-run matrix. Each matrix selected five trials, produced five
+valid trials and excluded none. The dry-run records are feasibility evidence
+only and are not pilot findings.
+
 ### Phase 3 decision log
 
 | Date | Decision | Reason | Evidence/status |
 |---|---|---|---|
-| 2026-08-09 | Compare standardised manual recovery with rule-based automated recovery | Isolates recovery initiation while holding fault, workload, detection rule, versions and reset constant | ADR 0007; proposed |
-| 2026-08-09 | Retain no-fault, service-termination and dependency-latency scenarios | Preserves the smallest Phase 2 feasibility set | Fault model; drafted |
-| 2026-08-09 | Make detection latency, recovery time and failure impact primary outcomes | Gives each RQ1 outcome an explicit event boundary before implementation | Technical metric catalogue; drafted |
-| 2026-08-09 | Require immutable trial manifests and explicit exclusion records | Prevents post-hoc condition changes, silent imputation and contamination | Technical protocol; drafted |
-| 2026-08-09 | Defer faulty deployments, platform chaos faults and canary deployment | Avoids adding intervention dimensions before the first comparison is validated | Fault model/ADR 0007; proposed |
+| 2026-08-09 | Compare standardised manual recovery with rule-based automated recovery | Isolates recovery initiation while holding fault, workload, detection rule, versions and reset constant | ADR 0007; accepted for implementation |
+| 2026-08-09 | Retain no-fault, service-termination and dependency-latency scenarios | Preserves the smallest Phase 2 feasibility set | Fault model; final design boundary |
+| 2026-08-09 | Make detection latency, recovery time and failure impact primary outcomes | Gives each RQ1 outcome an explicit event boundary before implementation | Technical metric catalogue; operationalised |
+| 2026-08-09 | Require immutable trial manifests and explicit exclusion records | Prevents post-hoc condition changes, silent imputation and contamination | Technical protocol and manifest contract; finalised |
+| 2026-08-09 | Keep developer-practice measures separate from technical telemetry | Prevents system events being mislabelled as workload, trust, understanding or decision rationale | Developer-practice metric specification; provisional for later ethics review |
+| 2026-08-09 | Defer faulty deployments, platform chaos faults and canary deployment | Avoids adding intervention dimensions before the first comparison is validated | Fault model/ADR 0007; accepted boundary |

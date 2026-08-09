@@ -1,6 +1,6 @@
 # Phase 3 technical metric catalogue
 
-**Status:** Operationalised for the Phase 3 technical design; implementation and dry-run validation pending
+**Status:** Operationalised for the Phase 3 technical design; harness implementation and repeat dry-run validation complete
 
 **Primary unit:** Valid trial (`condition × scenario × repetition`)
 

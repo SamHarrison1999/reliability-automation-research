@@ -2,7 +2,7 @@
 
 **Protocol ID:** `phase-3-technical-reliability-v1`
 
-**Status:** Design locked; local-process harness implemented; dry-runs are required before pilot evidence
+**Status:** Design locked; local-process harness implemented; initial and repeat dry-run matrices passed; dry-run output is feasibility evidence only
 
 **Related design record:** [`../research-design/phase-3.md`](../research-design/phase-3.md)
 
@@ -194,7 +194,7 @@ Developer-practice constructs are outside this technical protocol. Their provisi
 
 ## Reproduction command
 
-The implementation command must be versioned before the protocol is declared executable. The intended interface is:
+The versioned implementation command for the declared local-process execution context is:
 
 ```bash
 python3 experiments/harness/phase_3_trial.py \
@@ -203,4 +203,4 @@ python3 experiments/harness/phase_3_trial.py \
   --output-root results/phase-3/raw
 ```
 
-The command is implemented by [`../../experiments/harness/phase_3_trial.py`](../../experiments/harness/phase_3_trial.py) for the declared local-process execution context. It runs one dry-run slot for each manifest cell by default and writes raw bundles, immutable manifests, validity records and a summary. Dry-run output is feasibility evidence only and must not be reported as pilot findings.
+The command is implemented by [`../../experiments/harness/phase_3_trial.py`](../../experiments/harness/phase_3_trial.py). It runs one dry-run slot for each manifest cell by default and writes raw bundles, immutable manifests, validity records and a summary. Initial and repeat matrices each selected five trials, produced five valid trials and excluded none. Dry-run output is feasibility evidence only and must not be reported as pilot findings.

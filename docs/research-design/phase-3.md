@@ -6,7 +6,7 @@
 
 **Phase:** 3
 
-**Status:** Design complete and locked; local-process event implementation is complete and dry-run validation remains outstanding
+**Status:** Design complete and locked; local-process event implementation and repeat dry-run validation are complete
 **Date started:** 2026-08-09
 
 ## Objective
@@ -144,7 +144,7 @@ The Phase 3 design package is complete when:
 - the protocol has been checked against the Phase 1 evidence status and known validity threats; and
 - the machine-readable manifest and event contract are committed.
 
-The implementation gate remains open until a dry-run in the declared checkout shows that the protocol can be executed without collecting human-participant data. Dry-run records must not be reported as pilot findings.
+The implementation gate has been passed: initial and repeat dry-runs in the declared local-process checkout each selected five trials, produced five valid trials and excluded none, without collecting human-participant data. These records demonstrate protocol feasibility only and must not be reported as pilot findings.
 
 ## Known limitations carried forward
 
