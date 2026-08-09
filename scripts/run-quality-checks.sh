@@ -3,12 +3,12 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
-if [[ -n "${PYTHON_BIN:-}" ]]; then
-  PYTHON_BIN="${PYTHON_BIN}"
-elif [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
-  PYTHON_BIN="${REPO_ROOT}/.venv/bin/python"
-else
-  PYTHON_BIN="$(command -v python3 || command -v python || true)"
+if [[ -z "${PYTHON_BIN:-}" ]]; then
+  if [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
+    PYTHON_BIN="${REPO_ROOT}/.venv/bin/python"
+  else
+    PYTHON_BIN="$(command -v python3 || command -v python || true)"
+  fi
 fi
 
 usage() {
