@@ -120,7 +120,7 @@ The locked machine-readable allocation is [`../../experiments/manifests/phase-3-
 - [x] Review the protocol against the accessible Phase 1 evidence map (`phase-3-evidence-review.md`).
 - [x] Validate the event additions required for detection and condition comparison in the local-process harness.
 - [x] Implement the smallest protocol-supporting trial harness and raw-record validity tooling.
-- [ ] Run a dry-run without treating it as pilot evidence.
+- [x] Run a dry-run without treating it as pilot evidence.
 
 ## Implementation explicitly deferred
 
