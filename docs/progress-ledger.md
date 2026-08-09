@@ -3,7 +3,7 @@
 ## Project status
 
 - **Current phase:** Phase 3 - fault model, metrics and experiment protocol
-- **Status:** Phase 2 technical fit-probe close-out complete; Phase 1 literature completion and OpenTelemetry SDK/collector compatibility remain outstanding
+- **Status:** Design draft in progress; Phase 2 fit-probe evidence is retained as technical feasibility only; OpenTelemetry compatibility and Phase 1 database searches/full-text charting remain outstanding
 - **Empirical data collected:** Synthetic technical-feasibility records only; no participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
@@ -73,20 +73,13 @@ Select and justify the candidate experimental system and technology boundary usi
 - [x] Candidate architecture and experiment-control diagrams
 - [x] Fit-probe protocol
 - [x] Portable local fit probe completed and measured evidence recorded
-- [x] Docker Desktop Kubernetes fit probe completed; all Kubernetes checks passed
 - [ ] Provisional choices accepted or rejected after validation
 
 ### Validation status
 
-Phase 2 technical fit-probe evidence is complete for the local-process and Docker Desktop Kubernetes targets as of 2026-08-08. The evidence demonstrates technical feasibility only; it does not estimate reliability effects, provide participant evidence, establish production readiness, or validate compatibility with a real OpenTelemetry SDK/collector pipeline. No participant data or empirical-effect claim has been added.
+The portable local fit probe establishes that the minimal OrderFlow slice can be reset, exercised, observed and faulted under the local-process target. It does not establish Kubernetes or OpenTelemetry SDK/collector feasibility. No participant data or empirical-effect claim has been added.
 
 ### Phase 2 decision log
-
-<!-- BEGIN PHASE-3-HANDOFF -->
-Phase 3 may now define the fault model, metric operationalisations and experiment protocol. Phase 1 literature completion and the OpenTelemetry SDK/collector compatibility check remain explicit carry-forward limitations.
-
-The next working phase is **Phase 3 - fault model, metrics and experiment protocol**. The Phase 2 implementation and evidence remain a fit-probe slice; full application implementation is intentionally deferred.
-<!-- END PHASE-3-HANDOFF -->
 
 | Date | Decision | Reason | Evidence/status |
 |---|---|---|---|
@@ -95,3 +88,36 @@ The next working phase is **Phase 3 - fault model, metrics and experiment protoc
 | 2026-08-08 | Use an OpenTelemetry-centred telemetry boundary | Separates instrumentation from the eventual telemetry backend | ADR 0005; validation required |
 | 2026-08-08 | Start with harness-controlled deterministic faults | Protects repeatability before adding platform-level fault-tool complexity | ADR 0006; validation required |
 | 2026-08-08 | Execute the portable local fit probe | Test the smallest authorised OrderFlow slice before introducing Kubernetes control-plane complexity | `docs/fit-probe/phase-2-fit-probe-results.md`; local checks passed |
+
+## Phase 3 record
+
+### Objective
+
+Define a bounded technical comparison of recovery initiation strategies under the existing OrderFlow fault boundary, with metric derivations and reset/exclusion rules specified before new trial data is collected.
+
+### Design package
+
+- [x] Fault model and scenario catalogue drafted (`docs/fault-model/phase-3-fault-model.md`)
+- [x] Manual versus rule-based automated recovery boundary drafted
+- [x] Technical metric catalogue drafted (`docs/metrics/technical-metrics.md`)
+- [x] Technical experiment protocol drafted (`docs/protocols/phase-3-technical-experiment.md`)
+- [x] Metric provenance record documented (`data/schemas/metric-observation-record.md`)
+- [x] Phase 3 decision ADR drafted (`docs/adr/0007-phase-3-fault-metrics-protocol.md`)
+- [x] Trial-flow diagram drafted
+- [ ] Review against completed Phase 1 evidence map
+- [ ] Implement and validate the Phase 3 trial manifest/event additions
+- [ ] Complete dry-runs for each scenario and recovery condition
+
+### Phase 3 evidence boundary
+
+The existing Phase 2 raw bundles are not Phase 3 comparison trials: they lack the final automation-condition and explicit detection-event contract. They remain synthetic technical-feasibility evidence. No metric from them should be presented as evidence that an automation strategy improves reliability.
+
+### Phase 3 decision log
+
+| Date | Decision | Reason | Evidence/status |
+|---|---|---|---|
+| 2026-08-09 | Compare standardised manual recovery with rule-based automated recovery | Isolates recovery initiation while holding fault, workload, detection rule, versions and reset constant | ADR 0007; proposed |
+| 2026-08-09 | Retain no-fault, service-termination and dependency-latency scenarios | Preserves the smallest Phase 2 feasibility set | Fault model; drafted |
+| 2026-08-09 | Make detection latency, recovery time and failure impact primary outcomes | Gives each RQ1 outcome an explicit event boundary before implementation | Technical metric catalogue; drafted |
+| 2026-08-09 | Require immutable trial manifests and explicit exclusion records | Prevents post-hoc condition changes, silent imputation and contamination | Technical protocol; drafted |
+| 2026-08-09 | Defer faulty deployments, platform chaos faults and canary deployment | Avoids adding intervention dimensions before the first comparison is validated | Fault model/ADR 0007; proposed |

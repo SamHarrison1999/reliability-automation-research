@@ -7,7 +7,7 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 | 0 | Research design and repository bootstrap | Questions, variables, evidence sources, scope, boundaries and repository validation are documented. |
 | 1 | Scoping review and literature map | Search protocol, inclusion/exclusion criteria and evidence matrix are populated and reproducible. |
 | 2 | Software-system and technology selection | Candidate systems and tools are compared against research criteria; ADRs record decisions. |
-| 3 | Fault model, metrics and experiment protocol | Scenario definitions, metric operationalisations, run procedure and validity risks are reviewed. |
+| 3 | Fault model, metrics and experiment protocol | Bounded fault catalogue, condition comparison, metric operationalisations, trial/reset procedure and validity risks are reviewed; protocol-supporting dry-run passes. |
 | 4 | Reproducible technical prototype | The smallest benchmark system can be reset, deployed and observed reproducibly. |
 | 5 | Experiment harness and technical pilot | Repeated technical runs produce validated raw records and analysis from raw data. |
 | 6 | Human-participant protocol and ethics | Recruitment, tasks, consent, data handling and analysis plans are approved through the relevant process. |
@@ -16,8 +16,9 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-Phase 2 fit-probe evidence has been recorded, and the next gate is Phase 3:
+Phase 2 fit-probe evidence has been recorded, and the current gate is Phase 3:
 fault model, metrics and experiment protocol. The engineering-quality baseline
-is supporting work for that gate. No full application implementation,
-human-participant work or empirical-effect claim should be started until the
-Phase 1 evidence status and Phase 3 validation criteria are reviewed.
+is supporting work for that gate. Phase 3 design has begun on the dedicated
+branch, but no full application implementation, human-participant work or
+empirical-effect claim should be started until the Phase 1 evidence status and
+Phase 3 validation criteria are reviewed.

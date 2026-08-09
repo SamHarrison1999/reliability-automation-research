@@ -4,7 +4,7 @@ Research repository for the provisional PhD project:
 
 > An Empirical Investigation of Reliability Automation and Human Decision-Making in Continuous Delivery Environments
 
-This repository is currently preparing **Phase 3: fault model, metrics and experiment protocol**. It contains only the bounded implementation needed for the technical fit probe; it contains no full experimental application and no empirical findings. The engineering-quality baseline on this branch improves reproducibility and reviewability without changing that evidence boundary.
+This repository is currently working through **Phase 3: fault model, metrics and experiment protocol**. The Phase 3 design package is drafted on the dedicated branch, while the protocol-supporting trial harness remains a later implementation task. The repository contains no full experimental application and no empirical findings. The engineering-quality baseline on `main` improves reproducibility and reviewability without changing that evidence boundary.
 
 ## Research direction
 
@@ -33,7 +33,7 @@ Reproducibility is currently a methodological objective supporting both question
 
 - The candidate empirical object is a small, purpose-built transactional benchmark system, provisionally called **OrderFlow**.
 - The first technical pilot should use a fixed workload, deterministic fault scenarios and at least two automation conditions.
-- Manual recovery is the baseline. Automated rollback and monitoring-triggered recovery are candidate comparison conditions.
+- Manual recovery is the baseline. Rule-based automated recovery is the first comparison condition; automated rollback remains deferred until a faulty-deployment scenario is specified.
 - Progressive/canary deployment is deferred until the literature review and initial pilot show that it can be added without making the design unmanageably broad.
 - The system will not use real payments, personal data or production systems.
 - The Phase 2 fit probe uses only synthetic orders and a minimal order/inventory slice.
@@ -45,6 +45,8 @@ Reproducibility is currently a methodological objective supporting both question
 docs/
   proposal/source/       Original proposal supplied for traceability
   research-design/       Phase-gated research decisions
+  fault-model/           Bounded fault taxonomy and scenario catalogue
+  metrics/               Technical metric operationalisations
   literature/            Review protocol and evidence matrix
   protocols/             Experiment and participant protocols
   ethics/                Ethics planning only; no approval implied
@@ -85,7 +87,7 @@ The bootstrap scripts are intentionally idempotent and do not overwrite existing
 
 Work is phase-gated. Each phase must record its objective, rationale, deliverables, implementation tasks, validation criteria and threats to validity. Do not begin application implementation until the research design and technology choices justify it.
 
-The current Phase 2 selection record is [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md). The local fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
+The current Phase 2 selection record is [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md). The local fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md). The Phase 3 package is [`docs/research-design/phase-3.md`](docs/research-design/phase-3.md), with the fault model in [`docs/fault-model/phase-3-fault-model.md`](docs/fault-model/phase-3-fault-model.md), metrics in [`docs/metrics/technical-metrics.md`](docs/metrics/technical-metrics.md) and the technical protocol in [`docs/protocols/phase-3-technical-experiment.md`](docs/protocols/phase-3-technical-experiment.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
 
 ## Engineering quality
 

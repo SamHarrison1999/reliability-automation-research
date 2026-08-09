@@ -1,0 +1,13 @@
+flowchart TD
+    A[Generate immutable trial manifest] --> B[Preflight versions and target]
+    B --> C[Reset and verify clean state]
+    C --> D[Run fixed workload]
+    D --> E[Inject declared fault]
+    E --> F[Evaluate shared detection rule]
+    F --> G{Recovery condition}
+    G -->|manual| H[External standardised recovery command]
+    G -->|automated| I[Rule-based recovery command]
+    H --> J[Verify readiness and post-recovery success]
+    I --> J
+    J --> K[Cleanup and contamination check]
+    K --> L[Derive metrics and classify trial]
