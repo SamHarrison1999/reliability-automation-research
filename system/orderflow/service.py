@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import signal
 import sys
 import time
@@ -14,7 +13,7 @@ import urllib.request
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 
 def utc_now() -> str:
@@ -75,7 +74,7 @@ class Handler(BaseHTTPRequestHandler):
     def read_json(self) -> dict[str, Any]:
         length = int(self.headers.get("Content-Length", "0"))
         raw = self.rfile.read(length) if length else b"{}"
-        return json.loads(raw.decode("utf-8"))
+        return cast(dict[str, Any], json.loads(raw.decode("utf-8")))
 
     def do_GET(self) -> None:
         if self.path == "/healthz":
@@ -90,10 +89,17 @@ class Handler(BaseHTTPRequestHandler):
             trace_id = uuid.uuid4().hex
             self.state.emit("dependency_request_received", order_id=order_id, trace_id=trace_id)
             if self.state.fault_mode == "latency":
-                self.state.emit("dependency_fault_applied", fault_mode="latency", latency_ms=self.state.latency_ms, trace_id=trace_id)
+                self.state.emit(
+                    "dependency_fault_applied",
+                    fault_mode="latency",
+                    latency_ms=self.state.latency_ms,
+                    trace_id=trace_id,
+                )
                 time.sleep(self.state.latency_ms / 1000)
             if self.state.fault_mode == "failure":
-                self.state.emit("dependency_failure_returned", fault_mode="failure", order_id=order_id, trace_id=trace_id)
+                self.state.emit(
+                    "dependency_failure_returned", fault_mode="failure", order_id=order_id, trace_id=trace_id
+                )
                 self.send_json(503, {"status": "dependency-failure", "order_id": order_id})
                 return
             self.state.emit("dependency_request_succeeded", order_id=order_id, trace_id=trace_id)
@@ -127,18 +133,37 @@ class Handler(BaseHTTPRequestHandler):
                 with urllib.request.urlopen(request, timeout=1.0) as response:
                     dependency_status = response.status
             except (urllib.error.URLError, TimeoutError) as exc:
-                self.state.emit("dependency_request_failed", dependency="inventory", order_id=order_id, error=type(exc).__name__, trace_id=trace_id)
-                self.state.emit("workload_request_failed", order_id=order_id, reason="dependency-unavailable", trace_id=trace_id)
+                self.state.emit(
+                    "dependency_request_failed",
+                    dependency="inventory",
+                    order_id=order_id,
+                    error=type(exc).__name__,
+                    trace_id=trace_id,
+                )
+                self.state.emit(
+                    "workload_request_failed", order_id=order_id, reason="dependency-unavailable", trace_id=trace_id
+                )
                 self.send_json(502, {"status": "failed", "order_id": order_id})
                 return
             if dependency_status != 200:
-                self.state.emit("dependency_response_failed", dependency="inventory", status=dependency_status, order_id=order_id, trace_id=trace_id)
-                self.state.emit("workload_request_failed", order_id=order_id, reason="dependency-failure", trace_id=trace_id)
+                self.state.emit(
+                    "dependency_response_failed",
+                    dependency="inventory",
+                    status=dependency_status,
+                    order_id=order_id,
+                    trace_id=trace_id,
+                )
+                self.state.emit(
+                    "workload_request_failed", order_id=order_id, reason="dependency-failure", trace_id=trace_id
+                )
                 self.send_json(502, {"status": "failed", "order_id": order_id})
                 return
             self.state.emit("workload_request_succeeded", order_id=order_id, trace_id=trace_id)
             self.send_json(201, {"status": "accepted", "order_id": order_id, "version": self.state.version})
             return
+        # Consume an unrecognised POST body before closing the connection.  Windows
+        # can reset a socket when the server closes with unread request bytes.
+        self.rfile.read(int(self.headers.get("Content-Length", "0")))
         self.send_json(404, {"error": "not-found"})
 
 
@@ -156,8 +181,8 @@ def main() -> int:
 
     state = ServiceState(args.role, args.port, args.version, args.event_file, args.run_id, args.scenario_id)
     handler_type = type("OrderFlowHandler", (Handler,), {})
-    handler_type.state = state
-    handler_type.dependency_url = args.dependency_url
+    handler_type.state = state  # type: ignore[attr-defined]
+    handler_type.dependency_url = args.dependency_url  # type: ignore[attr-defined]
     server = ThreadingHTTPServer((args.host, args.port), handler_type)
 
     def stop(_signum: int, _frame: Any) -> None:
@@ -174,5 +199,5 @@ def main() -> int:
     return 0
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover - exercised through the CLI entry point
     sys.exit(main())

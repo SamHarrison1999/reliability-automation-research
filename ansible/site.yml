@@ -1,0 +1,11 @@
+---
+- name: Describe the reproducibility boundary without provisioning infrastructure
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Record the current automation boundary
+      ansible.builtin.debug:
+        msg: >-
+          Ansible validation is available, but deployment automation remains
+          deferred until the Phase 3 reset contract is approved.
+

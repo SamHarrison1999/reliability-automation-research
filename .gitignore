@@ -20,6 +20,17 @@ venv/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+coverage.xml
+
+# Disposable quality reports
+tmp/quality/
+
+# Local archive and upload material
+*.zip
+upload/
+.ansible/
+*.egg-info/
 
 # Node
 node_modules/

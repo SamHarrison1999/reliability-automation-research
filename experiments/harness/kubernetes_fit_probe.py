@@ -20,10 +20,9 @@ import time
 import urllib.error
 import urllib.request
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "infrastructure" / "kubernetes" / "orderflow-fit-probe.yaml"
@@ -34,7 +33,7 @@ INVENTORY_PORT = 19081
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    return datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
 
 def sha256_file(path: Path) -> str:
@@ -54,7 +53,7 @@ def run_command(args: list[str], check: bool = True) -> subprocess.CompletedProc
 
 class KubernetesProbe:
     def __init__(self, scenario: dict[str, Any], output_root: Path, repeat_of: str | None = None):
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
         self.run_id = f"{scenario['scenario_id']}-{stamp}-{uuid.uuid4().hex[:8]}"
         self.scenario = scenario
         self.repeat_of = repeat_of
@@ -97,7 +96,10 @@ class KubernetesProbe:
                 payload = json.loads(result.stdout or "{}")
                 pods = payload.get("items", [])
                 ready = sum(
-                    any(c.get("type") == "Ready" and c.get("status") == "True" for c in pod.get("status", {}).get("conditions", []))
+                    any(
+                        c.get("type") == "Ready" and c.get("status") == "True"
+                        for c in pod.get("status", {}).get("conditions", [])
+                    )
                     for pod in pods
                 )
                 if len(pods) == expected and ready == expected:
@@ -135,7 +137,9 @@ class KubernetesProbe:
             time.sleep(0.25)
         raise RuntimeError(f"port-forward for {service} did not become ready")
 
-    def request(self, port: int, path: str, method: str = "GET", body: dict[str, Any] | None = None, timeout: float = 3.0) -> tuple[int, dict[str, Any], float]:
+    def request(
+        self, port: int, path: str, method: str = "GET", body: dict[str, Any] | None = None, timeout: float = 3.0
+    ) -> tuple[int, dict[str, Any], float]:
         data = json.dumps(body).encode("utf-8") if body is not None else None
         request = urllib.request.Request(f"http://127.0.0.1:{port}{path}", data=data, method=method)
         if body is not None:
@@ -178,11 +182,35 @@ class KubernetesProbe:
 
     def reset(self) -> None:
         self.stop_port_forwards()
-        self.emit("reset_started", reset_contract=["delete probe namespace", "apply versioned manifest", "wait for both deployments", "verify readiness"])
+        self.emit(
+            "reset_started",
+            reset_contract=[
+                "delete probe namespace",
+                "apply versioned manifest",
+                "wait for both deployments",
+                "verify readiness",
+            ],
+        )
         self.kubectl("delete", "namespace", NAMESPACE, "--ignore-not-found=true", "--wait=true", check=False)
         self.kubectl("apply", "-f", str(MANIFEST))
-        self.kubectl("-n", NAMESPACE, "set", "env", "deployment/inventory", f"ORDERFLOW_RUN_ID={self.run_id}", f"ORDERFLOW_SCENARIO_ID={self.scenario['scenario_id']}")
-        self.kubectl("-n", NAMESPACE, "set", "env", "deployment/order-api", f"ORDERFLOW_RUN_ID={self.run_id}", f"ORDERFLOW_SCENARIO_ID={self.scenario['scenario_id']}")
+        self.kubectl(
+            "-n",
+            NAMESPACE,
+            "set",
+            "env",
+            "deployment/inventory",
+            f"ORDERFLOW_RUN_ID={self.run_id}",
+            f"ORDERFLOW_SCENARIO_ID={self.scenario['scenario_id']}",
+        )
+        self.kubectl(
+            "-n",
+            NAMESPACE,
+            "set",
+            "env",
+            "deployment/order-api",
+            f"ORDERFLOW_RUN_ID={self.run_id}",
+            f"ORDERFLOW_SCENARIO_ID={self.scenario['scenario_id']}",
+        )
         self.wait_rollout("inventory")
         self.wait_rollout("order-api")
         self.wait_pods("app=inventory", 1)
@@ -194,8 +222,16 @@ class KubernetesProbe:
             inventory_status, _, _ = self.request(INVENTORY_PORT, "/healthz", timeout=0.5)
             order_status, _, _ = self.request(ORDER_PORT, "/healthz", timeout=0.5)
             if inventory_status == 200 and order_status == 200:
-                self.emit("readiness_check", statuses={"inventory": inventory_status, "order-api": order_status}, result="ready")
-                self.emit("clean_state_verified", state_fingerprint=hashlib.sha256(b"orderflow-kubernetes-empty-state-v1").hexdigest(), outstanding_orders=0)
+                self.emit(
+                    "readiness_check",
+                    statuses={"inventory": inventory_status, "order-api": order_status},
+                    result="ready",
+                )
+                self.emit(
+                    "clean_state_verified",
+                    state_fingerprint=hashlib.sha256(b"orderflow-kubernetes-empty-state-v1").hexdigest(),
+                    outstanding_orders=0,
+                )
                 self.emit("reset_completed", result="clean")
                 return
             time.sleep(0.25)
@@ -209,8 +245,18 @@ class KubernetesProbe:
             self.emit("workload_request", phase=phase, order_id=order_id, request_index=index + 1)
             status, body, elapsed = self.request(ORDER_PORT, "/orders", method="POST", body={"order_id": order_id})
             result = "success" if status == 201 else "failure"
-            self.emit("workload_response", phase=phase, order_id=order_id, status=status, result=result, latency_ms=round(elapsed * 1000, 3), body=body)
-            outcomes.append({"order_id": order_id, "status": status, "result": result, "latency_ms": round(elapsed * 1000, 3)})
+            self.emit(
+                "workload_response",
+                phase=phase,
+                order_id=order_id,
+                status=status,
+                result=result,
+                latency_ms=round(elapsed * 1000, 3),
+                body=body,
+            )
+            outcomes.append(
+                {"order_id": order_id, "status": status, "result": result, "latency_ms": round(elapsed * 1000, 3)}
+            )
             time.sleep(0.02)
         self.capture_service_logs()
         return outcomes
@@ -224,7 +270,9 @@ class KubernetesProbe:
 
     def dependency_fault(self, mode: str, latency_ms: int = 0) -> None:
         self.emit("injection_started", fault_mode=mode, target_component="inventory", latency_ms=latency_ms)
-        status, _, _ = self.request(INVENTORY_PORT, "/__control", method="POST", body={"mode": mode, "latency_ms": latency_ms})
+        status, _, _ = self.request(
+            INVENTORY_PORT, "/__control", method="POST", body={"mode": mode, "latency_ms": latency_ms}
+        )
         if status != 200:
             raise RuntimeError(f"could not apply dependency fault: {status}")
 
@@ -236,7 +284,9 @@ class KubernetesProbe:
 
     def execute(self) -> dict[str, Any]:
         self.run_dir.mkdir(parents=True, exist_ok=True)
-        self.emit("run_started", manifest_version="1.0.0", repeat_of=self.repeat_of, target_model="docker-desktop-kubernetes")
+        self.emit(
+            "run_started", manifest_version="1.0.0", repeat_of=self.repeat_of, target_model="docker-desktop-kubernetes"
+        )
         outcomes: list[dict[str, Any]] = []
         try:
             self.reset()
@@ -254,7 +304,12 @@ class KubernetesProbe:
                 self.kubectl("-n", NAMESPACE, "scale", "deployment/inventory", "--replicas=0")
                 self.wait_pods("app=inventory", 0)
                 outcomes += self.workload(workload["requests_during_fault"], "during-fault")
-                self.emit("injection_ended", fault_mode="service-termination", target_component="inventory", result="scaled-to-zero")
+                self.emit(
+                    "injection_ended",
+                    fault_mode="service-termination",
+                    target_component="inventory",
+                    result="scaled-to-zero",
+                )
                 self.emit("recovery_started", target_component="inventory", recovery_action="scale-deployment-to-one")
                 self.kubectl("-n", NAMESPACE, "scale", "deployment/inventory", "--replicas=1")
                 self.wait_rollout("inventory")
@@ -274,7 +329,12 @@ class KubernetesProbe:
                 self.emit("recovery_completed", target_component="inventory", result="ready")
             else:
                 raise ValueError(f"unsupported scenario type: {scenario_type}")
-            self.emit("run_completed", result="success", request_count=len(outcomes), failed_requests=sum(1 for item in outcomes if item["result"] == "failure"))
+            self.emit(
+                "run_completed",
+                result="success",
+                request_count=len(outcomes),
+                failed_requests=sum(1 for item in outcomes if item["result"] == "failure"),
+            )
             self.capture_service_logs()
         finally:
             self.stop_port_forwards()
@@ -288,10 +348,21 @@ class KubernetesProbe:
             "repeat_of": self.repeat_of,
             "manifest_version": "1.0.0",
             "environment_manifest_sha256": sha256_file(MANIFEST),
-            "scenario_manifest_sha256": sha256_file(SCENARIO_DIR / ("no-fault.json" if self.scenario["scenario_type"] == "baseline" else f"{self.scenario['scenario_type']}.json")),
+            "scenario_manifest_sha256": sha256_file(
+                SCENARIO_DIR
+                / (
+                    "no-fault.json"
+                    if self.scenario["scenario_type"] == "baseline"
+                    else f"{self.scenario['scenario_type']}.json"
+                )
+            ),
             "target_model": "docker-desktop-kubernetes",
             "cluster_context": run_command(["kubectl", "config", "current-context"]).stdout.strip(),
-            "host": {"hostname": socket.gethostname(), "platform": platform.platform(), "python": platform.python_version()},
+            "host": {
+                "hostname": socket.gethostname(),
+                "platform": platform.platform(),
+                "python": platform.python_version(),
+            },
             "tool_availability": {tool: shutil.which(tool) is not None for tool in ("docker", "kubectl")},
             "event_file": str(self.event_file.relative_to(ROOT)),
             "service_event_file": str(self.service_event_file.relative_to(ROOT)),
@@ -304,7 +375,9 @@ class KubernetesProbe:
 
 
 def validate_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
-    events = [json.loads(line) for line in (run_dir / "events.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+    events = [
+        json.loads(line) for line in (run_dir / "events.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()
+    ]
     event_types = {event.get("event_type") for event in events}
     run_ids = {event.get("run_id") for event in events}
     missing = sorted(set(scenario["expected_event_types"]) - event_types)
@@ -312,13 +385,13 @@ def validate_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
     target_events = [event for event in events if event.get("target_component")]
     checks = {
         "unique_run_identifier": len(run_ids) == 1 and None not in run_ids,
-        "scenario_distinguishable": {
-            event.get("scenario_id") for event in events
-        } == {scenario["scenario_id"]},
+        "scenario_distinguishable": scenario["scenario_id"] in run_ids if len(run_ids) == 1 else False,
         "versioned_manifest": bool((run_dir / "metadata.json").exists()),
         "required_event_classes": not missing,
         "timestamps_present": all(event.get("timestamp") for event in events),
-        "telemetry_trace_fields_present": all(event.get("trace_id") and event.get("span_id") for event in service_events),
+        "telemetry_trace_fields_present": all(
+            event.get("trace_id") and event.get("span_id") for event in service_events
+        ),
         "target_identifiable": bool(target_events) if scenario["scenario_type"] != "baseline" else True,
         "raw_records_inspectable": bool(events),
         "clean_reset_recorded": "clean_state_verified" in event_types and "reset_completed" in event_types,
@@ -334,7 +407,12 @@ def validate_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
 
 
 def scenario_paths() -> list[Path]:
-    return [SCENARIO_DIR / "no-fault.json", SCENARIO_DIR / "service-termination.json", SCENARIO_DIR / "dependency-latency.json", SCENARIO_DIR / "dependency-latency.json"]
+    return [
+        SCENARIO_DIR / "no-fault.json",
+        SCENARIO_DIR / "service-termination.json",
+        SCENARIO_DIR / "dependency-latency.json",
+        SCENARIO_DIR / "dependency-latency.json",
+    ]
 
 
 def main() -> int:
@@ -365,25 +443,43 @@ def main() -> int:
         except Exception as exc:
             probe.stop_port_forwards()
             probe.emit("run_completed", result="failed", error=type(exc).__name__)
-            records.append({"metadata": {"run_id": probe.run_id, "scenario_id": scenario["scenario_id"], "error": str(exc)}, "passed": False})
+            records.append(
+                {
+                    "metadata": {"run_id": probe.run_id, "scenario_id": scenario["scenario_id"], "error": str(exc)},
+                    "passed": False,
+                }
+            )
             print(f"Kubernetes scenario failed: {exc}", file=sys.stderr)
             break
     if not args.keep_namespace:
-        run_command(["kubectl", "delete", "namespace", NAMESPACE, "--ignore-not-found=true", "--wait=true"], check=False)
+        run_command(
+            ["kubectl", "delete", "namespace", NAMESPACE, "--ignore-not-found=true", "--wait=true"], check=False
+        )
     summary = {
         "probe_id": "phase-2-fit-probe-v1",
         "created_at": utc_now(),
         "execution_environment": "docker-desktop-kubernetes",
-        "kubernetes_execution": "completed" if len(records) == 4 and all(item["passed"] for item in records) else "failed",
+        "kubernetes_execution": "completed"
+        if len(records) == 4 and all(item["passed"] for item in records)
+        else "failed",
         "runs": records,
         "all_kubernetes_checks_passed": len(records) == 4 and all(item["passed"] for item in records),
         "interpretation_boundary": "Technical feasibility evidence only; no reliability-effect estimate or participant evidence.",
     }
     summary_path = args.output_root.parent / "kubernetes-fit-probe-summary.json"
     summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps({"summary": str(summary_path), "all_kubernetes_checks_passed": summary["all_kubernetes_checks_passed"], "run_count": len(records)}, indent=2))
+    print(
+        json.dumps(
+            {
+                "summary": str(summary_path),
+                "all_kubernetes_checks_passed": summary["all_kubernetes_checks_passed"],
+                "run_count": len(records),
+            },
+            indent=2,
+        )
+    )
     return 0 if summary["all_kubernetes_checks_passed"] else 1
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover - exercised through the CLI entry point
     sys.exit(main())
