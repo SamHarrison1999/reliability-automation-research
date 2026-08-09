@@ -1,6 +1,6 @@
 # ADR 0006: Start with deterministic harness-controlled faults
 
-- **Status:** Supported for local fit probe; platform-fault comparison pending
+- **Status:** Accepted for the first bounded technical pilot; platform-fault tools deferred
 - **Date:** 2026-08-08
 
 ## Context
@@ -30,3 +30,11 @@ Use **harness-controlled application or dependency faults** for the first fit-pr
 ## Consequences
 
 The first comparison prioritises internal validity and repeatability. The eventual study may have narrower fault coverage than a general chaos-engineering platform. That limitation must be reported rather than hidden behind a broad tool choice.
+
+## Phase 2 close-out
+
+The local-process and Docker Desktop Kubernetes fit probes repeatedly targeted
+the declared service/dependency boundaries, recorded injection and recovery
+events, and returned to the clean state. This supports the harness-controlled
+fault boundary for the first technical pilot. It does not establish coverage
+of platform-level failures or show that a fault tool improves reliability.

@@ -18,16 +18,22 @@ The first candidate is the purpose-built **OrderFlow** benchmark. An adapted ope
 
 | Area | Phase 2 position | Status |
 |---|---|---|
-| System | OrderFlow carried into fit probe | Provisional |
-| Experimental target | Kubernetes evaluated as primary target | Provisional |
+| System | Minimal OrderFlow slice carried into the technical pilot | Accepted for bounded pilot |
+| Packaging/runtime | Docker images; Docker Desktop Kubernetes primary local target | Accepted for bounded pilot |
 | Local development | Docker Compose may support lightweight development/reset | Conditional |
 | CI | Portable controller plus repository CI | Accepted boundary |
-| Instrumentation | OpenTelemetry candidate | Provisional |
-| Metrics backend | Prometheus candidate | Provisional |
-| Fault injection | Harness-controlled faults first; Chaos Mesh candidate for Kubernetes | Provisional |
+| Instrumentation | OpenTelemetry Python SDK → OTLP/HTTP → Collector trace path | Accepted for pinned small-trace path |
+| Metrics backend | Prometheus remains a later candidate; raw records do not require a dashboard | Open |
+| Recovery | Monitoring-triggered rule-based recovery for Phase 3 comparison | Accepted for dry-runs; pilot gate applies |
+| Automated rollback | Kubernetes deployment rollback as a separately validated extension | Deferred |
+| Progressive deployment | Canary/blue-green/progressive rollout | Deferred from first comparison |
+| Fault injection | Harness-controlled service/dependency faults first | Accepted for bounded pilot |
 | Human study | Not implemented or conducted | Deferred |
 
 ## Evidence rule
 
-Official documentation is used to establish what a tool is designed to provide. It does not establish that the tool will behave adequately in this experiment. That requires a versioned fit probe with measured reset, targeting, reversion and telemetry checks.
-
+Official documentation establishes intended capability; the recorded fit probes
+and compatibility result establish only technical feasibility for the tested
+versions and scenarios. They do not establish reliability effects,
+generalisability or human-participant claims. See
+[`../adr/0012-phase-2-technology-decision-closeout.md`](../adr/0012-phase-2-technology-decision-closeout.md).
