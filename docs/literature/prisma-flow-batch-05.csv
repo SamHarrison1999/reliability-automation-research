@@ -1,0 +1,10 @@
+stage,count,status,source_or_rule,notes
+full_text_records_assessed_to_date,15,stage_completed,full-text-assessment-batch-04.csv,"P04, P06, P09, P10, P12-P19, P23, P26 and P27."
+primary_records_quality_appraised_this_batch,14,stage_completed,quality-appraisal-batch-05.csv,"Design-sensitive appraisal; not a pooled risk-of-bias total."
+secondary_records_quality_appraised_this_batch,1,stage_completed,quality-appraisal-batch-05.csv,"P09 is secondary context and citation chaining only."
+records_retrieval_pending_after_appraisal,9,pending,full-text-assessment-batch-04.csv,"P01, P02, P03, P05, P07, P11, P20, P22 and P24 remain outside the appraisal denominator."
+full_text_excluded_in_appraisal_batch,0,stage_completed,quality-appraisal-batch-05.csv,"No new full-text exclusion was made."
+direct_human_practice_records_appraised,3,stage_completed,quality-appraisal-batch-05.csv,"P23, P26 and P27; evidence remains descriptive/practice-oriented rather than causal automation evidence."
+technical_records_without_direct_human_measure,12,stage_completed,evidence-chart-batch-04.csv,"Operational-user status, telemetry, accuracy and deployment reports are not counted as direct workload, trust or decision-quality measures."
+authenticated_database_records,not_reported,pending,protocol/search-access boundary,"No authenticated ACM, IEEE, Scopus or Web of Science export was available."
+final_review_included_total,not_reported,pending,full-text retrieval and synthesis,"Phase 1 remains open until pending retrieval, source-located synthesis and gap analysis are complete."
