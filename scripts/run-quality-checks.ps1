@@ -6,10 +6,17 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$VenvPython = if ($env:PYTHON_BIN) { $env:PYTHON_BIN } else { Join-Path $RepoRoot '.venv\Scripts\python.exe' }
+$VenvPython = if ($env:PYTHON_BIN) {
+    $env:PYTHON_BIN
+} elseif (Test-Path -LiteralPath (Join-Path $RepoRoot '.venv\Scripts\python.exe') -PathType Leaf) {
+    Join-Path $RepoRoot '.venv\Scripts\python.exe'
+} else {
+    $PythonCommand = Get-Command python -ErrorAction SilentlyContinue
+    if ($PythonCommand) { $PythonCommand.Source } else { $null }
+}
 
-if (-not (Test-Path -LiteralPath $VenvPython -PathType Leaf)) {
-    throw 'Quality environment not found. Run .\scripts\bootstrap-quality.ps1 first.'
+if ([string]::IsNullOrWhiteSpace($VenvPython) -or -not (Test-Path -LiteralPath $VenvPython -PathType Leaf)) {
+    throw 'Python interpreter not found. Install Python or run .\scripts\bootstrap-quality.ps1 first.'
 }
 
 $VenvBin = Split-Path -Parent $VenvPython

@@ -3,7 +3,13 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
-PYTHON_BIN="${PYTHON_BIN:-${REPO_ROOT}/.venv/bin/python}"
+if [[ -n "${PYTHON_BIN:-}" ]]; then
+  PYTHON_BIN="${PYTHON_BIN}"
+elif [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
+  PYTHON_BIN="${REPO_ROOT}/.venv/bin/python"
+else
+  PYTHON_BIN="$(command -v python3 || command -v python || true)"
+fi
 
 usage() {
   printf '%s\n' 'Usage: scripts/run-quality-checks.sh [--python-only] [--strict-infrastructure]'
@@ -21,8 +27,8 @@ while (($# > 0)); do
   shift
 done
 
-if [[ ! -x "${PYTHON_BIN}" ]]; then
-  printf '%s\n' 'Quality environment not found. Run scripts/bootstrap-quality.sh first.' >&2
+if [[ -z "${PYTHON_BIN}" || ! -x "${PYTHON_BIN}" ]]; then
+  printf '%s\n' 'Python interpreter not found. Install Python or run scripts/bootstrap-quality.sh first.' >&2
   exit 1
 fi
 
