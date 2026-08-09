@@ -1,0 +1,11 @@
+stage,count,status,source_or_rule,notes
+deduplicated_canonical_queue,26,stage_completed,deduplicated-source-register-batch-02.csv,"P01-P20 and P22-P27; P21 was remapped to P09 before screening."
+title_abstract_pilot_records,20,stage_completed,screening-pilot-batch-03.csv,"Required pilot set P01-P20."
+pilot_title_abstract_included,19,stage_completed,screening-pilot-batch-03.csv,"P01-P07, P09-P20."
+pilot_title_abstract_excluded,1,stage_completed,screening-pilot-batch-03.csv,"P08: no empirical evaluation evident."
+post_pilot_records_screened,6,stage_completed,screening-log-append-batch-03.csv,"P22-P27."
+title_abstract_included_total,24,stage_completed,screening-log-append-batch-03.csv,"Includes primary studies and secondary reviews retained for context."
+title_abstract_excluded_total,2,stage_completed,screening-log-append-batch-03.csv,"P08 and P25."
+full_text_assessment_queue,24,pending,full-text-retrieval-queue-batch-03.csv,"Title-and-abstract includes are not final full-text inclusions."
+authenticated_database_records,not_reported,pending,protocol/search-access boundary,"No authenticated ACM, IEEE, Scopus or Web of Science export was available."
+final_full_text_included,not_reported,pending,full-text screening,"Not started in this batch."

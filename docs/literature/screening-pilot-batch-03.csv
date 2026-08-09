@@ -1,0 +1,21 @@
+pilot_record,paper_id,pilot_order,decision,rule_tested,protocol_amendment_required,notes
+SP01,P01,1,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP02,P02,2,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP03,P03,3,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP04,P04,4,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP05,P05,5,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP06,P06,6,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP07,P07,7,include,primary_empirical_relevant,no,Existing seed decision retained.
+SP08,P08,8,exclude,no_empirical_evaluation_evident,no,Conceptual/framework record retained only for citation chaining.
+SP09,P09,9,include,secondary_review_for_context,no,Secondary evidence retained separately from primary studies.
+SP10,P10,10,include,primary_empirical_relevant,no,Technical resilience-testing study.
+SP11,P11,11,include,primary_empirical_relevant,no,Incident-triage empirical study; full text still required.
+SP12,P12,12,include,primary_empirical_relevant,no,Automated incident-triage study.
+SP13,P13,13,include,primary_empirical_relevant,no,Self-healing evaluation.
+SP14,P14,14,include,primary_empirical_relevant,no,Automated RCA evaluation.
+SP15,P15,15,include,primary_empirical_relevant,no,Fault-injection and visualisation tool evaluation.
+SP16,P16,16,include,primary_empirical_relevant,no,Incident-investigation decision support.
+SP17,P17,17,include,primary_empirical_relevant,no,Fault profiling of incident tickets.
+SP18,P18,18,include,primary_empirical_relevant,no,Incident aggregation study.
+SP19,P19,19,include,primary_empirical_relevant,no,Resilience profiling study.
+SP20,P20,20,include,secondary_review_for_context,no,Secondary fault-injection review retained for citation chaining.

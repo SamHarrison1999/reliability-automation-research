@@ -1,37 +1,33 @@
-# Literature-review Stage 1 handoff
+# Phase 1B handoff — search execution and evidence batch 01
 
-Target branch: `research/complete-literature-review`
+This package is intended to be applied on the user's local branch:
+`research/phase-1-literature-evidence`.
 
-Apply this package at the repository root. It advances Phase 1 from draft review
-infrastructure to a finalised v1.0 protocol and database search strategy.
+It records the first supplementary discovery pass and a first-pass verified
+evidence batch. It does **not** claim that the actual literature review is
+complete and it does not replace the required authenticated ACM Digital Library,
+IEEE Xplore and Scopus/Web of Science searches.
 
-## Files
+## Apply
 
-- replaces `docs/literature/phase-1-review-protocol.md`;
-- replaces `docs/literature/phase-1-search-execution-plan.md`;
-- replaces `docs/literature/search-log.csv` with a richer, still-unexecuted
-  provenance schema;
-- updates `docs/literature/README.md`;
-- adds `docs/literature/protocol-audit-and-rq-refinement.md`;
-- adds `docs/literature/quality-appraisal-guide.md`; and
-- adds `docs/literature/quality-appraisal.csv`.
+Copy the contents of `docs/literature/` into the repository's
+`docs/literature/` directory. Keep the existing protocol, seed matrix and
+primary search log. Append `search-log-append.csv` to `search-log.csv` only if
+the supplementary rows are to be retained in the same log; otherwise retain it
+as an auditable annex.
 
-The package does not overwrite the seed screening log, evidence matrix,
-references, claim register, literature map, PRISMA ledger or full-text charting
-guide.
+The `evidence-batch-01.csv`, `quality-appraisal-batch-01.csv` and
+`claim-register-batch-01.csv` files are append-only evidence-stage inputs. Do
+not silently overwrite the existing seed files. After review, merge verified
+rows into the canonical files with stable paper IDs and preserve the batch
+files as provenance.
 
-## Evidence status
-
-No database search count, screening decision, full-text finding or synthesis
-claim was fabricated. The next task is to smoke-test and then execute the T, H
-and M search families using the reviewer's authenticated database access.
-
-## Suggested validation
+## Validation
 
 ```powershell
 git diff --check
 git status --short
 ```
 
-Review the diff before committing because this package deliberately replaces
-the protocol, search plan, search log and literature README.
+Before committing, confirm that no restricted full-text PDFs or licensed
+database exports have been copied into the repository.

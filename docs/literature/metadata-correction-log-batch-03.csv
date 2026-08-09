@@ -1,0 +1,2 @@
+correction_id,paper_id,field,previous_value,corrected_value,verification_source,action,status
+MC01,P25,doi,10.1145/3379987,10.1145/3380774.3380778,ACM Queue record and ACM DOI metadata,retain correction in source audit and do not use previous DOI for retrieval,confirmed
