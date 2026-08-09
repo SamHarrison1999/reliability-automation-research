@@ -27,6 +27,17 @@ $Required = @(
     'scripts/run-phase-2-kubernetes-fit-probe.ps1',
     'docs/diagrams/phase-2-candidate-architecture.mmd', 'docs/diagrams/phase-2-experiment-control-flow.mmd',
     'scripts/bootstrap.sh', 'scripts/bootstrap.ps1', 'scripts/verify-repository.sh',
+    'pyproject.toml', 'tests/test_fit_probe.py', 'tests/test_service.py',
+    'docs/engineering-quality.md', 'docs/observability/opentelemetry.md',
+    'ansible/README.md', 'ansible/ansible.cfg', 'ansible/inventory/local.yml', 'ansible/site.yml',
+    'observability/opentelemetry/README.md', 'observability/opentelemetry/collector-config.yaml',
+    'scripts/bootstrap-quality.sh', 'scripts/bootstrap-quality.ps1',
+    'scripts/run-quality-checks.sh', 'scripts/run-quality-checks.ps1',
+    'scripts/check-compliance.sh', 'scripts/check-compliance.ps1',
+    'scripts/run-cloc.sh', 'scripts/run-cloc.ps1',
+    'scripts/validate-infrastructure.sh', 'scripts/validate-infrastructure.ps1',
+    'scripts/run-psscriptanalyzer.ps1', 'PSScriptAnalyzerSettings.psd1',
+    '.github/workflows/quality.yml', '.yamllint',
     '.github/workflows/validate-repository.yml'
 )
 
@@ -58,5 +69,5 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 3 - fault model, metrics and experiment protocol.'
+Write-Host 'Phase: 3 - quality baseline, fault model, metrics and experiment protocol.'
 Write-Host 'Full application implementation: intentionally absent; fit-probe slice only.'

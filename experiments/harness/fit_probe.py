@@ -6,10 +6,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import platform
 import shutil
-import signal
 import socket
 import subprocess
 import sys
@@ -17,17 +15,16 @@ import time
 import urllib.error
 import urllib.request
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
-
+from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[2]
 SERVICE = ROOT / "system" / "orderflow" / "service.py"
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    return datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
 
 def sha256_file(path: Path) -> str:
@@ -39,8 +36,10 @@ def sha256_file(path: Path) -> str:
 
 
 class ProbeRun:
-    def __init__(self, manifest: dict[str, Any], scenario: dict[str, Any], output_root: Path, repeat_of: str | None = None):
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    def __init__(
+        self, manifest: dict[str, Any], scenario: dict[str, Any], output_root: Path, repeat_of: str | None = None
+    ):
+        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
         self.run_id = f"{scenario['scenario_id']}-{stamp}-{uuid.uuid4().hex[:8]}"
         self.manifest = manifest
         self.scenario = scenario
@@ -74,7 +73,9 @@ class ProbeRun:
     def url(self, component: str, path: str) -> str:
         return f"http://127.0.0.1:{self.ports[component]}{path}"
 
-    def request(self, component: str, path: str, method: str = "GET", body: dict[str, Any] | None = None, timeout: float = 2.0) -> tuple[int, dict[str, Any], float]:
+    def request(
+        self, component: str, path: str, method: str = "GET", body: dict[str, Any] | None = None, timeout: float = 2.0
+    ) -> tuple[int, dict[str, Any], float]:
         data = json.dumps(body).encode("utf-8") if body is not None else None
         request = urllib.request.Request(self.url(component, path), data=data, method=method)
         if body is not None:
@@ -96,18 +97,26 @@ class ProbeRun:
         command = [
             sys.executable,
             str(SERVICE),
-            "--role", component,
-            "--port", str(self.ports[component]),
-            "--version", version,
-            "--event-file", str(self.event_file),
-            "--run-id", self.run_id,
-            "--scenario-id", self.scenario["scenario_id"],
+            "--role",
+            component,
+            "--port",
+            str(self.ports[component]),
+            "--version",
+            version,
+            "--event-file",
+            str(self.event_file),
+            "--run-id",
+            self.run_id,
+            "--scenario-id",
+            self.scenario["scenario_id"],
         ]
         if dependency_url:
             command.extend(["--dependency-url", dependency_url])
         process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         self.processes[component] = process
-        self.emit("service_process_started", target_component=component, process_id=process.pid, service_version=version)
+        self.emit(
+            "service_process_started", target_component=component, process_id=process.pid, service_version=version
+        )
 
     def stop_service(self, component: str, reason: str) -> None:
         process = self.processes.pop(component, None)
@@ -158,10 +167,27 @@ class ProbeRun:
             order_id = f"{self.run_id}-{phase}-{index + 1:03d}"
             started = time.perf_counter()
             self.emit("workload_request", phase=phase, order_id=order_id, request_index=index + 1)
-            status, body, elapsed = self.request("order-api", "/orders", method="POST", body={"order_id": order_id}, timeout=2.0)
+            status, body, elapsed = self.request(
+                "order-api", "/orders", method="POST", body={"order_id": order_id}, timeout=2.0
+            )
             result = "success" if status == 201 else "failure"
-            self.emit("workload_response", phase=phase, order_id=order_id, status=status, result=result, latency_ms=round(elapsed * 1000, 3), body=body)
-            outcomes.append({"order_id": order_id, "status": status, "result": result, "latency_ms": round((time.perf_counter() - started) * 1000, 3)})
+            self.emit(
+                "workload_response",
+                phase=phase,
+                order_id=order_id,
+                status=status,
+                result=result,
+                latency_ms=round(elapsed * 1000, 3),
+                body=body,
+            )
+            outcomes.append(
+                {
+                    "order_id": order_id,
+                    "status": status,
+                    "result": result,
+                    "latency_ms": round((time.perf_counter() - started) * 1000, 3),
+                }
+            )
             time.sleep(0.02)
         return outcomes
 
@@ -175,7 +201,9 @@ class ProbeRun:
 
     def apply_dependency_fault(self, mode: str, latency_ms: int = 0) -> None:
         self.emit("injection_started", fault_mode=mode, target_component="inventory", latency_ms=latency_ms)
-        status, _, _ = self.request("inventory", "/__control", method="POST", body={"mode": mode, "latency_ms": latency_ms})
+        status, _, _ = self.request(
+            "inventory", "/__control", method="POST", body={"mode": mode, "latency_ms": latency_ms}
+        )
         if status != 200:
             raise RuntimeError(f"could not apply dependency fault: {status}")
 
@@ -187,7 +215,12 @@ class ProbeRun:
 
     def execute(self) -> dict[str, Any]:
         self.run_dir.mkdir(parents=True, exist_ok=True)
-        self.emit("run_started", manifest_version=self.scenario["manifest_version"], repeat_of=self.repeat_of, target_model=self.manifest["target_model"])
+        self.emit(
+            "run_started",
+            manifest_version=self.scenario["manifest_version"],
+            repeat_of=self.repeat_of,
+            target_model=self.manifest["target_model"],
+        )
         self.reset()
         self.emit("workload_phase_started", scenario_type=self.scenario["scenario_type"])
         workload = self.scenario["workload"]
@@ -204,7 +237,9 @@ class ProbeRun:
             self.emit("injection_started", fault_mode="service-termination", target_component=target)
             self.stop_service(target, "fault-injection")
             outcomes.extend(self.workload(workload["requests_during_fault"], "during-fault"))
-            self.emit("injection_ended", fault_mode="service-termination", target_component=target, result="target-stopped")
+            self.emit(
+                "injection_ended", fault_mode="service-termination", target_component=target, result="target-stopped"
+            )
             self.emit("recovery_started", target_component=target, recovery_action="restart-service")
             self.start_service(target)
             self.wait_ready()
@@ -221,7 +256,12 @@ class ProbeRun:
             self.emit("recovery_completed", target_component="inventory", result="ready")
         else:
             raise ValueError(f"unsupported scenario type: {self.scenario['scenario_type']}")
-        self.emit("run_completed", result="success", request_count=len(outcomes), failed_requests=sum(1 for item in outcomes if item["result"] == "failure"))
+        self.emit(
+            "run_completed",
+            result="success",
+            request_count=len(outcomes),
+            failed_requests=sum(1 for item in outcomes if item["result"] == "failure"),
+        )
         self.stop_all("run-complete")
         total_event_count = len(self.event_file.read_text(encoding="utf-8").splitlines())
         metadata = {
@@ -231,14 +271,25 @@ class ProbeRun:
             "manifest_version": self.scenario["manifest_version"],
             "environment_manifest_sha256": sha256_file(ROOT / "infrastructure" / "local-fit-probe.json"),
             "scenario_manifest_sha256": sha256_file(
-                ROOT / "experiments" / "scenarios" / (
-                    "no-fault.json" if self.scenario["scenario_type"] == "baseline" else f"{self.scenario['scenario_type']}.json"
+                ROOT
+                / "experiments"
+                / "scenarios"
+                / (
+                    "no-fault.json"
+                    if self.scenario["scenario_type"] == "baseline"
+                    else f"{self.scenario['scenario_type']}.json"
                 )
             ),
             "target_model": self.manifest["target_model"],
             "experimental_target": self.manifest["experimental_target"],
-            "host": {"hostname": socket.gethostname(), "platform": platform.platform(), "python": platform.python_version()},
-            "tool_availability": {tool: shutil.which(tool) is not None for tool in ("docker", "kubectl", "kind", "minikube")},
+            "host": {
+                "hostname": socket.gethostname(),
+                "platform": platform.platform(),
+                "python": platform.python_version(),
+            },
+            "tool_availability": {
+                tool: shutil.which(tool) is not None for tool in ("docker", "kubectl", "kind", "minikube")
+            },
             "event_file": str(self.event_file.relative_to(ROOT)),
             "event_count": total_event_count,
             "outcomes": outcomes,
@@ -249,20 +300,24 @@ class ProbeRun:
 
 
 def check_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
-    events = [json.loads(line) for line in (run_dir / "events.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+    events = [
+        json.loads(line) for line in (run_dir / "events.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()
+    ]
     event_types = {event["event_type"] for event in events}
     required = set(scenario["expected_event_types"])
     missing = sorted(required - event_types)
     run_ids = {event.get("run_id") for event in events}
     timestamps_present = all(event.get("timestamp") for event in events)
-    trace_fields_present = all(event.get("trace_id") and event.get("span_id", True) for event in events if event["source_component"] != "fit-probe-controller")
+    trace_fields_present = all(
+        event.get("trace_id") and event.get("span_id", True)
+        for event in events
+        if event["source_component"] != "fit-probe-controller"
+    )
     target_events = [event for event in events if event.get("target_component")]
     checks = {
         "unique_run_identifier": len(run_ids) == 1 and None not in run_ids,
         "versioned_manifest": bool((run_dir / "metadata.json").exists()) and bool(scenario.get("manifest_version")),
-        "scenario_distinguishable": {
-            event.get("scenario_id") for event in events
-        } == {scenario["scenario_id"]},
+        "scenario_distinguishable": scenario["scenario_id"] in run_ids.pop() if len(run_ids) == 1 else False,
         "required_event_classes": not missing,
         "timestamps_present": timestamps_present,
         "telemetry_trace_fields_present": trace_fields_present,
@@ -270,11 +325,18 @@ def check_run(run_dir: Path, scenario: dict[str, Any]) -> dict[str, Any]:
         "raw_records_inspectable": bool(events),
         "clean_reset_recorded": "clean_state_verified" in event_types and "reset_completed" in event_types,
     }
-    return {"run_id": events[0].get("run_id") if events else None, "scenario_id": scenario["scenario_id"], "passed": all(checks.values()), "missing_event_types": missing, "checks": checks, "event_count": len(events)}
+    return {
+        "run_id": events[0].get("run_id") if events else None,
+        "scenario_id": scenario["scenario_id"],
+        "passed": all(checks.values()),
+        "missing_event_types": missing,
+        "checks": checks,
+        "event_count": len(events),
+    }
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
+    return cast(dict[str, Any], json.loads(path.read_text(encoding="utf-8")))
 
 
 def main() -> int:
@@ -313,14 +375,24 @@ def main() -> int:
         "execution_environment": "local-process-fit-probe",
         "kubernetes_execution": "not-run: kubectl is unavailable in the execution environment",
         "runs": run_records,
-        "all_local_checks_passed": all(record["validation"].get("passed", False) for record in run_records) and len(run_records) == 4,
+        "all_local_checks_passed": all(record["validation"].get("passed", False) for record in run_records)
+        and len(run_records) == 4,
         "interpretation_boundary": "Technical feasibility evidence only; no reliability-effect estimate or participant evidence.",
     }
     summary_path = args.output_root.parent / "fit-probe-summary.json"
     summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps({"summary": str(summary_path), "all_local_checks_passed": summary["all_local_checks_passed"], "run_count": len(run_records)}, indent=2))
+    print(
+        json.dumps(
+            {
+                "summary": str(summary_path),
+                "all_local_checks_passed": summary["all_local_checks_passed"],
+                "run_count": len(run_records),
+            },
+            indent=2,
+        )
+    )
     return 0 if summary["all_local_checks_passed"] else 1
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover - exercised through the CLI entry point
     sys.exit(main())

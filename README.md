@@ -4,15 +4,9 @@ Research repository for the provisional PhD project:
 
 > An Empirical Investigation of Reliability Automation and Human Decision-Making in Continuous Delivery Environments
 
-This repository is currently in **Phase 3 - fault model, metrics and experiment protocol**. Phase 2 technical fit-probe evidence is complete for the local-process and Docker Desktop Kubernetes targets. The repository still contains only the bounded fit-probe implementation; it contains no full experimental application, participant data or empirical findings.
+This repository is currently preparing **Phase 3: fault model, metrics and experiment protocol**. It contains only the bounded implementation needed for the technical fit probe; it contains no full experimental application and no empirical findings. The engineering-quality baseline on this branch improves reproducibility and reviewability without changing that evidence boundary.
 
 ## Research direction
-
-<!-- BEGIN PHASE-2-CLOSEOUT -->
-Phase 2 technical fit-probe evidence is complete for the local-process and Docker Desktop Kubernetes targets as of 2026-08-08. The evidence demonstrates technical feasibility only; it does not estimate reliability effects, provide participant evidence, establish production readiness, or validate compatibility with a real OpenTelemetry SDK/collector pipeline.
-
-Phase 3 may now define the fault model, metric operationalisations and experiment protocol. Phase 1 literature completion and the OpenTelemetry SDK/collector compatibility check remain explicit carry-forward limitations.
-<!-- END PHASE-2-CLOSEOUT -->
 
 The working design separates two evidence streams:
 
@@ -60,10 +54,12 @@ docs/
 system/                  Minimal fit-probe service slice; full benchmark later
 infrastructure/          Fit-probe manifests and later reproducible environments
 experiments/              Versioned fit-probe scenarios and harness
+ansible/                  Deferred environment-automation boundary and validation scaffold
+observability/            Optional OpenTelemetry compatibility-probe configuration
 data/                    Raw/processed/external data boundaries
 analysis/                 Reproducible analysis code (later phase)
-scripts/                  Bootstrap and repository validation scripts
-tests/                    Repository and later software tests
+scripts/                  Bootstrap, quality, compliance and repository validation scripts
+tests/                    Harness and service unit tests; later software tests
 results/                  Generated outputs; not source data or findings
 ```
 
@@ -90,3 +86,18 @@ The bootstrap scripts are intentionally idempotent and do not overwrite existing
 Work is phase-gated. Each phase must record its objective, rationale, deliverables, implementation tasks, validation criteria and threats to validity. Do not begin application implementation until the research design and technology choices justify it.
 
 The current Phase 2 selection record is [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md). The local fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
+
+## Engineering quality
+
+Create the local quality environment and run the checks with:
+
+```bash
+bash scripts/bootstrap-quality.sh --with-infrastructure
+bash scripts/run-quality-checks.sh --strict-infrastructure
+```
+
+The tool boundary and rationale are documented in
+[`docs/engineering-quality.md`](docs/engineering-quality.md). CLOC produces a
+disposable report under `tmp/quality`; OpenTelemetry and Ansible are prepared
+for later compatibility and environment-automation probes rather than treated
+as validated production infrastructure.
