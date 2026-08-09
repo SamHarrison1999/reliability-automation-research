@@ -1,103 +1,266 @@
-# Phase 1 search execution plan
+# Phase 1 database search strategy and execution plan
 
-**Protocol:** `phase-1-review-protocol.md` v0.1  
-**Status:** Operational package; searches still need to be run and logged  
-**Prepared:** 2026-08-09
+**Protocol:** `phase-1-review-protocol.md` v1.0  
+**Strategy version:** 1.0  
+**Prepared:** 2026-08-09  
+**Status:** Finalised for platform smoke-testing; no result count has been recorded
 
-## Purpose
+## 1. Search architecture
 
-This document turns the Phase 1 protocol into a reproducible execution sheet.
-It does not replace the protocol and does not count a search as completed until
-the exact query, filters, result count and export file are recorded in
-`search-log.csv`.
+The strategy uses three complementary families. Each family is run separately
+in ACM Digital Library, IEEE Xplore and the selected multidisciplinary index.
+This preserves recall and makes each evidence strand auditable.
 
-## Search blocks
+### Family T — technical mechanisms and outcomes
 
-The searches use three concept blocks. The first two are required; the third is
-used for a targeted human/engineering-practice search.
-
-```text
-A = ("continuous delivery" OR "continuous deployment" OR DevOps OR "continuous software engineering")
-B = (reliab* OR resilien* OR dependab* OR incident* OR failure* OR recover* OR rollback OR "self-healing" OR "fault injection" OR "chaos engineering")
-C = (automat* OR engineer* OR operator* OR decision* OR workload OR trust OR diagnosis OR mitigation OR "incident response")
-```
-
-### Core search
+Purpose: identify empirical evaluations of detection, rollback, remediation,
+recovery, containment, resilience testing and related mechanisms.
 
 ```text
-A AND B
+T-CONTEXT =
+  "continuous delivery" OR "continuous deployment" OR DevOps OR SRE OR
+  "site reliability engineering" OR "cloud native" OR cloud-native OR
+  microservice* OR "online service*" OR "distributed system*"
+
+T-MECHANISM =
+  "reliability automation" OR "incident response automation" OR
+  "automated incident response" OR "automated remediation" OR
+  "automatic remediation" OR "automated recovery" OR "automatic recovery" OR
+  self-heal* OR "automated rollback" OR "automatic rollback" OR failover OR
+  AIOps OR "fault injection" OR "chaos engineering" OR "resilience testing"
+
+T-OUTCOME =
+  reliab* OR resilien* OR dependab* OR availab* OR incident* OR failure* OR
+  fault* OR detect* OR diagnos* OR recover* OR restor* OR contain* OR mitigat* OR
+  rollback OR "service impact" OR "mean time to recover" OR
+  "mean time to repair" OR MTTR
+
+T = T-CONTEXT AND T-MECHANISM AND T-OUTCOME
 ```
 
-### Human/engineering-practice search
+Likely omissions: papers that describe an automation mechanism only by a tool
+name, use domain-specific dependability terms, or omit continuous-delivery and
+cloud terminology. Mitigation: seed-paper testing, citation chasing and a
+documented candidate-term register; do not silently edit T.
+
+### Family H — engineering practice and human–automation interaction
+
+Purpose: identify direct or operational evidence about engineers' incident
+work, decisions, workload, understanding, trust and reliance.
 
 ```text
-A AND B AND C
+H-CONTEXT =
+  DevOps OR SRE OR "site reliability engineering" OR "continuous delivery" OR
+  "continuous deployment" OR "incident response" OR "incident management" OR
+  on-call OR "online service*" OR "cloud native" OR cloud-native OR
+  microservice*
+
+H-AUTOMATION-WORK =
+  automat* OR AIOps OR observab* OR monitor* OR alert* OR triage OR diagnos* OR
+  remediat* OR recover* OR rollback OR "decision support" OR self-heal*
+
+H-HUMAN =
+  engineer* OR operator* OR practitioner* OR human OR "human in the loop" OR
+  human-in-the-loop OR decision* OR workload OR "cognitive load" OR trust OR
+  reliance OR calibrat* OR "situation awareness" OR understand* OR explain* OR
+  escalat* OR coordinat* OR collaboration OR "manual intervention"
+
+H = H-CONTEXT AND H-AUTOMATION-WORK AND H-HUMAN
 ```
 
-The human search is additive. It must not replace the broader search because
-technical studies may not use human-factor terminology in their title or
-abstract.
+Likely omissions: ethnographic or organisational studies that do not use an
+automation term in searchable metadata, and human-factors studies outside
+software operations. Mitigation: citation chasing from included human studies
+and explicitly justified adjacent sources. General automation-trust research is
+not automatically eligible.
 
-## Database execution sheet
+### Family M — methods, measurement and reproducibility
 
-Run each source separately. Copy the exact query submitted to the database,
-including field restrictions and date/language filters, into `search-log.csv`.
-Record the export filename before deduplication.
+Purpose: identify empirical and methodological work that informs controlled
+fault experiments, metric validity, benchmark selection and reproducibility.
 
-| Search ID | Source | Query field mapping | Required record |
+```text
+M-CONTEXT =
+  "software engineering" OR DevOps OR SRE OR "cloud native" OR cloud-native OR
+  microservice* OR "distributed system*" OR "online service*"
+
+M-EXPERIMENT =
+  "fault injection" OR "chaos engineering" OR "resilience testing" OR
+  "controlled experiment" OR benchmark* OR "incident dataset" OR
+  "recovery experiment"
+
+M-METHOD =
+  reproducib* OR replicab* OR valid* OR "experimental design" OR
+  operationali* OR measur* OR metric* OR workload OR reset OR contamination OR
+  provenance OR "mixed methods" OR "threats to validity"
+
+M = M-CONTEXT AND M-EXPERIMENT AND M-METHOD
+```
+
+Likely omissions: generic empirical-software-engineering guidance and older
+human-factors measurement literature. Such sources may be added to a separate
+methodological/contextual register when directly required, but they are not
+counted as empirical reliability-automation studies.
+
+## 2. Database translations
+
+Search interfaces change. The reviewer must use the named platform's advanced
+or command search, preserve the interface-generated query verbatim, and never
+claim execution from the templates alone.
+
+### 2.1 ACM Digital Library
+
+Use Advanced Search. Place each family in title/abstract/keyword or equivalent
+metadata fields supported by the current interface; do not search full text for
+the primary run because it is less comparable with IEEE and Scopus/Web of
+Science metadata searches. Enter the Boolean family exactly as defined above,
+then record the complete ACM-rendered query.
+
+Apply filters after recording the unfiltered count:
+
+- publication date: 2010 through the execution date;
+- content type: research articles/proceedings papers, retaining empirically
+  grounded experience reports; and
+- language: English where the interface supports it, otherwise screen language
+  later.
+
+Run and log T, H and M separately.
+
+### 2.2 IEEE Xplore
+
+Use Command Search or Advanced Search with metadata fields. IEEE Xplore searches
+metadata by default; limit the query to document title, abstract and index terms
+where the interface permits. Preserve the exact command generated or submitted.
+
+Apply:
+
+- publication years 2010 through the execution year;
+- journals and conferences; and
+- English where an explicit filter exists.
+
+Run and log T, H and M separately. Do not use a leading `+` syntax unless the
+current IEEE interface itself generates and documents it.
+
+### 2.3 Scopus
+
+If Scopus is the selected multidisciplinary index, use this structure for each
+family, substituting the expanded Boolean family inside the field function:
+
+```text
+TITLE-ABS-KEY(<FAMILY>)
+AND PUBYEAR > 2009
+AND PUBYEAR < <execution-year-plus-one>
+AND (LIMIT-TO(LANGUAGE, "English"))
+```
+
+Record the exact final string, Scopus database coverage shown by the platform,
+date/time, filters and result count. Do not use an execution-year placeholder in
+the logged query.
+
+### 2.4 Web of Science Core Collection
+
+If Web of Science is selected, use Topic for each family:
+
+```text
+TS=(<FAMILY>)
+AND PY=(2010-<execution-year>)
+AND LA=(English)
+```
+
+Record the exact edition/indexes searched (for example, Core Collection indexes)
+and timespan. Do not label a search simply “Web of Science” without the database
+and platform details.
+
+### 2.5 Supplementary identification
+
+For every included primary study and eligible secondary review:
+
+- inspect the reference list for earlier candidates;
+- perform forward citation searching in an accessible citation index;
+- record seed `paper_id`, direction, date, tool/index and number screened; and
+- route candidates through the same screening criteria.
+
+Use Google Scholar only for this documented supplementary purpose or to locate a
+known item. Result estimates from Google Scholar are not treated as stable
+database-search counts.
+
+## 3. Smoke test before counted execution
+
+The smoke test checks translation, not eligibility or synthesis.
+
+1. Run each family without saving its count as the final execution record.
+2. Check whether the platform can retrieve multiple conceptually relevant seed
+   records where those records are indexed.
+3. Inspect the first 20 results for obvious precision failure.
+4. Record missing terms, syntax errors and interface limitations in a test note.
+5. If a family changes, increment the strategy version and record the amendment.
+6. Execute the final version once per platform and preserve its export/count.
+
+Do not tune a query solely until all nine seeds appear. Seed records test gross
+recall; they do not define the eligible universe.
+
+## 4. Execution order
+
+1. Confirm access to ACM Digital Library, IEEE Xplore and Scopus/Web of Science.
+2. Freeze protocol v1.0 and strategy v1.0, or record a prospective amendment.
+3. Smoke-test T, H and M on each platform.
+4. Execute all final database searches on the same day where practical.
+5. Record each exact query and count before export.
+6. Export complete metadata/abstracts and record filename, format and hash.
+7. Import all exports without modifying them.
+8. Deduplicate by DOI, title and author/year rules.
+9. Run the 20-record screening pilot.
+10. Amend decision rules prospectively if required, then screen the full set.
+11. Retrieve and assess full texts.
+12. Perform backward/forward citation chasing after an initial included set is
+    available, then rerun deduplication and screening for added records.
+
+## 5. Required search-log fields
+
+Each executed search record must include:
+
+- stable `search_id`;
+- search family and version;
+- database and platform/interface;
+- coverage/indexes;
+- UTC and local timestamps;
+- exact query;
+- fields and filters;
+- count before deduplication;
+- export filename, format and hash;
+- execution status; and
+- limitations or deviations.
+
+Create a new row for every rerun. Never replace an earlier count or retroactively
+put a new query under an old `search_id`.
+
+## 6. Search IDs reserved for v1.0
+
+| Search ID | Family | Source | Status |
 |---|---|---|---|
-| S001 | ACM Digital Library | Abstract/title/keyword search using A and B; repeat with C if supported | Query, date/time, filters, result count, export filename |
-| S002 | IEEE Xplore | Metadata search using A and B; repeat with C | Query, date/time, filters, result count, export filename |
-| S003 | Scopus or Web of Science | Title/abstract/keyword fields using A and B; repeat with C | Which index was used, query, date/time, filters, count, export filename |
-| S004 | Google Scholar | Backward and forward citation chasing from included/secondary records | Seed paper, direction, date, screened candidates and decision |
-| S005 | Author/institution repositories | Full-text retrieval for candidate records | URL, access date, version checked and full-text status |
+| S001 | T | ACM Digital Library | planned |
+| S002 | T | IEEE Xplore | planned |
+| S003 | T | Scopus or Web of Science Core Collection | access decision pending |
+| S004 | H | ACM Digital Library | planned |
+| S005 | H | IEEE Xplore | planned |
+| S006 | H | Scopus or Web of Science Core Collection | access decision pending |
+| S007 | M | ACM Digital Library | planned |
+| S008 | M | IEEE Xplore | planned |
+| S009 | M | Scopus or Web of Science Core Collection | access decision pending |
+| S010+ | Citation chasing | Included/secondary seed-specific searches | pending included set |
+| S900 | Seed identification | Existing web-assisted nine-record map | completed as seed only; not a database run |
 
-Do not enter a count obtained from a search-result snippet or a later rerun
-under the original search ID. Create a new search ID and preserve both
-records.
+## 7. Stop conditions
 
-## Pilot and screening sequence
+Pause and document the issue when:
 
-1. Run the two core database searches and export the records.
-2. Deduplicate using DOI, then normalised title plus first author/year.
-3. Pilot title/abstract screening on the first 20 deduplicated records.
-4. Record any eligibility-rule change in the protocol changelog before full
-   screening.
-5. Screen the complete deduplicated set.
-6. Retrieve full texts for all records marked `include` or `uncertain`.
-7. Record one primary exclusion reason for every full-text exclusion.
-8. Chart included studies using the extraction guide and update the matrix only
-   after checking the cited full text.
+- institutional access or export capability is missing;
+- a field mapping changes the meaning of a family;
+- the interface rejects or silently truncates a query;
+- a search produces zero results because syntax or fields are unsupported;
+- the export omits essential metadata and cannot be reproduced;
+- the 20-record pilot exposes an ambiguous eligibility boundary; or
+- the reviewer cannot verify a record or citation from a primary source.
 
-## Reproducibility checklist
-
-For every completed search, retain:
-
-- database or source name;
-- account/institution context when access affects results;
-- UTC search timestamp;
-- exact query string;
-- field restrictions;
-- date, language and publication-type filters;
-- result count before deduplication;
-- export format and filename;
-- deduplication method and resulting count; and
-- any access or indexing limitation.
-
-The repository may contain metadata and legally obtained full texts, but it
-must not commit copyrighted database exports or restricted papers unless the
-licence permits it.
-
-## Stop conditions
-
-Pause and record an issue rather than silently changing the review when:
-
-- a database does not support the planned syntax;
-- a source returns no results because a field restriction is unavailable;
-- the same result set cannot be exported reproducibly;
-- the full text cannot be obtained after reasonable repository/author search;
-- a record's empirical status cannot be determined from the available text; or
-- the 20-record pilot suggests that the eligibility boundary is unclear.
-
-The current repository remains incomplete until the resulting logs and matrix
-contain the evidence needed by the Phase 1 exit criteria.
+Do not compensate for a blocked database by presenting ordinary web search as
+equivalent coverage.
