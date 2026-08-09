@@ -43,6 +43,30 @@ def test_service_event_sequence_is_monotonic(tmp_path: Path) -> None:
     assert second["event_id"] == "inventory-00002"
 
 
+def test_phase3_service_event_contains_trial_identity(tmp_path: Path) -> None:
+    """Phase 3 service events carry the condition and trial allocation fields."""
+    state = ServiceState(
+        "inventory",
+        8081,
+        "inventory-v1",
+        tmp_path / "events.jsonl",
+        "run-1",
+        "scenario-1",
+        "trial-1",
+        "automated",
+        1,
+        2,
+    )
+
+    event = state.emit("phase3_event")
+
+    assert event["event_id"] == "trial-1-inventory-00001"
+    assert event["trial_id"] == "trial-1"
+    assert event["automation_condition"] == "automated"
+    assert event["repetition"] == 1
+    assert event["run_order"] == 2
+
+
 def _start_server(tmp_path: Path, role: str, dependency_url: str = "") -> tuple[Any, ServiceState, threading.Thread]:
     from http.server import ThreadingHTTPServer
 

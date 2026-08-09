@@ -6,7 +6,7 @@
 
 **Phase:** 3
 
-**Status:** Design draft; review and technical implementation remain outstanding
+**Status:** Design complete and locked; local-process event implementation is complete and dry-run validation remains outstanding
 **Date started:** 2026-08-09
 
 ## Objective
@@ -15,7 +15,9 @@ Define a bounded technical experiment that can compare reliability-automation st
 
 - an explicit fault model;
 - operational definitions for technical outcomes;
+- a separate provisional specification for developer-practice constructs that are not measurable from technical telemetry;
 - a versioned trial and reset protocol; and
+- a machine-readable trial allocation and event contract; and
 - pre-specified validity, exclusion and provenance rules.
 
 This phase defines the experiment. It does not claim that the proposed automation improves reliability, and it does not authorise human-participant work.
@@ -85,6 +87,8 @@ The most important distinction is between:
 - **workload metrics**, which use offered and completed request records; and
 - **measurement-quality metrics**, which determine whether a trial is interpretable.
 
+Developer-practice constructs are intentionally separated into [`../metrics/developer-practice-metrics.md`](../metrics/developer-practice-metrics.md). They require participant actions, explanations or questionnaires and therefore belong to a later ethics-approved protocol, not this technical trial.
+
 ## Trial structure
 
 Each trial must have a unique trial identifier and must record:
@@ -100,18 +104,22 @@ Each trial must have a unique trial identifier and must record:
 
 The planned design is blocked by scenario and balanced by recovery condition where practical. Run order must be generated and stored before execution; it must not be rearranged after seeing outcomes.
 
+The locked machine-readable allocation is [`../../experiments/manifests/phase-3-trial-manifest.json`](../../experiments/manifests/phase-3-trial-manifest.json). It specifies 50 planned valid trials: 10 no-fault controls and 40 fault-comparison trials, with two reserve slots per cell. Its contract is documented in [`../../data/schemas/phase-3-trial-manifest.md`](../../data/schemas/phase-3-trial-manifest.md).
+
 ## Phase 3 deliverables
 
-- [x] Bounded fault model and scenario catalogue drafted.
-- [x] Automation-condition boundary drafted.
-- [x] Technical metric operationalisations drafted.
-- [x] Trial, reset, contamination and exclusion rules drafted.
+- [x] Bounded fault model and scenario catalogue finalised for the first technical comparison.
+- [x] Automation-condition boundary finalised.
+- [x] Technical metric operationalisations finalised.
+- [x] Developer-practice metric boundary specified separately for later human-participant work.
+- [x] Trial, reset, contamination and exclusion rules finalised.
 - [x] Threats to validity and carry-forward limitations recorded.
-- [x] Technical experiment protocol drafted.
-- [x] Phase 3 decision ADR drafted.
-- [ ] Review the protocol against the completed Phase 1 evidence map.
-- [ ] Validate the event additions required for detection and condition comparison.
-- [ ] Implement the smallest protocol-supporting trial manifest and analysis tooling.
+- [x] Technical experiment protocol finalised for implementation.
+- [x] Machine-readable trial manifest and manifest contract committed.
+- [x] Phase 3 decision ADR accepted for implementation.
+- [x] Review the protocol against the accessible Phase 1 evidence map (`phase-3-evidence-review.md`).
+- [x] Validate the event additions required for detection and condition comparison in the local-process harness.
+- [x] Implement the smallest protocol-supporting trial harness and raw-record validity tooling.
 - [ ] Run a dry-run without treating it as pilot evidence.
 
 ## Implementation explicitly deferred
@@ -126,7 +134,7 @@ The planned design is blocked by scenario and balanced by recovery condition whe
 
 ## Exit criteria
 
-Phase 3 can close only when:
+The Phase 3 design package is complete when:
 
 - the fault model is bounded and each pilot scenario has a declared target, trigger, duration, recovery action and reset test;
 - primary and secondary metrics have exact event boundaries, units, aggregation and missing-data rules;
@@ -134,7 +142,9 @@ Phase 3 can close only when:
 - the trial protocol specifies run order, repetition, reset, contamination checks and exclusion handling;
 - the event contract can represent condition, detection and recovery decisions without relying on dashboard screenshots;
 - the protocol has been checked against the Phase 1 evidence status and known validity threats; and
-- the dry-run shows that the protocol can be executed without collecting human-participant data.
+- the machine-readable manifest and event contract are committed.
+
+The implementation gate remains open until a dry-run in the declared checkout shows that the protocol can be executed without collecting human-participant data. Dry-run records must not be reported as pilot findings.
 
 ## Known limitations carried forward
 

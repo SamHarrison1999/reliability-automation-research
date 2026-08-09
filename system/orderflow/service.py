@@ -21,13 +21,29 @@ def utc_now() -> str:
 
 
 class ServiceState:
-    def __init__(self, role: str, port: int, version: str, event_file: Path, run_id: str, scenario_id: str):
+    def __init__(
+        self,
+        role: str,
+        port: int,
+        version: str,
+        event_file: Path,
+        run_id: str,
+        scenario_id: str,
+        trial_id: str | None = None,
+        automation_condition: str | None = None,
+        repetition: int | None = None,
+        run_order: int | None = None,
+    ):
         self.role = role
         self.port = port
         self.version = version
         self.event_file = event_file
         self.run_id = run_id
         self.scenario_id = scenario_id
+        self.trial_id = trial_id
+        self.automation_condition = automation_condition
+        self.repetition = repetition
+        self.run_order = run_order
         self.sequence = 0
         self.fault_mode = "none"
         self.latency_ms = 0
@@ -35,7 +51,11 @@ class ServiceState:
     def emit(self, event_type: str, **fields: Any) -> dict[str, Any]:
         self.sequence += 1
         event = {
-            "event_id": f"{self.role}-{self.sequence:05d}",
+            "event_id": (
+                f"{self.trial_id}-{self.role}-{self.sequence:05d}"
+                if self.trial_id
+                else f"{self.role}-{self.sequence:05d}"
+            ),
             "run_id": self.run_id,
             "scenario_id": self.scenario_id,
             "source_component": self.role,
@@ -47,6 +67,11 @@ class ServiceState:
             "telemetry_contract": "otel-compatible-structured-event-v1",
             **fields,
         }
+        if self.trial_id is not None:
+            event["trial_id"] = self.trial_id
+            event["automation_condition"] = self.automation_condition
+            event["repetition"] = self.repetition
+            event["run_order"] = self.run_order
         self.event_file.parent.mkdir(parents=True, exist_ok=True)
         encoded = json.dumps(event, sort_keys=True)
         with self.event_file.open("a", encoding="utf-8") as handle:
@@ -175,11 +200,26 @@ def main() -> int:
     parser.add_argument("--event-file", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--scenario-id", required=True)
+    parser.add_argument("--trial-id")
+    parser.add_argument("--automation-condition", choices=["control", "manual", "automated"])
+    parser.add_argument("--repetition", type=int)
+    parser.add_argument("--run-order", type=int)
     parser.add_argument("--dependency-url", default="")
     parser.add_argument("--host", default="127.0.0.1")
     args = parser.parse_args()
 
-    state = ServiceState(args.role, args.port, args.version, args.event_file, args.run_id, args.scenario_id)
+    state = ServiceState(
+        args.role,
+        args.port,
+        args.version,
+        args.event_file,
+        args.run_id,
+        args.scenario_id,
+        args.trial_id,
+        args.automation_condition,
+        args.repetition,
+        args.run_order,
+    )
     handler_type = type("OrderFlowHandler", (Handler,), {})
     handler_type.state = state  # type: ignore[attr-defined]
     handler_type.dependency_url = args.dependency_url  # type: ignore[attr-defined]

@@ -2,11 +2,15 @@
 
 **Protocol ID:** `phase-3-technical-reliability-v1`
 
-**Status:** Draft for review; do not treat dry-runs as pilot evidence
+**Status:** Design locked; local-process harness implemented; dry-runs are required before pilot evidence
 
 **Related design record:** [`../research-design/phase-3.md`](../research-design/phase-3.md)
 
 **Metric catalogue:** [`../metrics/technical-metrics.md`](../metrics/technical-metrics.md)
+
+**Trial manifest:** [`../../experiments/manifests/phase-3-trial-manifest.json`](../../experiments/manifests/phase-3-trial-manifest.json)
+
+**Manifest contract:** [`../../data/schemas/phase-3-trial-manifest.md`](../../data/schemas/phase-3-trial-manifest.md)
 
 ## Objective
 
@@ -71,9 +75,11 @@ The no-fault scenario is run as a control block. Fault scenarios are blocked, an
 
 If the target environment cannot support the planned repetitions, record the deviation and treat the result as protocol feasibility evidence rather than a completed comparison.
 
+The committed manifest fixes the allocation at 10 valid no-fault controls, 10 valid manual and 10 valid automated service-termination trials, and 10 valid manual and 10 valid automated dependency-latency trials. It allows two reserve slots per cell, including the control block. The reserve is for logged invalid technical runs only; it must not be used to conceal exclusions.
+
 ## Trial manifest
 
-The protocol-supporting manifest must contain at least:
+The design manifest is committed at [`experiments/manifests/phase-3-trial-manifest.json`](../../experiments/manifests/phase-3-trial-manifest.json). It defines the scenarios, workload, detection rules, recovery actions, required events, allocation and analysis boundary. Each execution must materialise an immutable trial manifest containing at least:
 
 ```json
 {
@@ -89,6 +95,8 @@ The protocol-supporting manifest must contain at least:
   "environment_manifest": "path-or-digest"
 }
 ```
+
+The manifest contract is documented at [`data/schemas/phase-3-trial-manifest.md`](../../data/schemas/phase-3-trial-manifest.md). The concrete run order is generated and retained before the first trial in each block.
 
 The manifest is immutable after trial start. If a trial must be amended, create a new trial identifier and preserve the original manifest and failure record.
 
@@ -169,6 +177,8 @@ Derive the metrics in [`../metrics/technical-metrics.md`](../metrics/technical-m
 
 Retain individual trial values and source event identifiers. Do not pool no-fault and fault scenarios into one primary outcome. Do not use the technical results to infer human workload, trust, understanding or decision rationale.
 
+Developer-practice constructs are outside this technical protocol. Their provisional measurement specification is recorded separately in [`../metrics/developer-practice-metrics.md`](../metrics/developer-practice-metrics.md) and cannot be collected before a separate ethics-approved participant protocol exists.
+
 ## Threats to validity
 
 - The scripted manual baseline controls timing but is not representative of real engineers.
@@ -189,8 +199,8 @@ The implementation command must be versioned before the protocol is declared exe
 ```bash
 python3 experiments/harness/phase_3_trial.py \
   --protocol docs/protocols/phase-3-technical-experiment.md \
-  --trial-manifest experiments/manifests/phase-3-trial.json \
+  --trial-manifest experiments/manifests/phase-3-trial-manifest.json \
   --output-root results/phase-3/raw
 ```
 
-This command is intentionally a planned interface at the design stage. Do not run it until the harness, event additions and trial-manifest schema have been implemented and reviewed.
+The command is implemented by [`../../experiments/harness/phase_3_trial.py`](../../experiments/harness/phase_3_trial.py) for the declared local-process execution context. It runs one dry-run slot for each manifest cell by default and writes raw bundles, immutable manifests, validity records and a summary. Dry-run output is feasibility evidence only and must not be reported as pilot findings.
