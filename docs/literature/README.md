@@ -1,9 +1,34 @@
-# Literature review workspace
+# Literature review
 
-Phase 1 uses a scoping-review/evidence-mapping design. The protocol is in [phase-1-review-protocol.md](phase-1-review-protocol.md), with search provenance in [search-log.csv](search-log.csv), screening decisions in [screening-log.csv](screening-log.csv), and the initial chart in [evidence-matrix.csv](evidence-matrix.csv).
+The consolidated Phase 1 review is in
+[`phase-1-final-literature-review.md`](phase-1-final-literature-review.md).
 
-The matrix is deliberately structured around the supervisor feedback. It records the system studied, software domain, automation mechanism, empirical method, data source, participants or operational subjects, metrics, human factors, reproducibility information and limitations.
+## Final status
 
-The current matrix is an initial seed map, not a completed review. Records marked `abstract_only` require full-text verification before their details can be used in the proposal as established evidence. Records marked `secondary_context_only` support citation chaining and terminology mapping but are not primary empirical findings. No participant data or experimental results are stored here.
+The review is complete for the accessible, source-verifiable corpus:
 
-Do not add invented or unverified citations. Preserve DOI links, database exports and search dates when the named database searches are executed.
+- 27 provisional candidates;
+- 26 canonical records after deduplication;
+- 26 title-and-abstract screens;
+- 24 full-text records sought and resolved;
+- 22 records included in the final evidence map;
+- P03 and P22 unavailable after documented retrieval attempts; and
+- authenticated ACM Digital Library, IEEE Xplore and Scopus/Web of Science
+  exports unavailable in this workspace.
+
+No ordinary web-search count is presented as an authenticated database count.
+The access limitation is documented in
+`authenticated-database-access-closure-batch-07.csv`.
+
+## Close-out records
+
+- `full-text-retrieval-and-eligibility-batch-07.csv`
+- `source-location-transcription-batch-07.csv`
+- `final-appraisal-register-batch-07.csv`
+- `prisma-flow-batch-07.csv`
+- `final-claim-register-batch-07.csv`
+- `supplementary-retrieval-search-log-batch-07.csv`
+- `phase-1-closeout-batch-07.md`
+
+The earlier staged search, screening, charting and appraisal artefacts remain
+part of the branch history and should not be deleted.

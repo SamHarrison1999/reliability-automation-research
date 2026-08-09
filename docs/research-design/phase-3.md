@@ -44,7 +44,7 @@ RQ2 concerns engineers' diagnosis, recovery and escalation decisions. A technica
 | Primary technical outcomes | Detection latency, recovery time and failure impact |
 | Secondary outcomes | Failed requests, request-latency change, recovery success, intervention count and telemetry completeness |
 | Deployment target | Target environment selected in Phase 2; local-process and Kubernetes records remain separately labelled |
-| Telemetry | Structured event contract; OpenTelemetry SDK/collector compatibility remains a carry-forward validation task |
+| Telemetry | Pinned OpenTelemetry SDK/Collector trace path with raw capture plus structured event contract |
 | Data | Synthetic technical records only; no participant identifiers, real payments or production traffic |
 | Inference boundary | Feasibility and pre-specified technical comparison only; no universal or causal claim before the pilot is reviewed |
 
@@ -140,7 +140,7 @@ Phase 3 can close only when:
 
 - Phase 1 database searching and full-text charting remain outstanding in the repository record.
 - The local fit probe demonstrated technical feasibility only; it did not compare automation conditions.
-- The OpenTelemetry SDK/collector path remains a compatibility task until a real export and loss/order test is recorded.
+- The pinned OpenTelemetry SDK/Collector path passed the small-trace compatibility check; load, metrics/logs and Kubernetes-equivalence validation remain open.
 - A purpose-built OrderFlow slice improves control but may reduce external validity.
 - A scripted manual baseline isolates the recovery mechanism but does not represent real engineer behaviour.
 - The planned repetitions are a feasibility/pilot design, not a statistical power justification.

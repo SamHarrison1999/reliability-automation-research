@@ -1,0 +1,11 @@
+stage,category,count,unit,status,notes
+identification,records_in_deduplicated_queue,26,canonical_records,recorded,"Phase 1D canonical screening queue before full-text assessment"
+identification,title_abstract_exclusions,2,records,recorded,"P08 and P25 excluded at title/abstract level"
+eligibility,full_text_queue,24,records,recorded,"Records retained after title/abstract screening"
+eligibility,full_text_charted,15,records,recorded,"14 primary and 1 secondary record charted in Phase 1E"
+eligibility,retrieval_pending,9,records,recorded,"P01, P02, P03, P05, P07, P11, P20, P22 and P24"
+appraisal,chart_based_provisional,15,appraisals,recorded,"All charted records appraised in Phase 1F; source locators still required"
+synthesis,provisional_claims,10,claims,recorded,"Claim register batch 06; not final proposal evidence"
+synthesis,open_evidence_gaps,7,gaps,recorded,"Gap register batch 06"
+reporting,authenticated_named_database_exports,0,exports,pending,"ACM Digital Library, IEEE Xplore and Scopus/Web of Science authentication/export remains open"
+reporting,phase_1_exit,0,phase,open,"Phase 1 exit criteria are not satisfied"

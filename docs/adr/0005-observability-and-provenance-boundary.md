@@ -1,6 +1,6 @@
 # ADR 0005: Use an OpenTelemetry-centred telemetry boundary
 
-- **Status:** Structured contract supported locally; SDK/collector path pending
+- **Status:** Accepted for the bounded technical trace path; metrics/logs backend remains open
 - **Date:** 2026-08-08
 
 ## Context
@@ -30,3 +30,18 @@ Use **OpenTelemetry as the instrumentation and transport candidate** for the fit
 ## Consequences
 
 Telemetry is evidence about system events and measurement infrastructure. It is not evidence of participant workload, trust, understanding or decision rationale. Those constructs require a separately approved human-participant protocol.
+
+## Compatibility result
+
+The pinned Python OpenTelemetry SDK/OTLP HTTP exporter `1.44.0` to
+`otel/opentelemetry-collector:0.158.0` path passed the repository-controlled
+compatibility probe. Run `otel-compat-20260809T140133761014Z-9e9c46bf` received
+and decoded all five sequence-labelled spans, preserved the run identifier,
+recorded non-zero non-decreasing timestamps and retained the Collector's
+gzip-compressed transport payload.
+
+This closes the small-trace SDK/Collector feasibility check. It does not close
+load, metrics/logs, cross-host clock, Kubernetes-equivalence or backend
+suitability questions. The structured JSONL bundle remains the audit-friendly
+authoritative record until a reviewed production of the Phase 3 event contract
+uses the compatibility path.

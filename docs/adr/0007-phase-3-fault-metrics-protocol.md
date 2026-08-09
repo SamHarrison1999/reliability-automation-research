@@ -1,6 +1,6 @@
 # ADR 0007: Bound the first technical comparison to recovery initiation
 
-- **Status:** Proposed for Phase 3 review
+- **Status:** Accepted for implementation; dry-run validation pending
 - **Date:** 2026-08-09
 - **Related records:** ADR 0003, ADR 0004, ADR 0005 and ADR 0006
 
@@ -8,7 +8,7 @@
 
 Phase 2 established a provisional OrderFlow slice, a portable controller, deterministic harness faults and a structured telemetry contract. Phase 3 must define a comparison that can isolate reliability-automation effects without adding a large application, a human-participant study or several intervention dimensions at once.
 
-The initial fit-probe scenarios are suitable feasibility cases, but the existing records do not yet contain a condition label or the complete detection-event boundary needed for a technical comparison. A protocol is therefore required before new trial data is collected.
+The initial fit-probe scenarios are suitable feasibility cases, but the existing records do not yet contain a condition label or the complete detection-event boundary needed for a technical comparison. A protocol and machine-readable manifest are therefore required before new trial data is collected.
 
 ## Decision
 
@@ -19,6 +19,7 @@ The initial fit-probe scenarios are suitable feasibility cases, but the existing
 5. Require explicit `fault_detected`, condition-labelled `recovery_started`, `recovery_completed`, cleanup and validity events before a trial can contribute to a primary comparison.
 6. Keep a scripted manual baseline as a technical control; do not interpret its intervention count as human behaviour.
 7. Defer faulty deployments, platform-level chaos tools, cascading faults and canary deployment until separate validation tasks are passed.
+8. Treat developer-practice constructs as a separate human-participant measurement stream; technical telemetry must not be used as a proxy for workload, trust, understanding or decision rationale.
 
 ## Alternatives considered
 
@@ -36,10 +37,10 @@ The design has stronger internal control and a clear measurement boundary, but t
 
 ## Validation required before acceptance
 
-- Implement the trial-manifest and condition fields.
+- Implement the trial-manifest and condition fields from the committed Phase 3 manifest.
 - Demonstrate that manual and automated conditions invoke the same recovery operation.
 - Record explicit detection and recovery decision events.
 - Run dry-runs for every scenario and condition without treating them as pilot evidence.
 - Verify clean reset and contamination checks between trials.
 - Test event export, ordering and loss using the selected OpenTelemetry path or document the structured-contract limitation.
-- Review the design against the completed Phase 1 evidence map.
+- Review the design against the accessible Phase 1 evidence map and carry forward its authenticated-database limitation.

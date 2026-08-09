@@ -1,0 +1,27 @@
+paper_id,decision_at_title_abstract,retrieval_route,full_text_status,next_action,evidence_boundary
+P01,include,DOI/institutional repository,abstract_checked,retrieve_and_assess,Do not use abstract-only details as fully extracted evidence.
+P02,include,DOI/institutional repository,abstract_checked,retrieve_and_assess,Industrial mixed-methods details require full-text verification.
+P03,include,DOI/author or publisher copy,abstract_checked,retrieve_and_assess,Case-study and framework details require full-text verification.
+P04,include,author-hosted or publisher copy,full_text_checked,complete_eligibility_check,First-pass full text exists; complete structured charting.
+P05,include,DOI/institutional repository,abstract_checked,retrieve_and_assess,Experience-report evidence requires full-text verification.
+P06,include,author-hosted or publisher copy,full_text_checked,complete_eligibility_check,First-pass full text exists; complete structured charting.
+P07,include,DOI/author or publisher copy,abstract_checked,retrieve_and_assess,Full experiment and metric definitions require verification.
+P08,exclude,not_required,abstract_checked,retain_context_only,No empirical evaluation evident at title-and-abstract stage.
+P09,include,DOI/arXiv/publisher copy,secondary_full_text_checked,complete_secondary_appraisal,Use for taxonomy and citation chaining only.
+P10,include,author-hosted PDF/publisher copy,full_text_checked,complete_eligibility_check,Complete design-specific charting and appraisal.
+P11,include,IEEE/ACM record or author copy,abstract_checked,retrieve_and_assess,Exact methods and outcomes require full-text verification.
+P12,include,author-hosted PDF/publisher copy,full_text_checked,complete_eligibility_check,Complete structured charting and separate telemetry/workflow coding.
+P13,include,open-access publisher copy,full_text_checked,complete_eligibility_check,Complete recovery-outcome extraction.
+P14,include,author-hosted PDF/publisher copy,full_text_checked,complete_eligibility_check,Separate model accuracy from human-outcome evidence.
+P15,include,author-hosted PDF/publisher copy,full_text_checked,complete_eligibility_check,"Extract comparator, repetitions and outcome definitions."
+P16,include,arXiv/publisher copy,full_text_checked,complete_eligibility_check,Separate query recommendation from autonomous recovery and direct human evidence.
+P17,include,arXiv/publisher copy,full_text_checked,complete_eligibility_check,Code profiling as upstream of recovery unless full text supports more.
+P18,include,author-hosted/arXiv copy,full_text_checked,complete_eligibility_check,Extract aggregation outcomes and deployment limitations.
+P19,include,arXiv/author copy,full_text_checked,complete_eligibility_check,"Extract fault scenarios, resets and metric operationalisation."
+P20,include,IEEE/publisher copy,abstract_checked,retrieve_and_assess,Secondary review; do not use review-level counts before appraisal.
+P22,include,publisher/author copy,abstract_checked,retrieve_and_assess,Secondary review; verify scope and coding methods.
+P23,include,IEEE/arXiv copy,full_text_checked,complete_eligibility_check,Direct incident-response evidence; distinguish interviews from public reports.
+P24,include,ACM/publisher copy,abstract_checked,retrieve_and_assess,Verify empirical basis and human-factor measures.
+P25,exclude,not_required,abstract_checked,retain_context_only,Contextual article excluded from primary/secondary evidence queue; corrected DOI retained for audit.
+P26,include,ACM/arXiv copy,full_text_checked,complete_eligibility_check,Retain preliminary-study limitation and extract direct human/practice evidence.
+P27,include,ACM/author copy,full_text_checked,complete_eligibility_check,Extract case-study method and distinguish deployment practice from recovery comparison.

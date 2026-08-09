@@ -1,16 +1,20 @@
 # OpenTelemetry compatibility boundary
 
-The service currently emits an OpenTelemetry-compatible structured event
-contract to JSONL. It does not yet use an OpenTelemetry SDK or Collector.
+The normal fit probe still emits the existing structured JSONL event contract.
+This branch adds a separate real SDK-to-Collector compatibility probe; it does
+not silently replace the authoritative raw-event path.
 
-`collector-config.yaml` is an optional, local-only configuration for a later
-compatibility probe. It accepts OTLP over HTTP or gRPC and writes received
-records to the Collector debug exporter. It is intentionally not started by
-the normal fit probe and does not introduce a permanent metrics, trace or log
-backend.
+Run the probe from the repository root with:
 
-The compatibility probe must separately test SDK instrumentation, Collector
-configuration, event completeness, timestamp ordering, duplicate or delayed
-records, and raw-bundle export. Until those tests pass, the existing JSONL
-records remain the authoritative fit-probe evidence boundary.
+```powershell
+.\scripts\run-opentelemetry-compatibility.ps1
+```
 
+The probe uses the Python SDK and OTLP HTTP exporter, sends traces through the
+pinned Collector image, and records both the Collector's raw transport output
+and decompressed OTLP protobuf in an independent sink. See
+[`docs/observability/phase-2-otel-compatibility-probe.md`](../../docs/observability/phase-2-otel-compatibility-probe.md).
+
+Until a result bundle passes the acceptance criteria, the compatibility path is
+still provisional. The JSONL event bundles remain the authoritative
+fit-probe evidence boundary.

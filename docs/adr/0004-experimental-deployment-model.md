@@ -1,6 +1,6 @@
 # ADR 0004: Evaluate Kubernetes as the primary experimental target
 
-- **Status:** Provisional; local surrogate passed, Kubernetes execution pending
+- **Status:** Accepted for the bounded technical pilot; Docker Desktop Kubernetes fit probe passed
 - **Date:** 2026-08-08
 
 ## Context
@@ -33,4 +33,14 @@ Kubernetes is a methodological dependency and a possible confounder. The protoco
 
 ## Fit-probe result
 
-The local-process surrogate passed reset, readiness, version update, rollback and repeated fault checks. Kubernetes was not executed because no cluster or Kubernetes client was available, so the primary deployment decision remains provisional.
+The local-process surrogate passed its reset, readiness, version update,
+rollback and repeated-fault checks. A separate Docker Desktop Kubernetes
+execution then recorded four passing runs across no-fault,
+service-termination and dependency-latency scenarios, including a clean-reset
+repeat, with `all_kubernetes_checks_passed: true`.
+
+This accepts Docker image packaging plus Docker Desktop Kubernetes as the
+bounded local experimental target. The local-process and Kubernetes records
+remain separate evidence streams. The result is technical feasibility only;
+it does not establish runtime equivalence, production readiness or a
+reliability effect.

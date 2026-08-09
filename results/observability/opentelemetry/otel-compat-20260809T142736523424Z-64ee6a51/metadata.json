@@ -1,0 +1,20 @@
+{
+  "collector_endpoint": "http://127.0.0.1:4318/v1/traces",
+  "collector_image": "otel/opentelemetry-collector:0.158.0",
+  "expected_span_count": 5,
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "probe_version": "otel-sdk-collector-compatibility-v1",
+  "python_package_versions": {
+    "opentelemetry-api": "1.44.0",
+    "opentelemetry-exporter-otlp-proto-http": "1.44.0",
+    "opentelemetry-proto": "1.44.0",
+    "opentelemetry-sdk": "1.44.0"
+  },
+  "run_id": "otel-compat-20260809T142736523424Z-64ee6a51",
+  "sink_url": "http://127.0.0.1:4319",
+  "started_at": "2026-08-09T14:27:36.524Z"
+}

@@ -1,0 +1,18 @@
+services:
+  sink:
+    build:
+      context: .
+      dockerfile: Dockerfile.sink
+    ports:
+      - "4319:4319"
+
+  collector:
+    image: otel/opentelemetry-collector:0.158.0
+    depends_on:
+      - sink
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./collector-compatibility-config.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "4317:4317"
+      - "4318:4318"

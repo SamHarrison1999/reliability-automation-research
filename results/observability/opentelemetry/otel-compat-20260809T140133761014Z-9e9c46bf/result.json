@@ -1,0 +1,91 @@
+{
+  "collector_endpoint": "http://127.0.0.1:4318/v1/traces",
+  "collector_image": "otel/opentelemetry-collector:0.158.0",
+  "completed_at": "2026-08-09T14:01:34.419Z",
+  "content_encodings": [
+    "gzip"
+  ],
+  "decoded_span_count": 5,
+  "expected_span_count": 5,
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "payload_sha256": [
+    "943855ecdcfd01b2f936da20c9b39c219220f3a494dbe5cbba76fd0277d8aa7a"
+  ],
+  "probe_version": "otel-sdk-collector-compatibility-v2",
+  "python_package_versions": {
+    "opentelemetry-api": "1.44.0",
+    "opentelemetry-exporter-otlp-proto-http": "1.44.0",
+    "opentelemetry-proto": "1.44.0",
+    "opentelemetry-sdk": "1.44.0"
+  },
+  "raw_transport_payload_sha256": [
+    "841a2e5f9f397c6d012c944ca91f276935d06c491beb501a23328b3180b038cd"
+  ],
+  "received_payload_count": 1,
+  "run_id": "otel-compat-20260809T140133761014Z-9e9c46bf",
+  "run_span_count": 5,
+  "sequence_complete": true,
+  "sequence_values": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sink_url": "http://127.0.0.1:4319",
+  "span_records": [
+    {
+      "end_time_unix_nano": 1786284094154089200,
+      "name": "compatibility-probe-span",
+      "run_id": "otel-compat-20260809T140133761014Z-9e9c46bf",
+      "sequence": 1,
+      "span_id": "20d4b6255975aadc",
+      "start_time_unix_nano": 1786284094154040000,
+      "trace_id": "4b90f87ab80349f99a70c5aa397882d8"
+    },
+    {
+      "end_time_unix_nano": 1786284094160779100,
+      "name": "compatibility-probe-span",
+      "run_id": "otel-compat-20260809T140133761014Z-9e9c46bf",
+      "sequence": 2,
+      "span_id": "3a54e6417569e12b",
+      "start_time_unix_nano": 1786284094160739200,
+      "trace_id": "3e0de71451f8cc8ef8b4ea50b8f7a72c"
+    },
+    {
+      "end_time_unix_nano": 1786284094164024900,
+      "name": "compatibility-probe-span",
+      "run_id": "otel-compat-20260809T140133761014Z-9e9c46bf",
+      "sequence": 3,
+      "span_id": "2da891ed29cb7c1b",
+      "start_time_unix_nano": 1786284094163990600,
+      "trace_id": "04bc43135da4911420f9dd90a1094aa1"
+    },
+    {
+      "end_time_unix_nano": 1786284094166899000,
+      "name": "compatibility-probe-span",
+      "run_id": "otel-compat-20260809T140133761014Z-9e9c46bf",
+      "sequence": 4,
+      "span_id": "b82eb88d8275b366",
+      "start_time_unix_nano": 1786284094166865000,
+      "trace_id": "7985000b4bc560b623da56a45731e2e0"
+    },
+    {
+      "end_time_unix_nano": 1786284094169692300,
+      "name": "compatibility-probe-span",
+      "run_id": "otel-compat-20260809T140133761014Z-9e9c46bf",
+      "sequence": 5,
+      "span_id": "fb05e06bc740c5f3",
+      "start_time_unix_nano": 1786284094169655800,
+      "trace_id": "54ae48e13c84815b22c87d78cebef645"
+    }
+  ],
+  "started_at": "2026-08-09T14:01:33.761Z",
+  "status": "passed",
+  "timestamps_non_decreasing": true,
+  "timestamps_parseable": true
+}

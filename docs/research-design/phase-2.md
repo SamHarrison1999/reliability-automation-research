@@ -3,7 +3,7 @@
 **Project:** PhD Preparation – Reliability Automation and Software Engineering Practice
 **Working title:** An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments
 **Phase:** 2
-**Status:** Technical fit-probe close-out complete; Phase 1 literature completion and the OpenTelemetry SDK/collector path remain outstanding
+**Status:** Technology-decision close-out complete for the bounded technical pilot; broader validation remains phase-gated
 **Date started:** 2026-08-08
 
 ## Objective
@@ -14,7 +14,7 @@ Phase 2 is a selection and feasibility phase. It does not claim that a selected 
 
 ## Relationship to Phase 1
 
-The repository's Phase 1 protocol remains the authority for the literature-review process. In the current working copy, database searching and full-text charting are still recorded as outstanding. Phase 2 can prepare and document candidate choices, but it cannot be declared complete until the Phase 1 exit criteria and the Phase 2 validation criteria have both been reviewed.
+The repository's Phase 1 protocol remains the authority for the literature-review process. The accessible-corpus review is retained as the current baseline; authenticated database-comprehensive updating is a separate later review task. That limitation does not turn technical fit evidence into reliability-effect evidence.
 
 ## Research criteria
 
@@ -32,14 +32,16 @@ Candidate options will be assessed against the following weighted criteria. Scor
 
 Scores use a 0–3 scale: 0 = does not meet the criterion, 1 = weak fit, 2 = workable with restrictions, 3 = strong provisional fit. A score is not accepted until the validation task in the matrix has passed.
 
-## Provisional Phase 2 decisions
+## Final Phase 2 technology decisions for the bounded technical pilot
 
-1. **Candidate system:** carry the purpose-built **OrderFlow** transactional benchmark into the fit probe. An adapted open-source benchmark remains the main alternative. OrderFlow is not yet accepted as the final empirical object.
-2. **Deployment model:** evaluate Kubernetes as the primary experimental target because deployment, service health and rollback behaviour are part of the proposed intervention. Docker Compose may be used for local development or a lightweight reset path only if parity with the experimental target is demonstrated.
-3. **CI/CD boundary:** keep the experiment controller portable and command-line driven. GitHub Actions remains repository validation infrastructure; it is not the sole source of experimental reproducibility.
-4. **Telemetry boundary:** use OpenTelemetry as the instrumentation and transport candidate, with a backend selected only after a compatibility probe. Prometheus is the first metrics-backend candidate; a trace/log backend remains open.
-5. **Fault boundary:** implement the first deterministic scenarios at application or dependency boundaries under the experiment controller. Chaos Mesh is the primary Kubernetes fault-injection candidate; Litmus remains an alternative. No fault tool is final until reset, targeting and reversion tests pass.
-6. **Data boundary:** produce versioned manifests and raw event bundles, but do not add participant data or claim pilot findings. Raw and processed data remain separate, and generated outputs remain reproducible from raw records.
+1. **Candidate system:** carry the purpose-built **OrderFlow** transactional benchmark into the bounded technical pilot. An adapted open-source benchmark remains a future comparator, not a silently interchangeable system.
+2. **Deployment model:** build services as Docker images and use Docker Desktop Kubernetes as the primary local experimental target. Docker Compose/local process remains a development and diagnosis path only; no parity is assumed.
+3. **CI/CD boundary:** keep the experiment controller portable and command-line driven. GitHub Actions is repository validation infrastructure, not the experimental condition or sole source of reproducibility.
+4. **Telemetry boundary:** use the pinned OpenTelemetry Python SDK → OTLP/HTTP → Collector trace path with raw capture. Retain the JSONL event bundle for audit; Prometheus and any trace/log backend remain separate backend decisions.
+5. **Recovery boundary:** use a shared monitoring/detection rule and compare scripted manual recovery initiation with rule-based automated initiation. Automated deployment rollback is a separately validated extension.
+6. **Progressive deployment:** defer canary, blue/green and other progressive rollout from the first comparison because it adds traffic-allocation and promotion variables.
+7. **Fault boundary:** implement the first deterministic scenarios at application or dependency boundaries under the experiment controller. Chaos Mesh and Litmus remain future alternatives, not selected dependencies.
+8. **Data boundary:** produce versioned manifests and raw event bundles, but do not add participant data or claim pilot findings. Raw and processed data remain separate, and generated outputs remain reproducible from raw records.
 
 These are decisions about what to test next. They are not claims that one technology is superior in general.
 
@@ -56,8 +58,10 @@ These are decisions about what to test next. They are not claims that one techno
 - [x] Phase 2 fit-probe plan.
 - [x] Complete the portable local fit probe without collecting human-participant data.
 - [x] Record measured reset, startup, telemetry and fault-reversion results for the local target.
-- [ ] Review Phase 1 literature completion and update the decision evidence.
-- [ ] Accept or reject the provisional choices in a follow-up ADR update after the target-environment and telemetry compatibility checks.
+- [x] Record the Docker Desktop Kubernetes fit-probe close-out.
+- [x] Complete and record the real OpenTelemetry SDK/Collector compatibility check.
+- [x] Accept, defer or bound each technology choice in formal ADRs.
+- [ ] Validate the Phase 3 trial manifest, detection events and recovery conditions through dry-runs.
 
 ## Fit-probe plan
 
@@ -89,14 +93,14 @@ The fit probe must be the smallest test capable of challenging the provisional c
 
 ## Validation criteria
 
-Phase 2 may be closed only when:
+The Phase 2 technical decision close-out records that:
 
 - every selected option has an ADR, alternative and validation task;
 - the candidate architecture can be explained without relying on undocumented infrastructure;
 - a clean-reset and version-recording procedure is specified;
 - the fit probe produces a complete raw event bundle for at least one no-fault run and two deterministic fault scenarios;
 - the selected fault mechanism can be targeted and reverted without contaminating the next run;
-- the provisional deployment and telemetry choices are tested together rather than selected independently;
+- the deployment and telemetry choices are tested together rather than selected independently;
 - the Phase 1 evidence status and unresolved literature limitations are reflected in the decisions; and
 - no human-participant data or empirical-effect claim has been introduced.
 
@@ -112,14 +116,16 @@ Phase 2 may be closed only when:
 
 ## Fit-probe evidence
 
-The local fit-probe result is recorded in [`docs/fit-probe/phase-2-fit-probe-results.md`](../fit-probe/phase-2-fit-probe-results.md). It supports the local OrderFlow slice, portable controller and deterministic harness-fault boundary, but does not close the Kubernetes deployment or OpenTelemetry transport decisions.
+The local and Docker Desktop Kubernetes fit-probe results are recorded in
+[`docs/fit-probe/phase-2-fit-probe-results.md`](../fit-probe/phase-2-fit-probe-results.md).
+The real SDK/Collector result is recorded in
+[`docs/observability/phase-2-otel-compatibility-result.md`](../observability/phase-2-otel-compatibility-result.md).
+Together they support the bounded technology decisions; they remain synthetic
+technical-feasibility evidence and do not establish reliability effects.
 
 ## Phase 2 exit record
 
-<!-- BEGIN PHASE-2-KUBERNETES-CLOSEOUT -->
-### Kubernetes fit-probe close-out
-
-The Docker Desktop Kubernetes execution completed successfully on **2026-08-08** using the no-fault, service-termination and dependency-latency scenarios. It produced **4** passing runs, with 1 clean-reset repeat recorded. The summary reports `all_kubernetes_checks_passed: true`. The result is technical feasibility evidence only and does not establish a reliability effect, participant outcome, production readiness or real OpenTelemetry SDK/collector compatibility.
-<!-- END PHASE-2-KUBERNETES-CLOSEOUT -->
-
-The technical fit-probe evidence is now recorded for the local-process and Docker Desktop Kubernetes targets. The next working phase is **Phase 3 - fault model, metrics and experiment protocol**. This does not remove the outstanding Phase 1 literature or OpenTelemetry SDK/collector limitations, and no reliability-effect or participant claim is made.
+The Phase 2 technology-decision close-out is recorded in ADRs 0009–0012. The
+next phase is the fault model, metric operationalisation and experiment
+protocol. Its dry-run gate remains open, and no full application,
+participant work or empirical-effect claim is authorised by this close-out.

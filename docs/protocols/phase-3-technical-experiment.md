@@ -180,7 +180,7 @@ Retain individual trial values and source event identifiers. Do not pool no-faul
 - The recovery action may be easier to automate for service termination than dependency latency.
 - Repetition on one host or cluster may underestimate environmental variation.
 - Phase 1 literature gaps may change the choice of intervention or outcome.
-- OpenTelemetry compatibility and export loss are not established until separately tested.
+- The pinned OpenTelemetry SDK/Collector trace path passed the small-trace compatibility check; each trial must still record telemetry completeness and exclude runs whose event boundaries cannot be established.
 
 ## Reproduction command
 

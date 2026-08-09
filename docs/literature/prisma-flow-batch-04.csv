@@ -1,0 +1,13 @@
+stage,count,status,source_or_rule,notes
+deduplicated_canonical_queue,26,stage_completed,deduplicated-source-register-batch-02.csv,"P01-P20 and P22-P27; P21 was remapped to canonical P09 before screening."
+title_abstract_included_queue,24,stage_completed,screening-log-append-batch-03.csv,"P08 and P25 were excluded before this batch."
+full_text_records_assessed_this_batch,15,stage_completed,full-text-assessment-batch-04.csv,"P04, P06, P09, P10, P12-P19, P23, P26 and P27."
+primary_full_text_included_this_batch,14,stage_completed,full-text-assessment-batch-04.csv,"Eligible primary empirical studies charted in evidence-chart-batch-04.csv."
+secondary_full_text_included_this_batch,1,stage_completed,full-text-assessment-batch-04.csv,"P09 retained for secondary context and citation chaining only."
+full_text_excluded_this_batch,0,stage_completed,full-text-assessment-batch-04.csv,"No retrieved full text was excluded in this batch."
+full_text_awaiting_retrieval,9,pending,full-text-assessment-batch-04.csv,"P01, P02, P03, P05, P07, P11, P20, P22 and P24."
+primary_studies_charted_this_batch,14,stage_completed,evidence-chart-batch-04.csv,"Charted with bounded language and source URLs."
+secondary_records_charted_this_batch,1,stage_completed,evidence-chart-batch-04.csv,"Secondary evidence is not used as a primary effect estimate."
+authenticated_database_records,not_reported,pending,protocol/search-access boundary,"No authenticated ACM, IEEE, Scopus or Web of Science export was available."
+duplicates_removed,not_reported,pending,deduplication rule,"Do not replace the authenticated database total with web-search counts."
+final_review_included_total,not_reported,pending,full-text and authenticated-search completion,"This phase remains open until retrieval, appraisal and synthesis are complete."

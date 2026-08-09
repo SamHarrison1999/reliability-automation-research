@@ -87,7 +87,7 @@ The bootstrap scripts are intentionally idempotent and do not overwrite existing
 
 Work is phase-gated. Each phase must record its objective, rationale, deliverables, implementation tasks, validation criteria and threats to validity. Do not begin application implementation until the research design and technology choices justify it.
 
-The current Phase 2 selection record is [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md). The local fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md). The Phase 3 package is [`docs/research-design/phase-3.md`](docs/research-design/phase-3.md), with the fault model in [`docs/fault-model/phase-3-fault-model.md`](docs/fault-model/phase-3-fault-model.md), metrics in [`docs/metrics/technical-metrics.md`](docs/metrics/technical-metrics.md) and the technical protocol in [`docs/protocols/phase-3-technical-experiment.md`](docs/protocols/phase-3-technical-experiment.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
+The Phase 2 technology close-out is recorded in [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md) and [`docs/adr/0012-phase-2-technology-decision-closeout.md`](docs/adr/0012-phase-2-technology-decision-closeout.md). The fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md), and the real SDK/Collector result is [`docs/observability/phase-2-otel-compatibility-result.md`](docs/observability/phase-2-otel-compatibility-result.md). The Phase 3 package is [`docs/research-design/phase-3.md`](docs/research-design/phase-3.md), with the fault model in [`docs/fault-model/phase-3-fault-model.md`](docs/fault-model/phase-3-fault-model.md), metrics in [`docs/metrics/technical-metrics.md`](docs/metrics/technical-metrics.md) and the technical protocol in [`docs/protocols/phase-3-technical-experiment.md`](docs/protocols/phase-3-technical-experiment.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
 
 ## Engineering quality
 
@@ -100,6 +100,6 @@ bash scripts/run-quality-checks.sh --strict-infrastructure
 
 The tool boundary and rationale are documented in
 [`docs/engineering-quality.md`](docs/engineering-quality.md). CLOC produces a
-disposable report under `tmp/quality`; OpenTelemetry and Ansible are prepared
-for later compatibility and environment-automation probes rather than treated
-as validated production infrastructure.
+disposable report under `tmp/quality`; OpenTelemetry is validated only for the
+pinned small-trace compatibility path and is not treated as production
+infrastructure.

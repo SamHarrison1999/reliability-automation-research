@@ -1,0 +1,10 @@
+stage,count,status,source_or_rule,notes
+seed_records,9,recorded,existing screening-log.csv,Initial seed map only; not a database-search total.
+seed_title_abstract_include,8,recorded,existing screening-log.csv,Includes primary and secondary records in the seed set.
+seed_title_abstract_exclude,1,recorded,existing screening-log.csv,P08 was excluded as non-empirical at the seed-screen stage.
+seed_full_text_checked,2,recorded,existing screening-log.csv,P04 and P06 are marked full_text_checked in the seed log.
+database_records_identified,not_reported,pending,phase-1-search-execution-plan.md,Do not enter a value until the named search export is retained.
+duplicates_removed,not_reported,pending,deduplication rule,Record DOI/title-author method and count after execution.
+full_texts_sought,not_reported,pending,full-text retrieval workflow,Include access failures with a reason.
+full_texts_excluded,not_reported,pending,screening-log.csv,Record one primary exclusion reason per full-text exclusion.
+studies_charted,not_reported,pending,evidence-matrix.csv,Only full-text verified included studies count here.

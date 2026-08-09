@@ -1,0 +1,7 @@
+stage,count,status,source_or_rule,notes
+phase_1c_new_public_discovery_candidates,5,incremental_recorded,candidate-source-register-batch-02.csv,"Five new candidates C23–C27 were identified. This is an incremental batch count, not the total database corpus."
+phase_1c_existing_candidate_duplicate_groups,10,incremental_recorded,deduplication-log-batch-02.csv,"C10, C12–C19 and C21 duplicate existing records. C21 also duplicates seed P09 and must be remapped to P09."
+phase_1c_new_canonical_source_groups,5,incremental_recorded,deduplicated-source-register-batch-02.csv,"C23–C27 are provisionally retained as P23–P27 pending title/abstract screening."
+database_records_identified,not_reported,pending,authenticated ACM/IEEE/Scopus-or-WoS export,"No authenticated export or reproducible database count was available in this workspace."
+duplicates_removed,not_reported,pending,post-export DOI/title-author deduplication,"The incremental candidate-level decisions are recorded, but final totals require the named database exports."
+title_abstract_screened,0,not_started,screening-log.csv,"The new canonical queue has not yet been screened."
