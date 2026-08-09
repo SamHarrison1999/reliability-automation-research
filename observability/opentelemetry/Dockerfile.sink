@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+COPY telemetry_sink.py /app/telemetry_sink.py
+
+EXPOSE 4319
+ENTRYPOINT ["python", "/app/telemetry_sink.py", "--host", "0.0.0.0", "--port", "4319", "--output-dir", "/data"]
