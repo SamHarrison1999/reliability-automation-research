@@ -1,10 +1,10 @@
 # Phase 1 scoping-review and evidence-mapping protocol
 
-**Project:** PhD Preparation – Reliability Automation and Software Engineering Practice  
-**Working title:** *An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments*  
-**Protocol status:** Finalised for search-platform smoke-testing; no database search has yet been counted as executed  
-**Protocol version:** 1.0  
-**Version date:** 2026-08-09  
+**Project:** PhD Preparation – Reliability Automation and Software Engineering Practice
+**Working title:** *An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments*
+**Protocol status:** Finalised for search-platform smoke-testing; no database search has yet been counted as executed
+**Protocol version:** 1.0
+**Version date:** 2026-08-09
 **Planned coverage:** 2010 through the date on which each search is executed
 
 ## 1. Purpose

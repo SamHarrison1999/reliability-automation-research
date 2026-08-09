@@ -1,8 +1,8 @@
 # Phase 1 protocol audit and research-question refinement
 
-**Project:** PhD Preparation – Reliability Automation and Software Engineering Practice  
-**Working title:** *An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments*  
-**Audit date:** 2026-08-09  
+**Project:** PhD Preparation – Reliability Automation and Software Engineering Practice
+**Working title:** *An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments*
+**Audit date:** 2026-08-09
 **Stage:** Protocol finalisation; database searches have not yet been executed
 
 ## 1. Audit conclusion

@@ -1,6 +1,6 @@
 # Design-sensitive quality-appraisal guide
 
-**Protocol:** `phase-1-review-protocol.md` v1.0  
+**Protocol:** `phase-1-review-protocol.md` v1.0
 **Status:** Prospective appraisal rules; no study has been appraised under this version
 
 ## Purpose

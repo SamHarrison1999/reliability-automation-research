@@ -1,8 +1,8 @@
 # Phase 1 database search strategy and execution plan
 
-**Protocol:** `phase-1-review-protocol.md` v1.0  
-**Strategy version:** 1.0  
-**Prepared:** 2026-08-09  
+**Protocol:** `phase-1-review-protocol.md` v1.0
+**Strategy version:** 1.0
+**Prepared:** 2026-08-09
 **Status:** Finalised for platform smoke-testing; no result count has been recorded
 
 ## 1. Search architecture
