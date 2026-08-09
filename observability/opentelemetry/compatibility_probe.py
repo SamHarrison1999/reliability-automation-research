@@ -17,9 +17,10 @@ import urllib.request
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
-PROBE_VERSION = "otel-sdk-collector-compatibility-v2"
+
+PROBE_VERSION = "otel-sdk-collector-compatibility-v1"
 COLLECTOR_IMAGE = "otel/opentelemetry-collector:0.158.0"
 
 
@@ -33,7 +34,7 @@ def sha256_bytes(payload: bytes) -> str:
 
 def get_json(url: str, timeout: float = 2.0) -> dict[str, Any]:
     with urllib.request.urlopen(url, timeout=timeout) as response:
-        return json.loads(response.read().decode("utf-8"))
+        return cast(dict[str, Any], json.loads(response.read().decode("utf-8")))
 
 
 def installed_package_versions() -> dict[str, str]:
@@ -83,22 +84,6 @@ def read_sink_payloads(sink_url: str) -> list[bytes]:
     if not isinstance(encoded, list) or not all(isinstance(item, str) for item in encoded):
         raise RuntimeError("sink returned an invalid payload list")
     return [base64.b64decode(item) for item in encoded]
-
-
-def read_sink_raw_payloads(sink_url: str) -> list[bytes]:
-    payload = get_json(f"{sink_url.rstrip('/')}/records")
-    encoded = payload.get("raw_payloads_base64")
-    if not isinstance(encoded, list) or not all(isinstance(item, str) for item in encoded):
-        raise RuntimeError("sink returned an invalid raw payload list")
-    return [base64.b64decode(item) for item in encoded]
-
-
-def read_sink_content_encodings(sink_url: str) -> list[str]:
-    payload = get_json(f"{sink_url.rstrip('/')}/records")
-    encodings = payload.get("content_encodings")
-    if not isinstance(encodings, list) or not all(isinstance(item, str) for item in encodings):
-        raise RuntimeError("sink returned invalid content encodings")
-    return encodings
 
 
 def emit_spans(collector_endpoint: str, run_id: str, span_count: int) -> None:
@@ -154,14 +139,7 @@ def decode_spans(payloads: list[bytes]) -> list[dict[str, Any]]:
     return spans
 
 
-def evaluate(
-    run_id: str,
-    payloads: list[bytes],
-    spans: list[dict[str, Any]],
-    expected_count: int,
-    raw_payloads: list[bytes] | None = None,
-    content_encodings: list[str] | None = None,
-) -> dict[str, Any]:
+def evaluate(run_id: str, payloads: list[bytes], spans: list[dict[str, Any]], expected_count: int) -> dict[str, Any]:
     sequences = sorted(int(item["sequence"]) for item in spans if item["run_id"] == run_id)
     timestamps = [int(item["start_time_unix_nano"]) for item in spans if item["run_id"] == run_id]
     return {
@@ -174,8 +152,6 @@ def evaluate(
         "timestamps_parseable": all(timestamp > 0 for timestamp in timestamps),
         "timestamps_non_decreasing": timestamps == sorted(timestamps),
         "payload_sha256": [sha256_bytes(payload) for payload in payloads],
-        "raw_transport_payload_sha256": [sha256_bytes(payload) for payload in (raw_payloads or [])],
-        "content_encodings": content_encodings or [],
         "span_records": spans,
     }
 
@@ -193,45 +169,25 @@ def run_probe(collector_endpoint: str, sink_url: str, output_root: Path, span_co
         "expected_span_count": span_count,
         "collector_image": COLLECTOR_IMAGE,
         "python_package_versions": installed_package_versions(),
-        "host": {
-            "hostname": socket.gethostname(),
-            "platform": platform.platform(),
-            "python": platform.python_version(),
-        },
+        "host": {"hostname": socket.gethostname(), "platform": platform.platform(), "python": platform.python_version()},
     }
     (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    payloads: list[bytes] = []
-    raw_payloads: list[bytes] = []
-    content_encodings: list[str] = []
     try:
         wait_for_sink(sink_url)
         wait_for_collector(collector_endpoint)
         emit_spans(collector_endpoint, run_id, span_count)
         deadline = time.monotonic() + 20.0
+        payloads: list[bytes] = []
         while time.monotonic() < deadline:
             payloads = read_sink_payloads(sink_url)
-            raw_payloads = read_sink_raw_payloads(sink_url)
-            content_encodings = read_sink_content_encodings(sink_url)
             if payloads:
                 break
             time.sleep(0.2)
         spans = decode_spans(payloads)
-        evaluation = evaluate(run_id, payloads, spans, span_count, raw_payloads, content_encodings)
+        evaluation = evaluate(run_id, payloads, spans, span_count)
     except Exception as exc:
         result = {**metadata, "status": "blocked", "error": f"{type(exc).__name__}: {exc}", "completed_at": utc_now()}
         (run_dir / "result.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        (run_dir / "raw-payloads.json").write_text(
-            json.dumps(
-                {
-                    "payloads_base64": [base64.b64encode(item).decode("ascii") for item in payloads],
-                    "raw_transport_payloads_base64": [base64.b64encode(item).decode("ascii") for item in raw_payloads],
-                    "content_encodings": content_encodings,
-                },
-                indent=2,
-            )
-            + "\n",
-            encoding="utf-8",
-        )
         raise
 
     result = {
@@ -242,15 +198,7 @@ def run_probe(collector_endpoint: str, sink_url: str, output_root: Path, span_co
     }
     (run_dir / "result.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (run_dir / "raw-payloads.json").write_text(
-        json.dumps(
-            {
-                "payloads_base64": [base64.b64encode(item).decode("ascii") for item in payloads],
-                "raw_transport_payloads_base64": [base64.b64encode(item).decode("ascii") for item in raw_payloads],
-                "content_encodings": content_encodings,
-            },
-            indent=2,
-        )
-        + "\n",
+        json.dumps({"payloads_base64": [base64.b64encode(item).decode("ascii") for item in payloads]}, indent=2) + "\n",
         encoding="utf-8",
     )
     if not result["sequence_complete"] or not result["timestamps_parseable"]:
@@ -266,9 +214,7 @@ def main() -> int:
     parser.add_argument("--span-count", type=int, default=5)
     args = parser.parse_args()
     result = run_probe(args.collector_endpoint, args.sink_url, args.output_root, args.span_count)
-    print(
-        json.dumps({"status": "passed", "run_id": result["run_id"], "decoded_span_count": result["decoded_span_count"]})
-    )
+    print(json.dumps({"status": "passed", "run_id": result["run_id"], "decoded_span_count": result["decoded_span_count"]}))
     return 0
 
 
