@@ -1,204 +1,378 @@
-# Phase 1 scoping-review protocol
+# Phase 1 scoping-review and evidence-mapping protocol
 
 **Project:** PhD Preparation – Reliability Automation and Software Engineering Practice
+**Working title:** *An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments*
+**Protocol status:** Finalised for search-platform smoke-testing; no database search has yet been counted as executed
+**Protocol version:** 1.0
+**Version date:** 2026-08-09
+**Planned coverage:** 2010 through the date on which each search is executed
 
-**Working title:** An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments
+## 1. Purpose
 
-**Protocol status:** Draft for review; searching and screening have not yet been completed in the named bibliographic databases.
+This scoping review will systematically map empirical evidence about
+reliability-oriented automation in continuous-delivery and related cloud-native
+operational environments. It will identify the automation mechanisms studied,
+the systems and failure contexts used, the technical outcomes measured, and the
+extent to which research directly examines engineers' diagnosis, recovery,
+escalation, workload, understanding and reliance on automation.
 
-**Protocol version:** 0.1
+The review will refine the proposed PhD design and identify defensible
+experimental variables, measures and validity requirements. It will not infer
+that one automation strategy is universally superior, treat feasibility probes
+as empirical effect evidence, or use telemetry as a substitute for direct human
+evidence.
 
-**Date prepared:** 2026-08-08
+## 2. Review design and reporting framework
 
-## 1. Purpose and rationale
+The review uses a scoping-review design combined with systematic evidence
+mapping. This is appropriate because the expected evidence includes controlled
+experiments, field and case studies, operational datasets, interviews, surveys,
+mixed-methods studies, experience reports and secondary reviews. These designs
+cannot be treated as equivalent and are unlikely to support a meaningful pooled
+effect estimate.
 
-This scoping review will map the empirical evidence surrounding reliability-oriented automation in continuous delivery and related cloud-native operational settings. It will identify the systems and software domains studied, the automation mechanisms evaluated, the technical outcomes measured, and the extent to which studies examine engineers' work, judgement or decision-making.
+The review report will follow PRISMA-ScR. Search methods will be reported using
+PRISMA-S. Software-engineering mapping guidance will inform classification and
+the separation of primary and secondary evidence. Reporting guidance does not
+replace critical appraisal or determine study quality.
 
-The review is intended to refine the PhD research questions and inform the later choice of an experimental software system. It is not intended to establish that one automation strategy is universally superior, and no causal claim will be made from the review alone. A scoping approach is appropriate because the anticipated evidence is heterogeneous: industrial interviews and surveys, operational datasets, controlled fault-injection experiments, tool evaluations and conceptual frameworks may all be relevant but cannot be treated as equivalent evidence.
+No meta-analysis is planned. A later amendment would be required if a
+sufficiently homogeneous subset justified quantitative synthesis.
 
-The reporting plan will follow PRISMA-ScR. The PRISMA-ScR guidance describes 20 essential and two optional reporting items for scoping reviews and is maintained by the PRISMA Statement. The completed review should include a study-flow record, explicit eligibility criteria, data-charting fields, a narrative synthesis and limitations.
+## 3. Review objectives
 
-## 2. Review objectives
+1. Map reliability-automation mechanisms and intervention points.
+2. Characterise software systems, domains, deployment contexts, fault/incident
+   models, comparators, data sources and empirical designs.
+3. Compare technical outcome definitions and identify where similar labels hide
+   different operationalisations.
+4. Identify direct and indirect evidence about engineering work and
+   human–automation interaction.
+5. Appraise design-specific evidence limitations without collapsing unlike
+   methods into one score.
+6. Translate evidence gaps into explicit requirements or cautions for the
+   proposed technical and human-participant studies.
 
-1. Map the reliability-oriented automation mechanisms investigated in continuous delivery, continuous deployment, cloud-native and online-service settings.
-2. Characterise the software systems, domains, fault or incident types, empirical methods, data sources and technical outcomes used in that research.
-3. Identify how software-engineering practice is evidenced, particularly diagnosis, recovery, escalation, trust, workload, understanding and human–automation decision-making.
-4. Identify methodological gaps relevant to a reproducible mixed-methods study, including lack of controlled comparisons, unclear metric operationalisation, limited replication, proprietary data and absence of human-participant evidence.
+## 4. Review questions
 
-## 3. Review questions
+### RQ-S1 — Mechanisms, contexts and technical outcomes
 
-These are review questions, not replacements for the provisional PhD research questions.
+What reliability-automation mechanisms have been empirically studied in
+continuous-delivery and closely related cloud-native operational contexts, and
+how do their systems, fault or incident models, comparators and measures shape
+the reported technical outcomes?
 
-### RQ-S1 — Automation and technical evidence
+### RQ-S2 — Engineering practice and human evidence
 
-What reliability-oriented automation mechanisms have been empirically studied in continuous delivery or closely related cloud-native operational contexts, and what technical outcomes have been measured?
+What direct evidence shows how reliability automation affects engineers'
+diagnosis, recovery and escalation work, perceived workload, understanding and
+reliance on automation, and how have those constructs been operationalised?
 
-### RQ-S2 — Systems and experimental design
+### RQ-S3 — Validity, reproducibility and design gaps
 
-What software systems, domains, failure or incident models, deployment contexts and empirical designs are used to study those mechanisms?
+Which methodological limitations and evidence gaps constrain causal,
+transferable and reproducible conclusions about the technical and human effects
+of reliability automation, and what requirements follow for the proposed
+mixed-methods study?
 
-### RQ-S3 — Human and engineering-practice evidence
+## 5. Scope using PCC
 
-What evidence exists about engineers' diagnosis, recovery, escalation, workload, trust, understanding or decision-making in interactions with reliability automation?
-
-Reproducibility will be extracted as a cross-cutting methodological field rather than treated as a fourth broad review question.
-
-## 4. Scope using PCC
-
-| Element | Operational scope |
+| Element | Operational definition |
 |---|---|
-| Population | Software engineers, operators, SRE/DevOps practitioners, software teams, or software systems receiving operational and deployment work. Studies with no human participants remain eligible when they provide empirical evidence about systems or operational artefacts. |
-| Concept | Reliability-oriented automation: automated deployment or rollback, monitoring-triggered response, self-healing or remediation, resilience testing, chaos/fault injection, incident detection/triage/recovery support, or related automation that changes failure handling. |
-| Context | Continuous delivery, continuous deployment, DevOps, cloud-native, microservice, distributed or large-scale online-service environments. Adjacent studies may be included when their mechanism and evidence directly inform the proposed reliability experiment. |
+| Population / subjects | Software engineers, operators, SRE/DevOps practitioners and software teams; or software systems, services, deployments, incidents and operational artefacts when no humans are studied. |
+| Concept | Automation that detects, diagnoses, prevents, contains, mitigates or recovers from software-service failures, including automated rollback, remediation, failover, self-healing, incident triage/support, resilience testing and monitoring-triggered response. Fault injection is eligible when it evaluates or validates such mechanisms or the reliability evidence used to design them. |
+| Context | Continuous delivery/deployment, DevOps/SRE, cloud-native, microservice, distributed and large-scale online-service environments. Adjacent operational studies are eligible only when their mechanism or human evidence is transferable and the rationale is recorded. |
 
-The review will distinguish **continuous delivery** (software kept in a deployable state) from **continuous deployment** (automatic deployment to production). The distinction matters because the literature does not always use the terms consistently.
+Continuous delivery and continuous deployment will be coded separately when
+the source permits. A paper's terminology will be retained, but the reviewer
+will not assume the two practices are equivalent.
 
-## 5. Eligibility criteria
+## 6. Eligibility criteria
 
-### Include
+### 6.1 Inclusion criteria
 
-- English-language papers published from 2010 through 2026-08-08, including online-first publication where the publication year is identifiable.
-- Peer-reviewed journal articles, conference papers and experience reports with a defined empirical basis.
-- Primary empirical studies using experiments, case studies, field studies, interviews, surveys, operational datasets, repository mining, tool evaluations or mixed methods.
-- Systematic, mapping or scoping reviews for citation chaining and landscape context; these will be labelled as secondary evidence and will not be treated as primary findings.
-- Studies reporting at least one of: automation mechanism, system/domain, failure/incident model, technical outcome, engineering-practice observation or human-factor measure.
+A record is eligible for full-text assessment when it meets all applicable
+criteria:
 
-### Exclude
+- published in English from 2010 through the search date, or identified as an
+  earlier seminal source through documented citation chasing;
+- peer-reviewed journal article, conference paper or empirically grounded
+  experience report;
+- primary empirical research using experiments, case/field studies,
+  operational data, repository mining, interviews, surveys, tool evaluation or
+  mixed methods; or a systematic/mapping/scoping review retained as secondary
+  evidence;
+- concerns a software-intensive operational setting within the PCC scope; and
+- reports enough information to assess at least one automation mechanism,
+  technical outcome, engineering-practice outcome, empirical design or
+  methodological limitation relevant to the review questions.
 
-- Vendor marketing, informal blog posts, product documentation and non-peer-reviewed commentary as evidence sources.
-- Papers about generic CI/CD adoption with no reliability, incident, failure-handling or operational-practice relevance.
-- Purely conceptual architectures, position papers or tool proposals with no empirical evaluation. These may remain in a separate exclusion log if they help locate primary studies.
-- Studies concerned solely with security automation unless the paper also provides evidence directly relevant to reliability, incident response or human–automation interaction.
-- Studies where the full text cannot be obtained after reasonable library and author-repository searching. Such records will remain in the search log with the reason for exclusion.
+Secondary reviews are eligible for terminology, landscape context and citation
+chaining but will not be counted as primary empirical studies.
 
-The eligibility boundary may be refined after a pilot screen of 20 records. Any change must be recorded in the protocol changelog and applied consistently to all records.
+### 6.2 Exclusion criteria
 
-## 6. Information sources and search strategy
+Exclude and record one primary reason when the source is:
 
-The planned sources are:
+- unrelated to operational reliability automation or reliability-relevant
+  engineering practice;
+- generic CI/CD adoption research with no failure, resilience, incident,
+  recovery or operational-work relevance;
+- exclusively about security automation without a transferable reliability or
+  incident-response component;
+- a conceptual architecture, position paper or unevaluated tool proposal;
+- vendor marketing, product documentation, an informal blog or other
+  non-peer-reviewed material offered as empirical evidence;
+- a duplicate or superseded report that adds no relevant evidence;
+- a non-English record for which eligible English full text is unavailable; or
+- inaccessible in full text after the documented retrieval process.
+
+Practitioner and standards material may be placed in a separate contextual
+register. It cannot support an empirical effect claim.
+
+### 6.3 Full-text retrieval rule
+
+An apparently eligible record is not excluded for access on the first failed
+attempt. Record attempts through the publisher, institutional library,
+author/institutional repository and a lawful author contact or preprint route
+where feasible. Only then apply `full_text_unavailable`, retaining the metadata
+and access history for transparency.
+
+### 6.4 Pilot amendment rule
+
+Pilot the criteria on 20 deduplicated records. Any boundary change must be
+dated in the changelog, justified, and applied retrospectively to all records.
+Search terms may be adjusted after smoke-testing or the pilot only through a
+new logged query/version; an earlier search record must never be overwritten.
+
+## 7. Information sources
+
+Primary database coverage:
 
 - ACM Digital Library;
-- IEEE Xplore;
-- Scopus or Web of Science, subject to access;
-- Google Scholar for forward/backward citation chasing only; and
-- author or institutional repositories for legally accessible full text.
+- IEEE Xplore; and
+- Scopus or Web of Science, depending on documented institutional access (both
+  may be used if available).
 
-The primary database searches will be run separately because syntax differs. The exact query, date, database, filters, result count and export filename will be recorded in search-log.csv. The current seed records were discovered through web-assisted source identification and are marked as seed candidates; they are not presented as a completed database search.
+Supplementary identification:
 
-### Draft concept blocks
+- backward and forward citation chasing from included studies and eligible
+  secondary reviews;
+- publisher, DOI and author/institutional repository pages for verification and
+  lawful full-text retrieval; and
+- Google Scholar only for documented citation chasing or locating a known
+  record, not as the sole reproducible database search.
 
-    ("continuous delivery" OR "continuous deployment" OR DevOps OR "continuous software engineering")
-    AND
-    (reliability OR resilience OR dependability OR incident OR failure OR recovery OR rollback OR "self-healing" OR "fault injection" OR "chaos engineering")
-    AND
-    (automation OR automated OR "human factors" OR engineer* OR operator* OR decision* OR workload OR trust OR diagnosis OR mitigation)
+Every database and platform must be named. The search log will preserve the
+exact query, interface, date/time, filters, coverage statement where available,
+result count and export filename before deduplication.
 
-### Database-specific starting queries
+## 8. Search strategy
 
-**ACM Digital Library**
+Three complementary search families will be executed. Family T maps technical
+mechanisms/outcomes; Family H targets human and engineering-practice evidence;
+Family M targets methodological and reproducibility evidence. The full strings
+and database translations are versioned in
+`phase-1-search-execution-plan.md`.
 
-    :("continuous delivery" OR "continuous deployment" OR DevOps)
-    AND
-    :(reliability OR resilience OR incident OR recovery OR rollback OR "fault injection" OR "chaos engineering" OR "self-healing")
+The three families are deliberately overlapping. Deduplication occurs after
+all exports are retained. Human terms are not added as a mandatory block to the
+technical search because that would reduce recall for system-only studies.
 
-**IEEE Xplore**
+Before counting a search as executed, smoke-test the database translation using
+known seed records. A valid translation should retrieve relevant known records
+without being tailored only to those titles. Record failures and amendments.
 
-    +("continuous delivery" OR "continuous deployment" OR DevOps)
-    AND
-    +(reliability OR resilience OR incident OR recovery OR rollback OR "fault injection" OR "chaos engineering" OR "self-healing")
+## 9. Record management and deduplication
 
-**Scopus/Web of Science**
+1. Export complete metadata and abstracts where licensing permits, preferably
+   RIS or BibTeX plus CSV when available.
+2. Preserve the unmodified export filename and a SHA-256 hash or equivalent
+   immutable identifier.
+3. Assign each imported record a source-specific identifier and later a stable
+   review `paper_id`.
+4. Deduplicate first by normalised DOI, then exact normalised title, then
+   title/first-author/year inspection.
+5. Retain a duplicate log linking removed records to the kept record and the
+   deduplication rule.
+6. Link multiple reports of the same underlying study rather than silently
+   discarding evidence-bearing companion reports.
 
-    TITLE-ABS-KEY(("continuous delivery" OR "continuous deployment" OR DevOps)
-    AND
-    (reliab* OR resilien* OR incident* OR recover* OR rollback OR "fault injection" OR "chaos engineering" OR "self-healing")
-    AND
-    (automat* OR engineer* OR operator* OR decision* OR workload OR trust OR diagnosis OR mitigation))
+Database exports and copyrighted full texts must not be committed publicly when
+their licence prohibits it. The repository should retain permitted metadata,
+hashes, provenance and extraction records.
 
-The first search will be intentionally broad. A second, human-factors-focused search will add terms such as "incident response", "human factors", "cognitive workload", "decision making", "operator" and "on-call". Search strings will be iterated only after the pilot search and documented rather than silently changed.
+## 10. Screening
 
-## 7. Record management and screening
+### 10.1 Title and abstract
 
-Each record will receive a stable paper_id. DOI will be the preferred deduplication key, followed by a normalised title and first author/year. Search results, screening decisions and extracted evidence are separate from the project's experimental data directories.
+The decision sequence is:
 
-The planned workflow is:
+1. Is the record about software-intensive operational or delivery work?
+2. Does it address reliability, resilience, incidents, failure handling,
+   recovery or directly relevant operational decision-making?
+3. Does it concern automation, automation interaction, or empirical methods
+   that directly inform the proposed comparison?
+4. Is there an empirical basis, or is it an eligible secondary review?
 
-1. Export results from each named database in a durable format.
-2. Record the search provenance before deduplication.
-3. Deduplicate using DOI and then title/author checks.
-4. Pilot title/abstract screening on 20 records and revise the decision rules if necessary.
-5. Screen all titles/abstracts against the eligibility criteria.
-6. Retrieve full texts for potentially eligible records.
-7. Record one primary exclusion reason for every full-text exclusion.
-8. Chart included studies using the fields in evidence-matrix.csv.
-9. Verify every extracted claim against the full text, not just an abstract or search snippet.
+Use `include`, `exclude` or `uncertain`. Uncertainty advances to full text. Do
+not infer empirical status from venue or title alone.
 
-Because this is currently a solo research-development project, the first pass may be conducted by one reviewer. That is a limitation. A later protocol should seek a second reviewer or supervisor check for a sample of screening and charting decisions, and report agreement or adjudication where available.
+### 10.2 Full text
 
-## 8. Data-charting fields
+Apply all eligibility criteria and record exactly one primary exclusion reason:
 
-The matrix will capture:
+- wrong context/domain;
+- no reliability/failure-handling relevance;
+- no relevant automation or engineering-practice evidence;
+- non-empirical/conceptual only;
+- secondary source not retained for context;
+- duplicate/superseded report;
+- full text unavailable after documented attempts; or
+- other, with a specific explanation.
 
-- bibliographic identity and publication type;
-- system studied and software domain;
-- automation mechanism and intervention point;
-- deployment/operational context;
-- fault or incident model;
-- empirical method and data source;
-- participants or operational subjects;
-- technical metrics/outcomes;
-- human factors and engineering-practice evidence;
-- reproducibility information;
+Where several publications report one study, link them and define the unit of
+analysis explicitly.
+
+### 10.3 Reviewer reliability
+
+The primary reviewer will apply all decisions. If a second reviewer or
+supervisor is available, independently check at least a documented sample of
+title/abstract exclusions, full-text decisions and charted studies. Record the
+sample, disagreements and resolution. If unavailable, repeat a random sample
+after a time interval and report the limitation; do not call this independent
+inter-reviewer agreement.
+
+## 11. Data charting
+
+For each included source, record:
+
+- full citation, DOI/stable URL, publication type, venue and year;
+- system, architecture, domain and operational/deployment context;
+- automation mechanism, intervention point and comparator;
+- fault/incident model and workload;
+- research method, unit of analysis and data source;
+- participants or operational subjects and sampling;
+- technical outcomes with exact definitions and units;
+- human/engineering-practice constructs and their instruments or observation
+  method;
+- main findings, source location and whether the wording is reported or
+  reviewer-inferred;
+- reproducibility information, including artefacts, versions, configuration,
+  reset and raw-data availability;
 - limitations and threats to validity;
 - relevance to RQ-S1, RQ-S2 and RQ-S3; and
-- provenance and extraction status.
+- extraction status and evidence strength.
 
-The matrix must not contain invented values. If a field is not reported, use not_reported; if only an abstract has been checked, use abstract_only and do not describe the record as fully extracted.
+Use `not_reported`, not an inferred value. `abstract_only` records cannot enter
+the substantive synthesis.
 
-## 9. Synthesis plan
+## 12. Critical appraisal
 
-The review will use descriptive mapping and narrative synthesis:
+Critical appraisal is required because the review will inform an empirical PhD
+design. Apply the design-specific domains in `quality-appraisal-guide.md`:
 
-- counts by year, venue, method, domain, automation mechanism and evidence type;
-- a system/domain taxonomy showing whether studies use production systems, industrial datasets, open-source systems, benchmarks or prototypes;
-- a mechanism–outcome map distinguishing detection, diagnosis, mitigation, recovery and deployment outcomes;
-- a human-evidence map distinguishing telemetry proxies from direct participant or observational evidence; and
-- a gap and feasibility narrative tied to the proposed OrderFlow candidate, without selecting the system solely from frequency in the literature.
+- controlled/technical experiments;
+- observational, field and operational-data studies;
+- qualitative studies;
+- mixed-methods studies;
+- empirically grounded experience reports; and
+- systematic, mapping or scoping reviews.
 
-No meta-analysis is planned. Differences in interventions, systems, metrics and study designs are expected to make pooled effect estimates inappropriate at this stage.
+Each domain receives `low concern`, `some concern`, `high concern` or
+`insufficient information`, with a source-linked rationale. Do not convert
+these judgements into one cross-design numeric ranking. Appraisal informs the
+weight and wording of synthesis; it is not an automatic exclusion rule unless
+the empirical basis cannot be established.
 
-## 10. Quality and validity handling
+## 13. Synthesis
 
-Scoping review reporting does not turn heterogeneous studies into equivalent evidence. The matrix will therefore record design and limitation information, even though a formal risk-of-bias assessment is not the primary purpose of this map.
+Only full-text-verified included studies enter the evidence synthesis.
 
-The following threats will be monitored:
+The review will produce:
 
-- database and language bias;
-- terminology variation between continuous delivery, deployment, DevOps, SRE and chaos engineering;
-- publication and positive-result bias;
-- over-representation of large technology companies and proprietary datasets;
-- abstract-only extraction;
-- single-reviewer screening and charting;
-- conflation of system telemetry with human cognition or workload; and
-- transferability from production systems or benchmark applications to other domains.
+- descriptive counts by year, venue, study design, domain, system type and
+  evidence type;
+- a mechanism–intervention–outcome map;
+- a context–fault/workload–comparator map;
+- a metric-definition comparison for detection, diagnosis, recovery, service
+  impact, containment, rollback and intervention;
+- a human-evidence map separating direct participant evidence, observed
+  operational work, telemetry, inferred proxies and no human evidence;
+- a design-sensitive comparison of findings, contradictions and uncertainty;
+  and
+- a gap-to-design table identifying which proposed variables, measures,
+  technologies or protocol rules are supported, challenged or unresolved.
 
-## 11. Outputs and Phase 1 exit criteria
+For every synthesis claim, identify the supporting studies, evidence type,
+appraisal concerns and contradictory evidence. Describe evidence as causal only
+when the design and analysis warrant that language.
 
-Phase 1 is complete only when the repository contains:
+## 14. Evidence and inference boundaries
 
-- this reviewed protocol with a recorded version and changelog;
-- database-specific searches and provenance in search-log.csv;
-- a screening log with inclusion/exclusion decisions;
-- a populated evidence matrix with primary studies separated from secondary reviews;
-- a preliminary literature map and explicit evidence gaps;
-- a documented decision on whether the provisional PhD questions should be retained or revised; and
-- a progress-ledger entry recording validation and unresolved limitations.
+- Technology compatibility establishes feasibility, not reliability effects.
+- System telemetry measures system events; it does not directly measure
+  workload, trust, understanding or decision rationale.
+- Incident records may evidence operational work but are not automatically
+  participant measures.
+- Self-report measures require construct and instrument scrutiny.
+- A controlled benchmark can support bounded causal inference while still
+  having limited ecological validity.
+- Secondary and practitioner sources may frame concepts but cannot be silently
+  counted as primary empirical evidence.
+- Unverified or inaccessible claims remain excluded from synthesis.
 
-The current commit establishes the protocol and seed evidence map. It does not yet satisfy the Phase 1 exit criteria because the named bibliographic database searches and full-text charting remain outstanding.
+## 15. Ethics, data management and AI assistance
 
-## 12. Protocol changelog
+The review uses published records and does not collect participant data. The
+later human-participant study remains subject to ethics approval.
 
-| Version | Date | Change |
-|---|---|---|
-| 0.1 | 2026-08-08 | Initial protocol aligned with Phase 0 questions, supervisor feedback and a seed source map. |
+The review repository will store permitted bibliographic metadata, decisions,
+extractions, hashes and derived tables. Restricted full texts or database
+exports will not be published contrary to their licence.
 
+AI assistance, if used, must be logged by task and version. It may help format,
+deduplicate or prioritise records, but the named reviewer remains responsible
+for every eligibility decision, extraction, quality judgement, citation and
+claim. No AI-generated bibliographic fact may enter the review without source
+verification.
+
+## 16. Phase 1 exit criteria
+
+Phase 1 is complete only when:
+
+- protocol v1.0 and later amendments are retained;
+- all database searches and supplementary methods are logged reproducibly;
+- source exports have been deduplicated with a preserved duplicate trail;
+- title/abstract and full-text decisions are complete with reasons;
+- included studies are full-text charted;
+- design-sensitive critical appraisal is complete;
+- the claim register, PRISMA flow and literature map are updated from verified
+  evidence;
+- the synthesis, research-gap analysis and design mapping are written; and
+- the refined PhD questions and Phase 2/3 design decisions are reviewed against
+  the evidence.
+
+The current stage satisfies protocol finalisation only.
+
+## 17. Protocol amendments
+
+| Version | Date | Change | Prospective/retrospective |
+|---|---|---|---|
+| 0.1 | 2026-08-08 | Initial protocol and nine-record seed map | Prospective |
+| 1.0 | 2026-08-09 | Refined review questions; separated technical, human and methods searches; added deduplication, retrieval, appraisal, AI-use and amendment rules | Prospective; before named database searches |
+
+## 18. Methodological references
+
+- Tricco AC et al. PRISMA Extension for Scoping Reviews (PRISMA-ScR):
+  Checklist and Explanation. *Annals of Internal Medicine*. 2018;169(7):467–473.
+  https://doi.org/10.7326/M18-0850
+- Rethlefsen ML et al. PRISMA-S: an extension to the PRISMA Statement for
+  Reporting Literature Searches in Systematic Reviews. *Systematic Reviews*.
+  2021;10:39. https://doi.org/10.1186/s13643-020-01542-z
+- Petersen K, Vakkalanka S, Kuzniarz L. Guidelines for conducting systematic
+  mapping studies in software engineering: An update. *Information and Software
+  Technology*. 2015;64:1–18. https://doi.org/10.1016/j.infsof.2015.03.007
+- Kitchenham B et al. Systematic literature reviews in software engineering – A
+  systematic literature review. *Information and Software Technology*.
+  2009;51(1):7–15. https://doi.org/10.1016/j.infsof.2008.09.009
