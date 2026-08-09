@@ -1,6 +1,6 @@
 # Phase 3 technical metric catalogue
 
-**Status:** Operationalisation draft
+**Status:** Operationalised for the Phase 3 technical design; implementation and dry-run validation pending
 
 **Primary unit:** Valid trial (`condition × scenario × repetition`)
 
@@ -97,3 +97,7 @@ Workload request and response events are required wherever the workload is activ
 ## Planned analysis summary
 
 For the technical pilot, report per-cell counts, valid/excluded counts, medians, interquartile ranges, minimum/maximum where useful, and individual trial values. Display condition-by-scenario results rather than collapsing all fault classes into one number. The pilot is not powered for a confirmatory claim; any later inferential analysis requires a reviewed analysis plan after the Phase 1 evidence and technical data quality are assessed.
+
+## Developer-practice boundary
+
+Developer-practice constructs are specified separately in [`developer-practice-metrics.md`](developer-practice-metrics.md). They are not technical-trial metrics and must not be inferred from the records defined here.

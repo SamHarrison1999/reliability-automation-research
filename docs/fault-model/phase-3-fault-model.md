@@ -1,6 +1,6 @@
 # Phase 3 fault model and scenario catalogue
 
-**Status:** Design draft; scenarios require protocol-supporting implementation and dry-run validation
+**Status:** Final design boundary for implementation; scenarios require protocol-supporting implementation and dry-run validation
 
 **System boundary:** Minimal OrderFlow slice (`order-api` → `inventory`)
 
@@ -33,7 +33,7 @@ This document defines which failures are in scope for the first technical compar
 | `service-termination-v1` | Availability failure | `inventory` | After two successful requests | Until recovery action begins | Restart/restore `inventory` | Failed requests during unavailability, then successful post-recovery requests |
 | `dependency-latency-v1` | Performance degradation | `inventory` dependency boundary | After two successful requests | 120 ms injected latency until clear | Clear latency fault | Increased request latency during the fault window, with reversion afterward |
 
-The existing JSON manifests under `experiments/scenarios/` are Phase 2 feasibility manifests. The Phase 3 trial manifest must add the automation condition, repetition, run-order position, detection-rule version and expected recovery action without changing the underlying fault definition.
+The existing JSON manifests under `experiments/scenarios/` remain Phase 2 feasibility manifests. The locked Phase 3 design manifest at `experiments/manifests/phase-3-trial-manifest.json` adds the automation condition, repetition, run-order position, detection-rule version and expected recovery action without changing the underlying fault definition.
 
 ## Scenario invariants
 

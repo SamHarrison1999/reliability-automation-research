@@ -1,0 +1,304 @@
+{
+  "manifest_version": "1.0.0",
+  "manifest_type": "phase-3-technical-design-manifest",
+  "protocol_id": "phase-3-technical-reliability-v1",
+  "design_status": "locked-for-implementation",
+  "purpose": "Machine-readable design manifest for the first technical comparison. It is not a results file and must not be edited after a trial starts.",
+  "target": {
+    "target_model": "orderflow-local-process-v1",
+    "candidate_system": "OrderFlow",
+    "topology": ["order-api", "inventory"],
+    "allowed_execution_contexts": [
+      "local-process-fit-probe",
+      "docker-desktop-kubernetes"
+    ],
+    "environment_comparison_rule": "Do not pool execution contexts without a reviewed equivalence decision. Record the context in every trial manifest."
+  },
+  "conditions": [
+    {
+      "condition_id": "manual",
+      "label": "Standardised manual recovery baseline",
+      "initiator": "manual",
+      "recovery_controller": "external-standard-command-v1",
+      "interpretation_boundary": "Scripted technical control; not a measure of human operator behaviour."
+    },
+    {
+      "condition_id": "automated",
+      "label": "Rule-based automated recovery",
+      "initiator": "automation",
+      "recovery_controller": "rule-based-recovery-controller-v1",
+      "interpretation_boundary": "Technical automation condition; not evidence of human trust, workload or understanding."
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "no-fault-v1",
+      "role": "quality-control",
+      "fault": {
+        "mode": "none",
+        "target": null,
+        "trigger": null,
+        "exposure_window": null,
+        "recovery_action": null
+      },
+      "workload": {
+        "workload_id": "fixed-synthetic-orders-v1",
+        "phases": [
+          {"phase_id": "baseline-v1", "request_count": 6},
+          {"phase_id": "deployment-v2", "request_count": 2},
+          {"phase_id": "rollback-v1", "request_count": 2}
+        ],
+        "inter_request_delay_ms": 20,
+        "request_timeout_ms": 2000,
+        "success_status": 201,
+        "retries": 0
+      },
+      "detection_rule": null,
+      "recovery_action": null,
+      "required_events": [
+        "trial_started",
+        "reset_started",
+        "clean_state_verified",
+        "reset_completed",
+        "workload_started",
+        "workload_request",
+        "workload_response",
+        "deployment_update_started",
+        "deployment_update_completed",
+        "rollback_started",
+        "rollback_completed",
+        "cleanup_completed",
+        "trial_completed"
+      ]
+    },
+    {
+      "scenario_id": "service-termination-v1",
+      "role": "fault-comparison",
+      "fault": {
+        "fault_id": "inventory-availability-v1",
+        "mode": "service-termination",
+        "target": "inventory",
+        "trigger": "after_two_successful_pre_fault_requests",
+        "exposure_window": "until_declared_recovery_action_begins",
+        "reversion": "restart_inventory_service_v1",
+        "expected_signal": "failed_order_requests_or_inventory_health_failure"
+      },
+      "workload": {
+        "workload_id": "fixed-synthetic-orders-v1",
+        "phases": [
+          {"phase_id": "before-fault", "request_count": 2},
+          {"phase_id": "during-fault", "request_count": 3},
+          {"phase_id": "after-recovery", "request_count": 2}
+        ],
+        "inter_request_delay_ms": 20,
+        "request_timeout_ms": 2000,
+        "success_status": 201,
+        "retries": 0
+      },
+      "detection_rule": {
+        "version": "detection-v1",
+        "rule_id": "availability-failure-v1",
+        "observation_window_ms": 5000,
+        "condition": "three consecutive non-success order responses or an inventory readiness failure"
+      },
+      "recovery_action": {
+        "version": "recovery-v1",
+        "manual": "restart_inventory_service_v1",
+        "automated": "restart_inventory_service_v1",
+        "completion": "inventory_readiness_and_first_post_recovery_order_success"
+      },
+      "required_events": [
+        "trial_started",
+        "reset_started",
+        "clean_state_verified",
+        "reset_completed",
+        "workload_started",
+        "workload_request",
+        "workload_response",
+        "injection_started",
+        "fault_detected",
+        "recovery_started",
+        "recovery_completed",
+        "injection_ended",
+        "post_recovery_check",
+        "cleanup_completed",
+        "trial_completed"
+      ]
+    },
+    {
+      "scenario_id": "dependency-latency-v1",
+      "role": "fault-comparison",
+      "fault": {
+        "fault_id": "inventory-latency-v1",
+        "mode": "latency",
+        "target": "inventory",
+        "latency_ms": 120,
+        "trigger": "after_two_successful_pre_fault_requests",
+        "exposure_window": "until_declared_recovery_action_begins",
+        "reversion": "clear_inventory_latency_fault_v1",
+        "expected_signal": "declared_latency_threshold_exceeded"
+      },
+      "workload": {
+        "workload_id": "fixed-synthetic-orders-v1",
+        "phases": [
+          {"phase_id": "before-fault", "request_count": 2},
+          {"phase_id": "during-fault", "request_count": 3},
+          {"phase_id": "after-recovery", "request_count": 2}
+        ],
+        "inter_request_delay_ms": 20,
+        "request_timeout_ms": 2000,
+        "success_status": 201,
+        "retries": 0
+      },
+      "detection_rule": {
+        "version": "detection-v1",
+        "rule_id": "dependency-latency-v1",
+        "observation_window_ms": 5000,
+        "condition": "three consecutive completed order requests with observed latency above 100 ms"
+      },
+      "recovery_action": {
+        "version": "recovery-v1",
+        "manual": "clear_inventory_latency_fault_v1",
+        "automated": "clear_inventory_latency_fault_v1",
+        "completion": "inventory_readiness_and_post_recovery_latency_observation"
+      },
+      "required_events": [
+        "trial_started",
+        "reset_started",
+        "clean_state_verified",
+        "reset_completed",
+        "workload_started",
+        "workload_request",
+        "workload_response",
+        "injection_started",
+        "fault_detected",
+        "recovery_started",
+        "recovery_completed",
+        "injection_ended",
+        "post_recovery_check",
+        "cleanup_completed",
+        "trial_completed"
+      ]
+    }
+  ],
+  "replication_plan": {
+    "valid_trials_per_fault_cell": 10,
+    "fault_cells": [
+      {"scenario_id": "service-termination-v1", "condition_ids": ["manual", "automated"]},
+      {"scenario_id": "dependency-latency-v1", "condition_ids": ["manual", "automated"]}
+    ],
+    "no_fault_control_repetitions": 10,
+    "reserve_trials_per_fault_cell": 2,
+    "reserve_no_fault_controls": 2,
+    "planned_valid_trials": 50,
+    "planned_maximum_trial_slots": 60,
+    "interpretation": "Replication targets are feasibility/pilot planning targets, not a statistical power calculation."
+  },
+  "run_order": {
+    "policy": "blocked_by_scenario_and_balanced_by_condition",
+    "generation": "Generate and persist the concrete order file before the first trial in each block.",
+    "seed": "phase-3-run-order-v1",
+    "outcome_adaptive_reordering": false,
+    "concrete_order_file": "results/phase-3/run-order.json"
+  },
+  "required_trial_fields": [
+    "protocol_id",
+    "manifest_version",
+    "trial_id",
+    "scenario_id",
+    "automation_condition",
+    "repetition",
+    "run_order",
+    "detection_rule_version",
+    "recovery_action_version",
+    "target_model",
+    "execution_context",
+    "repository_commit_sha",
+    "scenario_manifest_sha256",
+    "environment_manifest_sha256",
+    "trial_started_at"
+  ],
+  "event_contract": {
+    "required_identity_fields": [
+      "event_id",
+      "trial_id",
+      "run_id",
+      "scenario_id",
+      "automation_condition",
+      "timestamp",
+      "source_component",
+      "event_type",
+      "software_version"
+    ],
+    "required_recovery_fields": [
+      "initiator",
+      "recovery_action_version",
+      "parent_event_id"
+    ],
+    "required_automation_evaluation_fields": [
+      "detection_rule_version",
+      "observed_signal",
+      "decision",
+      "parent_event_id"
+    ]
+  },
+  "validity_rules": {
+    "required": [
+      "clean_reset_before_workload",
+      "declared_fault_target_matches_observed_target",
+      "required_event_classes_present_once",
+      "fault_applied_and_reverted",
+      "recovery_initiator_matches_condition",
+      "post_recovery_criterion_passes",
+      "cleanup_completed",
+      "no_contamination_before_next_trial",
+      "provenance_hashes_present"
+    ],
+    "missing_primary_data": "Mark the metric missing and record the reason; do not impute.",
+    "invalid_trial_handling": "Preserve raw records and manifest, record an exclusion reason, and do not replace the run with an unlogged repair."
+  },
+  "analysis_outputs": {
+    "primary_metrics": [
+      "detection_latency_ms",
+      "recovery_time_ms",
+      "failure_impact_rate"
+    ],
+    "secondary_metrics": [
+      "active_recovery_duration_ms",
+      "time_to_first_post_recovery_success_ms",
+      "failed_requests_count",
+      "request_latency_p50_ms",
+      "request_latency_p95_ms",
+      "latency_inflation_ratio",
+      "recovery_success",
+      "manual_intervention_count",
+      "automation_decision_count"
+    ],
+    "reporting": [
+      "valid_and_excluded_counts_by_cell",
+      "individual_trial_values",
+      "median_and_iqr_by_condition_and_scenario",
+      "failure_impact_numerators_and_denominators",
+      "measurement_quality_indicators",
+      "exclusion_ledger"
+    ],
+    "analysis_boundary": "Do not pool no-fault and fault scenarios into one primary outcome. Do not infer human workload, trust, understanding or decision rationale from technical records."
+  },
+  "data_boundary": {
+    "collect": [
+      "immutable trial manifests",
+      "controller and service events",
+      "workload requests and responses",
+      "fault, detection, recovery and cleanup events",
+      "telemetry completeness diagnostics",
+      "environment and version metadata",
+      "validity and exclusion records"
+    ],
+    "do_not_collect": [
+      "participant identifiers",
+      "real payment data",
+      "production traffic",
+      "screen or audio recordings"
+    ]
+  }
+}

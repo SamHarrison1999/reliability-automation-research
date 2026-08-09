@@ -18,7 +18,7 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 Phase 2 fit-probe evidence has been recorded, and the current gate is Phase 3:
 fault model, metrics and experiment protocol. The engineering-quality baseline
-is supporting work for that gate. Phase 3 design has begun on the dedicated
-branch, but no full application implementation, human-participant work or
-empirical-effect claim should be started until the Phase 1 evidence status and
-Phase 3 validation criteria are reviewed.
+is supporting work for that gate. The Phase 3 design package is now locked on
+the dedicated branch. The remaining gate is protocol-supporting implementation
+and dry-run validation; no human-participant work or empirical-effect claim is
+authorised.
