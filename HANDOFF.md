@@ -1,33 +1,20 @@
-# Phase 1B handoff — search execution and evidence batch 01
+# Phase 1 final literature-review handoff
 
-This package is intended to be applied on the user's local branch:
-`research/phase-1-literature-evidence`.
+This overlay completes the literature-review branch's missing retrieval,
+source-location, appraisal, synthesis and close-out work.
 
-It records the first supplementary discovery pass and a first-pass verified
-evidence batch. It does **not** claim that the actual literature review is
-complete and it does not replace the required authenticated ACM Digital Library,
-IEEE Xplore and Scopus/Web of Science searches.
+The main deliverable is:
 
-## Apply
+`docs/literature/phase-1-final-literature-review.md`
 
-Copy the contents of `docs/literature/` into the repository's
-`docs/literature/` directory. Keep the existing protocol, seed matrix and
-primary search log. Append `search-log-append.csv` to `search-log.csv` only if
-the supplementary rows are to be retained in the same log; otherwise retain it
-as an auditable annex.
+The review is complete for the accessible, source-verifiable corpus. It
+explicitly records that authenticated ACM Digital Library, IEEE Xplore and
+Scopus/Web of Science exports were unavailable. No database result counts have
+been invented or replaced by ordinary web-search counts.
 
-The `evidence-batch-01.csv`, `quality-appraisal-batch-01.csv` and
-`claim-register-batch-01.csv` files are append-only evidence-stage inputs. Do
-not silently overwrite the existing seed files. After review, merge verified
-rows into the canonical files with stable paper IDs and preserve the batch
-files as provenance.
+All nine previously pending records now have final retrieval decisions. Seven
+were retrieved and charted; P03 and P22 remain full-text unavailable after
+documented attempts and are excluded from final evidence use for access only.
 
-## Validation
-
-```powershell
-git diff --check
-git status --short
-```
-
-Before committing, confirm that no restricted full-text PDFs or licensed
-database exports have been copied into the repository.
+Apply the overlay to the existing `research/phase-1-literature-evidence`
+branch, validate it, and commit it as one final Phase 1 commit.
