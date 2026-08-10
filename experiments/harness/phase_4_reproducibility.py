@@ -16,6 +16,7 @@ import shutil
 import socket
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -28,6 +29,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PROTOTYPE_MANIFEST = ROOT / "infrastructure" / "prototype" / "orderflow-phase-4.json"
 KUBERNETES_MANIFEST = ROOT / "infrastructure" / "kubernetes" / "orderflow-phase-4.yaml"
 NAMESPACE = "orderflow-phase4"
+KUBERNETES_NODE = "desktop-control-plane"
 ORDER_PORT = 19480
 INVENTORY_PORT = 19481
 CONTROLLER_VERSION = "phase-4-reproducibility-controller-v1"
@@ -76,6 +78,7 @@ class Phase4Validation:
         self.port_forwards: list[subprocess.Popen[str]] = []
         self.prototype = json.loads(PROTOTYPE_MANIFEST.read_text(encoding="utf-8"))
         self.image_records: dict[str, dict[str, str]] = {}
+        self.node_image_records: dict[str, dict[str, str]] = {}
         self.workload_records: list[dict[str, Any]] = []
 
     def emit(self, event_type: str, **fields: Any) -> None:
@@ -168,7 +171,15 @@ class Phase4Validation:
 
     def clean_before_deploy(self) -> None:
         self.emit("pre_deploy_cleanup_started", namespace=NAMESPACE)
-        self.kubectl("delete", "namespace", NAMESPACE, "--ignore-not-found=true", "--wait=true", check=False)
+        self.kubectl(
+            "delete",
+            "namespace",
+            NAMESPACE,
+            "--ignore-not-found=true",
+            "--wait=true",
+            "--timeout=60s",
+            check=False,
+        )
         check = self.kubectl("get", "namespace", NAMESPACE, "-o", "name", check=False)
         if check.returncode == 0:
             raise RuntimeError("Phase 4 namespace still exists after pre-deploy cleanup")
@@ -194,6 +205,7 @@ class Phase4Validation:
                     "--pull=false",
                     "--platform",
                     platform_name,
+                    "--provenance=false",
                     "-t",
                     tag,
                     "-f",
@@ -207,6 +219,83 @@ class Phase4Validation:
             ).stdout.strip()
             self.image_records[service] = {"tag": tag, "image_id": image_id, "repo_digests": repo_digests}
             self.emit("image_build_completed", service=service, image=tag, image_id=image_id)
+
+    def import_images_into_kubernetes_node(self) -> None:
+        node_check = run_command(
+            ["docker", "inspect", "--type", "container", KUBERNETES_NODE, "--format", "{{.State.Running}}"],
+            check=False,
+        )
+        if node_check.returncode != 0 or node_check.stdout.strip().lower() != "true":
+            raise RuntimeError(f"Kubernetes node container is not running: {KUBERNETES_NODE}")
+
+        with tempfile.TemporaryDirectory(prefix="phase4-image-import-") as temp_dir:
+            temp_root = Path(temp_dir)
+            for service in ("inventory", "order-api"):
+                tag = self.prototype["packaging"]["images"][service]
+                expected_ref = f"docker.io/{tag}"
+                archive = temp_root / f"{service}.tar"
+                remote_archive = f"/tmp/{self.run_id}-{service}.tar"
+
+                self.emit(
+                    "image_import_started",
+                    service=service,
+                    image=tag,
+                    kubernetes_node=KUBERNETES_NODE,
+                    containerd_namespace="k8s.io",
+                )
+                run_command(["docker", "save", "--output", str(archive), tag])
+                run_command(["docker", "cp", str(archive), f"{KUBERNETES_NODE}:{remote_archive}"])
+                try:
+                    run_command(
+                        [
+                            "docker",
+                            "exec",
+                            KUBERNETES_NODE,
+                            "ctr",
+                            "-n",
+                            "k8s.io",
+                            "images",
+                            "import",
+                            remote_archive,
+                        ]
+                    )
+                finally:
+                    run_command(
+                        ["docker", "exec", KUBERNETES_NODE, "rm", "-f", remote_archive],
+                        check=False,
+                    )
+
+                node_images = run_command(
+                    ["docker", "exec", KUBERNETES_NODE, "ctr", "-n", "k8s.io", "images", "ls"]
+                ).stdout.splitlines()
+                matching = [line for line in node_images if line.startswith(expected_ref)]
+                if not matching:
+                    raise RuntimeError(f"imported image is not visible in Kubernetes node runtime: {expected_ref}")
+                digest = next(
+                    (field for field in matching[0].split() if field.startswith("sha256:")),
+                    "",
+                )
+                if not digest:
+                    raise RuntimeError(f"could not identify Kubernetes node image digest for {expected_ref}")
+                self.node_image_records[service] = {
+                    "node": KUBERNETES_NODE,
+                    "containerd_namespace": "k8s.io",
+                    "reference": expected_ref,
+                    "digest": digest,
+                }
+                self.emit(
+                    "node_image_verified",
+                    service=service,
+                    image_reference=expected_ref,
+                    image_digest=digest,
+                    kubernetes_node=KUBERNETES_NODE,
+                )
+
+        self.emit(
+            "image_import_completed",
+            imported_services=sorted(self.node_image_records),
+            kubernetes_node=KUBERNETES_NODE,
+        )
 
     def deploy(self) -> None:
         self.emit("deployment_started", manifest=str(KUBERNETES_MANIFEST.relative_to(ROOT)))
@@ -362,7 +451,15 @@ class Phase4Validation:
     def cleanup(self) -> None:
         self.stop_port_forwards()
         self.emit("cleanup_started", namespace=NAMESPACE)
-        self.kubectl("delete", "namespace", NAMESPACE, "--ignore-not-found=true", "--wait=true", check=False)
+        self.kubectl(
+            "delete",
+            "namespace",
+            NAMESPACE,
+            "--ignore-not-found=true",
+            "--wait=true",
+            "--timeout=60s",
+            check=False,
+        )
         check = self.kubectl("get", "namespace", NAMESPACE, "-o", "name", check=False)
         clean = check.returncode != 0
         self.emit("clean_state_verified", stage="after_cleanup", namespace_present=not clean)
@@ -391,6 +488,7 @@ class Phase4Validation:
             "base_image": self.prototype["packaging"]["base_image"],
             "build_platform": self.prototype["packaging"]["build_platform"],
             "images": self.image_records,
+            "kubernetes_node_images": self.node_image_records,
             "target_model": self.prototype["target_model"],
             "kubernetes_context": context,
             "docker_version": docker_info,
@@ -401,9 +499,18 @@ class Phase4Validation:
                 "python": platform.python_version(),
             },
             "raw_files": {
-                "controller_events": str(self.event_file.relative_to(ROOT)),
-                "service_events": str(self.service_event_file.relative_to(ROOT)),
-                "workload": str(self.workload_file.relative_to(ROOT)),
+                "controller_events": {
+                    "path": str(self.event_file.relative_to(ROOT)),
+                    "exists": self.event_file.exists(),
+                },
+                "service_events": {
+                    "path": str(self.service_event_file.relative_to(ROOT)),
+                    "exists": self.service_event_file.exists(),
+                },
+                "workload": {
+                    "path": str(self.workload_file.relative_to(ROOT)),
+                    "exists": self.workload_file.exists(),
+                },
             },
             "created_at": utc_now(),
         }
@@ -421,6 +528,8 @@ class Phase4Validation:
                 for event in self.events
             ),
             "images_built": set(self.image_records) == {"inventory", "order-api"},
+            "node_images_available": set(self.node_image_records) == {"inventory", "order-api"}
+            and "image_import_completed" in event_types,
             "deployment_completed": "deployment_completed" in event_types,
             "readiness_verified": "readiness_verified" in event_types,
             "version_verified": "version_verified" in event_types,
@@ -462,6 +571,7 @@ class Phase4Validation:
             self.verify_source_tree_clean()
             self.clean_before_deploy()
             self.build_images()
+            self.import_images_into_kubernetes_node()
             self.deploy()
             self.wait_and_forward()
             self.verify_versions()
