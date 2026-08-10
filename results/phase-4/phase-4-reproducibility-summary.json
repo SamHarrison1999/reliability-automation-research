@@ -1,0 +1,102 @@
+{
+  "claims_not_supported": [
+    "reliability-effect improvement",
+    "comparative recovery-strategy effects",
+    "production readiness",
+    "telemetry losslessness under load",
+    "human-participant effects"
+  ],
+  "created_from_inspected_runs_on": "2026-08-10",
+  "development_run_inventory": [
+    {
+      "classification": "development-failure",
+      "passed": false,
+      "reason": "Kubernetes rollout timed out before locally built images were explicitly imported into the node runtime.",
+      "run_id": "phase4-repro-20260810T124057041846Z-339f0021"
+    },
+    {
+      "classification": "development-failure",
+      "passed": false,
+      "reason": "Initial automated node import referenced a host temporary archive that was not available inside the Kubernetes node container.",
+      "run_id": "phase4-repro-20260810T125936013508Z-e4f884fc"
+    },
+    {
+      "classification": "successful-pre-otel-validation",
+      "passed": true,
+      "reason": "Structured deployment/workload/observation/reset validation passed before the final Collector/OTLP acceptance path was integrated.",
+      "run_id": "phase4-repro-20260810T130407749389Z-c7a2ab97"
+    },
+    {
+      "classification": "final-acceptance-run-1",
+      "passed": true,
+      "run_id": "phase4-repro-20260810T134202072483Z-5a519a99"
+    },
+    {
+      "classification": "final-acceptance-run-2",
+      "passed": true,
+      "run_id": "phase4-repro-20260810T134620018339Z-4efc01f5"
+    }
+  ],
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "final_acceptance": {
+    "collector": {
+      "digest": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "image": "otel/opentelemetry-collector:0.158.0"
+    },
+    "controller_version": "phase-4-reproducibility-controller-v1.2",
+    "cross_run_invariants": {
+      "independent_run_ids": true,
+      "same_collector_image": true,
+      "same_controller_version": true,
+      "same_inventory_image": true,
+      "same_kubernetes_manifest": true,
+      "same_order_api_image": true,
+      "same_prototype_manifest": true,
+      "same_repository_commit": true,
+      "same_telemetry_sink_image": true
+    },
+    "kubernetes_context": "docker-desktop",
+    "kubernetes_manifest_sha256": "0defaabd9d685a9cd5eb20fb2d59e89b6caba4f9130d198ee32169b8b235e261",
+    "orderflow_image_sha256": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+    "passed": true,
+    "prototype_manifest_sha256": "8f131766f323dcdb5930e0b0ba3ac611bab4089646e40fb32e486674afe79ba5",
+    "repository_commit_sha": "207337f481f81e34d99bb9682ee2a642709e1fe4",
+    "required_successful_fresh_runs": 2,
+    "requirements_lock_sha256": "9b0cd979109fe6054562678dce5ddb6089bf309ab8e0955de68c4e28dbd239e8",
+    "runs": [
+      {
+        "component_span_counts": {
+          "inventory": 6,
+          "order-api": 9
+        },
+        "expected_order_span_count": 15,
+        "observed_order_span_count": 15,
+        "passed": true,
+        "run_id": "phase4-repro-20260810T134202072483Z-5a519a99",
+        "structured_event_otel_signature_parity": true,
+        "validity_checks_passed": 16,
+        "validity_checks_total": 16,
+        "workload_requests": 3,
+        "workload_successes": 3
+      },
+      {
+        "component_span_counts": {
+          "inventory": 6,
+          "order-api": 9
+        },
+        "expected_order_span_count": 15,
+        "observed_order_span_count": 15,
+        "passed": true,
+        "run_id": "phase4-repro-20260810T134620018339Z-4efc01f5",
+        "structured_event_otel_signature_parity": true,
+        "validity_checks_passed": 16,
+        "validity_checks_total": 16,
+        "workload_requests": 3,
+        "workload_successes": 3
+      }
+    ],
+    "successful_fresh_runs": 2
+  },
+  "phase_exit_statement": "The smallest benchmark system can be reset, deployed and observed reproducibly.",
+  "summary_type": "phase-4-reproducibility-derived-summary"
+}

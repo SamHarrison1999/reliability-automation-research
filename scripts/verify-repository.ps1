@@ -38,7 +38,23 @@ $Required = @(
     'scripts/validate-infrastructure.sh', 'scripts/validate-infrastructure.ps1',
     'scripts/run-psscriptanalyzer.ps1', 'PSScriptAnalyzerSettings.psd1',
     '.github/workflows/quality.yml', '.yamllint',
-    '.github/workflows/validate-repository.yml'
+    '.github/workflows/validate-repository.yml',
+    'docs/research-design/phase-4.md', 'docs/reproducibility/phase-4-validation.md',
+    'docs/adr/0013-phase-4-build-provenance.md', 'docs/adr/0014-phase-4-opentelemetry-runtime.md',
+    'infrastructure/prototype/orderflow-phase-4.json', 'infrastructure/kubernetes/orderflow-phase-4.yaml',
+    'experiments/harness/phase_4_reproducibility.py', 'system/orderflow/otel_runtime.py',
+    'observability/opentelemetry/phase4-requirements.lock',
+    'results/phase-4/phase-4-reproducibility-summary.json',
+    'results/phase-4/raw/phase4-repro-20260810T134202072483Z-5a519a99/validity.json',
+    'results/phase-4/raw/phase4-repro-20260810T134202072483Z-5a519a99/metadata.json',
+    'results/phase-4/raw/phase4-repro-20260810T134202072483Z-5a519a99/workload.json',
+    'results/phase-4/raw/phase4-repro-20260810T134202072483Z-5a519a99/otel-spans.json',
+    'results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/validity.json',
+    'results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/metadata.json',
+    'results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/workload.json',
+    'results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/otel-spans.json',
+    'tests/test_phase4_prototype.py', 'tests/test_phase4_kubernetes_manifest.py',
+    'tests/test_phase4_otel_runtime.py', 'tests/test_phase4_reproducibility.py'
 )
 
 $Missing = @($Required | Where-Object { -not (Test-Path -LiteralPath $_ -PathType Leaf) })
@@ -69,5 +85,5 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 3 - quality baseline, fault model, metrics and experiment protocol.'
-Write-Host 'Full application implementation: intentionally absent; fit-probe slice only.'
+Write-Host 'Phase: 4 - reproducible technical prototype complete.'
+Write-Host 'Phase 5 technical pilot: not started.'

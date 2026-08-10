@@ -224,6 +224,7 @@ def test_run_workload_uses_deterministic_order_identity(monkeypatch: pytest.Monk
         assert port == phase4.ORDER_PORT
         assert path == "/orders"
         assert method == "POST"
+        assert body is not None
         return 201, {"status": "accepted", "order_id": body["order_id"]}, 0.001
 
     monkeypatch.setattr(validation, "request", fake_request)

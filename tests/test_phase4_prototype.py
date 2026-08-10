@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "infrastructure" / "prototype" / "orderflow-phase-4.json"
@@ -15,8 +16,8 @@ EXPECTED_BASE_DIGEST = "sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad1
 EXPECTED_BASE_IMAGE = f"python:3.12-slim@{EXPECTED_BASE_DIGEST}"
 
 
-def load_manifest() -> dict[str, object]:
-    return json.loads(MANIFEST.read_text(encoding="utf-8"))
+def load_manifest() -> dict[str, Any]:
+    return cast(dict[str, Any], json.loads(MANIFEST.read_text(encoding="utf-8")))
 
 
 def test_phase4_prototype_manifest_declares_bounded_identity_and_target() -> None:

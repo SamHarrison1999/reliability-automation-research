@@ -16,10 +16,11 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-Phase 2 fit-probe evidence has been recorded, and the current gate is Phase 3:
-fault model, metrics and experiment protocol. The engineering-quality baseline
-is supporting work for that gate. The Phase 3 design package is locked and its
-protocol-supporting implementation and repeat dry-run validation gate has
-passed. Initial and repeat dry-runs each selected five trials, produced five
-valid trials and excluded none. No human-participant work or empirical-effect
-claim is authorised.
+Phase 4 is complete. Two fresh full-telemetry reproducibility runs at
+commit `207337f481f81e34d99bb9682ee2a642709e1fe4` passed all 16 declared
+validity checks, reproduced the committed configuration/image invariants with
+independent run IDs, and the repository-wide close-out quality gate passed.
+
+The next gate is Phase 5: experiment harness and technical pilot. Phase 5
+execution has not started. No reliability-effect, human-participant or
+production-readiness claim is authorised by the Phase 4 evidence.

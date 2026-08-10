@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "clean_after_run": true,
+    "clean_before_deploy": true,
+    "deployment_completed": false,
+    "fresh_output_directory": true,
+    "images_built": true,
+    "no_execution_error": false,
+    "observation_verified": false,
+    "preflight_completed": true,
+    "provenance_written": true,
+    "readiness_verified": false,
+    "source_tree_verified": true,
+    "version_verified": false,
+    "workload_completed": false
+  },
+  "created_at": "2026-08-10T12:43:12.833Z",
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "execution_error": "RuntimeError: command failed (1): kubectl -n orderflow-phase4 rollout status deployment/inventory --timeout=120s\nerror: timed out waiting for the condition",
+  "passed": false,
+  "run_id": "phase4-repro-20260810T124057041846Z-339f0021"
+}

@@ -2,12 +2,12 @@
 
 ## Project status
 
-- **Current phase:** Phase 3 - fault model, metrics and experiment protocol
-- **Status:** Phase 3 design package, implementation and repeat dry-run validation complete; Phase 2 technology decisions are closed for the bounded technical pilot; Phase 1 remains an accessible-corpus baseline with database-comprehensive updating deferred
-- **Empirical data collected:** Synthetic technical-feasibility records only; no participant or production data
+- **Current phase:** Phase 4 - reproducible technical prototype (complete)
+- **Status:** Phase 4 exit evidence and repository-wide close-out quality gate complete; Phase 5 experiment harness/technical pilot is the next gate and has not started
+- **Empirical data collected:** Synthetic technical feasibility/reproducibility records only; no comparative Phase 5 pilot, participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
-- **Application implementation:** Full application deferred; minimal fit-probe slice and harness are present
+- **Application implementation:** Minimal reproducible OrderFlow technical prototype present; Phase 5 experiment execution has not started
 
 ## Phase 0 record
 
@@ -137,3 +137,61 @@ only and are not pilot findings.
 | 2026-08-09 | Require immutable trial manifests and explicit exclusion records | Prevents post-hoc condition changes, silent imputation and contamination | Technical protocol and manifest contract; finalised |
 | 2026-08-09 | Keep developer-practice measures separate from technical telemetry | Prevents system events being mislabelled as workload, trust, understanding or decision rationale | Developer-practice metric specification; provisional for later ethics review |
 | 2026-08-09 | Defer faulty deployments, platform chaos faults and canary deployment | Avoids adding intervention dimensions before the first comparison is validated | Fault model/ADR 0007; accepted boundary |
+
+## Phase 4 record
+
+### Objective
+
+Promote the minimal OrderFlow feasibility slice into a versioned technical
+prototype that can be reset, deployed and observed reproducibly on the bounded
+Docker Desktop Kubernetes target without executing the Phase 5 comparison
+experiment.
+
+### Deliverables
+
+- [x] Phase 4 research-design gate and explicit Phase 4/Phase 5 boundary
+- [x] Versioned OrderFlow prototype manifest and immutable base-image provenance
+- [x] Prototype-specific Kubernetes deployment contract
+- [x] Reproducibility controller with clean-state, provenance and fresh-output checks
+- [x] Explicit Docker-to-Kubernetes-node image import with digest equality checks
+- [x] Pinned OpenTelemetry 1.44.0 / Collector 0.158.0 trace path
+- [x] Version-controlled OTel dependency lock and Collector digest
+- [x] Raw/decoded OTLP payload retention and structured-event/OTel parity validation
+- [x] Two fresh final full-telemetry reproducibility validations
+- [x] Derived Phase 4 reproducibility summary separated from raw run bundles
+- [x] Final repository-wide close-out quality gate
+
+### Validation evidence
+
+Final acceptance runs:
+
+- `phase4-repro-20260810T134202072483Z-5a519a99`
+- `phase4-repro-20260810T134620018339Z-4efc01f5`
+
+Both runs used repository commit
+`207337f481f81e34d99bb9682ee2a642709e1fe4`, controller
+`phase-4-reproducibility-controller-v1.2`, identical Kubernetes/prototype
+manifest hashes, identical OrderFlow image identity, identical pinned Collector
+identity, three successful synthetic requests, exact 15/15 structured-event to
+OTel order-span parity and verified clean teardown.
+
+The development failures and the successful pre-OTel run remain retained
+unchanged as provenance. See `docs/reproducibility/phase-4-validation.md` and
+`results/phase-4/phase-4-reproducibility-summary.json`.
+
+### Phase 4 evidence boundary
+
+Phase 4 establishes reproducible build/deploy/workload/observation/reset
+behaviour only. It does not estimate reliability effects, compare recovery
+conditions, establish production readiness or provide human-participant
+evidence.
+
+### Phase 4 decision log
+
+| Date | Decision | Reason | Evidence/status |
+|---|---|---|---|
+| 2026-08-10 | Keep the two-service OrderFlow slice as the Phase 4 research object | It satisfies the declared deployment/workload/observation boundary without adding business-domain scope | `docs/research-design/phase-4.md` |
+| 2026-08-10 | Pin build provenance and disable BuildKit provenance attestations for the local validation images | Prevents attestation metadata from changing the outer image identity across otherwise identical local builds | ADR 0013 |
+| 2026-08-10 | Explicitly stream Docker images into the Docker Desktop Kubernetes node runtime | `imagePullPolicy: Never` requires node-visible images; the normal Docker image store was insufficient | Phase 4 development failure provenance; controller v1.1+ |
+| 2026-08-10 | Mirror structured events into the bounded OTel trace path while retaining JSONL as authoritative | Adds independent trace-transport evidence without replacing the audit record or broadening into metrics/logs dashboards | ADR 0014 |
+| 2026-08-10 | Require two final runs under the completed OTel architecture | Prevents the earlier pre-OTel success from being misclassified as final Phase 4 acceptance evidence | Final runs listed above |

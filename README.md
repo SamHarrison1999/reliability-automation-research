@@ -2,9 +2,9 @@
 
 Research repository for the provisional PhD project:
 
-> An Empirical Investigation of Reliability Automation and Human Decision-Making in Continuous Delivery Environments
+> An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments
 
-This repository is currently working through **Phase 3: fault model, metrics and experiment protocol**. The Phase 3 design package is drafted on the dedicated branch, while the protocol-supporting trial harness remains a later implementation task. The repository contains no full experimental application and no empirical findings. The engineering-quality baseline on `main` improves reproducibility and reviewability without changing that evidence boundary.
+Phase 4 is complete: two fresh full-telemetry executions at the same committed source passed every declared validity check, reproduced the declared build/deployment/observation invariants, and the final repository-wide close-out quality gate passed. Phase 5 technical pilot execution has not started, and Phase 4 output is reproducibility evidence only—not evidence that a reliability-automation strategy improves outcomes.
 
 ## Research direction
 
@@ -53,9 +53,9 @@ docs/
   diagrams/              Architecture and experimental-design diagrams
   adr/                   Architecture/research decision records
   templates/             Reusable research documentation templates
-system/                  Minimal fit-probe service slice; full benchmark later
-infrastructure/          Fit-probe manifests and later reproducible environments
-experiments/              Versioned fit-probe scenarios and harness
+system/                  Minimal versioned OrderFlow research prototype
+infrastructure/          Fit-probe history plus Phase 4 reproducible deployment contracts
+experiments/              Versioned fit-probe, Phase 3 protocol and Phase 4 validation harnesses
 ansible/                  Deferred environment-automation boundary and validation scaffold
 observability/            Optional OpenTelemetry compatibility-probe configuration
 data/                    Raw/processed/external data boundaries
@@ -87,7 +87,7 @@ The bootstrap scripts are intentionally idempotent and do not overwrite existing
 
 Work is phase-gated. Each phase must record its objective, rationale, deliverables, implementation tasks, validation criteria and threats to validity. Do not begin application implementation until the research design and technology choices justify it.
 
-The Phase 2 technology close-out is recorded in [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md) and [`docs/adr/0012-phase-2-technology-decision-closeout.md`](docs/adr/0012-phase-2-technology-decision-closeout.md). The fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md), and the real SDK/Collector result is [`docs/observability/phase-2-otel-compatibility-result.md`](docs/observability/phase-2-otel-compatibility-result.md). The Phase 3 package is [`docs/research-design/phase-3.md`](docs/research-design/phase-3.md), with the fault model in [`docs/fault-model/phase-3-fault-model.md`](docs/fault-model/phase-3-fault-model.md), metrics in [`docs/metrics/technical-metrics.md`](docs/metrics/technical-metrics.md) and the technical protocol in [`docs/protocols/phase-3-technical-experiment.md`](docs/protocols/phase-3-technical-experiment.md). See [`docs/roadmap.md`](docs/roadmap.md), [`docs/progress-ledger.md`](docs/progress-ledger.md) and [`docs/technology-selection/`](docs/technology-selection/) for the phase evidence.
+The Phase 2 technology close-out is recorded in [`docs/research-design/phase-2.md`](docs/research-design/phase-2.md) and [`docs/adr/0012-phase-2-technology-decision-closeout.md`](docs/adr/0012-phase-2-technology-decision-closeout.md). The fit-probe evidence is [`docs/fit-probe/phase-2-fit-probe-results.md`](docs/fit-probe/phase-2-fit-probe-results.md), and the real SDK/Collector result is [`docs/observability/phase-2-otel-compatibility-result.md`](docs/observability/phase-2-otel-compatibility-result.md). The Phase 3 package is [`docs/research-design/phase-3.md`](docs/research-design/phase-3.md), with the fault model in [`docs/fault-model/phase-3-fault-model.md`](docs/fault-model/phase-3-fault-model.md), metrics in [`docs/metrics/technical-metrics.md`](docs/metrics/technical-metrics.md) and the technical protocol in [`docs/protocols/phase-3-technical-experiment.md`](docs/protocols/phase-3-technical-experiment.md). Phase 4 is defined in [`docs/research-design/phase-4.md`](docs/research-design/phase-4.md), with inspected reproducibility evidence summarised in [`docs/reproducibility/phase-4-validation.md`](docs/reproducibility/phase-4-validation.md). See [`docs/roadmap.md`](docs/roadmap.md) and [`docs/progress-ledger.md`](docs/progress-ledger.md) for the current gate.
 
 ## Engineering quality
 

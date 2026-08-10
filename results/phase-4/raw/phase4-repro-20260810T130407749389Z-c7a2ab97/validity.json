@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "clean_after_run": true,
+    "clean_before_deploy": true,
+    "deployment_completed": true,
+    "fresh_output_directory": true,
+    "images_built": true,
+    "no_execution_error": true,
+    "node_images_available": true,
+    "observation_verified": true,
+    "preflight_completed": true,
+    "provenance_written": true,
+    "readiness_verified": true,
+    "source_tree_verified": true,
+    "version_verified": true,
+    "workload_completed": true
+  },
+  "created_at": "2026-08-10T13:05:15.219Z",
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "execution_error": null,
+  "passed": true,
+  "run_id": "phase4-repro-20260810T130407749389Z-c7a2ab97"
+}

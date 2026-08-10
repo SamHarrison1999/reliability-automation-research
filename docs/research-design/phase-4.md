@@ -6,9 +6,11 @@
 
 **Phase:** 4
 
-**Status:** Design gate defined; implementation not yet started
+**Status:** Complete
 
 **Date started:** 2026-08-10
+
+**Validation completed:** 2026-08-10
 
 ## Objective
 
@@ -75,21 +77,46 @@ Generated evidence must be separated from source configuration. Raw records must
 
 Phase 4 is complete only when all of the following have been demonstrated:
 
-- [ ] The prototype topology, configuration and environment boundary are version controlled.
-- [ ] The declared OrderFlow images can be built reproducibly from the repository checkout.
-- [ ] A clean Docker Desktop Kubernetes target can deploy the declared prototype configuration.
-- [ ] `order-api` and `inventory` pass declared readiness and version checks.
-- [ ] A deterministic synthetic workload traverses the `order-api` → `inventory` boundary.
-- [ ] Prototype execution records immutable repository, manifest, image/runtime and environment provenance.
-- [ ] The accepted OpenTelemetry trace path can observe/correlate the prototype execution without requiring a dashboard as evidence.
-- [ ] Structured raw records remain sufficient to audit the required deployment, workload, observation and reset boundaries.
-- [ ] Cleanup/reset returns the target to the declared clean-state fingerprint with no residual injected fault or prototype state.
-- [ ] The complete deploy → readiness → workload → observe → cleanup/reset sequence succeeds in at least two fresh validation executions.
-- [ ] Repeated validation uses fresh output directories and does not silently reuse or overwrite prior evidence.
-- [ ] Automated tests cover the new prototype, configuration/provenance and reproducibility validation boundaries.
-- [ ] Formatting, linting, typing, security, infrastructure validation, repository compliance and the complete project quality gate pass.
-- [ ] Raw validation evidence and derived summaries are clearly separated and labelled as Phase 4 reproducibility evidence only.
-- [ ] Roadmap, progress ledger and top-level project status are updated only after the evidence above has been inspected.
+- [x] The prototype topology, configuration and environment boundary are version controlled.
+- [x] The declared OrderFlow images can be built reproducibly from the repository checkout.
+- [x] A clean Docker Desktop Kubernetes target can deploy the declared prototype configuration.
+- [x] `order-api` and `inventory` pass declared readiness and version checks.
+- [x] A deterministic synthetic workload traverses the `order-api` → `inventory` boundary.
+- [x] Prototype execution records immutable repository, manifest, image/runtime and environment provenance.
+- [x] The accepted OpenTelemetry trace path can observe/correlate the prototype execution without requiring a dashboard as evidence.
+- [x] Structured raw records remain sufficient to audit the required deployment, workload, observation and reset boundaries.
+- [x] Cleanup/reset returns the target to the declared clean-state fingerprint with no residual injected fault or prototype state.
+- [x] The complete deploy → readiness → workload → observe → cleanup/reset sequence succeeds in at least two fresh validation executions.
+- [x] Repeated validation uses fresh output directories and does not silently reuse or overwrite prior evidence.
+- [x] Automated tests cover the new prototype, configuration/provenance and reproducibility validation boundaries.
+- [x] Formatting, linting, typing, security, infrastructure validation, repository compliance and the complete project quality gate pass.
+- [x] Raw validation evidence and derived summaries are clearly separated and labelled as Phase 4 reproducibility evidence only.
+- [x] Roadmap, progress ledger and top-level project status are updated only after the evidence above has been inspected.
+
+## Inspected validation evidence
+
+Two final validation executions satisfy the completed Phase 4 architecture:
+
+- `phase4-repro-20260810T134202072483Z-5a519a99`
+- `phase4-repro-20260810T134620018339Z-4efc01f5`
+
+Each passed all 16 validity checks at repository commit
+`207337f481f81e34d99bb9682ee2a642709e1fe4`. Cross-run inspection confirmed
+the same controller, Kubernetes/prototype manifests, OrderFlow image identity
+and pinned Collector identity while preserving independent run IDs.
+
+Each run completed three successful synthetic orders and recorded exact 15/15
+parity between order-related structured events and decoded OTel spans. Cleanup
+verified that namespace `orderflow-phase4` was absent after execution.
+
+The detailed derived summary is
+`docs/reproducibility/phase-4-validation.md`. Raw run bundles remain immutable
+under `results/phase-4/raw/`.
+
+The repository-wide close-out quality gate passed after this evidence was
+inspected. All Phase 4 acceptance criteria are therefore satisfied. Phase 5
+remains a separate next gate and has not started.
+
 
 ## Planned implementation sequence
 

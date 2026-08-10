@@ -1,0 +1,130 @@
+{
+  "base_image": "python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+  "build_platform": "linux/amd64",
+  "controller_version": "phase-4-reproducibility-controller-v1.2",
+  "created_at": "2026-08-10T13:43:33.944Z",
+  "docker_version": "Client=29.6.2 Server=29.6.2",
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "external_images": {
+    "otel-collector": {
+      "image_id": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "repo_digests": "[\"otel/opentelemetry-collector@sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd\"]",
+      "tag": "otel/opentelemetry-collector:0.158.0"
+    }
+  },
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "images": {
+    "inventory": {
+      "image_id": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+      "repo_digests": "[\"orderflow/inventory@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\",\"orderflow/order-api@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\",\"orderflow/telemetry-sink@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\"]",
+      "tag": "orderflow/inventory:phase4-v1"
+    },
+    "order-api": {
+      "image_id": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+      "repo_digests": "[\"orderflow/inventory@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\",\"orderflow/order-api@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\",\"orderflow/telemetry-sink@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\"]",
+      "tag": "orderflow/order-api:phase4-v1"
+    },
+    "telemetry-sink": {
+      "image_id": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+      "repo_digests": "[\"orderflow/inventory@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\",\"orderflow/order-api@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\",\"orderflow/telemetry-sink@sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514\"]",
+      "tag": "orderflow/telemetry-sink:phase4-v1"
+    }
+  },
+  "kubectl_version": "Client Version: v1.36.1\nKustomize Version: v5.8.1\nServer Version: v1.36.1",
+  "kubernetes_context": "docker-desktop",
+  "kubernetes_manifest": "infrastructure\\kubernetes\\orderflow-phase-4.yaml",
+  "kubernetes_manifest_sha256": "0defaabd9d685a9cd5eb20fb2d59e89b6caba4f9130d198ee32169b8b235e261",
+  "kubernetes_node_images": {
+    "inventory": {
+      "containerd_namespace": "k8s.io",
+      "digest": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+      "node": "desktop-control-plane",
+      "reference": "docker.io/orderflow/inventory:phase4-v1",
+      "transfer_mode": "docker-save-stream"
+    },
+    "order-api": {
+      "containerd_namespace": "k8s.io",
+      "digest": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+      "node": "desktop-control-plane",
+      "reference": "docker.io/orderflow/order-api:phase4-v1",
+      "transfer_mode": "docker-save-stream"
+    },
+    "otel-collector": {
+      "containerd_namespace": "k8s.io",
+      "digest": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "node": "desktop-control-plane",
+      "reference": "docker.io/otel/opentelemetry-collector:0.158.0",
+      "transfer_mode": "docker-save-stream"
+    },
+    "telemetry-sink": {
+      "containerd_namespace": "k8s.io",
+      "digest": "sha256:57e69aa0c2962b4371112a93a12638322e4e7fc472d9d7c065b75c616d004514",
+      "node": "desktop-control-plane",
+      "reference": "docker.io/orderflow/telemetry-sink:phase4-v1",
+      "transfer_mode": "docker-save-stream"
+    }
+  },
+  "observability": {
+    "authoritative_audit_record": "structured-jsonl",
+    "claim_boundary": "small-technical-trace-telemetry-only",
+    "collector": {
+      "digest": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "image": "otel/opentelemetry-collector:0.158.0",
+      "otlp_http_port": 4318
+    },
+    "expected_order_span_count": 15,
+    "expected_order_spans_per_request": 5,
+    "mode": "structured-event-span-mirror",
+    "otel_endpoint": "http://otel-collector:4318/v1/traces",
+    "python_packages": {
+      "opentelemetry-api": "1.44.0",
+      "opentelemetry-exporter-otlp-proto-http": "1.44.0",
+      "opentelemetry-proto": "1.44.0",
+      "opentelemetry-sdk": "1.44.0"
+    },
+    "requirements_lock": {
+      "path": "observability/opentelemetry/phase4-requirements.lock",
+      "resolution": "exact-pins-only-binary-wheels",
+      "sha256": "9b0cd979109fe6054562678dce5ddb6089bf309ab8e0955de68c4e28dbd239e8"
+    },
+    "sink": {
+      "health_path": "/healthz",
+      "port": 4319,
+      "records_path": "/records",
+      "service": "telemetry-sink"
+    }
+  },
+  "prototype_id": "orderflow-phase-4-v1",
+  "prototype_manifest": "infrastructure\\prototype\\orderflow-phase-4.json",
+  "prototype_manifest_sha256": "8f131766f323dcdb5930e0b0ba3ac611bab4089646e40fb32e486674afe79ba5",
+  "prototype_version": "1.0.0",
+  "raw_files": {
+    "controller_events": {
+      "exists": true,
+      "path": "results\\phase-4\\raw\\phase4-repro-20260810T134202072483Z-5a519a99\\events.jsonl"
+    },
+    "otel_payloads": {
+      "exists": true,
+      "path": "results\\phase-4\\raw\\phase4-repro-20260810T134202072483Z-5a519a99\\otel-payloads.json"
+    },
+    "otel_spans": {
+      "exists": true,
+      "path": "results\\phase-4\\raw\\phase4-repro-20260810T134202072483Z-5a519a99\\otel-spans.json"
+    },
+    "service_events": {
+      "exists": true,
+      "path": "results\\phase-4\\raw\\phase4-repro-20260810T134202072483Z-5a519a99\\service-events.jsonl"
+    },
+    "workload": {
+      "exists": true,
+      "path": "results\\phase-4\\raw\\phase4-repro-20260810T134202072483Z-5a519a99\\workload.json"
+    }
+  },
+  "repository_commit_sha": "207337f481f81e34d99bb9682ee2a642709e1fe4",
+  "run_id": "phase4-repro-20260810T134202072483Z-5a519a99",
+  "target_model": "docker-desktop-kubernetes"
+}
