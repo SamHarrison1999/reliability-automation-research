@@ -82,3 +82,4 @@ data/processed/phase-5/primary/*
 !data/processed/phase-5/primary/observations.json
 !data/processed/phase-5/primary/provenance.json
 !data/processed/phase-5/primary/summary.json
+!data/processed/phase-5/primary/descriptive-analysis.json
