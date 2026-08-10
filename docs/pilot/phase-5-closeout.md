@@ -1,4 +1,3 @@
-@'
 # Phase 5 closeout
 
 ## Phase
@@ -114,6 +113,3 @@ Phase 6 addresses the human research protocol and ethics boundary.
 
 Phase 5 technical evidence must remain separate from future
 participant-derived evidence.
-'@ | Set-Content `
-  .\docs\pilot\phase-5-closeout.md `
-  -Encoding utf8

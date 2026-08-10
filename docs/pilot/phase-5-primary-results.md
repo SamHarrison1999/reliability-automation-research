@@ -1,4 +1,3 @@
-@'
 # Phase 5 primary technical-pilot results
 
 ## Status
@@ -213,6 +212,3 @@ They do not establish:
 
 Human and software-engineering-practice questions remain outside the
 Phase 5 evidence boundary.
-'@ | Set-Content `
-  .\docs\pilot\phase-5-primary-results.md `
-  -Encoding utf8
