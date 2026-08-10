@@ -73,3 +73,12 @@ data/processed/phase-5/*
 !data/processed/phase-5/development/
 data/processed/phase-5/development/*
 !data/processed/phase-5/development/observations.json
+
+# Versioned Phase 5 primary-pilot processed evidence.
+# Only deterministic post-collection artifacts are committed.
+!data/processed/phase-5/primary/
+data/processed/phase-5/primary/*
+!data/processed/phase-5/primary/corpus-index.json
+!data/processed/phase-5/primary/observations.json
+!data/processed/phase-5/primary/provenance.json
+!data/processed/phase-5/primary/summary.json
