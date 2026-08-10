@@ -1,0 +1,269 @@
+{
+  "allocation": {
+    "interpretation": "Pilot/feasibility allocation inherited from Phase 3; not a statistical power calculation.",
+    "maximum_attempted_slots": 60,
+    "planned_valid_trials": 50,
+    "primary_slots": 50,
+    "reserve_slots": 10
+  },
+  "analysis_boundary": {
+    "condition_sensitive_pilot_metrics": [
+      "recovery_time_ms",
+      "failure_impact_rate"
+    ],
+    "confirmatory_inference": false,
+    "detection_latency_interpretation": "shared-detector-fidelity-and-balance",
+    "no_fault_pooling_with_fault_outcomes": false,
+    "p_values": false,
+    "primary_metrics": [
+      "detection_latency_ms",
+      "recovery_time_ms",
+      "failure_impact_rate"
+    ],
+    "reporting": [
+      "attempted_valid_excluded_counts",
+      "individual_trial_values",
+      "median_and_iqr_by_condition_and_fault_scenario",
+      "minimum_and_maximum_where_useful",
+      "failure_impact_numerators_and_denominators",
+      "recovery_success_counts",
+      "intervention_and_automation_decision_counts",
+      "measurement_quality_indicators",
+      "exclusion_ledger"
+    ]
+  },
+  "conditions": {
+    "automated": {
+      "executor": "rule-based-recovery-controller-v1",
+      "initiator": "automation",
+      "interpretation_boundary": "Technical automation condition only; not evidence of human workload, trust or understanding.",
+      "label": "Rule-based automated recovery"
+    },
+    "manual": {
+      "artificial_operator_delay_ms": 0,
+      "executor": "external-baseline-executor-v1",
+      "initiator": "manual",
+      "interpretation_boundary": "Scripted technical baseline only; not a human-participant or human-reaction-time measurement.",
+      "label": "Standardised external recovery baseline"
+    }
+  },
+  "data_boundary": {
+    "analysis_root": "analysis/phase-5",
+    "interpretation_root": "docs/pilot",
+    "participant_data": false,
+    "primary_metric_imputation": false,
+    "processed_root": "data/processed/phase-5",
+    "production_data": false,
+    "raw_immutable_after_trial_close": true,
+    "raw_root": "results/phase-5/raw"
+  },
+  "design_status": "locked-for-implementation",
+  "evidence_boundary": "technical-pilot-only",
+  "manifest_type": "phase-5-technical-pilot-manifest",
+  "manifest_version": "1.0.0",
+  "pilot_cells": [
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "reserve_slots": 2,
+      "scenario_id": "no-fault-v1",
+      "valid_repetitions": 10
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "reserve_slots": 2,
+      "scenario_id": "service-termination-v1",
+      "valid_repetitions": 10
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "reserve_slots": 2,
+      "scenario_id": "service-termination-v1",
+      "valid_repetitions": 10
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "reserve_slots": 2,
+      "scenario_id": "dependency-latency-v1",
+      "valid_repetitions": 10
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "reserve_slots": 2,
+      "scenario_id": "dependency-latency-v1",
+      "valid_repetitions": 10
+    }
+  ],
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "purpose": "Machine-readable Phase 5 pilot contract. It defines the Kubernetes target, five pilot cells, shared detector/recovery invariants, allocation, reserve policy and deterministic primary run-order constraints. It is not a results file.",
+  "reserve_policy": {
+    "activation": "only_after_invalid_attempt_in_same_cell",
+    "activation_reason_required": true,
+    "append_to_primary_schedule": false,
+    "cell_stop_condition": "pause_when_two_reserve_slots_for_cell_are_exhausted",
+    "invalid_trial_preservation_required": true,
+    "source_invalid_trial_id_required": true
+  },
+  "run_order": {
+    "constraints": {
+      "condition_first_count_each_per_fault_scenario": 5,
+      "every_cycle_contains_every_cell_once": true,
+      "no_fault_position_count_each": 2,
+      "outcome_adaptive_reordering": false,
+      "scenario_first_count_each": 5
+    },
+    "cycle_count": 10,
+    "generator_version": "phase-5-pilot-run-order-generator-v1",
+    "immutability_rule": "Generate and hash the concrete primary order before trial 1. Refuse overwrite when existing bytes differ.",
+    "policy": "deterministic-counterbalanced-five-cell-cycles",
+    "primary_order_contains_reserve_slots": false,
+    "run_order_version": "phase-5-pilot-run-order-v1",
+    "seed": "phase-5-pilot-run-order-v1",
+    "slots_per_cycle": 5
+  },
+  "scenarios": {
+    "dependency-latency-v1": {
+      "condition_ids": [
+        "manual",
+        "automated"
+      ],
+      "detection_rule": {
+        "condition": "three consecutive completed order requests with observed latency above 100 ms",
+        "rule_id": "three-orders-over-100ms-v1",
+        "threshold_ms": 100,
+        "version": "detection-v1"
+      },
+      "fault": {
+        "apply_action": {
+          "action_id": "set-inventory-latency-120-v1",
+          "kind": "inventory-control",
+          "method": "POST",
+          "path": "/__control",
+          "payload": {
+            "latency_ms": 120,
+            "mode": "latency"
+          }
+        },
+        "exposure_window": "until_declared_recovery_action_begins",
+        "fault_id": "inventory-latency-v1",
+        "latency_ms": 120,
+        "mode": "inventory-control-latency",
+        "target": "inventory",
+        "trigger": "after_two_successful_pre_fault_requests",
+        "verification": "returned_mode_latency_and_latency_ms_120"
+      },
+      "recovery_action": {
+        "action_id": "clear-inventory-fault-v1",
+        "completion": "returned_mode_none_inventory_readiness_and_post_recovery_check",
+        "kind": "inventory-control",
+        "method": "POST",
+        "path": "/__control",
+        "payload": {
+          "mode": "none"
+        },
+        "version": "recovery-v1"
+      },
+      "role": "fault-comparison"
+    },
+    "no-fault-v1": {
+      "condition_ids": [
+        "control"
+      ],
+      "explicit_exclusions": [
+        "deployment-transition-treatment",
+        "rollback-treatment",
+        "fault-injection",
+        "recovery-comparison"
+      ],
+      "fault": null,
+      "required_boundaries": [
+        "trial_started",
+        "reset_started",
+        "clean_state_verified",
+        "reset_completed",
+        "workload_started",
+        "workload_request",
+        "workload_response",
+        "observation_verified",
+        "otel_observation_verified",
+        "cleanup_completed",
+        "trial_completed"
+      ],
+      "role": "quality-control",
+      "workload": {
+        "purpose": "readiness-workload-telemetry-reset-quality-control",
+        "request_count": 7
+      }
+    },
+    "service-termination-v1": {
+      "condition_ids": [
+        "manual",
+        "automated"
+      ],
+      "detection_rule": {
+        "condition": "three consecutive non-success order responses",
+        "readiness_short_circuit": false,
+        "rule_id": "three-non-success-orders-v1",
+        "version": "detection-v1"
+      },
+      "fault": {
+        "apply_action": {
+          "action_id": "scale-inventory-zero-v1",
+          "deployment": "inventory",
+          "kind": "kubernetes-scale",
+          "replicas": 0
+        },
+        "exposure_window": "until_declared_recovery_action_begins",
+        "fault_id": "inventory-availability-v1",
+        "mode": "deployment-scale-zero",
+        "namespace": "orderflow-phase5",
+        "target": "deployment/inventory",
+        "trigger": "after_two_successful_pre_fault_requests",
+        "verification": "deployment_desired_replicas_zero_and_no_ready_inventory_pod"
+      },
+      "recovery_action": {
+        "action_id": "scale-inventory-one-v1",
+        "completion": "inventory_readiness_and_first_post_recovery_order_success",
+        "deployment": "inventory",
+        "kind": "kubernetes-scale",
+        "replicas": 1,
+        "version": "recovery-v1"
+      },
+      "role": "fault-comparison"
+    }
+  },
+  "shared_workload": {
+    "inter_request_delay_ms": 20,
+    "post_recovery_request_count": 2,
+    "pre_fault_success_count": 2,
+    "request_timeout_ms": 2000,
+    "retries": 0,
+    "success_status": 201,
+    "workload_id": "phase-5-fixed-synthetic-orders-v1"
+  },
+  "target": {
+    "candidate_system": "OrderFlow",
+    "environment_pooling_rule": "Phase 5 pilot timings are Kubernetes-only. Do not pool local-process timings with the pilot.",
+    "execution_context": "docker-desktop-kubernetes",
+    "kubernetes_context": "docker-desktop",
+    "observation_authority": "structured-jsonl",
+    "prototype_id": "orderflow-phase-4-v1",
+    "secondary_observation": "opentelemetry-traces",
+    "topology": [
+      "order-api",
+      "inventory"
+    ]
+  },
+  "treatment_invariants": {
+    "only_planned_difference": "recovery-initiator-control-path",
+    "same_detector_across_conditions": true,
+    "same_environment_across_conditions": true,
+    "same_fault_across_conditions": true,
+    "same_recovery_action_across_conditions": true,
+    "same_workload_across_conditions": true
+  }
+}
