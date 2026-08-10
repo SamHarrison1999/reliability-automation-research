@@ -60,7 +60,7 @@
   "design_status": "locked-for-implementation",
   "evidence_boundary": "technical-pilot-only",
   "manifest_type": "phase-5-technical-pilot-manifest",
-  "manifest_version": "1.0.0",
+  "manifest_version": "1.1.0",
   "pilot_cells": [
     {
       "automation_condition": "control",
@@ -98,6 +98,12 @@
       "valid_repetitions": 10
     }
   ],
+  "pre_primary_correction": {
+    "applied_before_primary_trial": true,
+    "correction_id": "phase-5-pre-primary-freeze-v1",
+    "development_evidence_rewritten": false,
+    "purpose": "Make the detector window and primary elapsed-time clock machine-readable before the primary schedule is frozen."
+  },
   "protocol_id": "phase-5-technical-pilot-v1",
   "purpose": "Machine-readable Phase 5 pilot contract. It defines the Kubernetes target, five pilot cells, shared detector/recovery invariants, allocation, reserve policy and deterministic primary run-order constraints. It is not a results file.",
   "reserve_policy": {
@@ -133,6 +139,7 @@
       ],
       "detection_rule": {
         "condition": "three consecutive completed order requests with observed latency above 100 ms",
+        "detection_window_request_count": 3,
         "rule_id": "three-orders-over-100ms-v1",
         "threshold_ms": 100,
         "version": "detection-v1"
@@ -206,6 +213,7 @@
       ],
       "detection_rule": {
         "condition": "three consecutive non-success order responses",
+        "detection_window_request_count": 3,
         "readiness_short_circuit": false,
         "rule_id": "three-non-success-orders-v1",
         "version": "detection-v1"
@@ -237,6 +245,7 @@
     }
   },
   "shared_workload": {
+    "detection_window_request_count": 3,
     "inter_request_delay_ms": 20,
     "post_recovery_request_count": 2,
     "pre_fault_success_count": 2,
@@ -257,6 +266,22 @@
       "order-api",
       "inventory"
     ]
+  },
+  "timing_authority": {
+    "audit_clock": "utc",
+    "audit_clock_field": "timestamp",
+    "duration_clock": "controller-monotonic-ns",
+    "duration_clock_field": "monotonic_ns",
+    "duration_clock_scope": "single-controller-process",
+    "duration_unit_conversion": "milliseconds=(end_monotonic_ns-start_monotonic_ns)/1000000",
+    "fault_interval_end_event": "injection_ended",
+    "fault_interval_start_event": "injection_started",
+    "fault_interval_start_semantics": "after-positive-fault-verification",
+    "opentelemetry_primary_duration_source": false,
+    "primary_duration_clock_required": true,
+    "recovery_completion_event": "recovery_completed",
+    "recovery_completion_semantics": "after-first-successful-functional-post-recovery-order-response",
+    "timing_contract_version": "phase-5-primary-timing-v1"
   },
   "treatment_invariants": {
     "only_planned_difference": "recovery-initiator-control-path",

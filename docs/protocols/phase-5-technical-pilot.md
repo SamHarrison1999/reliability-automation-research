@@ -278,8 +278,8 @@ The trial manifest is written before treatment execution and is immutable after
 15. Assert that the canonical recovery action is the same for both conditions.
 16. Emit `recovery_started` with the declared initiator.
 17. Verify recovery completion.
-18. Emit `recovery_completed` and close/revert the fault.
-19. Complete two post-recovery workload requests/checks.
+18. Complete and positively verify the declared recovery action, emit `recovery_action_completed` and `injection_ended`, then require the first successful functional post-recovery order response before emitting `recovery_completed`.
+19. Complete the second post-recovery stability request/check; the first successful post-recovery request is the functional `recovery_completed` boundary.
 20. Capture structured events and OTel payload/span evidence.
 21. Validate event completeness, detector/recovery identity and OTel parity.
 22. Cleanup the namespace and independently verify absence/clean state.
@@ -458,3 +458,37 @@ They cannot establish:
 - effects in other systems/environments;
 - human workload, trust, understanding or decision quality; or
 - equivalence between scripted external recovery and real engineer behaviour.
+
+
+## Pre-primary timing and detector freeze correction
+
+This section was accepted before any primary Phase 5 trial and supersedes any
+earlier ambiguous wording about recovery closure or elapsed-time authority. It
+does not rewrite the five preserved development-validation trials.
+
+The machine-readable manifest version `1.1.0` fixes
+`detection_window_request_count` at exactly `3` in the shared workload and in
+both fault-scenario detector rules.
+
+For every primary controller event, two clocks are recorded:
+
+- `timestamp`: millisecond UTC wall-clock time for audit, ordering across
+  externally inspected records and human-readable provenance;
+- `monotonic_ns`: controller-process monotonic time for elapsed-duration
+  derivation.
+
+Primary elapsed durations MUST use differences between `monotonic_ns` values
+from controller-authored boundaries and convert nanoseconds to milliseconds.
+UTC MUST NOT substitute for a missing primary monotonic boundary.
+No monotonic subtraction is valid across processes.
+
+`injection_started` remains the operational fault-start boundary. It is emitted
+only after `fault_application_verified`, so command/application latency before
+positive fault verification is outside `detection_latency_ms`.
+
+`recovery_action_completed` records technical command/control/readiness
+completion. `injection_ended` records verified fault reversion.
+`recovery_completed` follows the first successful functional post-recovery
+order response. The second post-recovery request is a stability check.
+
+OpenTelemetry remains corroborative and is not a primary duration source.

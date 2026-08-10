@@ -38,7 +38,7 @@ KUBERNETES_NODE = "desktop-control-plane"
 ORDER_PORT = 19580
 INVENTORY_PORT = 19581
 TELEMETRY_SINK_PORT = 19582
-CONTROLLER_VERSION = "phase-5-single-trial-controller-v0.1"
+CONTROLLER_VERSION = "phase-5-single-trial-controller-v0.2"
 EVIDENCE_BOUNDARY = "phase-5-implementation-feasibility-only"
 DEVELOPMENT_REPETITION = 0
 DEVELOPMENT_RUN_ORDER = 0
@@ -229,6 +229,7 @@ class Phase5DevelopmentTrial:
             "source_component": "phase5-single-trial-controller",
             "event_type": event_type,
             "timestamp": utc_now(),
+            "monotonic_ns": time.monotonic_ns(),
             "software_version": CONTROLLER_VERSION,
             **fields,
         }

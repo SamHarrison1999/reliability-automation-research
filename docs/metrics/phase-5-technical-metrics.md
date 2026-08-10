@@ -1,6 +1,6 @@
 # Phase 5 technical metric derivation contract
 
-**Status:** Locked before primary pilot execution
+**Status:** Locked before primary pilot execution; pre-primary timing correction accepted
 
 **Protocol:** `phase-5-technical-pilot-v1`
 
@@ -18,9 +18,9 @@ For fault trials:
 
 | Metric | Phase 5 v1 derivation |
 |---|---|
-| `detection_latency_ms` | `timestamp(fault_detected) - timestamp(injection_started)` |
-| `recovery_time_ms` | `timestamp(recovery_completed) - timestamp(injection_started)` |
-| `failure_impact_rate` | failed paired responses / offered requests whose `workload_request` timestamp falls in `[injection_started, injection_ended)` |
+| `detection_latency_ms` | `(monotonic_ns(fault_detected) - monotonic_ns(injection_started)) / 1_000_000` |
+| `recovery_time_ms` | `(monotonic_ns(recovery_completed) - monotonic_ns(injection_started)) / 1_000_000` |
+| `failure_impact_rate` | failed paired responses / offered requests whose controller `monotonic_ns` falls in `[injection_started, injection_ended)` |
 
 `injection_started` is the controller boundary emitted after positive
 verification that the declared fault is active. It is the operational start of
@@ -47,10 +47,10 @@ specific metric is missing.
 ## Secondary metrics
 
 - `active_recovery_duration_ms`:
-  `recovery_completed - recovery_started`.
+  monotonic `recovery_completed - recovery_started`.
 - `time_to_first_post_recovery_success_ms`: the successful
   `workload_response` explicitly referenced by `recovery_completed`, minus
-  `injection_started`.
+  `injection_started`, using controller `monotonic_ns`.
 - `failed_requests_count`: numerator from failure impact.
 - request latency p50: ordinary median within the declared phase/window.
 - request latency p95: Type-7 linear interpolation, reported only for windows
@@ -69,10 +69,22 @@ responses can make this ratio less intuitive than in the latency-fault cell.
 
 ## Time and telemetry authority
 
-Controller UTC event timestamps remain the Phase 5 v1 duration source because
-the Phase 3 catalogue pre-specified UTC event timing and all required
-boundaries are controller-authored in one process. Durations with negative,
-missing or unparseable boundaries are rejected.
+The five committed development-derived outputs remain historical
+`phase-5-metric-derivation-v1.0` validation evidence and retain the inherited
+Phase 3 UTC-duration implementation under which they were produced. They are
+not rewritten or re-labelled.
+
+For primary pilot trials, controller `monotonic_ns` is the authoritative
+elapsed-duration clock. UTC `timestamp` remains required audit provenance.
+Primary duration metrics are missing if either required monotonic boundary is
+absent, non-integer or produces a negative duration; UTC MUST NOT be used as a
+fallback. Monotonic differences are valid only between events authored by the
+same controller process.
+
+Failure-interval request membership for the primary pilot likewise uses
+controller `monotonic_ns`, preserving the half-open
+`[injection_started, injection_ended)` definition without exposure to
+wall-clock adjustment.
 
 OpenTelemetry is corroborative only. OTLP export timing, Collector timing and
 synchronous exporter completion are never used in a primary duration metric.

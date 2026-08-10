@@ -16,7 +16,7 @@ def load_manifest() -> dict[str, Any]:
 def test_phase5_manifest_identity_and_target() -> None:
     manifest = load_manifest()
 
-    assert manifest["manifest_version"] == "1.0.0"
+    assert manifest["manifest_version"] == "1.1.0"
     assert manifest["manifest_type"] == "phase-5-technical-pilot-manifest"
     assert manifest["protocol_id"] == "phase-5-technical-pilot-v1"
     assert manifest["design_status"] == "locked-for-implementation"
