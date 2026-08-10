@@ -74,3 +74,20 @@ The analysis performs no:
 
 Results describe only the behaviour observed in this controlled
 technical pilot.
+
+## Recovery-success representation
+
+The frozen primary metric derivation represents `recovery_success` as
+an integer binary metric rather than a JSON boolean.
+
+For fault observations its observed value is therefore constrained to
+`0` or `1`. For no-fault controls the metric is `not_applicable` with a
+null value.
+
+`phase-5-primary-descriptive-analysis-v1.0` initially assumed a boolean
+representation and correctly failed before producing an accepted
+descriptive artifact.
+
+`phase-5-primary-descriptive-analysis-v1.0.1` consumes the existing
+integer `0`/`1` contract without modifying the primary metric derivation
+or processed dataset.

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from analysis.phase_5.phase_5_primary_descriptive import (
     PRIMARY_METRIC_ROLES,
+    binary_metric_summary,
     describe_numeric,
     paired_primary_metric,
     quantile_type7,
@@ -105,3 +106,49 @@ def test_failure_impact_is_treatment_relevant() -> None:
     assert PRIMARY_METRIC_ROLES["failure_impact_rate"] == (
         "treatment-relevant-technical-outcome"
     )
+
+def test_recovery_success_uses_frozen_binary_integer_contract() -> None:
+    observations = [
+        {
+            "secondary_metrics": {
+                "recovery_success": {
+                    "status": "observed",
+                    "value": 1,
+                }
+            }
+        },
+        {
+            "secondary_metrics": {
+                "recovery_success": {
+                    "status": "observed",
+                    "value": 0,
+                }
+            }
+        },
+        {
+            "secondary_metrics": {
+                "recovery_success": {
+                    "status": "not_applicable",
+                    "value": None,
+                }
+            }
+        },
+    ]
+
+    result = binary_metric_summary(
+        observations,
+        "secondary_metrics",
+        "recovery_success",
+    )
+
+    assert result == {
+        "status_counts": {
+            "not_applicable": 1,
+            "observed": 2,
+        },
+        "representation": "integer-0-or-1",
+        "observed_binary_counts": {
+            "0": 1,
+            "1": 1,
+        },
+    }

@@ -19,7 +19,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-TOOL_VERSION = "phase-5-primary-descriptive-analysis-v1.0"
+TOOL_VERSION = "phase-5-primary-descriptive-analysis-v1.0.1"
 
 EXPECTED_DATASET_COMMIT = (
     "be3119d44842a8b737a86e0f40dca37b3aa4dbf7"
@@ -81,7 +81,7 @@ NUMERIC_SECONDARY_METRICS = (
     "time_to_first_post_recovery_success_ms",
 )
 
-BOOLEAN_SECONDARY_METRICS = (
+BINARY_SECONDARY_METRICS = (
     "recovery_success",
 )
 
@@ -277,19 +277,21 @@ def numeric_metric_summary(
     return result
 
 
-def boolean_metric_summary(
+def binary_metric_summary(
     observations: list[dict[str, Any]],
     section: str,
     metric: str,
 ) -> dict[str, Any]:
+    """Summarize the frozen integer 0/1 representation of a binary metric."""
+
     statuses = status_counts(
         observations,
         section,
         metric,
     )
 
-    true_count = 0
-    false_count = 0
+    zero_count = 0
+    one_count = 0
 
     for observation in observations:
         value = observation[section][metric]
@@ -300,23 +302,25 @@ def boolean_metric_summary(
         metric_value = value["value"]
 
         require(
-            isinstance(metric_value, bool),
-            f"{section}.{metric} observed value is not boolean",
+            isinstance(metric_value, int)
+            and not isinstance(metric_value, bool)
+            and metric_value in (0, 1),
+            f"{section}.{metric} observed value is not a binary integer",
         )
 
-        if metric_value:
-            true_count += 1
+        if metric_value == 0:
+            zero_count += 1
         else:
-            false_count += 1
+            one_count += 1
 
     return {
         "status_counts": statuses,
-        "observed_boolean_counts": {
-            "false": false_count,
-            "true": true_count,
+        "representation": "integer-0-or-1",
+        "observed_binary_counts": {
+            "0": zero_count,
+            "1": one_count,
         },
     }
-
 
 def cell_key(observation: dict[str, Any]) -> str:
     return (
@@ -359,8 +363,8 @@ def build_cell_summary(
             metric,
         )
 
-    for metric in BOOLEAN_SECONDARY_METRICS:
-        secondary[metric] = boolean_metric_summary(
+    for metric in BINARY_SECONDARY_METRICS:
+        secondary[metric] = binary_metric_summary(
             observations,
             "secondary_metrics",
             metric,
