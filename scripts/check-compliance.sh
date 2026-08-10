@@ -30,7 +30,7 @@ fi
 
 if grep -R -I -n -E --exclude-dir=.git --exclude-dir=.venv --exclude-dir=tmp \
   '(password|secret|api[_-]?key|private[_-]?key)[[:space:]]*[:=][[:space:]]*[A-Za-z0-9]' \
-  .github ansible observability experiments system scripts tests 2>/dev/null; then
+  .github analysis ansible observability experiments system scripts tests 2>/dev/null; then
   printf '%s\n' 'Compliance check found a possible hard-coded secret.' >&2
   exit 1
 fi

@@ -20,7 +20,7 @@ $Required = @(
 $Missing = @($Required | Where-Object { -not (Test-Path -LiteralPath $_ -PathType Leaf) })
 if ($Missing.Count -gt 0) { throw "Compliance check missing required files: $($Missing -join ', ')" }
 
-$TextFiles = @('scripts', 'tests', 'experiments', 'system', 'ansible', 'observability', '.github') |
+$TextFiles = @('scripts', 'tests', 'analysis', 'experiments', 'system', 'ansible', 'observability', '.github') |
     ForEach-Object { Get-ChildItem -LiteralPath $_ -Recurse -File -ErrorAction SilentlyContinue }
 $SecretPattern = '(?i)(password|secret|api[_-]?key|private[_-]?key)\s*[:=]\s*["'']?[^$\s{]'
 $SecretMatches = @($TextFiles | Select-String -Pattern $SecretPattern)

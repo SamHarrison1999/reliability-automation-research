@@ -16,11 +16,26 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-Phase 4 is complete. Two fresh full-telemetry reproducibility runs at
-commit `207337f481f81e34d99bb9682ee2a642709e1fe4` passed all 16 declared
-validity checks, reproduced the committed configuration/image invariants with
-independent run IDs, and the repository-wide close-out quality gate passed.
+Phase 5 is complete.
 
-The next gate is Phase 5: experiment harness and technical pilot. Phase 5
-execution has not started. No reliability-effect, human-participant or
-production-readiness claim is authorised by the Phase 4 evidence.
+The frozen technical pilot resolved all 50 planned schedule slots using
+53 preserved attempts: 50 primary attempts and three reserve attempts.
+The resulting 50 valid observations are balanced across five design
+cells and have been processed and analysed through deterministic,
+byte-for-byte reproduced tooling.
+
+The immutable primary descriptive-result anchor is:
+
+`76396710e96088f79323039ae3a91aa3e53732c0`
+
+The Phase 5 exit criterion is satisfied:
+
+> Repeated technical runs produce validated raw records and analysis
+> from raw data.
+
+The next gate is Phase 6: human-participant protocol and ethics.
+
+Phase 5 authorises bounded descriptive technical-pilot findings only.
+It does not authorise statistical-significance, production-readiness,
+human-effect or universal causal claims. Participant-derived evidence
+must remain separate and requires the relevant ethics process.

@@ -2,12 +2,12 @@
 
 ## Project status
 
-- **Current phase:** Phase 4 - reproducible technical prototype (complete)
-- **Status:** Phase 4 exit evidence and repository-wide close-out quality gate complete; Phase 5 experiment harness/technical pilot is the next gate and has not started
-- **Empirical data collected:** Synthetic technical feasibility/reproducibility records only; no comparative Phase 5 pilot, participant or production data
+- **Current phase:** Phase 5 - experiment harness and technical pilot (complete); Phase 6 human-participant protocol and ethics is the next gate
+- **Status:** Phase 5 exit criterion satisfied; 50 planned slots resolved from 53 preserved attempts, with deterministic processed data and descriptive analysis committed
+- **Empirical data collected:** Phase 5 comparative technical-pilot evidence plus earlier feasibility/reproducibility records; no participant or production data
 - **Participant recruitment:** Not started
 - **Ethics approval:** Not obtained
-- **Application implementation:** Minimal reproducible OrderFlow technical prototype present; Phase 5 experiment execution has not started
+- **Application implementation:** Minimal reproducible OrderFlow prototype and frozen Phase 5 technical-pilot harness complete; participant protocol execution has not started
 
 ## Phase 0 record
 
@@ -195,3 +195,92 @@ evidence.
 | 2026-08-10 | Explicitly stream Docker images into the Docker Desktop Kubernetes node runtime | `imagePullPolicy: Never` requires node-visible images; the normal Docker image store was insufficient | Phase 4 development failure provenance; controller v1.1+ |
 | 2026-08-10 | Mirror structured events into the bounded OTel trace path while retaining JSONL as authoritative | Adds independent trace-transport evidence without replacing the audit record or broadening into metrics/logs dashboards | ADR 0014 |
 | 2026-08-10 | Require two final runs under the completed OTel architecture | Prevents the earlier pre-OTel success from being misclassified as final Phase 4 acceptance evidence | Final runs listed above |
+## Phase 5 record
+
+### Objective
+
+Execute the bounded technical pilot defined by the Phase 3 protocol on
+the reproducible Phase 4 OrderFlow platform, preserve complete attempt
+provenance, derive the frozen technical metrics and perform bounded
+descriptive analysis without crossing into participant or
+production-readiness claims.
+
+### Deliverables
+
+- [x] Phase 5 pilot design gate and machine-readable manifest
+- [x] Deterministic 50-slot balanced run order and frozen batch
+- [x] Primary trial controller with manual and rule-based automated recovery
+- [x] Development validation separated from primary evidence
+- [x] Monotonic-clock primary metric derivation
+- [x] 53 preserved primary/reserve attempts
+- [x] 50 valid resolving observations across five balanced design cells
+- [x] Three invalid attempts preserved without imputation
+- [x] Deterministic processed-dataset derivation
+- [x] Byte-for-byte reproduced processed dataset
+- [x] Deterministic descriptive-analysis tooling
+- [x] Byte-for-byte reproduced descriptive-analysis result
+- [x] Phase 5 result interpretation and closeout documentation
+
+### Validation evidence
+
+The immutable raw-corpus anchor is:
+
+`b832c96c1dd3665f6025394447b35db58cd0e2a9`
+
+The processed-dataset anchor is:
+
+`be3119d44842a8b737a86e0f40dca37b3aa4dbf7`
+
+The descriptive-result anchor is:
+
+`76396710e96088f79323039ae3a91aa3e53732c0`
+
+The descriptive result SHA-256 is:
+
+`547aff9a56dc3fa4dac09929f68c5d57248338af0f317cc7951bca0a0e5170ed`
+
+Collection resolved all 50 planned slots from 53 attempts. The invalid
+run orders were 19, 21 and 22; reserve run orders were 20, 22 and 23.
+No invalid primary metric was imputed.
+
+### Principal pilot findings
+
+Dependency-latency trials showed a small, directionally consistent
+reduction in recovery time under the automated condition.
+
+Service-termination trials showed substantial timing variability and
+no consistent paired recovery-time advantage.
+
+Failure impact did not discriminate between recovery conditions under
+either fault model.
+
+These findings are descriptive technical-pilot evidence and do not
+constitute confirmatory or production-level evidence.
+
+### Phase 5 evidence boundary
+
+Phase 5 establishes bounded comparative technical evidence for the
+purpose-built OrderFlow pilot only.
+
+It does not establish:
+
+- statistical significance;
+- production readiness;
+- generalisable causal effects;
+- developer workload;
+- developer trust;
+- developer understanding;
+- human decision rationale.
+
+Human-participant evidence remains a separate Phase 6/7 stream.
+
+### Phase 5 decision log
+
+| Date | Decision | Reason | Evidence/status |
+|---|---|---|---|
+| 2026-08-10 | Freeze a balanced 50-slot primary schedule before primary collection | Prevents post-result changes to condition allocation or repetition order | `phase-5-primary-batch-v1`; immutable batch provenance |
+| 2026-08-10 | Preserve invalid attempts and resolve planned slots only through the predefined reserve mechanism | Prevents silent deletion, imputation or ad-hoc reruns | 53 attempts; invalid run orders 19, 21 and 22 |
+| 2026-08-10 | Use controller monotonic timestamps for primary elapsed durations | Avoids wall-clock adjustment effects and UTC fallback | `phase-5-primary-timing-v1` |
+| 2026-08-10 | Treat detection latency as a shared-detector fidelity/balance measure | Both recovery conditions use the same detector | Phase 5 descriptive-analysis contract |
+| 2026-08-10 | Keep the Phase 5 analysis descriptive | The technical pilot is not a powered confirmatory study | No NHST, p-values or significance claims |
+| 2026-08-10 | Close Phase 5 without additional post-result trials | The frozen schedule is complete and the exit criterion is met | `docs/pilot/phase-5-closeout.md` |

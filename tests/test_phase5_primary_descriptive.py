@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Any
+
 from analysis.phase_5.phase_5_primary_descriptive import (
     PRIMARY_METRIC_ROLES,
     binary_metric_summary,
@@ -69,14 +71,12 @@ def test_paired_difference_is_automated_minus_manual() -> None:
         )
 
     result = paired_primary_metric(
-        observations,  # type: ignore[arg-type]
+        observations,
         "recovery_time_ms",
     )
 
     assert result["pair_count"] == 10
-    assert result["difference_definition"] == (
-        "automated-minus-manual"
-    )
+    assert result["difference_definition"] == ("automated-minus-manual")
 
     paired = result["paired_difference"]
 
@@ -91,24 +91,19 @@ def test_paired_difference_is_automated_minus_manual() -> None:
 
 
 def test_detection_latency_role_is_balance_check() -> None:
-    assert PRIMARY_METRIC_ROLES["detection_latency_ms"] == (
-        "shared-detector-fidelity-and-balance-check"
-    )
+    assert PRIMARY_METRIC_ROLES["detection_latency_ms"] == ("shared-detector-fidelity-and-balance-check")
 
 
 def test_recovery_is_treatment_relevant() -> None:
-    assert PRIMARY_METRIC_ROLES["recovery_time_ms"] == (
-        "treatment-relevant-technical-outcome"
-    )
+    assert PRIMARY_METRIC_ROLES["recovery_time_ms"] == ("treatment-relevant-technical-outcome")
 
 
 def test_failure_impact_is_treatment_relevant() -> None:
-    assert PRIMARY_METRIC_ROLES["failure_impact_rate"] == (
-        "treatment-relevant-technical-outcome"
-    )
+    assert PRIMARY_METRIC_ROLES["failure_impact_rate"] == ("treatment-relevant-technical-outcome")
+
 
 def test_recovery_success_uses_frozen_binary_integer_contract() -> None:
-    observations = [
+    observations: list[dict[str, Any]] = [
         {
             "secondary_metrics": {
                 "recovery_success": {

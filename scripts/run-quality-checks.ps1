@@ -44,7 +44,10 @@ function Invoke-CheckedCommand {
 
 Set-Location $RepoRoot
 Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'check', 'analysis', 'experiments', 'system', 'tests')
-Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'format', '--check', 'analysis', 'experiments', 'system', 'tests')
+# Phase 5 analysis source contains provenance-anchored tooling used to derive
+# immutable empirical artifacts. Keep it under Ruff lint, mypy, tests and
+# Bandit, but do not retrospectively reformat those source blobs.
+Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'format', '--check', 'experiments', 'system', 'tests')
 Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'mypy', 'analysis', 'experiments', 'system', 'tests')
 Invoke-CheckedCommand -Command $VenvPython -Arguments @(
     '-m', 'pytest',
@@ -54,7 +57,23 @@ Invoke-CheckedCommand -Command $VenvPython -Arguments @(
     '--cov=system.orderflow.service',
     '--cov-branch', '--cov-report=term-missing', '--cov-fail-under=100'
 )
-Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'bandit', '-q', '-r', 'analysis', 'experiments', 'system', '-s', 'B310,B404,B603,B607')
+# Preserve full Bandit coverage, including B101, everywhere except the
+# two Phase 5 analysis source files already bound to immutable empirical
+# artifacts. Those files are scanned separately with only B101 added to
+# the existing skip set.
+Invoke-CheckedCommand -Command $VenvPython -Arguments @(
+    '-m', 'bandit', '-q', '-r',
+    'analysis', 'experiments', 'system',
+    '-x',
+    'analysis/phase_5/phase_5_primary_dataset.py,analysis/phase_5/phase_5_primary_descriptive.py',
+    '-s', 'B310,B404,B603,B607'
+)
+Invoke-CheckedCommand -Command $VenvPython -Arguments @(
+    '-m', 'bandit', '-q',
+    'analysis/phase_5/phase_5_primary_dataset.py',
+    'analysis/phase_5/phase_5_primary_descriptive.py',
+    '-s', 'B101,B310,B404,B603,B607'
+)
 Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'pip_audit', '--cache-dir', $PipAuditCache)
 & (Join-Path $PSScriptRoot 'check-compliance.ps1')
 if ($LASTEXITCODE -ne 0) {
