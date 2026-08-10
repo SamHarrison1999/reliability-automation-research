@@ -1,0 +1,31 @@
+{
+  "input_policy": "raw-bytes-read-from-immutable-git-corpus-commit",
+  "opentelemetry_primary_timing": false,
+  "ordering": "primary_schedule_slot-ascending",
+  "output_sha256": {
+    "corpus-index.json": "ed3c39c41fe7a21b8d1142ae4e4367c9a79094b7b38eb3c398577181a2fc3bad",
+    "observations.json": "ff63303abb89c8d6ccc8f059a8bceca4f54039641d1cf1382663838ffe85dedb",
+    "summary.json": "be44fb5d84a4c15f938daf636ee88b3823b4c4b0311aec4bc325afdcf4a90860"
+  },
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "primary_batch_manifest": {
+    "git_blob_sha": "75b858d3ea9822946544272b08705424045e49c3",
+    "path": "experiments/manifests/phase-5-primary-batch.json"
+  },
+  "primary_dataset_tool": {
+    "git_blob_sha": "d09a7bb5bded9b54e3bda0baf9862813959e50e8",
+    "path": "analysis/phase_5/phase_5_primary_dataset.py"
+  },
+  "primary_metric_tool": {
+    "git_blob_sha": "7cb36031248207187e9d87d0c7956b93214a6544",
+    "path": "analysis/phase_5/phase_5_primary_metrics.py",
+    "unchanged_from_raw_corpus_anchor": true
+  },
+  "raw_corpus_commit": "b832c96c1dd3665f6025394447b35db58cd0e2a9",
+  "schema_version": "1.0.0",
+  "selection_policy": "one-valid-resolving-attempt-per-primary-schedule-slot",
+  "substantive_analysis_performed": false,
+  "tool_version": "phase-5-primary-dataset-builder-v1.0.1",
+  "tooling_commit": "77d8a65fa4bd672d54865b7cc71980c5f0357d72",
+  "utc_fallback_permitted": false
+}
