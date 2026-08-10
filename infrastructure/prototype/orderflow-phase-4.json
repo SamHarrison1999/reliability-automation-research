@@ -28,7 +28,10 @@
     "dockerfile": "infrastructure/kubernetes/Dockerfile",
     "entrypoint": "infrastructure/kubernetes/entrypoint.sh",
     "build_context": ".",
-    "base_image": "python:3.12-slim",
+    "build_platform": "linux/amd64",
+    "base_image_tag": "python:3.12-slim",
+    "base_image_digest": "sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+    "base_image": "python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
     "images": {
       "order-api": "orderflow/order-api:phase4-v1",
       "inventory": "orderflow/inventory:phase4-v1"
