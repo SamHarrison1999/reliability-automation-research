@@ -1,0 +1,45 @@
+{
+  "manifest_version": "1.0.0",
+  "prototype_id": "orderflow-phase-4-v1",
+  "prototype_version": "1.0.0",
+  "target_model": "docker-desktop-kubernetes",
+  "topology": {
+    "request_path": [
+      "order-api",
+      "inventory"
+    ],
+    "services": {
+      "order-api": {
+        "version": "order-api-phase4-v1",
+        "container_port": 8080,
+        "readiness_path": "/healthz",
+        "version_path": "/version",
+        "dependency": "inventory"
+      },
+      "inventory": {
+        "version": "inventory-phase4-v1",
+        "container_port": 8081,
+        "readiness_path": "/healthz",
+        "version_path": "/version"
+      }
+    }
+  },
+  "packaging": {
+    "dockerfile": "infrastructure/kubernetes/Dockerfile",
+    "entrypoint": "infrastructure/kubernetes/entrypoint.sh",
+    "build_context": ".",
+    "base_image": "python:3.12-slim",
+    "images": {
+      "order-api": "orderflow/order-api:phase4-v1",
+      "inventory": "orderflow/inventory:phase4-v1"
+    }
+  },
+  "telemetry_contract": "otel-compatible-structured-event-v1",
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "exclusions": [
+    "phase-5-pilot-execution",
+    "reliability-effect-claims",
+    "production-readiness-claims",
+    "human-participant-evidence"
+  ]
+}
