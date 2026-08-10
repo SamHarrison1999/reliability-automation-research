@@ -16,7 +16,6 @@ import shutil
 import socket
 import subprocess
 import sys
-import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -32,7 +31,7 @@ NAMESPACE = "orderflow-phase4"
 KUBERNETES_NODE = "desktop-control-plane"
 ORDER_PORT = 19480
 INVENTORY_PORT = 19481
-CONTROLLER_VERSION = "phase-4-reproducibility-controller-v1"
+CONTROLLER_VERSION = "phase-4-reproducibility-controller-v1.1"
 WORKLOAD_ID = "phase-4-fixed-synthetic-orders-v1"
 WORKLOAD_COUNT = 3
 
@@ -60,6 +59,50 @@ def run_command(args: list[str], check: bool = True) -> subprocess.CompletedProc
 def command_version(args: list[str]) -> str:
     result = run_command(args, check=False)
     return (result.stdout.strip() or result.stderr.strip()).strip()
+
+
+def stream_docker_image_to_containerd(image: str) -> str:
+    save = subprocess.Popen(
+        ["docker", "save", image],
+        cwd=ROOT,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if save.stdout is None:
+        raise RuntimeError(f"could not open docker save stream for {image}")
+
+    import_process = subprocess.Popen(
+        [
+            "docker",
+            "exec",
+            "-i",
+            KUBERNETES_NODE,
+            "ctr",
+            "-n",
+            "k8s.io",
+            "images",
+            "import",
+            "-",
+        ],
+        cwd=ROOT,
+        stdin=save.stdout,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=False,
+    )
+    save.stdout.close()
+    import_stdout, import_stderr = import_process.communicate()
+    save_stderr = save.stderr.read() if save.stderr is not None else b""
+    save_returncode = save.wait()
+
+    if save_returncode != 0:
+        detail = save_stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"docker save failed for {image}: {detail}")
+    if import_process.returncode != 0:
+        detail = import_stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"containerd image import failed for {image}: {detail}")
+
+    return import_stdout.decode("utf-8", errors="replace").strip()
 
 
 class Phase4Validation:
@@ -228,73 +271,61 @@ class Phase4Validation:
         if node_check.returncode != 0 or node_check.stdout.strip().lower() != "true":
             raise RuntimeError(f"Kubernetes node container is not running: {KUBERNETES_NODE}")
 
-        with tempfile.TemporaryDirectory(prefix="phase4-image-import-") as temp_dir:
-            temp_root = Path(temp_dir)
-            for service in ("inventory", "order-api"):
-                tag = self.prototype["packaging"]["images"][service]
-                expected_ref = f"docker.io/{tag}"
-                archive = temp_root / f"{service}.tar"
-                remote_archive = f"/tmp/{self.run_id}-{service}.tar"
+        for service in ("inventory", "order-api"):
+            tag = self.prototype["packaging"]["images"][service]
+            expected_ref = f"docker.io/{tag}"
 
-                self.emit(
-                    "image_import_started",
-                    service=service,
-                    image=tag,
-                    kubernetes_node=KUBERNETES_NODE,
-                    containerd_namespace="k8s.io",
-                )
-                run_command(["docker", "save", "--output", str(archive), tag])
-                run_command(["docker", "cp", str(archive), f"{KUBERNETES_NODE}:{remote_archive}"])
-                try:
-                    run_command(
-                        [
-                            "docker",
-                            "exec",
-                            KUBERNETES_NODE,
-                            "ctr",
-                            "-n",
-                            "k8s.io",
-                            "images",
-                            "import",
-                            remote_archive,
-                        ]
-                    )
-                finally:
-                    run_command(
-                        ["docker", "exec", KUBERNETES_NODE, "rm", "-f", remote_archive],
-                        check=False,
-                    )
+            self.emit(
+                "image_import_started",
+                service=service,
+                image=tag,
+                kubernetes_node=KUBERNETES_NODE,
+                containerd_namespace="k8s.io",
+                transfer_mode="docker-save-stream",
+            )
+            import_output = stream_docker_image_to_containerd(tag)
 
-                node_images = run_command(
-                    ["docker", "exec", KUBERNETES_NODE, "ctr", "-n", "k8s.io", "images", "ls"]
-                ).stdout.splitlines()
-                matching = [line for line in node_images if line.startswith(expected_ref)]
-                if not matching:
-                    raise RuntimeError(f"imported image is not visible in Kubernetes node runtime: {expected_ref}")
-                digest = next(
-                    (field for field in matching[0].split() if field.startswith("sha256:")),
-                    "",
+            node_images = run_command(
+                ["docker", "exec", KUBERNETES_NODE, "ctr", "-n", "k8s.io", "images", "ls"]
+            ).stdout.splitlines()
+            matching = [line for line in node_images if line.startswith(expected_ref)]
+            if not matching:
+                raise RuntimeError(f"imported image is not visible in Kubernetes node runtime: {expected_ref}")
+            digest = next(
+                (field for field in matching[0].split() if field.startswith("sha256:")),
+                "",
+            )
+            if not digest:
+                raise RuntimeError(f"could not identify Kubernetes node image digest for {expected_ref}")
+
+            docker_image_id = self.image_records[service]["image_id"]
+            if digest != docker_image_id:
+                raise RuntimeError(
+                    f"Kubernetes node image digest mismatch for {service}: docker={docker_image_id}, node={digest}"
                 )
-                if not digest:
-                    raise RuntimeError(f"could not identify Kubernetes node image digest for {expected_ref}")
-                self.node_image_records[service] = {
-                    "node": KUBERNETES_NODE,
-                    "containerd_namespace": "k8s.io",
-                    "reference": expected_ref,
-                    "digest": digest,
-                }
-                self.emit(
-                    "node_image_verified",
-                    service=service,
-                    image_reference=expected_ref,
-                    image_digest=digest,
-                    kubernetes_node=KUBERNETES_NODE,
-                )
+
+            self.node_image_records[service] = {
+                "node": KUBERNETES_NODE,
+                "containerd_namespace": "k8s.io",
+                "reference": expected_ref,
+                "digest": digest,
+                "transfer_mode": "docker-save-stream",
+            }
+            self.emit(
+                "node_image_verified",
+                service=service,
+                image_reference=expected_ref,
+                image_digest=digest,
+                docker_image_id=docker_image_id,
+                kubernetes_node=KUBERNETES_NODE,
+                import_output_present=bool(import_output),
+            )
 
         self.emit(
             "image_import_completed",
             imported_services=sorted(self.node_image_records),
             kubernetes_node=KUBERNETES_NODE,
+            transfer_mode="docker-save-stream",
         )
 
     def deploy(self) -> None:

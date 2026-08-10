@@ -98,24 +98,62 @@ def test_build_images_records_image_identity(monkeypatch: pytest.MonkeyPatch, tm
     assert all("linux/amd64" in call for call in build_calls)
 
 
-def test_import_images_into_kubernetes_node_records_runtime_digest(
+def test_stream_docker_image_to_containerd_uses_stdin_pipeline(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class FakePipe:
+        def close(self) -> None:
+            return None
+
+        def read(self) -> bytes:
+            return b""
+
+    class FakeSaveProcess:
+        def __init__(self) -> None:
+            self.stdout = FakePipe()
+            self.stderr = FakePipe()
+
+        def wait(self) -> int:
+            return 0
+
+    class FakeImportProcess:
+        returncode = 0
+
+        def communicate(self) -> tuple[bytes, bytes]:
+            return b"imported", b""
+
+    calls: list[list[str]] = []
+
+    def fake_popen(args: list[str], **kwargs: Any) -> Any:
+        calls.append(args)
+        if args[:2] == ["docker", "save"]:
+            return FakeSaveProcess()
+        if args[:3] == ["docker", "exec", "-i"]:
+            return FakeImportProcess()
+        raise AssertionError(args)
+
+    monkeypatch.setattr(phase4.subprocess, "Popen", fake_popen)
+
+    output = phase4.stream_docker_image_to_containerd("orderflow/inventory:phase4-v1")
+
+    assert output == "imported"
+    assert calls[0] == ["docker", "save", "orderflow/inventory:phase4-v1"]
+    assert calls[1][-2:] == ["import", "-"]
+
+
+def test_import_images_into_kubernetes_node_records_matching_runtime_digest(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     validation = make_validation(tmp_path)
     validation.run_dir.mkdir(parents=True)
+    validation.image_records = {
+        "inventory": {"tag": "inventory", "image_id": "sha256:aaa", "repo_digests": "[]"},
+        "order-api": {"tag": "order", "image_id": "sha256:bbb", "repo_digests": "[]"},
+    }
 
     def fake_run(args: list[str], check: bool = True) -> Any:
         if args[:4] == ["docker", "inspect", "--type", "container"]:
             return SimpleNamespace(returncode=0, stdout="true\n", stderr="")
-        if args[:3] == ["docker", "save", "--output"]:
-            Path(args[3]).write_bytes(b"image")
-            return SimpleNamespace(returncode=0, stdout="", stderr="")
-        if args[:2] == ["docker", "cp"]:
-            return SimpleNamespace(returncode=0, stdout="", stderr="")
-        if args[:3] == ["docker", "exec", phase4.KUBERNETES_NODE] and "images" in args and "import" in args:
-            return SimpleNamespace(returncode=0, stdout="imported\n", stderr="")
-        if args[:3] == ["docker", "exec", phase4.KUBERNETES_NODE] and args[3:5] == ["rm", "-f"]:
-            return SimpleNamespace(returncode=0, stdout="", stderr="")
         if args[:3] == ["docker", "exec", phase4.KUBERNETES_NODE] and args[-2:] == ["images", "ls"]:
             return SimpleNamespace(
                 returncode=0,
@@ -129,11 +167,41 @@ def test_import_images_into_kubernetes_node_records_runtime_digest(
         raise AssertionError(args)
 
     monkeypatch.setattr(phase4, "run_command", fake_run)
+    monkeypatch.setattr(phase4, "stream_docker_image_to_containerd", lambda image: "imported")
     validation.import_images_into_kubernetes_node()
 
     assert validation.node_image_records["inventory"]["digest"] == "sha256:aaa"
     assert validation.node_image_records["order-api"]["digest"] == "sha256:bbb"
+    assert validation.node_image_records["inventory"]["transfer_mode"] == "docker-save-stream"
     assert validation.events[-1]["event_type"] == "image_import_completed"
+
+
+def test_import_images_rejects_node_digest_mismatch(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    validation = make_validation(tmp_path)
+    validation.image_records = {
+        "inventory": {"tag": "inventory", "image_id": "sha256:expected", "repo_digests": "[]"},
+        "order-api": {"tag": "order", "image_id": "sha256:expected", "repo_digests": "[]"},
+    }
+
+    def fake_run(args: list[str], check: bool = True) -> Any:
+        if args[:4] == ["docker", "inspect", "--type", "container"]:
+            return SimpleNamespace(returncode=0, stdout="true\n", stderr="")
+        if args[:3] == ["docker", "exec", phase4.KUBERNETES_NODE] and args[-2:] == ["images", "ls"]:
+            return SimpleNamespace(
+                returncode=0,
+                stdout=(
+                    "REF TYPE DIGEST SIZE PLATFORMS LABELS\n"
+                    "docker.io/orderflow/inventory:phase4-v1 type sha256:different 1 linux/amd64 managed\n"
+                ),
+                stderr="",
+            )
+        raise AssertionError(args)
+
+    monkeypatch.setattr(phase4, "run_command", fake_run)
+    monkeypatch.setattr(phase4, "stream_docker_image_to_containerd", lambda image: "imported")
+
+    with pytest.raises(RuntimeError, match="node image digest mismatch"):
+        validation.import_images_into_kubernetes_node()
 
 
 def test_run_workload_uses_deterministic_order_identity(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
