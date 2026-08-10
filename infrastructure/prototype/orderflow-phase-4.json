@@ -34,7 +34,8 @@
     "base_image": "python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
     "images": {
       "order-api": "orderflow/order-api:phase4-v1",
-      "inventory": "orderflow/inventory:phase4-v1"
+      "inventory": "orderflow/inventory:phase4-v1",
+      "telemetry-sink": "orderflow/telemetry-sink:phase4-v1"
     }
   },
   "telemetry_contract": "otel-compatible-structured-event-v1",
@@ -44,5 +45,35 @@
     "reliability-effect-claims",
     "production-readiness-claims",
     "human-participant-evidence"
-  ]
+  ],
+  "observability": {
+    "mode": "structured-event-span-mirror",
+    "otel_endpoint": "http://otel-collector:4318/v1/traces",
+    "python_packages": {
+      "opentelemetry-api": "1.44.0",
+      "opentelemetry-sdk": "1.44.0",
+      "opentelemetry-exporter-otlp-proto-http": "1.44.0",
+      "opentelemetry-proto": "1.44.0"
+    },
+    "collector": {
+      "image": "otel/opentelemetry-collector:0.158.0",
+      "digest": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "otlp_http_port": 4318
+    },
+    "sink": {
+      "service": "telemetry-sink",
+      "port": 4319,
+      "health_path": "/healthz",
+      "records_path": "/records"
+    },
+    "expected_order_spans_per_request": 5,
+    "expected_order_span_count": 15,
+    "authoritative_audit_record": "structured-jsonl",
+    "claim_boundary": "small-technical-trace-telemetry-only",
+    "requirements_lock": {
+      "path": "observability/opentelemetry/phase4-requirements.lock",
+      "sha256": "9b0cd979109fe6054562678dce5ddb6089bf309ab8e0955de68c4e28dbd239e8",
+      "resolution": "exact-pins-only-binary-wheels"
+    }
+  }
 }

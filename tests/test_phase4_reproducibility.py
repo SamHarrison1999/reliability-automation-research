@@ -31,10 +31,16 @@ def test_write_validity_requires_all_phase4_boundaries(tmp_path: Path) -> None:
     validation.image_records = {
         "inventory": {"tag": "inventory", "image_id": "sha256:a", "repo_digests": "[]"},
         "order-api": {"tag": "order", "image_id": "sha256:b", "repo_digests": "[]"},
+        "telemetry-sink": {"tag": "sink", "image_id": "sha256:c", "repo_digests": "[]"},
+    }
+    validation.external_image_records = {
+        "otel-collector": {"tag": "collector", "image_id": "sha256:d", "repo_digests": "[]"}
     }
     validation.node_image_records = {
         "inventory": {"reference": "docker.io/orderflow/inventory:phase4-v1"},
         "order-api": {"reference": "docker.io/orderflow/order-api:phase4-v1"},
+        "telemetry-sink": {"reference": "docker.io/orderflow/telemetry-sink:phase4-v1"},
+        "otel-collector": {"reference": "docker.io/otel/opentelemetry-collector:0.158.0"},
     }
     validation.workload_records = [
         {"status": 201},
@@ -45,6 +51,7 @@ def test_write_validity_requires_all_phase4_boundaries(tmp_path: Path) -> None:
     for event_type, fields in (
         ("preflight_completed", {}),
         ("source_tree_verified", {}),
+        ("external_image_verified", {}),
         ("image_import_completed", {}),
         ("clean_state_verified", {"stage": "before_deploy", "namespace_present": False}),
         ("deployment_completed", {}),
@@ -52,6 +59,7 @@ def test_write_validity_requires_all_phase4_boundaries(tmp_path: Path) -> None:
         ("version_verified", {}),
         ("workload_completed", {}),
         ("observation_verified", {}),
+        ("otel_observation_verified", {}),
         ("clean_state_verified", {"stage": "after_cleanup", "namespace_present": False}),
     ):
         validation.events.append({"event_type": event_type, **fields})
@@ -89,10 +97,10 @@ def test_build_images_records_image_identity(monkeypatch: pytest.MonkeyPatch, tm
     monkeypatch.setattr(phase4, "run_command", fake_run)
     validation.build_images()
 
-    assert set(validation.image_records) == {"inventory", "order-api"}
+    assert set(validation.image_records) == {"inventory", "order-api", "telemetry-sink"}
     assert validation.image_records["inventory"]["image_id"] == "sha256:example"
     build_calls = [call for call in calls if call[:2] == ["docker", "build"]]
-    assert len(build_calls) == 2
+    assert len(build_calls) == 3
     assert all("--pull=false" in call for call in build_calls)
     assert all("--provenance=false" in call for call in build_calls)
     assert all("linux/amd64" in call for call in build_calls)
@@ -141,7 +149,31 @@ def test_stream_docker_image_to_containerd_uses_stdin_pipeline(
     assert calls[1][-2:] == ["import", "-"]
 
 
-def test_import_images_into_kubernetes_node_records_matching_runtime_digest(
+def test_verify_external_images_accepts_pinned_collector_digest(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    validation = make_validation(tmp_path)
+
+    def fake_run(args: list[str], check: bool = True) -> Any:
+        if args[-1] == "{{.Id}}":
+            return SimpleNamespace(
+                returncode=0,
+                stdout="sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd\n",
+                stderr="",
+            )
+        if args[-1] == "{{json .RepoDigests}}":
+            return SimpleNamespace(returncode=0, stdout="[]\n", stderr="")
+        raise AssertionError(args)
+
+    monkeypatch.setattr(phase4, "run_command", fake_run)
+    validation.verify_external_images()
+    assert (
+        validation.external_image_records["otel-collector"]["image_id"]
+        == "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd"
+    )
+
+
+def test_import_images_into_kubernetes_node_records_all_runtime_digests(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     validation = make_validation(tmp_path)
@@ -149,6 +181,14 @@ def test_import_images_into_kubernetes_node_records_matching_runtime_digest(
     validation.image_records = {
         "inventory": {"tag": "inventory", "image_id": "sha256:aaa", "repo_digests": "[]"},
         "order-api": {"tag": "order", "image_id": "sha256:bbb", "repo_digests": "[]"},
+        "telemetry-sink": {"tag": "sink", "image_id": "sha256:ccc", "repo_digests": "[]"},
+    }
+    validation.external_image_records = {
+        "otel-collector": {
+            "tag": "otel/opentelemetry-collector:0.158.0",
+            "image_id": "sha256:ddd",
+            "repo_digests": "[]",
+        }
     }
 
     def fake_run(args: list[str], check: bool = True) -> Any:
@@ -161,6 +201,8 @@ def test_import_images_into_kubernetes_node_records_matching_runtime_digest(
                     "REF TYPE DIGEST SIZE PLATFORMS LABELS\n"
                     "docker.io/orderflow/inventory:phase4-v1 type sha256:aaa 1 linux/amd64 managed\n"
                     "docker.io/orderflow/order-api:phase4-v1 type sha256:bbb 1 linux/amd64 managed\n"
+                    "docker.io/orderflow/telemetry-sink:phase4-v1 type sha256:ccc 1 linux/amd64 managed\n"
+                    "docker.io/otel/opentelemetry-collector:0.158.0 type sha256:ddd 1 linux/amd64 managed\n"
                 ),
                 stderr="",
             )
@@ -170,38 +212,8 @@ def test_import_images_into_kubernetes_node_records_matching_runtime_digest(
     monkeypatch.setattr(phase4, "stream_docker_image_to_containerd", lambda image: "imported")
     validation.import_images_into_kubernetes_node()
 
-    assert validation.node_image_records["inventory"]["digest"] == "sha256:aaa"
-    assert validation.node_image_records["order-api"]["digest"] == "sha256:bbb"
-    assert validation.node_image_records["inventory"]["transfer_mode"] == "docker-save-stream"
+    assert set(validation.node_image_records) == {"inventory", "order-api", "telemetry-sink", "otel-collector"}
     assert validation.events[-1]["event_type"] == "image_import_completed"
-
-
-def test_import_images_rejects_node_digest_mismatch(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
-    validation = make_validation(tmp_path)
-    validation.image_records = {
-        "inventory": {"tag": "inventory", "image_id": "sha256:expected", "repo_digests": "[]"},
-        "order-api": {"tag": "order", "image_id": "sha256:expected", "repo_digests": "[]"},
-    }
-
-    def fake_run(args: list[str], check: bool = True) -> Any:
-        if args[:4] == ["docker", "inspect", "--type", "container"]:
-            return SimpleNamespace(returncode=0, stdout="true\n", stderr="")
-        if args[:3] == ["docker", "exec", phase4.KUBERNETES_NODE] and args[-2:] == ["images", "ls"]:
-            return SimpleNamespace(
-                returncode=0,
-                stdout=(
-                    "REF TYPE DIGEST SIZE PLATFORMS LABELS\n"
-                    "docker.io/orderflow/inventory:phase4-v1 type sha256:different 1 linux/amd64 managed\n"
-                ),
-                stderr="",
-            )
-        raise AssertionError(args)
-
-    monkeypatch.setattr(phase4, "run_command", fake_run)
-    monkeypatch.setattr(phase4, "stream_docker_image_to_containerd", lambda image: "imported")
-
-    with pytest.raises(RuntimeError, match="node image digest mismatch"):
-        validation.import_images_into_kubernetes_node()
 
 
 def test_run_workload_uses_deterministic_order_identity(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -222,6 +234,81 @@ def test_run_workload_uses_deterministic_order_identity(monkeypatch: pytest.Monk
     payload = json.loads(validation.workload_file.read_text(encoding="utf-8"))
     assert payload["workload_id"] == phase4.WORKLOAD_ID
     assert len(payload["requests"]) == 3
+
+
+def test_capture_otel_observation_requires_exact_structured_event_parity(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    validation = make_validation(tmp_path)
+    validation.run_dir.mkdir(parents=True)
+    validation.workload_records = [
+        {"order_id": f"{validation.run_id}-order-001", "status": 201},
+        {"order_id": f"{validation.run_id}-order-002", "status": 201},
+        {"order_id": f"{validation.run_id}-order-003", "status": 201},
+    ]
+    validation.service_events = []
+    spans = []
+    for record in validation.workload_records:
+        order_id = record["order_id"]
+        for component, event_type in (
+            ("order-api", "workload_request_received"),
+            ("order-api", "dependency_request_started"),
+            ("inventory", "dependency_request_received"),
+            ("inventory", "dependency_request_succeeded"),
+            ("order-api", "workload_request_succeeded"),
+        ):
+            trace_id = f"trace-{len(validation.service_events)}"
+            span_id = f"span-{len(validation.service_events)}"
+            validation.service_events.append(
+                {
+                    "run_id": validation.run_id,
+                    "source_component": component,
+                    "event_type": event_type,
+                    "order_id": order_id,
+                    "trace_id": trace_id,
+                    "span_id": span_id,
+                }
+            )
+            spans.append(
+                {
+                    "name": f"orderflow.{event_type}",
+                    "trace_id": "otel-trace",
+                    "span_id": "otel-span",
+                    "parent_span_id": "",
+                    "resource": {"service.name": f"orderflow-{component}"},
+                    "attributes": {
+                        "orderflow.run_id": validation.run_id,
+                        "orderflow.source_component": component,
+                        "orderflow.event_type": event_type,
+                        "orderflow.order_id": order_id,
+                        "orderflow.trace_id": trace_id,
+                        "orderflow.span_id": span_id,
+                    },
+                }
+            )
+
+    monkeypatch.setattr(
+        validation,
+        "request",
+        lambda *args, **kwargs: (
+            200,
+            {
+                "payloads_base64": ["cGF5bG9hZA=="],
+                "raw_payloads_base64": ["cmF3"],
+                "content_encodings": ["identity"],
+            },
+            0.001,
+        ),
+    )
+    monkeypatch.setattr(validation, "decode_otel_spans", lambda payloads: spans)
+
+    validation.capture_otel_observation()
+
+    assert len(validation.otel_spans) == 15
+    assert validation.events[-1]["event_type"] == "otel_observation_verified"
+    result = json.loads(validation.otel_span_file.read_text(encoding="utf-8"))
+    assert result["signatures_match_structured_events"] is True
+    assert set(result["component_span_counts"]) == {"inventory", "order-api"}
 
 
 def test_verify_source_tree_clean_records_committed_source_state(

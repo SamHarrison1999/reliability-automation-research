@@ -9,6 +9,7 @@ It does not execute the Phase 5 recovery-condition experiment.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import platform
@@ -31,7 +32,8 @@ NAMESPACE = "orderflow-phase4"
 KUBERNETES_NODE = "desktop-control-plane"
 ORDER_PORT = 19480
 INVENTORY_PORT = 19481
-CONTROLLER_VERSION = "phase-4-reproducibility-controller-v1.1"
+TELEMETRY_SINK_PORT = 19482
+CONTROLLER_VERSION = "phase-4-reproducibility-controller-v1.2"
 WORKLOAD_ID = "phase-4-fixed-synthetic-orders-v1"
 WORKLOAD_COUNT = 3
 
@@ -116,12 +118,16 @@ class Phase4Validation:
         self.workload_file = self.run_dir / "workload.json"
         self.metadata_file = self.run_dir / "metadata.json"
         self.validity_file = self.run_dir / "validity.json"
+        self.otel_payload_file = self.run_dir / "otel-payloads.json"
+        self.otel_span_file = self.run_dir / "otel-spans.json"
         self.events: list[dict[str, Any]] = []
         self.service_events: list[dict[str, Any]] = []
         self.port_forwards: list[subprocess.Popen[str]] = []
         self.prototype = json.loads(PROTOTYPE_MANIFEST.read_text(encoding="utf-8"))
         self.image_records: dict[str, dict[str, str]] = {}
         self.node_image_records: dict[str, dict[str, str]] = {}
+        self.external_image_records: dict[str, dict[str, str]] = {}
+        self.otel_spans: list[dict[str, Any]] = []
         self.workload_records: list[dict[str, Any]] = []
 
     def emit(self, event_type: str, **fields: Any) -> None:
@@ -232,7 +238,7 @@ class Phase4Validation:
         packaging = self.prototype["packaging"]
         dockerfile = str(ROOT / packaging["dockerfile"])
         platform_name = packaging["build_platform"]
-        for service in ("inventory", "order-api"):
+        for service in ("inventory", "order-api", "telemetry-sink"):
             tag = packaging["images"][service]
             self.emit(
                 "image_build_started",
@@ -263,6 +269,31 @@ class Phase4Validation:
             self.image_records[service] = {"tag": tag, "image_id": image_id, "repo_digests": repo_digests}
             self.emit("image_build_completed", service=service, image=tag, image_id=image_id)
 
+    def verify_external_images(self) -> None:
+        collector = self.prototype["observability"]["collector"]
+        tag = collector["image"]
+        expected_digest = collector["digest"]
+        result = run_command(["docker", "image", "inspect", tag, "--format", "{{.Id}}"], check=False)
+        if result.returncode != 0:
+            raise RuntimeError(f"required pinned Collector image is not local: {tag}")
+        image_id = result.stdout.strip()
+        if image_id != expected_digest:
+            raise RuntimeError(f"Collector image digest mismatch: expected={expected_digest}, observed={image_id}")
+        repo_digests = run_command(
+            ["docker", "image", "inspect", tag, "--format", "{{json .RepoDigests}}"]
+        ).stdout.strip()
+        self.external_image_records["otel-collector"] = {
+            "tag": tag,
+            "image_id": image_id,
+            "repo_digests": repo_digests,
+        }
+        self.emit(
+            "external_image_verified",
+            image_role="otel-collector",
+            image=tag,
+            image_id=image_id,
+        )
+
     def import_images_into_kubernetes_node(self) -> None:
         node_check = run_command(
             ["docker", "inspect", "--type", "container", KUBERNETES_NODE, "--format", "{{.State.Running}}"],
@@ -271,10 +302,17 @@ class Phase4Validation:
         if node_check.returncode != 0 or node_check.stdout.strip().lower() != "true":
             raise RuntimeError(f"Kubernetes node container is not running: {KUBERNETES_NODE}")
 
-        for service in ("inventory", "order-api"):
+        import_targets: list[tuple[str, str, str]] = []
+        for service in ("inventory", "order-api", "telemetry-sink"):
             tag = self.prototype["packaging"]["images"][service]
-            expected_ref = f"docker.io/{tag}"
+            import_targets.append((service, tag, self.image_records[service]["image_id"]))
+        collector = self.prototype["observability"]["collector"]
+        import_targets.append(
+            ("otel-collector", collector["image"], self.external_image_records["otel-collector"]["image_id"])
+        )
 
+        for service, tag, docker_image_id in import_targets:
+            expected_ref = f"docker.io/{tag}"
             self.emit(
                 "image_import_started",
                 service=service,
@@ -297,8 +335,6 @@ class Phase4Validation:
             )
             if not digest:
                 raise RuntimeError(f"could not identify Kubernetes node image digest for {expected_ref}")
-
-            docker_image_id = self.image_records[service]["image_id"]
             if digest != docker_image_id:
                 raise RuntimeError(
                     f"Kubernetes node image digest mismatch for {service}: docker={docker_image_id}, node={digest}"
@@ -341,7 +377,7 @@ class Phase4Validation:
                 f"ORDERFLOW_RUN_ID={self.run_id}",
                 "ORDERFLOW_SCENARIO_ID=phase4-reproducibility-validation",
             )
-        for deployment in ("inventory", "order-api"):
+        for deployment in ("telemetry-sink", "otel-collector", "inventory", "order-api"):
             self.kubectl(
                 "-n",
                 NAMESPACE,
@@ -366,22 +402,27 @@ class Phase4Validation:
                         for condition in item.get("status", {}).get("conditions", [])
                     )
                 }
-                if ready == {"inventory", "order-api"}:
+                if ready == {"telemetry-sink", "otel-collector", "inventory", "order-api"}:
                     break
             time.sleep(1)
         else:
-            raise RuntimeError("Phase 4 pods did not both become Ready")
+            raise RuntimeError("Phase 4 prototype and telemetry pods did not all become Ready")
 
         self.start_port_forward("inventory", INVENTORY_PORT, 8081)
         self.start_port_forward("order-api", ORDER_PORT, 8080)
+        self.start_port_forward("telemetry-sink", TELEMETRY_SINK_PORT, 4319)
 
+        sink_status, _, _ = self.request(TELEMETRY_SINK_PORT, "/healthz")
         inventory_status, _, _ = self.request(INVENTORY_PORT, "/healthz")
         order_status, _, _ = self.request(ORDER_PORT, "/healthz")
-        if inventory_status != 200 or order_status != 200:
-            raise RuntimeError(f"readiness endpoints failed: inventory={inventory_status}, order-api={order_status}")
+        if sink_status != 200 or inventory_status != 200 or order_status != 200:
+            raise RuntimeError(
+                "readiness endpoints failed: "
+                f"sink={sink_status}, inventory={inventory_status}, order-api={order_status}"
+            )
         self.emit(
             "readiness_verified",
-            statuses={"inventory": inventory_status, "order-api": order_status},
+            statuses={"telemetry-sink": sink_status, "inventory": inventory_status, "order-api": order_status},
         )
 
     def verify_versions(self) -> None:
@@ -479,6 +520,164 @@ class Phase4Validation:
             telemetry_contract=self.prototype["telemetry_contract"],
         )
 
+    @staticmethod
+    def decode_otel_spans(payloads: list[bytes]) -> list[dict[str, Any]]:
+        try:
+            from opentelemetry.proto.collector.trace.v1.trace_service_pb2 import ExportTraceServiceRequest
+        except ImportError as exc:
+            raise RuntimeError("opentelemetry-proto 1.44.0 is required to validate Phase 4 trace payloads") from exc
+
+        records: list[dict[str, Any]] = []
+        for payload in payloads:
+            request = ExportTraceServiceRequest()
+            request.ParseFromString(payload)
+            for resource_spans in request.resource_spans:
+                resource_attributes = {
+                    item.key: item.value.string_value
+                    for item in resource_spans.resource.attributes
+                    if item.value.WhichOneof("value") == "string_value"
+                }
+                for scope_spans in resource_spans.scope_spans:
+                    for span in scope_spans.spans:
+                        attributes = {
+                            item.key: item.value.string_value
+                            for item in span.attributes
+                            if item.value.WhichOneof("value") == "string_value"
+                        }
+                        records.append(
+                            {
+                                "name": span.name,
+                                "trace_id": span.trace_id.hex(),
+                                "span_id": span.span_id.hex(),
+                                "parent_span_id": span.parent_span_id.hex(),
+                                "resource": resource_attributes,
+                                "attributes": attributes,
+                            }
+                        )
+        return records
+
+    def capture_otel_observation(self) -> None:
+        expected_events = [event for event in self.service_events if event.get("order_id")]
+        expected_signatures = sorted(
+            (
+                str(event["source_component"]),
+                str(event["event_type"]),
+                str(event["order_id"]),
+                str(event["trace_id"]),
+                str(event["span_id"]),
+            )
+            for event in expected_events
+        )
+        expected_order_ids = sorted(str(record["order_id"]) for record in self.workload_records)
+
+        deadline = time.monotonic() + 20.0
+        payloads: list[bytes] = []
+        raw_payloads: list[bytes] = []
+        encodings: list[str] = []
+        matching_spans: list[dict[str, Any]] = []
+        observed_signatures: list[tuple[str, str, str, str, str]] = []
+
+        while time.monotonic() < deadline:
+            status, body, _ = self.request(TELEMETRY_SINK_PORT, "/records")
+            if status == 200:
+                encoded = body.get("payloads_base64", [])
+                encoded_raw = body.get("raw_payloads_base64", [])
+                content_encodings = body.get("content_encodings", [])
+                if isinstance(encoded, list) and isinstance(encoded_raw, list) and isinstance(content_encodings, list):
+                    payloads = [base64.b64decode(str(item)) for item in encoded]
+                    raw_payloads = [base64.b64decode(str(item)) for item in encoded_raw]
+                    encodings = [str(item) for item in content_encodings]
+                    decoded = self.decode_otel_spans(payloads)
+                    matching_spans = [
+                        span
+                        for span in decoded
+                        if span["attributes"].get("orderflow.run_id") == self.run_id
+                        and span["attributes"].get("orderflow.order_id")
+                    ]
+                    observed_signatures = sorted(
+                        (
+                            str(span["attributes"].get("orderflow.source_component", "")),
+                            str(span["attributes"].get("orderflow.event_type", "")),
+                            str(span["attributes"].get("orderflow.order_id", "")),
+                            str(span["attributes"].get("orderflow.trace_id", "")),
+                            str(span["attributes"].get("orderflow.span_id", "")),
+                        )
+                        for span in matching_spans
+                    )
+                    if observed_signatures == expected_signatures:
+                        break
+            time.sleep(0.25)
+
+        self.otel_payload_file.write_text(
+            json.dumps(
+                {
+                    "run_id": self.run_id,
+                    "payload_count": len(payloads),
+                    "payloads_base64": [base64.b64encode(item).decode("ascii") for item in payloads],
+                    "raw_payloads_base64": [base64.b64encode(item).decode("ascii") for item in raw_payloads],
+                    "content_encodings": encodings,
+                    "payload_sha256": [hashlib.sha256(item).hexdigest() for item in payloads],
+                    "raw_payload_sha256": [hashlib.sha256(item).hexdigest() for item in raw_payloads],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        order_counts: dict[str, int] = {}
+        component_counts: dict[str, int] = {}
+        for span in matching_spans:
+            order_id = str(span["attributes"].get("orderflow.order_id", ""))
+            component = str(span["attributes"].get("orderflow.source_component", ""))
+            order_counts[order_id] = order_counts.get(order_id, 0) + 1
+            component_counts[component] = component_counts.get(component, 0) + 1
+
+        self.otel_spans = matching_spans
+        self.otel_span_file.write_text(
+            json.dumps(
+                {
+                    "run_id": self.run_id,
+                    "expected_order_span_count": len(expected_signatures),
+                    "observed_order_span_count": len(matching_spans),
+                    "expected_order_ids": expected_order_ids,
+                    "order_span_counts": order_counts,
+                    "component_span_counts": component_counts,
+                    "signatures_match_structured_events": observed_signatures == expected_signatures,
+                    "spans": matching_spans,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        expected_per_order = self.prototype["observability"]["expected_order_spans_per_request"]
+        if observed_signatures != expected_signatures:
+            raise RuntimeError(
+                f"OpenTelemetry structured-event parity failed: expected={len(expected_signatures)}, "
+                f"observed={len(observed_signatures)}"
+            )
+        if sorted(order_counts) != expected_order_ids or any(
+            count != expected_per_order for count in order_counts.values()
+        ):
+            raise RuntimeError(f"OpenTelemetry per-order coverage failed: {order_counts}")
+        if set(component_counts) != {"inventory", "order-api"}:
+            raise RuntimeError(f"OpenTelemetry component coverage failed: {component_counts}")
+
+        self.emit(
+            "otel_observation_verified",
+            payload_count=len(payloads),
+            order_span_count=len(matching_spans),
+            order_span_counts=order_counts,
+            component_span_counts=component_counts,
+            parity_with_structured_events=True,
+            collector_image=self.prototype["observability"]["collector"]["image"],
+            collector_digest=self.prototype["observability"]["collector"]["digest"],
+        )
+
     def cleanup(self) -> None:
         self.stop_port_forwards()
         self.emit("cleanup_started", namespace=NAMESPACE)
@@ -520,6 +719,8 @@ class Phase4Validation:
             "build_platform": self.prototype["packaging"]["build_platform"],
             "images": self.image_records,
             "kubernetes_node_images": self.node_image_records,
+            "external_images": self.external_image_records,
+            "observability": self.prototype["observability"],
             "target_model": self.prototype["target_model"],
             "kubernetes_context": context,
             "docker_version": docker_info,
@@ -542,6 +743,14 @@ class Phase4Validation:
                     "path": str(self.workload_file.relative_to(ROOT)),
                     "exists": self.workload_file.exists(),
                 },
+                "otel_payloads": {
+                    "path": str(self.otel_payload_file.relative_to(ROOT)),
+                    "exists": self.otel_payload_file.exists(),
+                },
+                "otel_spans": {
+                    "path": str(self.otel_span_file.relative_to(ROOT)),
+                    "exists": self.otel_span_file.exists(),
+                },
             },
             "created_at": utc_now(),
         }
@@ -558,8 +767,10 @@ class Phase4Validation:
                 and event.get("namespace_present") is False
                 for event in self.events
             ),
-            "images_built": set(self.image_records) == {"inventory", "order-api"},
-            "node_images_available": set(self.node_image_records) == {"inventory", "order-api"}
+            "images_built": set(self.image_records) == {"inventory", "order-api", "telemetry-sink"},
+            "external_images_verified": set(self.external_image_records) == {"otel-collector"},
+            "node_images_available": set(self.node_image_records)
+            == {"inventory", "order-api", "telemetry-sink", "otel-collector"}
             and "image_import_completed" in event_types,
             "deployment_completed": "deployment_completed" in event_types,
             "readiness_verified": "readiness_verified" in event_types,
@@ -570,6 +781,7 @@ class Phase4Validation:
                 and all(record["status"] == 201 for record in self.workload_records)
             ),
             "observation_verified": "observation_verified" in event_types,
+            "otel_observation_verified": "otel_observation_verified" in event_types,
             "clean_after_run": any(
                 event["event_type"] == "clean_state_verified"
                 and event.get("stage") == "after_cleanup"
@@ -602,12 +814,14 @@ class Phase4Validation:
             self.verify_source_tree_clean()
             self.clean_before_deploy()
             self.build_images()
+            self.verify_external_images()
             self.import_images_into_kubernetes_node()
             self.deploy()
             self.wait_and_forward()
             self.verify_versions()
             self.run_workload()
             self.capture_service_logs()
+            self.capture_otel_observation()
             self.cleanup()
             self.emit("run_completed", result="success")
         except Exception as exc:
@@ -615,8 +829,11 @@ class Phase4Validation:
             self.emit("run_failed", error=error)
             try:
                 self.capture_service_logs()
-            except Exception:
-                pass
+            except Exception as capture_exc:
+                self.emit(
+                    "service_log_capture_failed",
+                    error=f"{type(capture_exc).__name__}: {capture_exc}",
+                )
             try:
                 self.cleanup()
             except Exception as cleanup_exc:

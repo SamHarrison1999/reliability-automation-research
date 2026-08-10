@@ -25,23 +25,40 @@ def test_phase4_kubernetes_manifest_uses_declared_images_and_versions() -> None:
     text = manifest_text()
     assert "image: orderflow/order-api:phase4-v1" in text
     assert "image: orderflow/inventory:phase4-v1" in text
+    assert "image: orderflow/telemetry-sink:phase4-v1" in text
+    assert "image: otel/opentelemetry-collector:0.158.0" in text
     assert "value: order-api-phase4-v1" in text
     assert "value: inventory-phase4-v1" in text
-    assert text.count("imagePullPolicy: Never") == 2
+    assert text.count("imagePullPolicy: Never") == 4
 
 
-def test_phase4_kubernetes_manifest_preserves_two_service_dependency_boundary() -> None:
+def test_phase4_kubernetes_manifest_preserves_orderflow_dependency_boundary() -> None:
     text = manifest_text()
-    assert text.count("kind: Deployment") == 2
-    assert text.count("kind: Service") == 2
+    assert text.count("kind: Deployment") == 4
+    assert text.count("kind: Service") == 4
     assert "value: http://inventory:8081" in text
     assert "containerPort: 8080" in text
     assert "containerPort: 8081" in text
+    assert "INVENTORY_URL" not in text
+
+
+def test_phase4_kubernetes_manifest_has_bounded_trace_only_otel_path() -> None:
+    text = manifest_text()
+    assert "name: otel-collector-config" in text
+    assert "endpoint: 0.0.0.0:4318" in text
+    assert "endpoint: http://telemetry-sink:4319" in text
+    assert "value: http://otel-collector:4318/v1/traces" in text
+    assert "pipelines:" in text
+    assert "traces:" in text
+    assert "metrics:" not in text
+    assert "logs:" not in text
+    assert "grafana" not in text.lower()
+    assert "prometheus" not in text.lower()
 
 
 def test_phase4_kubernetes_manifest_has_readiness_and_validation_identity() -> None:
     text = manifest_text()
-    assert text.count("readinessProbe:") == 2
-    assert text.count("path: /healthz") == 2
+    assert text.count("readinessProbe:") == 3
+    assert text.count("path: /healthz") == 3
     assert text.count("value: phase4-validation-placeholder") == 2
     assert text.count("value: phase4-reproducibility-validation") == 2
