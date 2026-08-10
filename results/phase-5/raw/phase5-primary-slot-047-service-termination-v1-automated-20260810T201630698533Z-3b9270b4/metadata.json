@@ -1,0 +1,77 @@
+{
+  "automation_condition": "automated",
+  "batch_manifest_sha256": "7eb391047c4903238443177a35b1e9d9226466126b74efcc297b2092c8adac44",
+  "bound_source_commit_sha": "b39bf238dca3df9e74bd7a5f82467100e13b6962",
+  "cell_id": "service-termination-automated",
+  "controller_version": "phase-5-single-trial-controller-v0.2",
+  "created_at": "2026-08-10T20:18:14.474Z",
+  "docker_version": "Client=29.6.2 Server=29.6.2",
+  "evidence_boundary": "technical-pilot-only",
+  "external_images": {
+    "otel-collector": {
+      "image_id": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "tag": "otel/opentelemetry-collector:0.158.0"
+    }
+  },
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "images": {
+    "inventory": {
+      "image_id": "sha256:a7ed6dee440321e5f1f25bdf0aec44f5552e31fb12a8dff136bf2a9edc326ca1",
+      "tag": "orderflow/inventory:phase5-v1"
+    },
+    "order-api": {
+      "image_id": "sha256:a7ed6dee440321e5f1f25bdf0aec44f5552e31fb12a8dff136bf2a9edc326ca1",
+      "tag": "orderflow/order-api:phase5-v1"
+    },
+    "telemetry-sink": {
+      "image_id": "sha256:a7ed6dee440321e5f1f25bdf0aec44f5552e31fb12a8dff136bf2a9edc326ca1",
+      "tag": "orderflow/telemetry-sink:phase5-v1"
+    }
+  },
+  "kubectl_version": "Client Version: v1.36.1\nKustomize Version: v5.8.1\nServer Version: v1.36.1",
+  "kubernetes_context": "docker-desktop",
+  "kubernetes_manifest_sha256": "294927f8cd0f3099b9931f8937009060ec6ec61ab8863a8f49497f0b44ce4fb9",
+  "kubernetes_node_images": {
+    "inventory": {
+      "digest": "sha256:a7ed6dee440321e5f1f25bdf0aec44f5552e31fb12a8dff136bf2a9edc326ca1",
+      "reference": "docker.io/orderflow/inventory:phase5-v1",
+      "transfer_mode": "docker-save-stream"
+    },
+    "order-api": {
+      "digest": "sha256:a7ed6dee440321e5f1f25bdf0aec44f5552e31fb12a8dff136bf2a9edc326ca1",
+      "reference": "docker.io/orderflow/order-api:phase5-v1",
+      "transfer_mode": "docker-save-stream"
+    },
+    "otel-collector": {
+      "digest": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "reference": "docker.io/otel/opentelemetry-collector:0.158.0",
+      "transfer_mode": "docker-save-stream"
+    },
+    "telemetry-sink": {
+      "digest": "sha256:a7ed6dee440321e5f1f25bdf0aec44f5552e31fb12a8dff136bf2a9edc326ca1",
+      "reference": "docker.io/orderflow/telemetry-sink:phase5-v1",
+      "transfer_mode": "docker-save-stream"
+    }
+  },
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "pilot_manifest_sha256": "f8d9007ed7a67f2a9bba8f66c2d82b2aa97938f45cd8a5a4b8e265749699a635",
+  "primary_execution_controller_version": "phase-5-primary-trial-controller-v1.0",
+  "primary_run_order_sha256": "b66301d9e441104d59b99b9d1966aaae5d696982750d9ff83ef26d434af71d5c",
+  "primary_schedule_slot": 47,
+  "protocol_sha256": "7d9aaf56663e92f6715babcfaef2e4b54020181805adbebd99ed26d543828b43",
+  "prototype_manifest_sha256": "9e2a10408c9bac4dae483353dc3e40645e5c2bcc0f8760fa4c8f7f67ea8a9ca4",
+  "recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+  "repetition": 10,
+  "repository_commit_sha": "962e6f9a2b6c5185946e7bc37a942e84ba98f4d2",
+  "reserve": false,
+  "reserve_ordinal": null,
+  "run_id": "phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4-run",
+  "run_order": 50,
+  "scenario_id": "service-termination-v1",
+  "source_invalid_trial_id": null,
+  "trial_id": "phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4"
+}
