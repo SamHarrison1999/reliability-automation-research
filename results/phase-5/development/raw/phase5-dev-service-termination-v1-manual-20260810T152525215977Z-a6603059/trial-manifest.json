@@ -1,0 +1,60 @@
+{
+  "automation_condition": "manual",
+  "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+  "controller_version": "phase-5-single-trial-controller-v0.1",
+  "evidence_boundary": "phase-5-implementation-feasibility-only",
+  "kubernetes_manifest_sha256": "294927f8cd0f3099b9931f8937009060ec6ec61ab8863a8f49497f0b44ce4fb9",
+  "manifest_type": "phase-5-development-trial-manifest",
+  "manifest_version": "1.0.0",
+  "parent_prototype_manifest_sha256": "8f131766f323dcdb5930e0b0ba3ac611bab4089646e40fb32e486674afe79ba5",
+  "pilot_batch_id": null,
+  "pilot_manifest_sha256": "6a95644f040f976ee1b8a3b9336c06593b8682c04ab578fe760331ca5d51330a",
+  "primary_schedule_slot": null,
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "protocol_sha256": "7bf96253a7267dd4369434f363e70ac2323cbf0fd0fdb46dc7c664ff0a97e629",
+  "prototype_manifest_sha256": "eb01d6b2b50f144de7d1bc58531446e93c3ba35290b39c04b88baf572f189651",
+  "repetition": 0,
+  "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+  "reserve": false,
+  "run_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-run",
+  "run_order": 0,
+  "scenario": {
+    "condition_ids": [
+      "manual",
+      "automated"
+    ],
+    "detection_rule": {
+      "condition": "three consecutive non-success order responses",
+      "readiness_short_circuit": false,
+      "rule_id": "three-non-success-orders-v1",
+      "version": "detection-v1"
+    },
+    "fault": {
+      "apply_action": {
+        "action_id": "scale-inventory-zero-v1",
+        "deployment": "inventory",
+        "kind": "kubernetes-scale",
+        "replicas": 0
+      },
+      "exposure_window": "until_declared_recovery_action_begins",
+      "fault_id": "inventory-availability-v1",
+      "mode": "deployment-scale-zero",
+      "namespace": "orderflow-phase5",
+      "target": "deployment/inventory",
+      "trigger": "after_two_successful_pre_fault_requests",
+      "verification": "deployment_desired_replicas_zero_and_no_ready_inventory_pod"
+    },
+    "recovery_action": {
+      "action_id": "scale-inventory-one-v1",
+      "completion": "inventory_readiness_and_first_post_recovery_order_success",
+      "deployment": "inventory",
+      "kind": "kubernetes-scale",
+      "replicas": 1,
+      "version": "recovery-v1"
+    },
+    "role": "fault-comparison"
+  },
+  "scenario_id": "service-termination-v1",
+  "started_at": "2026-08-10T15:25:25.569Z",
+  "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059"
+}
