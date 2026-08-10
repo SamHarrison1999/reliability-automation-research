@@ -65,3 +65,11 @@ results/generated/*
 *.mp4
 *.wav
 *.webm
+
+# Versioned Phase 5 development-analysis fixture only.
+# Primary pilot processed data remains ignored.
+!data/processed/phase-5/
+data/processed/phase-5/*
+!data/processed/phase-5/development/
+data/processed/phase-5/development/*
+!data/processed/phase-5/development/observations.json

@@ -1,0 +1,993 @@
+{
+  "analysis_tool_source_sha256": "4ca95d90c23f515ab190dfada28dfc5c0acb702c8cdbf0ae5710fdd3525f5b85",
+  "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+  "cells": [
+    {
+      "attempted_trials": 1,
+      "automation_condition": "control",
+      "excluded_trials": 0,
+      "failure_impact_totals": {
+        "failed_requests": 0,
+        "offered_requests": 0
+      },
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        },
+        "failure_impact_rate": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        },
+        "recovery_time_ms": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        }
+      },
+      "scenario_id": "no-fault-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        },
+        "automation_decision_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "failed_requests_count": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        },
+        "latency_inflation_ratio": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        },
+        "manual_intervention_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "recovery_success": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "individual_values": [],
+          "iqr": null,
+          "maximum": null,
+          "median": null,
+          "minimum": null,
+          "n": 0,
+          "q1": null,
+          "q3": null
+        }
+      },
+      "trial_latency_windows": [
+        {
+          "request_latency_windows": {
+            "all_requests": {
+              "count": 7,
+              "maximum_ms": 38.751,
+              "minimum_ms": 16.854,
+              "p50_ms": 20.724,
+              "p95_ms": 35.664,
+              "p95_status": "observed"
+            },
+            "no-fault": {
+              "count": 7,
+              "maximum_ms": 38.751,
+              "minimum_ms": 16.854,
+              "p50_ms": 20.724,
+              "p95_ms": 35.664,
+              "p95_status": "observed"
+            }
+          },
+          "trial_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866"
+        }
+      ],
+      "valid_trials": 1
+    },
+    {
+      "attempted_trials": 1,
+      "automation_condition": "manual",
+      "excluded_trials": 0,
+      "failure_impact_totals": {
+        "failed_requests": 0,
+        "offered_requests": 3
+      },
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 433.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 433.0,
+          "median": 433.0,
+          "minimum": 433.0,
+          "n": 1,
+          "q1": 433.0,
+          "q3": 433.0
+        },
+        "failure_impact_rate": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "recovery_time_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 484.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 484.0,
+          "median": 484.0,
+          "minimum": 484.0,
+          "n": 1,
+          "q1": 484.0,
+          "q3": 484.0
+        }
+      },
+      "scenario_id": "dependency-latency-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 49.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 49.0,
+          "median": 49.0,
+          "minimum": 49.0,
+          "n": 1,
+          "q1": 49.0,
+          "q3": 49.0
+        },
+        "automation_decision_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "failed_requests_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "latency_inflation_ratio": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 6.062466
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 6.062466,
+          "median": 6.062466,
+          "minimum": 6.062466,
+          "n": 1,
+          "q1": 6.062466,
+          "q3": 6.062466
+        },
+        "manual_intervention_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "recovery_success": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+              "value": 483.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 483.0,
+          "median": 483.0,
+          "minimum": 483.0,
+          "n": 1,
+          "q1": 483.0,
+          "q3": 483.0
+        }
+      },
+      "trial_latency_windows": [
+        {
+          "request_latency_windows": {
+            "after-recovery": {
+              "count": 2,
+              "maximum_ms": 19.071,
+              "minimum_ms": 18.669,
+              "p50_ms": 18.87,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "all_requests": {
+              "count": 7,
+              "maximum_ms": 141.224,
+              "minimum_ms": 18.019,
+              "p50_ms": 28.438,
+              "p95_ms": 141.103,
+              "p95_status": "observed"
+            },
+            "before-fault": {
+              "count": 2,
+              "maximum_ms": 28.438,
+              "minimum_ms": 18.019,
+              "p50_ms": 23.228,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "during-fault": {
+              "count": 3,
+              "maximum_ms": 141.224,
+              "minimum_ms": 140.224,
+              "p50_ms": 140.822,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            }
+          },
+          "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9"
+        }
+      ],
+      "valid_trials": 1
+    },
+    {
+      "attempted_trials": 1,
+      "automation_condition": "automated",
+      "excluded_trials": 0,
+      "failure_impact_totals": {
+        "failed_requests": 0,
+        "offered_requests": 3
+      },
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 459.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 459.0,
+          "median": 459.0,
+          "minimum": 459.0,
+          "n": 1,
+          "q1": 459.0,
+          "q3": 459.0
+        },
+        "failure_impact_rate": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "recovery_time_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 508.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 508.0,
+          "median": 508.0,
+          "minimum": 508.0,
+          "n": 1,
+          "q1": 508.0,
+          "q3": 508.0
+        }
+      },
+      "scenario_id": "dependency-latency-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 47.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 47.0,
+          "median": 47.0,
+          "minimum": 47.0,
+          "n": 1,
+          "q1": 47.0,
+          "q3": 47.0
+        },
+        "automation_decision_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "failed_requests_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "latency_inflation_ratio": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 4.654562
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 4.654562,
+          "median": 4.654562,
+          "minimum": 4.654562,
+          "n": 1,
+          "q1": 4.654562,
+          "q3": 4.654562
+        },
+        "manual_intervention_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "recovery_success": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+              "value": 507.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 507.0,
+          "median": 507.0,
+          "minimum": 507.0,
+          "n": 1,
+          "q1": 507.0,
+          "q3": 507.0
+        }
+      },
+      "trial_latency_windows": [
+        {
+          "request_latency_windows": {
+            "after-recovery": {
+              "count": 2,
+              "maximum_ms": 42.023,
+              "minimum_ms": 32.791,
+              "p50_ms": 37.407,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "all_requests": {
+              "count": 7,
+              "maximum_ms": 150.845,
+              "minimum_ms": 24.264,
+              "p50_ms": 42.023,
+              "p95_ms": 149.887,
+              "p95_status": "observed"
+            },
+            "before-fault": {
+              "count": 2,
+              "maximum_ms": 39.18,
+              "minimum_ms": 24.264,
+              "p50_ms": 31.722,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "during-fault": {
+              "count": 3,
+              "maximum_ms": 150.845,
+              "minimum_ms": 146.422,
+              "p50_ms": 147.652,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            }
+          },
+          "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab"
+        }
+      ],
+      "valid_trials": 1
+    },
+    {
+      "attempted_trials": 1,
+      "automation_condition": "manual",
+      "excluded_trials": 0,
+      "failure_impact_totals": {
+        "failed_requests": 3,
+        "offered_requests": 3
+      },
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 1089.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1089.0,
+          "median": 1089.0,
+          "minimum": 1089.0,
+          "n": 1,
+          "q1": 1089.0,
+          "q3": 1089.0
+        },
+        "failure_impact_rate": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "recovery_time_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 12485.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 12485.0,
+          "median": 12485.0,
+          "minimum": 12485.0,
+          "n": 1,
+          "q1": 12485.0,
+          "q3": 12485.0
+        }
+      },
+      "scenario_id": "service-termination-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 11395.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 11395.0,
+          "median": 11395.0,
+          "minimum": 11395.0,
+          "n": 1,
+          "q1": 11395.0,
+          "q3": 11395.0
+        },
+        "automation_decision_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "failed_requests_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 3.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "n": 1,
+          "q1": 3.0,
+          "q3": 3.0
+        },
+        "latency_inflation_ratio": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 0.823529
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.823529,
+          "median": 0.823529,
+          "minimum": 0.823529,
+          "n": 1,
+          "q1": 0.823529,
+          "q3": 0.823529
+        },
+        "manual_intervention_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "recovery_success": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+              "value": 12484.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 12484.0,
+          "median": 12484.0,
+          "minimum": 12484.0,
+          "n": 1,
+          "q1": 12484.0,
+          "q3": 12484.0
+        }
+      },
+      "trial_latency_windows": [
+        {
+          "request_latency_windows": {
+            "after-recovery": {
+              "count": 2,
+              "maximum_ms": 17.159,
+              "minimum_ms": 16.981,
+              "p50_ms": 17.07,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "all_requests": {
+              "count": 7,
+              "maximum_ms": 1042.958,
+              "minimum_ms": 14.104,
+              "p50_ms": 17.803,
+              "p95_ms": 738.566,
+              "p95_status": "observed"
+            },
+            "before-fault": {
+              "count": 2,
+              "maximum_ms": 28.318,
+              "minimum_ms": 17.803,
+              "p50_ms": 23.061,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "during-fault": {
+              "count": 3,
+              "maximum_ms": 1042.958,
+              "minimum_ms": 14.104,
+              "p50_ms": 18.991,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            }
+          },
+          "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059"
+        }
+      ],
+      "valid_trials": 1
+    },
+    {
+      "attempted_trials": 1,
+      "automation_condition": "automated",
+      "excluded_trials": 0,
+      "failure_impact_totals": {
+        "failed_requests": 3,
+        "offered_requests": 3
+      },
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 51.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 51.0,
+          "median": 51.0,
+          "minimum": 51.0,
+          "n": 1,
+          "q1": 51.0,
+          "q3": 51.0
+        },
+        "failure_impact_rate": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "recovery_time_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 2022.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 2022.0,
+          "median": 2022.0,
+          "minimum": 2022.0,
+          "n": 1,
+          "q1": 2022.0,
+          "q3": 2022.0
+        }
+      },
+      "scenario_id": "service-termination-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 1970.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1970.0,
+          "median": 1970.0,
+          "minimum": 1970.0,
+          "n": 1,
+          "q1": 1970.0,
+          "q3": 1970.0
+        },
+        "automation_decision_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "failed_requests_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 3.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 3.0,
+          "median": 3.0,
+          "minimum": 3.0,
+          "n": 1,
+          "q1": 3.0,
+          "q3": 3.0
+        },
+        "latency_inflation_ratio": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 0.546043
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.546043,
+          "median": 0.546043,
+          "minimum": 0.546043,
+          "n": 1,
+          "q1": 0.546043,
+          "q3": 0.546043
+        },
+        "manual_intervention_count": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 0.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "n": 1,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "recovery_success": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 1.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "n": 1,
+          "q1": 1.0,
+          "q3": 1.0
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "individual_values": [
+            {
+              "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+              "value": 2021.0
+            }
+          ],
+          "iqr": 0.0,
+          "maximum": 2021.0,
+          "median": 2021.0,
+          "minimum": 2021.0,
+          "n": 1,
+          "q1": 2021.0,
+          "q3": 2021.0
+        }
+      },
+      "trial_latency_windows": [
+        {
+          "request_latency_windows": {
+            "after-recovery": {
+              "count": 2,
+              "maximum_ms": 17.202,
+              "minimum_ms": 16.667,
+              "p50_ms": 16.934,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "all_requests": {
+              "count": 7,
+              "maximum_ms": 31.61,
+              "minimum_ms": 13.878,
+              "p50_ms": 16.667,
+              "p95_ms": 28.021,
+              "p95_status": "observed"
+            },
+            "before-fault": {
+              "count": 2,
+              "maximum_ms": 31.61,
+              "minimum_ms": 19.646,
+              "p50_ms": 25.628,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            },
+            "during-fault": {
+              "count": 3,
+              "maximum_ms": 14.269,
+              "minimum_ms": 13.878,
+              "p50_ms": 13.994,
+              "p95_ms": null,
+              "p95_status": "insufficient_count"
+            }
+          },
+          "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc"
+        }
+      ],
+      "valid_trials": 1
+    }
+  ],
+  "claim_boundary": {
+    "does_not_support": [
+      "manual-versus-automation effect estimates",
+      "reliability improvement claims",
+      "confirmatory inference",
+      "production readiness",
+      "human or developer-practice effects"
+    ],
+    "supports": [
+      "metric-derivation implementation validation",
+      "descriptive development-run measurement quality"
+    ]
+  },
+  "conditions_pooled": false,
+  "confirmatory_inference": false,
+  "descriptive_only": true,
+  "development_run_count": 5,
+  "eligible_for_primary_pilot_analysis": false,
+  "evidence_class": "phase-5-development-validation",
+  "no_fault_pooled_with_fault_scenarios": false,
+  "p_values_included": false,
+  "quantile_method": "type-7-linear-interpolation",
+  "summary_version": "1.0.0"
+}
