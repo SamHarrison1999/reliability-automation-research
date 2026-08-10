@@ -1,0 +1,907 @@
+{
+  "analysis_tool_source_sha256": "4ca95d90c23f515ab190dfada28dfc5c0acb702c8cdbf0ae5710fdd3525f5b85",
+  "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+  "dataset_version": "1.0.0",
+  "eligible_for_primary_pilot_analysis": false,
+  "evidence_class": "phase-5-development-validation",
+  "observation_count": 5,
+  "observations": [
+    {
+      "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+      "automation_condition": "control",
+      "canonical_recovery_action_sha256": null,
+      "eligible_for_primary_pilot_analysis": false,
+      "evidence_class": "phase-5-development-validation",
+      "measurement_quality": {
+        "clean_state_verified": true,
+        "contamination_detected": false,
+        "required_event_completeness": 1.0,
+        "reset_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866-00005",
+            "phase5-controller-phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866-00007"
+          ],
+          "status": "observed",
+          "value": 234.0
+        },
+        "timestamp_completeness": 1.0,
+        "trace_correlation_completeness": 1.0,
+        "trial_valid": true,
+        "validity_classification": "valid-development-feasibility-trial"
+      },
+      "observation_version": "1.0.0",
+      "pilot_batch_id": null,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "failure_impact_rate": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "recovery_time_ms": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        }
+      },
+      "primary_schedule_slot": null,
+      "provenance": {
+        "metric_catalogue": "docs\\metrics\\phase-5-technical-metrics.md",
+        "metric_catalogue_sha256": "beff4b40974c379eafc521a9931e3f553edc820090a86478117f4bb81d01fe5a",
+        "raw_source_canonical_sha256": {
+          "events": "0a054fc364cd0a0bd62d11b88e559f447df1374389cc434d563c44a0ac341fc6",
+          "metadata": "57f38bea64731bf0ffec2c740218ffa543af462c68b83a2836e106ef570a7cba",
+          "otel_spans": "9a60a21f881eb514cd2cb09225e45639fee5950da6baf909f3e278e65569273d",
+          "service_events": "aba468c7304f52da5a6b33f82f676430286dc49148f663cffeec0a287e7e5a86",
+          "trial_manifest": "46949178f1727dfb6cb4fcaceb8a10cc99f829fde6a817043aa29cedd119508f",
+          "validity": "31952f88accf78f70d3f6bde5ec994012a87e44cc9a809385aa8c6a240d5598f",
+          "workload": "152fb1118d6815fec2e9a8066e66a0a03449a27a7697e8190531b3be880f8325"
+        }
+      },
+      "repetition": 0,
+      "repository_commit_sha": "0eacb9768663995288a9dfdaf33adafe010db873",
+      "request_latency_windows": {
+        "all_requests": {
+          "count": 7,
+          "maximum_ms": 38.751,
+          "minimum_ms": 16.854,
+          "p50_ms": 20.724,
+          "p95_ms": 35.664,
+          "p95_status": "observed"
+        },
+        "no-fault": {
+          "count": 7,
+          "maximum_ms": 38.751,
+          "minimum_ms": 16.854,
+          "p50_ms": 20.724,
+          "p95_ms": 35.664,
+          "p95_status": "observed"
+        }
+      },
+      "run_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866-run",
+      "run_order": 0,
+      "scenario_id": "no-fault-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "automation_decision_count": {
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0
+        },
+        "failed_requests_count": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "latency_inflation_ratio": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "manual_intervention_count": {
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0
+        },
+        "recovery_success": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "rollback_duration_ms": {
+          "reason": "phase_5_v1_no_fault_control_excludes_deployment_rollback",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "reason": "no_fault_control",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        }
+      },
+      "timing_contract": {
+        "fault_interval": "[injection_started,injection_ended)",
+        "opentelemetry_used_for_primary_timing": false,
+        "recovery_completed_semantics": "not_applicable",
+        "recovery_time_definition": "recovery_completed-injection_started",
+        "source": "controller_utc_event_timestamps"
+      },
+      "trial_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866"
+    },
+    {
+      "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+      "automation_condition": "manual",
+      "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "eligible_for_primary_pilot_analysis": false,
+      "evidence_class": "phase-5-development-validation",
+      "measurement_quality": {
+        "clean_state_verified": true,
+        "contamination_detected": false,
+        "required_event_completeness": 1.0,
+        "reset_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00005",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00007"
+          ],
+          "status": "observed",
+          "value": 235.0
+        },
+        "timestamp_completeness": 1.0,
+        "trace_correlation_completeness": 1.0,
+        "trial_valid": true,
+        "validity_classification": "valid-development-feasibility-trial"
+      },
+      "observation_version": "1.0.0",
+      "pilot_batch_id": null,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00045"
+          ],
+          "status": "observed",
+          "value": 433.0
+        },
+        "failure_impact_rate": {
+          "failed_requests": 0,
+          "offered_requests": 3,
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00036",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00039",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00042",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00037",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00040",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00043",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00049"
+          ],
+          "status": "observed",
+          "unresolved_requests": 0,
+          "value": 0.0
+        },
+        "recovery_time_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00052"
+          ],
+          "status": "observed",
+          "value": 484.0
+        }
+      },
+      "primary_schedule_slot": null,
+      "provenance": {
+        "metric_catalogue": "docs\\metrics\\phase-5-technical-metrics.md",
+        "metric_catalogue_sha256": "beff4b40974c379eafc521a9931e3f553edc820090a86478117f4bb81d01fe5a",
+        "raw_source_canonical_sha256": {
+          "events": "2d45faf7b57ed189f59dbf394eaacc0935658339a7944f36681ec0c4a5e1ac92",
+          "metadata": "87fa281af38300170fb35fefc1ded7acf1cce2129acea44d5fd4a635969878e9",
+          "otel_spans": "9c2f8073bbeb1bf6880dfc847a2aea1d08fae099e834347974da946f70721ab1",
+          "service_events": "d1cbe4a5d01ef7fdd449a02d275f0f82fbf0d2808ed63d3ba49a0e819dadec7b",
+          "trial_manifest": "71b36f8b82761ff311a7e1f5cd3cb7c17bba919b81d783a50452f3c8f4af7d77",
+          "validity": "a706309311905024e8494ffe0ab0f10c546649f09071ab7c2138835b9dfc1471",
+          "workload": "eba984535e1f273954c86835e924fcfd5d595e2cd86c4053b40ac005eb1d5687"
+        }
+      },
+      "repetition": 0,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "request_latency_windows": {
+        "after-recovery": {
+          "count": 2,
+          "maximum_ms": 19.071,
+          "minimum_ms": 18.669,
+          "p50_ms": 18.87,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "all_requests": {
+          "count": 7,
+          "maximum_ms": 141.224,
+          "minimum_ms": 18.019,
+          "p50_ms": 28.438,
+          "p95_ms": 141.103,
+          "p95_status": "observed"
+        },
+        "before-fault": {
+          "count": 2,
+          "maximum_ms": 28.438,
+          "minimum_ms": 18.019,
+          "p50_ms": 23.228,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "during-fault": {
+          "count": 3,
+          "maximum_ms": 141.224,
+          "minimum_ms": 140.224,
+          "p50_ms": 140.822,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        }
+      },
+      "run_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-run",
+      "run_order": 0,
+      "scenario_id": "dependency-latency-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00047",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00052"
+          ],
+          "status": "observed",
+          "value": 49.0
+        },
+        "automation_decision_count": {
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0
+        },
+        "failed_requests_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00036",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00039",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00042",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00037",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00040",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00043",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00049"
+          ],
+          "status": "observed",
+          "value": 0
+        },
+        "latency_inflation_ratio": {
+          "before_fault_p50_ms": 23.228,
+          "during_fault_p50_ms": 140.822,
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 6.062466
+        },
+        "manual_intervention_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00046"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "recovery_success": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00048",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00052",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00055"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "rollback_duration_ms": {
+          "reason": "phase_5_v1_no_fault_control_has_no_deployment_rollback",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00051",
+            "phase5-controller-phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9-00052"
+          ],
+          "status": "observed",
+          "value": 483.0
+        }
+      },
+      "timing_contract": {
+        "fault_interval": "[injection_started,injection_ended)",
+        "opentelemetry_used_for_primary_timing": false,
+        "recovery_completed_semantics": "first_successful_functional_post_recovery_request",
+        "recovery_time_definition": "recovery_completed-injection_started",
+        "source": "controller_utc_event_timestamps"
+      },
+      "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9"
+    },
+    {
+      "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+      "automation_condition": "automated",
+      "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "eligible_for_primary_pilot_analysis": false,
+      "evidence_class": "phase-5-development-validation",
+      "measurement_quality": {
+        "clean_state_verified": true,
+        "contamination_detected": false,
+        "required_event_completeness": 1.0,
+        "reset_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00005",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00007"
+          ],
+          "status": "observed",
+          "value": 238.0
+        },
+        "timestamp_completeness": 1.0,
+        "trace_correlation_completeness": 1.0,
+        "trial_valid": true,
+        "validity_classification": "valid-development-feasibility-trial"
+      },
+      "observation_version": "1.0.0",
+      "pilot_batch_id": null,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00045"
+          ],
+          "status": "observed",
+          "value": 459.0
+        },
+        "failure_impact_rate": {
+          "failed_requests": 0,
+          "offered_requests": 3,
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00036",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00039",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00042",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00037",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00040",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00043",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00049"
+          ],
+          "status": "observed",
+          "unresolved_requests": 0,
+          "value": 0.0
+        },
+        "recovery_time_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00052"
+          ],
+          "status": "observed",
+          "value": 508.0
+        }
+      },
+      "primary_schedule_slot": null,
+      "provenance": {
+        "metric_catalogue": "docs\\metrics\\phase-5-technical-metrics.md",
+        "metric_catalogue_sha256": "beff4b40974c379eafc521a9931e3f553edc820090a86478117f4bb81d01fe5a",
+        "raw_source_canonical_sha256": {
+          "events": "3782367df82cd5e4ea033b7b7ae99c2bc9fbca226a166938758f787999e5ae83",
+          "metadata": "9d2defdc1a80e12e5fd7ef5c59341f3923bda7e82f3d766a556c1b6e9ae19a5f",
+          "otel_spans": "7a8c7ceaaa6d7f4fdde09503be650ba7795d70faf715202558d873f101996449",
+          "service_events": "d6c970a998ea85f23a2221dd50720baf5f40d15e4fddc762b32664a63951976a",
+          "trial_manifest": "f7759cb603f6240b11c78f5f19abbef635bc16bf91c3a89f8096f99023ff3ce4",
+          "validity": "311f365a98215a29226af81e478f96191492d774ccedbbae080eb8a4a936271c",
+          "workload": "9dc674c81d8adc4367e50e69dae16e8ca23b5a45ce51201f362571b7c3a16e82"
+        }
+      },
+      "repetition": 0,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "request_latency_windows": {
+        "after-recovery": {
+          "count": 2,
+          "maximum_ms": 42.023,
+          "minimum_ms": 32.791,
+          "p50_ms": 37.407,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "all_requests": {
+          "count": 7,
+          "maximum_ms": 150.845,
+          "minimum_ms": 24.264,
+          "p50_ms": 42.023,
+          "p95_ms": 149.887,
+          "p95_status": "observed"
+        },
+        "before-fault": {
+          "count": 2,
+          "maximum_ms": 39.18,
+          "minimum_ms": 24.264,
+          "p50_ms": 31.722,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "during-fault": {
+          "count": 3,
+          "maximum_ms": 150.845,
+          "minimum_ms": 146.422,
+          "p50_ms": 147.652,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        }
+      },
+      "run_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-run",
+      "run_order": 0,
+      "scenario_id": "dependency-latency-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00047",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00052"
+          ],
+          "status": "observed",
+          "value": 47.0
+        },
+        "automation_decision_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00046"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "failed_requests_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00036",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00039",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00042",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00037",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00040",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00043",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00049"
+          ],
+          "status": "observed",
+          "value": 0
+        },
+        "latency_inflation_ratio": {
+          "before_fault_p50_ms": 31.722,
+          "during_fault_p50_ms": 147.652,
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 4.654562
+        },
+        "manual_intervention_count": {
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0
+        },
+        "recovery_success": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00048",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00052",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00055"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "rollback_duration_ms": {
+          "reason": "phase_5_v1_no_fault_control_has_no_deployment_rollback",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00035",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00051",
+            "phase5-controller-phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab-00052"
+          ],
+          "status": "observed",
+          "value": 507.0
+        }
+      },
+      "timing_contract": {
+        "fault_interval": "[injection_started,injection_ended)",
+        "opentelemetry_used_for_primary_timing": false,
+        "recovery_completed_semantics": "first_successful_functional_post_recovery_request",
+        "recovery_time_definition": "recovery_completed-injection_started",
+        "source": "controller_utc_event_timestamps"
+      },
+      "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab"
+    },
+    {
+      "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+      "automation_condition": "manual",
+      "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "eligible_for_primary_pilot_analysis": false,
+      "evidence_class": "phase-5-development-validation",
+      "measurement_quality": {
+        "clean_state_verified": true,
+        "contamination_detected": false,
+        "required_event_completeness": 1.0,
+        "reset_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00005",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00007"
+          ],
+          "status": "observed",
+          "value": 218.0
+        },
+        "timestamp_completeness": 1.0,
+        "trace_correlation_completeness": 1.0,
+        "trial_valid": true,
+        "validity_classification": "valid-development-feasibility-trial"
+      },
+      "observation_version": "1.0.0",
+      "pilot_batch_id": null,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00045"
+          ],
+          "status": "observed",
+          "value": 1089.0
+        },
+        "failure_impact_rate": {
+          "failed_requests": 3,
+          "offered_requests": 3,
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00036",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00039",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00042",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00037",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00040",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00043",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00049"
+          ],
+          "status": "observed",
+          "unresolved_requests": 0,
+          "value": 1.0
+        },
+        "recovery_time_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00052"
+          ],
+          "status": "observed",
+          "value": 12485.0
+        }
+      },
+      "primary_schedule_slot": null,
+      "provenance": {
+        "metric_catalogue": "docs\\metrics\\phase-5-technical-metrics.md",
+        "metric_catalogue_sha256": "beff4b40974c379eafc521a9931e3f553edc820090a86478117f4bb81d01fe5a",
+        "raw_source_canonical_sha256": {
+          "events": "a52ad181c19670974f37f8ae97d8189452919e2a7ae1b85a64ea866b82bd5883",
+          "metadata": "51a6a69dd10488a72f0e9b7f0cb012e7e9a42ec302a2ce75bca1c8fad9e8f50f",
+          "otel_spans": "2f2585f56f388fe807dd0531217da2725f625dc1e698e56beefa7cacb90dd7a4",
+          "service_events": "7f567f16a4bbb347841c9526410cf626d425458f433428888bb3fd19903f89f2",
+          "trial_manifest": "47d8c85aef2e1636151b5f4552dd99f6166ccda6cc38aa0d287b50c3d20f20f6",
+          "validity": "02996065f8db1a76e99430b28e6d59280fffd681a3d4e1182886d5b48cb1dbc2",
+          "workload": "bd5f2525e0c1bdf16601ee0e27e0b1648dc63ca629155e1e7df1d8d3344897fb"
+        }
+      },
+      "repetition": 0,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "request_latency_windows": {
+        "after-recovery": {
+          "count": 2,
+          "maximum_ms": 17.159,
+          "minimum_ms": 16.981,
+          "p50_ms": 17.07,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "all_requests": {
+          "count": 7,
+          "maximum_ms": 1042.958,
+          "minimum_ms": 14.104,
+          "p50_ms": 17.803,
+          "p95_ms": 738.566,
+          "p95_status": "observed"
+        },
+        "before-fault": {
+          "count": 2,
+          "maximum_ms": 28.318,
+          "minimum_ms": 17.803,
+          "p50_ms": 23.061,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "during-fault": {
+          "count": 3,
+          "maximum_ms": 1042.958,
+          "minimum_ms": 14.104,
+          "p50_ms": 18.991,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        }
+      },
+      "run_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-run",
+      "run_order": 0,
+      "scenario_id": "service-termination-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00047",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00052"
+          ],
+          "status": "observed",
+          "value": 11395.0
+        },
+        "automation_decision_count": {
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0
+        },
+        "failed_requests_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00036",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00039",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00042",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00037",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00040",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00043",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00049"
+          ],
+          "status": "observed",
+          "value": 3
+        },
+        "latency_inflation_ratio": {
+          "before_fault_p50_ms": 23.061,
+          "during_fault_p50_ms": 18.991,
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0.823529
+        },
+        "manual_intervention_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00046"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "recovery_success": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00048",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00052",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00055"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "rollback_duration_ms": {
+          "reason": "phase_5_v1_no_fault_control_has_no_deployment_rollback",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00051",
+            "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00052"
+          ],
+          "status": "observed",
+          "value": 12484.0
+        }
+      },
+      "timing_contract": {
+        "fault_interval": "[injection_started,injection_ended)",
+        "opentelemetry_used_for_primary_timing": false,
+        "recovery_completed_semantics": "first_successful_functional_post_recovery_request",
+        "recovery_time_definition": "recovery_completed-injection_started",
+        "source": "controller_utc_event_timestamps"
+      },
+      "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059"
+    },
+    {
+      "analysis_tool_version": "phase-5-metric-derivation-v1.0",
+      "automation_condition": "automated",
+      "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "eligible_for_primary_pilot_analysis": false,
+      "evidence_class": "phase-5-development-validation",
+      "measurement_quality": {
+        "clean_state_verified": true,
+        "contamination_detected": false,
+        "required_event_completeness": 1.0,
+        "reset_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00005",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00007"
+          ],
+          "status": "observed",
+          "value": 212.0
+        },
+        "timestamp_completeness": 1.0,
+        "trace_correlation_completeness": 1.0,
+        "trial_valid": true,
+        "validity_classification": "valid-development-feasibility-trial"
+      },
+      "observation_version": "1.0.0",
+      "pilot_batch_id": null,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00045"
+          ],
+          "status": "observed",
+          "value": 51.0
+        },
+        "failure_impact_rate": {
+          "failed_requests": 3,
+          "offered_requests": 3,
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00036",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00039",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00042",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00037",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00040",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00043",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00049"
+          ],
+          "status": "observed",
+          "unresolved_requests": 0,
+          "value": 1.0
+        },
+        "recovery_time_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00052"
+          ],
+          "status": "observed",
+          "value": 2022.0
+        }
+      },
+      "primary_schedule_slot": null,
+      "provenance": {
+        "metric_catalogue": "docs\\metrics\\phase-5-technical-metrics.md",
+        "metric_catalogue_sha256": "beff4b40974c379eafc521a9931e3f553edc820090a86478117f4bb81d01fe5a",
+        "raw_source_canonical_sha256": {
+          "events": "0446d00637b6b4a71d982e04b7c09690bcc9f49171cf3077fb743e4cb6ee2a2a",
+          "metadata": "47ce94f6895747a9cef4b250ac3123c03936610ad18cb60d56e4391c71999534",
+          "otel_spans": "2eaf79db3898e791026cc4188a73ebe60734db957286d8edbcb966aac509cf09",
+          "service_events": "7f4e6381031d6931f8f9e597c83056c9b328bfa4ecab993e3c19237ccede8bf9",
+          "trial_manifest": "6b7637db4143b19c11a11d13607dd3537e94884b81d52ede1d4b32af94e37dc8",
+          "validity": "0eb58bc9825a7012c55b8a00aff0075d014fcebdaa393835401587a6912bb9af",
+          "workload": "971a96ae19a877da07eed7921cabbdc945a12447ec46e6ccf25684bd4ef6e137"
+        }
+      },
+      "repetition": 0,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "request_latency_windows": {
+        "after-recovery": {
+          "count": 2,
+          "maximum_ms": 17.202,
+          "minimum_ms": 16.667,
+          "p50_ms": 16.934,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "all_requests": {
+          "count": 7,
+          "maximum_ms": 31.61,
+          "minimum_ms": 13.878,
+          "p50_ms": 16.667,
+          "p95_ms": 28.021,
+          "p95_status": "observed"
+        },
+        "before-fault": {
+          "count": 2,
+          "maximum_ms": 31.61,
+          "minimum_ms": 19.646,
+          "p50_ms": 25.628,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        },
+        "during-fault": {
+          "count": 3,
+          "maximum_ms": 14.269,
+          "minimum_ms": 13.878,
+          "p50_ms": 13.994,
+          "p95_ms": null,
+          "p95_status": "insufficient_count"
+        }
+      },
+      "run_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-run",
+      "run_order": 0,
+      "scenario_id": "service-termination-v1",
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00047",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00052"
+          ],
+          "status": "observed",
+          "value": 1970.0
+        },
+        "automation_decision_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00046"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "failed_requests_count": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00036",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00039",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00042",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00037",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00040",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00043",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00049"
+          ],
+          "status": "observed",
+          "value": 3
+        },
+        "latency_inflation_ratio": {
+          "before_fault_p50_ms": 25.628,
+          "during_fault_p50_ms": 13.994,
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0.546043
+        },
+        "manual_intervention_count": {
+          "source_event_ids": [],
+          "status": "observed",
+          "value": 0
+        },
+        "recovery_success": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00048",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00052",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00055"
+          ],
+          "status": "observed",
+          "value": 1
+        },
+        "rollback_duration_ms": {
+          "reason": "phase_5_v1_no_fault_control_has_no_deployment_rollback",
+          "source_event_ids": [],
+          "status": "not_applicable",
+          "value": null
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "source_event_ids": [
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00035",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00051",
+            "phase5-controller-phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc-00052"
+          ],
+          "status": "observed",
+          "value": 2021.0
+        }
+      },
+      "timing_contract": {
+        "fault_interval": "[injection_started,injection_ended)",
+        "opentelemetry_used_for_primary_timing": false,
+        "recovery_completed_semantics": "first_successful_functional_post_recovery_request",
+        "recovery_time_definition": "recovery_completed-injection_started",
+        "source": "controller_utc_event_timestamps"
+      },
+      "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc"
+    }
+  ],
+  "source_index": "experiments\\manifests\\phase-5-development-validation-index.json",
+  "source_index_sha256": "ed2ed7b89c6ead79ee33e9201c29a87e86a3667390dad293b3916d025653e312"
+}

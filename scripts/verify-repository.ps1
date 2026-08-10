@@ -54,7 +54,29 @@ $Required = @(
     'results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/workload.json',
     'results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/otel-spans.json',
     'tests/test_phase4_prototype.py', 'tests/test_phase4_kubernetes_manifest.py',
-    'tests/test_phase4_otel_runtime.py', 'tests/test_phase4_reproducibility.py'
+    'tests/test_phase4_otel_runtime.py', 'tests/test_phase4_reproducibility.py',
+    'docs/pilot/phase-5-closeout.md',
+    'docs/pilot/phase-5-primary-results.md',
+    'docs/pilot/phase-5-primary-dataset.md',
+    'docs/pilot/phase-5-primary-descriptive-analysis.md',
+    'experiments/manifests/phase-5-pilot-manifest.json',
+    'experiments/manifests/phase-5-primary-batch.json',
+    'experiments/manifests/phase-5-primary-run-order.json',
+    'experiments/harness/phase_5_batch_freeze.py',
+    'experiments/harness/phase_5_primary_trial.py',
+    'analysis/phase_5/phase_5_primary_metrics.py',
+    'analysis/phase_5/phase_5_primary_dataset.py',
+    'analysis/phase_5/phase_5_primary_descriptive.py',
+    'data/processed/phase-5/development/observations.json',
+    'data/processed/phase-5/primary/corpus-index.json',
+    'data/processed/phase-5/primary/observations.json',
+    'data/processed/phase-5/primary/provenance.json',
+    'data/processed/phase-5/primary/summary.json',
+    'data/processed/phase-5/primary/descriptive-analysis.json',
+    'tests/test_phase5_primary_trial.py',
+    'tests/test_phase5_primary_metrics.py',
+    'tests/test_phase5_primary_dataset.py',
+    'tests/test_phase5_primary_descriptive.py'
 )
 
 $Missing = @($Required | Where-Object { -not (Test-Path -LiteralPath $_ -PathType Leaf) })
@@ -69,11 +91,31 @@ if ($PlaceholderMatches) {
 }
 
 $ProtectedFiles = @(
-    @(Get-ChildItem data/raw, data/processed, data/external, results/generated -Recurse -File -ErrorAction SilentlyContinue) |
+    @(Get-ChildItem data/raw, data/external, results/generated -Recurse -File -ErrorAction SilentlyContinue) |
         Where-Object { $_.Name -ne '.gitkeep' }
 )
 if ($ProtectedFiles.Count -gt 0) {
     throw 'Generated or research data is present in a protected data directory.'
+}
+
+$AllowedProcessedFiles = @(
+    'data\processed\phase-5\development\observations.json',
+    'data\processed\phase-5\primary\corpus-index.json',
+    'data\processed\phase-5\primary\observations.json',
+    'data\processed\phase-5\primary\provenance.json',
+    'data\processed\phase-5\primary\summary.json',
+    'data\processed\phase-5\primary\descriptive-analysis.json'
+) | ForEach-Object { Join-Path $RepoRoot $_ }
+
+$UnexpectedProcessedFiles = @(
+    Get-ChildItem data/processed -Recurse -File -ErrorAction SilentlyContinue |
+        Where-Object {
+            $_.Name -ne '.gitkeep' -and
+            $AllowedProcessedFiles -notcontains $_.FullName
+        }
+)
+if ($UnexpectedProcessedFiles.Count -gt 0) {
+    throw "Unexpected processed data file(s): $($UnexpectedProcessedFiles.FullName -join ', ')"
 }
 
 git -C $RepoRoot rev-parse --is-inside-work-tree *> $null
@@ -85,5 +127,5 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 4 - reproducible technical prototype complete.'
-Write-Host 'Phase 5 technical pilot: not started.'
+Write-Host 'Phase: 5 - experiment harness and technical pilot complete.'
+Write-Host 'Next gate: Phase 6 - human-participant protocol and ethics.'

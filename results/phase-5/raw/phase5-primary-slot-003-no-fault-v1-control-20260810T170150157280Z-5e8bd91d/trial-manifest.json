@@ -1,0 +1,61 @@
+{
+  "automation_condition": "control",
+  "batch_manifest_sha256": "7eb391047c4903238443177a35b1e9d9226466126b74efcc297b2092c8adac44",
+  "bound_source_commit_sha": "b39bf238dca3df9e74bd7a5f82467100e13b6962",
+  "canonical_recovery_action_sha256": null,
+  "cell_id": "no-fault-control",
+  "controller_version": "phase-5-single-trial-controller-v0.2",
+  "evidence_boundary": "technical-pilot-only",
+  "kubernetes_manifest_sha256": "294927f8cd0f3099b9931f8937009060ec6ec61ab8863a8f49497f0b44ce4fb9",
+  "manifest_type": "phase-5-primary-trial-manifest",
+  "manifest_version": "1.1.0",
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "pilot_manifest_sha256": "f8d9007ed7a67f2a9bba8f66c2d82b2aa97938f45cd8a5a4b8e265749699a635",
+  "primary_execution_controller_version": "phase-5-primary-trial-controller-v1.0",
+  "primary_run_order_sha256": "b66301d9e441104d59b99b9d1966aaae5d696982750d9ff83ef26d434af71d5c",
+  "primary_schedule_slot": 3,
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "protocol_sha256": "7d9aaf56663e92f6715babcfaef2e4b54020181805adbebd99ed26d543828b43",
+  "prototype_manifest_sha256": "9e2a10408c9bac4dae483353dc3e40645e5c2bcc0f8760fa4c8f7f67ea8a9ca4",
+  "repetition": 1,
+  "repository_commit_sha": "db9cd530b91d881a7251d4be8fd47ac14599a3d1",
+  "reserve": false,
+  "reserve_ordinal": null,
+  "run_id": "phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d-run",
+  "run_order": 3,
+  "scenario": {
+    "condition_ids": [
+      "control"
+    ],
+    "explicit_exclusions": [
+      "deployment-transition-treatment",
+      "rollback-treatment",
+      "fault-injection",
+      "recovery-comparison"
+    ],
+    "fault": null,
+    "required_boundaries": [
+      "trial_started",
+      "reset_started",
+      "clean_state_verified",
+      "reset_completed",
+      "workload_started",
+      "workload_request",
+      "workload_response",
+      "observation_verified",
+      "otel_observation_verified",
+      "cleanup_completed",
+      "trial_completed"
+    ],
+    "role": "quality-control",
+    "workload": {
+      "purpose": "readiness-workload-telemetry-reset-quality-control",
+      "request_count": 7
+    }
+  },
+  "scenario_id": "no-fault-v1",
+  "source_invalid_trial_id": null,
+  "started_at": "2026-08-10T17:01:50.472Z",
+  "timing_contract_version": "phase-5-primary-timing-v1",
+  "trial_id": "phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d"
+}

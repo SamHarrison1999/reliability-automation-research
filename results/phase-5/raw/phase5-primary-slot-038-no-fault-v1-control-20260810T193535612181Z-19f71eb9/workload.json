@@ -1,0 +1,113 @@
+{
+  "automation_condition": "control",
+  "requests": [
+    {
+      "latency_ms": 53.955,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-001",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00030",
+      "request_index": 1,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-001",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00031",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 31.594,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-002",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00032",
+      "request_index": 2,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-002",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00033",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 44.508,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-003",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00034",
+      "request_index": 3,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-003",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00035",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 39.156,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-004",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00036",
+      "request_index": 4,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-004",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00037",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 18.688,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-005",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00038",
+      "request_index": 5,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-005",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00039",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 39.332,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-006",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00040",
+      "request_index": 6,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-006",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00041",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 20.015,
+      "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-007",
+      "phase": "no-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00042",
+      "request_index": 7,
+      "response": {
+        "order_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-order-007",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-00043",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "run_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9-run",
+  "scenario_id": "no-fault-v1",
+  "trial_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9"
+}

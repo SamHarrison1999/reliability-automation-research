@@ -1,0 +1,591 @@
+{
+  "balance_summary": {
+    "cell_counts": {
+      "dependency-latency-automated": 10,
+      "dependency-latency-manual": 10,
+      "no-fault-control": 10,
+      "service-termination-automated": 10,
+      "service-termination-manual": 10
+    },
+    "condition_first_counts": {
+      "dependency-latency-v1": {
+        "automated": 5,
+        "manual": 5
+      },
+      "service-termination-v1": {
+        "automated": 5,
+        "manual": 5
+      }
+    },
+    "fault_scenario_first_counts": {
+      "dependency-latency-v1": 5,
+      "service-termination-v1": 5
+    },
+    "no_fault_position_counts": {
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2
+    }
+  },
+  "generator_version": "phase-5-pilot-run-order-generator-v1",
+  "manifest_version": "1.1.0",
+  "pilot_manifest_sha256": "f8d9007ed7a67f2a9bba8f66c2d82b2aa97938f45cd8a5a4b8e265749699a635",
+  "primary_slot_count": 50,
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "run_order_version": "phase-5-pilot-run-order-v1",
+  "seed": "phase-5-pilot-run-order-v1",
+  "slots": [
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 1,
+      "cycle_position": 1,
+      "design_cycle_id": 3,
+      "repetition": 1,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 1
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 1,
+      "cycle_position": 2,
+      "design_cycle_id": 3,
+      "repetition": 1,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 2
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 1,
+      "cycle_position": 3,
+      "design_cycle_id": 3,
+      "repetition": 1,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 3
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 1,
+      "cycle_position": 4,
+      "design_cycle_id": 3,
+      "repetition": 1,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 4
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 1,
+      "cycle_position": 5,
+      "design_cycle_id": 3,
+      "repetition": 1,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 5
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 2,
+      "cycle_position": 1,
+      "design_cycle_id": 9,
+      "repetition": 2,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 6
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 2,
+      "cycle_position": 2,
+      "design_cycle_id": 9,
+      "repetition": 2,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 7
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 2,
+      "cycle_position": 3,
+      "design_cycle_id": 9,
+      "repetition": 2,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 8
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 2,
+      "cycle_position": 4,
+      "design_cycle_id": 9,
+      "repetition": 2,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 9
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 2,
+      "cycle_position": 5,
+      "design_cycle_id": 9,
+      "repetition": 2,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 10
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 3,
+      "cycle_position": 1,
+      "design_cycle_id": 4,
+      "repetition": 3,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 11
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 3,
+      "cycle_position": 2,
+      "design_cycle_id": 4,
+      "repetition": 3,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 12
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 3,
+      "cycle_position": 3,
+      "design_cycle_id": 4,
+      "repetition": 3,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 13
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 3,
+      "cycle_position": 4,
+      "design_cycle_id": 4,
+      "repetition": 3,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 14
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 3,
+      "cycle_position": 5,
+      "design_cycle_id": 4,
+      "repetition": 3,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 15
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 4,
+      "cycle_position": 1,
+      "design_cycle_id": 6,
+      "repetition": 4,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 16
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 4,
+      "cycle_position": 2,
+      "design_cycle_id": 6,
+      "repetition": 4,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 17
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 4,
+      "cycle_position": 3,
+      "design_cycle_id": 6,
+      "repetition": 4,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 18
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 4,
+      "cycle_position": 4,
+      "design_cycle_id": 6,
+      "repetition": 4,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 19
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 4,
+      "cycle_position": 5,
+      "design_cycle_id": 6,
+      "repetition": 4,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 20
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 5,
+      "cycle_position": 1,
+      "design_cycle_id": 10,
+      "repetition": 5,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 21
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 5,
+      "cycle_position": 2,
+      "design_cycle_id": 10,
+      "repetition": 5,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 22
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 5,
+      "cycle_position": 3,
+      "design_cycle_id": 10,
+      "repetition": 5,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 23
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 5,
+      "cycle_position": 4,
+      "design_cycle_id": 10,
+      "repetition": 5,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 24
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 5,
+      "cycle_position": 5,
+      "design_cycle_id": 10,
+      "repetition": 5,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 25
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 6,
+      "cycle_position": 1,
+      "design_cycle_id": 7,
+      "repetition": 6,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 26
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 6,
+      "cycle_position": 2,
+      "design_cycle_id": 7,
+      "repetition": 6,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 27
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 6,
+      "cycle_position": 3,
+      "design_cycle_id": 7,
+      "repetition": 6,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 28
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 6,
+      "cycle_position": 4,
+      "design_cycle_id": 7,
+      "repetition": 6,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 29
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 6,
+      "cycle_position": 5,
+      "design_cycle_id": 7,
+      "repetition": 6,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 30
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 7,
+      "cycle_position": 1,
+      "design_cycle_id": 2,
+      "repetition": 7,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 31
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 7,
+      "cycle_position": 2,
+      "design_cycle_id": 2,
+      "repetition": 7,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 32
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 7,
+      "cycle_position": 3,
+      "design_cycle_id": 2,
+      "repetition": 7,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 33
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 7,
+      "cycle_position": 4,
+      "design_cycle_id": 2,
+      "repetition": 7,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 34
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 7,
+      "cycle_position": 5,
+      "design_cycle_id": 2,
+      "repetition": 7,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 35
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 8,
+      "cycle_position": 1,
+      "design_cycle_id": 8,
+      "repetition": 8,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 36
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 8,
+      "cycle_position": 2,
+      "design_cycle_id": 8,
+      "repetition": 8,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 37
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 8,
+      "cycle_position": 3,
+      "design_cycle_id": 8,
+      "repetition": 8,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 38
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 8,
+      "cycle_position": 4,
+      "design_cycle_id": 8,
+      "repetition": 8,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 39
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 8,
+      "cycle_position": 5,
+      "design_cycle_id": 8,
+      "repetition": 8,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 40
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 9,
+      "cycle_position": 1,
+      "design_cycle_id": 1,
+      "repetition": 9,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 41
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 9,
+      "cycle_position": 2,
+      "design_cycle_id": 1,
+      "repetition": 9,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 42
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 9,
+      "cycle_position": 3,
+      "design_cycle_id": 1,
+      "repetition": 9,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 43
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 9,
+      "cycle_position": 4,
+      "design_cycle_id": 1,
+      "repetition": 9,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 44
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 9,
+      "cycle_position": 5,
+      "design_cycle_id": 1,
+      "repetition": 9,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 45
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "cycle": 10,
+      "cycle_position": 1,
+      "design_cycle_id": 5,
+      "repetition": 10,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 46
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "cycle": 10,
+      "cycle_position": 2,
+      "design_cycle_id": 5,
+      "repetition": 10,
+      "reserve": false,
+      "scenario_id": "service-termination-v1",
+      "schedule_slot": 47
+    },
+    {
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "cycle": 10,
+      "cycle_position": 3,
+      "design_cycle_id": 5,
+      "repetition": 10,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 48
+    },
+    {
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "cycle": 10,
+      "cycle_position": 4,
+      "design_cycle_id": 5,
+      "repetition": 10,
+      "reserve": false,
+      "scenario_id": "dependency-latency-v1",
+      "schedule_slot": 49
+    },
+    {
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "cycle": 10,
+      "cycle_position": 5,
+      "design_cycle_id": 5,
+      "repetition": 10,
+      "reserve": false,
+      "scenario_id": "no-fault-v1",
+      "schedule_slot": 50
+    }
+  ]
+}

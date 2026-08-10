@@ -44,6 +44,7 @@ class ServiceState:
         self.automation_condition = automation_condition
         self.repetition = repetition
         self.run_order = run_order
+        self.service_instance_id = uuid.uuid4().hex if trial_id is not None else None
         self.sequence = 0
         self.fault_mode = "none"
         self.latency_ms = 0
@@ -52,7 +53,7 @@ class ServiceState:
         self.sequence += 1
         event = {
             "event_id": (
-                f"{self.trial_id}-{self.role}-{self.sequence:05d}"
+                f"{self.trial_id}-{self.role}-{self.service_instance_id}-{self.sequence:05d}"
                 if self.trial_id
                 else f"{self.role}-{self.sequence:05d}"
             ),
@@ -72,6 +73,7 @@ class ServiceState:
             event["automation_condition"] = self.automation_condition
             event["repetition"] = self.repetition
             event["run_order"] = self.run_order
+            event["service_instance_id"] = self.service_instance_id
         self.event_file.parent.mkdir(parents=True, exist_ok=True)
         encoded = json.dumps(event, sort_keys=True)
         with self.event_file.open("a", encoding="utf-8") as handle:

@@ -55,6 +55,28 @@ required=(
   results/phase-4/raw/phase4-repro-20260810T134620018339Z-4efc01f5/otel-spans.json
   tests/test_phase4_prototype.py tests/test_phase4_kubernetes_manifest.py
   tests/test_phase4_otel_runtime.py tests/test_phase4_reproducibility.py
+  docs/pilot/phase-5-closeout.md
+  docs/pilot/phase-5-primary-results.md
+  docs/pilot/phase-5-primary-dataset.md
+  docs/pilot/phase-5-primary-descriptive-analysis.md
+  experiments/manifests/phase-5-pilot-manifest.json
+  experiments/manifests/phase-5-primary-batch.json
+  experiments/manifests/phase-5-primary-run-order.json
+  experiments/harness/phase_5_batch_freeze.py
+  experiments/harness/phase_5_primary_trial.py
+  analysis/phase_5/phase_5_primary_metrics.py
+  analysis/phase_5/phase_5_primary_dataset.py
+  analysis/phase_5/phase_5_primary_descriptive.py
+  data/processed/phase-5/development/observations.json
+  data/processed/phase-5/primary/corpus-index.json
+  data/processed/phase-5/primary/observations.json
+  data/processed/phase-5/primary/provenance.json
+  data/processed/phase-5/primary/summary.json
+  data/processed/phase-5/primary/descriptive-analysis.json
+  tests/test_phase5_primary_trial.py
+  tests/test_phase5_primary_metrics.py
+  tests/test_phase5_primary_dataset.py
+  tests/test_phase5_primary_descriptive.py
 )
 
 missing=()
@@ -83,7 +105,7 @@ else
   fi
 fi
 
-if ! protected_file="$(find data/raw data/processed data/external results/generated \
+if ! protected_file="$(find data/raw data/external results/generated \
   -type f ! -name .gitkeep -print -quit)"; then
   printf 'Protected-directory scan failed.\n' >&2
   exit 1
@@ -91,6 +113,25 @@ fi
 
 if [[ -n "${protected_file}" ]]; then
   printf 'Generated or research data is present in a protected data directory.\n' >&2
+  exit 1
+fi
+
+if ! unexpected_processed_file="$(find data/processed \
+  -type f ! -name .gitkeep \
+  ! -path 'data/processed/phase-5/development/observations.json' \
+  ! -path 'data/processed/phase-5/primary/corpus-index.json' \
+  ! -path 'data/processed/phase-5/primary/observations.json' \
+  ! -path 'data/processed/phase-5/primary/provenance.json' \
+  ! -path 'data/processed/phase-5/primary/summary.json' \
+  ! -path 'data/processed/phase-5/primary/descriptive-analysis.json' \
+  -print -quit)"; then
+  printf 'Processed-directory scan failed.\n' >&2
+  exit 1
+fi
+
+if [[ -n "${unexpected_processed_file}" ]]; then
+  printf 'Unexpected processed data file: %s\n' \
+    "${unexpected_processed_file}" >&2
   exit 1
 fi
 
@@ -103,5 +144,5 @@ fi
 
 printf '%s\n' \
   'Repository verification passed.' \
-  'Phase: 4 - reproducible technical prototype complete.' \
-  'Phase 5 technical pilot: not started.'
+  'Phase: 5 - experiment harness and technical pilot complete.' \
+  'Next gate: Phase 6 - human-participant protocol and ethics.'

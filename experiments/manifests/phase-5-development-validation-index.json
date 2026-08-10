@@ -1,0 +1,55 @@
+{
+  "evidence_boundary": "phase-5-implementation-feasibility-only",
+  "expected_cell_count": 5,
+  "index_type": "phase-5-development-validation-evidence-index",
+  "index_version": "1.0.0",
+  "pilot_evidence": false,
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "runs": [
+    {
+      "automation_condition": "control",
+      "canonical_recovery_action_sha256": null,
+      "expected_inventory_instance_count": 1,
+      "expected_order_span_count": 35,
+      "repository_commit_sha": "0eacb9768663995288a9dfdaf33adafe010db873",
+      "scenario_id": "no-fault-v1",
+      "trial_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866"
+    },
+    {
+      "automation_condition": "manual",
+      "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "expected_inventory_instance_count": 1,
+      "expected_order_span_count": 35,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "dependency-latency-v1",
+      "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9"
+    },
+    {
+      "automation_condition": "automated",
+      "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "expected_inventory_instance_count": 1,
+      "expected_order_span_count": 35,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "dependency-latency-v1",
+      "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab"
+    },
+    {
+      "automation_condition": "manual",
+      "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "expected_inventory_instance_count": 2,
+      "expected_order_span_count": 32,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "service-termination-v1",
+      "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059"
+    },
+    {
+      "automation_condition": "automated",
+      "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "expected_inventory_instance_count": 2,
+      "expected_order_span_count": 32,
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "service-termination-v1",
+      "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc"
+    }
+  ]
+}

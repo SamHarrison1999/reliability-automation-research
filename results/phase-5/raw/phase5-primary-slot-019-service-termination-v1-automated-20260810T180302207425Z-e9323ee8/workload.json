@@ -1,0 +1,94 @@
+{
+  "automation_condition": "automated",
+  "requests": [
+    {
+      "latency_ms": 30.963,
+      "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-001",
+      "phase": "before-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00030",
+      "request_index": 1,
+      "response": {
+        "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-001",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00031",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 19.609,
+      "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-002",
+      "phase": "before-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00032",
+      "request_index": 2,
+      "response": {
+        "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-002",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00033",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 1025.827,
+      "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-003",
+      "phase": "during-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00036",
+      "request_index": 3,
+      "response": {
+        "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-003",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00037",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 36.353,
+      "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-004",
+      "phase": "during-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00039",
+      "request_index": 4,
+      "response": {
+        "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-004",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00040",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 15.123,
+      "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-005",
+      "phase": "during-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00042",
+      "request_index": 5,
+      "response": {
+        "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-005",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00043",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 16.104,
+      "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-006",
+      "phase": "after-recovery",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00050",
+      "request_index": 6,
+      "response": {
+        "order_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-order-006",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-00051",
+      "result": "failure",
+      "status": 502
+    }
+  ],
+  "run_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8-run",
+  "scenario_id": "service-termination-v1",
+  "trial_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8"
+}

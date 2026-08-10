@@ -44,7 +44,7 @@ def test_service_event_sequence_is_monotonic(tmp_path: Path) -> None:
 
 
 def test_phase3_service_event_contains_trial_identity(tmp_path: Path) -> None:
-    """Phase 3 service events carry the condition and trial allocation fields."""
+    """Trial-scoped service events carry condition, allocation and instance identity."""
     state = ServiceState(
         "inventory",
         8081,
@@ -60,11 +60,48 @@ def test_phase3_service_event_contains_trial_identity(tmp_path: Path) -> None:
 
     event = state.emit("phase3_event")
 
-    assert event["event_id"] == "trial-1-inventory-00001"
+    assert event["service_instance_id"] == state.service_instance_id
+    assert event["event_id"] == f"trial-1-inventory-{state.service_instance_id}-00001"
     assert event["trial_id"] == "trial-1"
     assert event["automation_condition"] == "automated"
     assert event["repetition"] == 1
     assert event["run_order"] == 2
+
+
+def test_trial_event_ids_remain_unique_across_service_restarts(tmp_path: Path) -> None:
+    """Two processes for the same trial/role must not reuse source event IDs."""
+    first_state = ServiceState(
+        "inventory",
+        8081,
+        "inventory-v1",
+        tmp_path / "first.jsonl",
+        "run-1",
+        "scenario-1",
+        "trial-1",
+        "manual",
+        0,
+        0,
+    )
+    second_state = ServiceState(
+        "inventory",
+        8081,
+        "inventory-v1",
+        tmp_path / "second.jsonl",
+        "run-1",
+        "scenario-1",
+        "trial-1",
+        "manual",
+        0,
+        0,
+    )
+
+    first = first_state.emit("service_started")
+    second = second_state.emit("service_started")
+
+    assert first_state.service_instance_id != second_state.service_instance_id
+    assert first["event_id"] != second["event_id"]
+    assert first["event_id"].endswith("-00001")
+    assert second["event_id"].endswith("-00001")
 
 
 def _start_server(tmp_path: Path, role: str, dependency_url: str = "") -> tuple[Any, ServiceState, threading.Thread]:

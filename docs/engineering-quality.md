@@ -92,3 +92,51 @@ readiness, fault, recovery, cleanup and CLI error paths. The PowerShell and
 Bash orchestration scripts remain separately validated by their script-quality
 checks because they are not Python modules and cannot be measured by
 `pytest-cov`.
+
+## Provenance-frozen analysis formatting boundary
+
+Phase 5 analysis code is covered by Ruff linting, mypy, tests and
+Bandit.
+
+The repository-wide Ruff formatter gate does not retrospectively
+reformat analysis source after that source has become a provenance
+anchor for an immutable processed dataset or analysis artifact.
+
+This prevents a formatting-only closeout change from changing the
+source blob associated with an already-recorded empirical derivation.
+
+Analysis tooling should therefore be Ruff-formatted before its
+empirical provenance anchor is created. Once an empirical artifact is
+bound to that historical tooling commit, later repository quality
+checks preserve that source representation while continuing to apply
+linting, type checking, testing and security analysis.
+
+### Bandit boundary for provenance-frozen Phase 5 analysis
+
+The provenance-frozen Phase 5 dataset and descriptive-analysis source
+files contain reviewed `assert isinstance(...)` statements used for
+type narrowing.
+
+Bandit reports these statements as B101 because Python assertions can
+be removed when execution uses optimisation.
+
+Changing those historical source files after their empirical outputs
+have been bound to their Git commits would change the provenance
+anchor solely to satisfy a post-collection static-analysis rule.
+
+The quality runner therefore applies a path-specific exception:
+
+- all other analysis, experiment and system source remains subject to
+  B101;
+- `phase_5_primary_dataset.py` and
+  `phase_5_primary_descriptive.py` remain subject to the full Bandit
+  scan except B101;
+- the pre-existing B310, B404, B603 and B607 repository skips remain
+  unchanged.
+
+The exception does not use `--exit-zero`, does not suppress Bandit for
+the analysis directory as a whole, and does not suppress any
+non-B101 finding specifically because a file is provenance-frozen.
+
+Future analysis tooling should resolve applicable Bandit findings
+before its empirical provenance anchor is created.

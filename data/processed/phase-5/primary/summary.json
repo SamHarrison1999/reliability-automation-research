@@ -1,0 +1,30 @@
+{
+  "attempt_count": 53,
+  "invalid_attempt_count": 3,
+  "invalid_run_orders": [
+    19,
+    21,
+    22
+  ],
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "primary_attempt_count": 50,
+  "raw_corpus_commit": "b832c96c1dd3665f6025394447b35db58cd0e2a9",
+  "reserve_attempt_count": 3,
+  "reserve_run_orders": [
+    20,
+    22,
+    23
+  ],
+  "resolved_design_cells": {
+    "dependency-latency-v1|automated": 10,
+    "dependency-latency-v1|manual": 10,
+    "no-fault-v1|control": 10,
+    "service-termination-v1|automated": 10,
+    "service-termination-v1|manual": 10
+  },
+  "resolved_planned_slot_count": 50,
+  "schema_version": "1.0.0",
+  "substantive_metric_summary_included": false,
+  "tool_version": "phase-5-primary-dataset-builder-v1.0.1",
+  "valid_attempt_count": 50
+}

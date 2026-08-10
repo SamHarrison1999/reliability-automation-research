@@ -1,0 +1,113 @@
+{
+  "automation_condition": "manual",
+  "requests": [
+    {
+      "latency_ms": 32.506,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-001",
+      "phase": "before-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00030",
+      "request_index": 1,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-001",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00031",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 19.086,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-002",
+      "phase": "before-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00032",
+      "request_index": 2,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-002",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00033",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 142.164,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-003",
+      "phase": "during-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00036",
+      "request_index": 3,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-003",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00037",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 160.888,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-004",
+      "phase": "during-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00039",
+      "request_index": 4,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-004",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00040",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 142.924,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-005",
+      "phase": "during-fault",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00042",
+      "request_index": 5,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-005",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00043",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 18.996,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-006",
+      "phase": "after-recovery",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00050",
+      "request_index": 6,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-006",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00051",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 38.807,
+      "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-007",
+      "phase": "after-recovery",
+      "request_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00053",
+      "request_index": 7,
+      "response": {
+        "order_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-order-007",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-primary-controller-phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-00054",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "run_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592-run",
+  "scenario_id": "dependency-latency-v1",
+  "trial_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592"
+}

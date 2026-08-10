@@ -1,0 +1,257 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: orderflow-phase5
+  labels:
+    research-prototype: orderflow-phase-5-pilot-v1
+    evidence-boundary: implementation-feasibility-only
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telemetry-sink
+  namespace: orderflow-phase5
+  labels:
+    app: telemetry-sink
+    research-prototype: orderflow-phase-5-pilot-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telemetry-sink
+  template:
+    metadata:
+      labels:
+        app: telemetry-sink
+        research-prototype: orderflow-phase-5-pilot-v1
+    spec:
+      containers:
+        - name: telemetry-sink
+          image: orderflow/telemetry-sink:phase5-v1
+          imagePullPolicy: Never
+          env:
+            - name: ORDERFLOW_ROLE
+              value: telemetry-sink
+          ports:
+            - containerPort: 4319
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 4319
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: telemetry-sink
+  namespace: orderflow-phase5
+spec:
+  selector:
+    app: telemetry-sink
+  ports:
+    - port: 4319
+      targetPort: 4319
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-collector-config
+  namespace: orderflow-phase5
+data:
+  config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          http:
+            endpoint: 0.0.0.0:4318
+
+    processors:
+      batch:
+        timeout: 1s
+        send_batch_size: 32
+
+    exporters:
+      otlphttp/phase5:
+        endpoint: http://telemetry-sink:4319
+
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [otlphttp/phase5]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+  namespace: orderflow-phase5
+  labels:
+    app: otel-collector
+    research-prototype: orderflow-phase-5-pilot-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-collector
+  template:
+    metadata:
+      labels:
+        app: otel-collector
+        research-prototype: orderflow-phase-5-pilot-v1
+    spec:
+      containers:
+        - name: otel-collector
+          image: otel/opentelemetry-collector:0.158.0
+          imagePullPolicy: Never
+          args:
+            - --config=/etc/otelcol/config.yaml
+          volumeMounts:
+            - name: collector-config
+              mountPath: /etc/otelcol
+              readOnly: true
+          ports:
+            - containerPort: 4318
+      volumes:
+        - name: collector-config
+          configMap:
+            name: otel-collector-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+  namespace: orderflow-phase5
+spec:
+  selector:
+    app: otel-collector
+  ports:
+    - port: 4318
+      targetPort: 4318
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+  namespace: orderflow-phase5
+  labels:
+    app: inventory
+    research-prototype: orderflow-phase-5-pilot-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+        research-prototype: orderflow-phase-5-pilot-v1
+    spec:
+      containers:
+        - name: inventory
+          image: orderflow/inventory:phase5-v1
+          imagePullPolicy: Never
+          env:
+            - name: ORDERFLOW_ROLE
+              value: inventory
+            - name: ORDERFLOW_PORT
+              value: "8081"
+            - name: ORDERFLOW_VERSION
+              value: inventory-phase5-v1
+            - name: ORDERFLOW_RUN_ID
+              value: phase5-development-placeholder
+            - name: ORDERFLOW_SCENARIO_ID
+              value: phase5-development-placeholder
+            - name: ORDERFLOW_TRIAL_ID
+              value: phase5-development-placeholder
+            - name: ORDERFLOW_AUTOMATION_CONDITION
+              value: control
+            - name: ORDERFLOW_REPETITION
+              value: "0"
+            - name: ORDERFLOW_RUN_ORDER
+              value: "0"
+            - name: ORDERFLOW_OTEL_ENDPOINT
+              value: http://otel-collector:4318/v1/traces
+          ports:
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory
+  namespace: orderflow-phase5
+spec:
+  selector:
+    app: inventory
+  ports:
+    - port: 8081
+      targetPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-api
+  namespace: orderflow-phase5
+  labels:
+    app: order-api
+    research-prototype: orderflow-phase-5-pilot-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-api
+  template:
+    metadata:
+      labels:
+        app: order-api
+        research-prototype: orderflow-phase-5-pilot-v1
+    spec:
+      containers:
+        - name: order-api
+          image: orderflow/order-api:phase5-v1
+          imagePullPolicy: Never
+          env:
+            - name: ORDERFLOW_ROLE
+              value: order-api
+            - name: ORDERFLOW_PORT
+              value: "8080"
+            - name: ORDERFLOW_VERSION
+              value: order-api-phase5-v1
+            - name: ORDERFLOW_RUN_ID
+              value: phase5-development-placeholder
+            - name: ORDERFLOW_SCENARIO_ID
+              value: phase5-development-placeholder
+            - name: ORDERFLOW_TRIAL_ID
+              value: phase5-development-placeholder
+            - name: ORDERFLOW_AUTOMATION_CONDITION
+              value: control
+            - name: ORDERFLOW_REPETITION
+              value: "0"
+            - name: ORDERFLOW_RUN_ORDER
+              value: "0"
+            - name: ORDERFLOW_DEPENDENCY_URL
+              value: http://inventory:8081
+            - name: ORDERFLOW_OTEL_ENDPOINT
+              value: http://otel-collector:4318/v1/traces
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-api
+  namespace: orderflow-phase5
+spec:
+  selector:
+    app: order-api
+  ports:
+    - port: 8080
+      targetPort: 8080

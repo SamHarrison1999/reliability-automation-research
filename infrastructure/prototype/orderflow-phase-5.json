@@ -1,0 +1,80 @@
+{
+  "evidence_boundary": "phase-5-implementation-feasibility-only",
+  "execution_guard": {
+    "default_output_root": "results/phase-5/development/raw",
+    "mode": "single-development-validation-trial-only",
+    "primary_batch_schedule_consumption": false,
+    "required_cli_flag": "--development-validation"
+  },
+  "kubernetes": {
+    "context": "docker-desktop",
+    "manifest": "infrastructure/kubernetes/orderflow-phase-5.yaml",
+    "namespace": "orderflow-phase5",
+    "node_container": "desktop-control-plane"
+  },
+  "manifest_version": "1.0.0",
+  "observability": {
+    "authoritative_audit_record": "structured-jsonl",
+    "collector": {
+      "digest": "sha256:5b97e6e3550ec6e48a71dba6f6304d349a293af8df4ee1f51da67be94fce2ecd",
+      "image": "otel/opentelemetry-collector:0.158.0",
+      "otlp_http_port": 4318
+    },
+    "mode": "structured-event-span-mirror",
+    "otel_endpoint": "http://otel-collector:4318/v1/traces",
+    "parity_rule": "exact-order-related-structured-event-signature-parity",
+    "requirements_lock": {
+      "path": "observability/opentelemetry/phase4-requirements.lock",
+      "sha256": "9b0cd979109fe6054562678dce5ddb6089bf309ab8e0955de68c4e28dbd239e8"
+    },
+    "sink": {
+      "health_path": "/healthz",
+      "port": 4319,
+      "records_path": "/records",
+      "service": "telemetry-sink"
+    }
+  },
+  "packaging": {
+    "base_image": "python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+    "base_image_digest": "sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+    "base_image_tag": "python:3.12-slim",
+    "build_context": ".",
+    "build_platform": "linux/amd64",
+    "dockerfile": "infrastructure/kubernetes/Dockerfile",
+    "entrypoint": "infrastructure/kubernetes/entrypoint.sh",
+    "images": {
+      "inventory": "orderflow/inventory:phase5-v1",
+      "order-api": "orderflow/order-api:phase5-v1",
+      "telemetry-sink": "orderflow/telemetry-sink:phase5-v1"
+    }
+  },
+  "parent_prototype": {
+    "manifest_path": "infrastructure/prototype/orderflow-phase-4.json",
+    "prototype_id": "orderflow-phase-4-v1"
+  },
+  "prototype_id": "orderflow-phase-5-pilot-v1",
+  "prototype_version": "1.0.0",
+  "target_model": "docker-desktop-kubernetes",
+  "topology": {
+    "request_path": [
+      "order-api",
+      "inventory"
+    ],
+    "services": {
+      "inventory": {
+        "container_port": 8081,
+        "control_path": "/__control",
+        "readiness_path": "/healthz",
+        "version": "inventory-phase5-v1",
+        "version_path": "/version"
+      },
+      "order-api": {
+        "container_port": 8080,
+        "dependency": "inventory",
+        "readiness_path": "/healthz",
+        "version": "order-api-phase5-v1",
+        "version_path": "/version"
+      }
+    }
+  }
+}

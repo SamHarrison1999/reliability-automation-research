@@ -1,0 +1,3419 @@
+{
+  "attempt_count": 53,
+  "attempts": [
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "58557598b41eb242ed29b7c68ad195a2b18dacd4",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/events.jsonl",
+          "sha256": "f7bc8744de05268f95cb5b3777414dbeec851fec302df342d9c0972b78894964"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "22b578d10c05812bb218826c8867c4a9d0f9a707",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/metadata.json",
+          "sha256": "697dfafce818ccf0c459a7b8da1d43c34412874804b69f7cffafae848cc8345a"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "506b6503fa8ec69e901160bee492f7f40c0060a6",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/otel-payloads.json",
+          "sha256": "de02f61b1f98431258b9b103f7b806185aa9218fae7d4f57058d8a6bc598b6cc"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "fdf885fbf38cf70231b473bebe369e4300929434",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/otel-spans.json",
+          "sha256": "f957fef4e6577c79afb2f70369732883766cd4c4a5d3fb125278b820a58a47b7"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "21fc29c2ffac26309e9d1f9ff282914ce2821af2",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/service-events.jsonl",
+          "sha256": "a3fcc819196e198f9798044c9a73b8d43b13b53e87b9742240129931b26b6947"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "275eb094b76c8f0fcc10b61fe7dbe7a0f64b077a",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/trial-manifest.json",
+          "sha256": "bc9fd9a31d17bfd9d86709a4f0aac86add44f4b18a29079c2b8b6a95c644e912"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "0f23263f6da2f6e9ae714345cfa9b7f5d25694aa",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/validity.json",
+          "sha256": "8121709704f1716c05731ad49e11f1ae35045be4fdea0d74490032f1bd267ec2"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "0d746609ddca88f0023daaab442fb06e067e8d6a",
+          "path": "results/phase-5/raw/phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5/workload.json",
+          "sha256": "5c7df72cc73ff9ac5e8a748216e46ac9e9c06bb9df9155d75d570df0d35fe90c"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 1,
+      "repetition": 1,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 1,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-001-service-termination-v1-manual-20260810T163752702206Z-37558de5"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "20e81edcdb360f380c1463d0c15acd24e0a0eade",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/events.jsonl",
+          "sha256": "0706ddb8565149bc865ada2b6725d9f09082b5c0a53e43eeb3e24b212b729da7"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "734521ddb05b02b30a9c3c3b3a6b6e102fd6f4be",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/metadata.json",
+          "sha256": "5480be3f857eafcb1c2bb0daad46a43a01acea69d12b10d5a25f53481923df99"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "2e7ee1778eef2c32e3f2242038da8372632eb9b3",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/otel-payloads.json",
+          "sha256": "10c097a342e0a7b4c609c7fb48f4d1da8bcf224c846467e7f7d1e9b32b155546"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "64a9f91cb4eea683e76d4997d03af664c475294b",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/otel-spans.json",
+          "sha256": "b57d94911e25bc7b844de1d12c5cdec387f74ea5ba1725b378845eaccdb5aee1"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "08a7d5e48167e05945fba785caff0c25215dbd7d",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/service-events.jsonl",
+          "sha256": "9e9dc0f5e1263c86a316af305083c5a5d9403f5c82297b09aaf4e5eeb58c3d3a"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "8d0c448dbb17b19888291ef889cf6f4459778186",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/trial-manifest.json",
+          "sha256": "bd746e5d5f24170b1808ea49a1ee690d3075b52cc7fc58bab27e34e843622113"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "238fbda6d6bcf15ca8944c6456a95ea2d56511d1",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/validity.json",
+          "sha256": "df05bc06e59b0b8d3122f62cd6a6a98f4ceec8bcb6497a98fa84366fcb13c67f"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "5f09e6c64584fb3c77f9ba3e17333894b87bfdea",
+          "path": "results/phase-5/raw/phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48/workload.json",
+          "sha256": "1509118282d785e244db0e5621f8b24176ff0e5aee0decea50b86bd6a711b2f4"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 2,
+      "repetition": 1,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 2,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-002-service-termination-v1-automated-20260810T165022540704Z-9e4e4a48"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "6c5f093339ad183a310160bf32ce347f02d64c52",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/events.jsonl",
+          "sha256": "afdc91d017a22d01061bd95d2a2a6a814860aa29226078b0ded5d83f6f25ebb6"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "6815c0d55f4abe32d60a7bfa03367b5e1a1614f9",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/metadata.json",
+          "sha256": "9e81f0a05da1356f8218809e583566e93b566ffa7d6873f874a98c8b901a9038"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "436f8942e0e2edab2c58b13046cd501045fcc2d7",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/otel-payloads.json",
+          "sha256": "985d805c535eaea5403d0a9a61282683d5e0e99ecd075475965b3c4d5ed7510c"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "71f140dde57f954972e98ff25a6044f7798b6315",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/otel-spans.json",
+          "sha256": "91a201fe4c38466b90b39b76f05217d2c03d7871c8bde7a9b4433661f45e1944"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "ad6a4cd88b3ec3986d75e047caa1756b9a82637e",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/service-events.jsonl",
+          "sha256": "398dda53191c1d3ad21b7aba606258314f050b35e5d0495102b916fe21f48478"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "61cc4de5dab8b50c709585a25ea61567a5e84f47",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/trial-manifest.json",
+          "sha256": "1092a166747aefd742d836c8370711b0cf9afe74ad9b6c616a036d3a784cc869"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "edec2d5ec7f2924fee933df27a4dbc2bdc0f4211",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/validity.json",
+          "sha256": "be7d55c885f8d89d5230a0a0f95c4ae67f9c542f891e5bb80e29ecd57bd3c114"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "5097ffea0bfe692cc0ffd87bfed58d3f345a6880",
+          "path": "results/phase-5/raw/phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d/workload.json",
+          "sha256": "c4e433e48158859f9d6ac254cfae2124df433a190f40b14a377a9a27163928de"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 3,
+      "repetition": 1,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 3,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-003-no-fault-v1-control-20260810T170150157280Z-5e8bd91d"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "89aa000216cfc6fdf51beca1c640153c25108417",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/events.jsonl",
+          "sha256": "9aa834100f3a9b129b9ff02639e92903b2666db527dd383c35cccac7c68b6409"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "0cff3a479d831d02e1697f1ef3bad939dd1b85fd",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/metadata.json",
+          "sha256": "82a64238e86ceae0fd5c8719148f14691108e2e02477494c6dc755d7af9d143b"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "865544b6c41ba03a84b828ec39ef7571071e5927",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/otel-payloads.json",
+          "sha256": "83d3c1dce8c45521481e626dfffa86d93b27fd8cb748eb275192dead86855e0b"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "452828aac3b20565058392a93ca85d09834c1aa2",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/otel-spans.json",
+          "sha256": "9aacad47779eed14d8fa4f5031b4f692518f9624068661ec69989d132993a475"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "bede859ed995d1d51aed33653159895f9c2364b0",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/service-events.jsonl",
+          "sha256": "ed7265d11ea8c4a3c984300f7e56bdd8c33585bf48f1db75112549ccf7df8547"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "a02c7f2702fc3ff9150934d3d354eb4e4d1c5ef7",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/trial-manifest.json",
+          "sha256": "0fc161ee639f35774aa717bc59cf55c5881e804bb4fb16e727dbb8ac7b1c1058"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "5502710e64cbbb4fccd99ad7eaf0fcfb0bc493dd",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/validity.json",
+          "sha256": "d3c9d48bf6c32f78f557a3389c0dafa3ff222c6c604fe783d930eea28727ca0f"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "6a290396137083ead420e81b554d2eded1fda9e9",
+          "path": "results/phase-5/raw/phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5/workload.json",
+          "sha256": "4e539f0cc5dbd1fb6988ec3a04c005b88054f0fe51d19ea53dc4a6bc6402ea04"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 4,
+      "repetition": 1,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 4,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-004-dependency-latency-v1-manual-20260810T170539989452Z-05dcfdb5"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "bdf42ac872e6698fc5a3e8ea21199924f31ffd68",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/events.jsonl",
+          "sha256": "f1512d281970086f62f522e7a7efec1bb711b63912ee348067915d1815ce7dc8"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "7035f138b14bd3a50df80eff99dda9965f940cfa",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/metadata.json",
+          "sha256": "fef9137e52b88036352e46dbd933778121264323f0f39b804672dae5d49a1b63"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "4d55a5244fd923267408c1d3798d3d5e7c885f84",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/otel-payloads.json",
+          "sha256": "300f074ab82885ef4279d182adab6229268992580141229dc2f49b0e3c582d13"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "56e51909cf55876ff1871d5178823619ae9756ff",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/otel-spans.json",
+          "sha256": "0917e9c8e1c04861285db8a361c4c92ff92deebac3869835dd02099ee3851494"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "32b3382ad5db9f0bb48c63c5a3a5388e41f25b7d",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/service-events.jsonl",
+          "sha256": "abebfaff7d23c435ffc0385cc1b225ff41d217be29dc73253dbf71de38add0a6"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3c748c5799d2622724f3176c4263e5ba5f8c59b8",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/trial-manifest.json",
+          "sha256": "d69de70ef9517e02921a1b91dcb7a63b873b66092e53d02ff4e6feca9711ed9f"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "6481952be2fb284e9bf0ff2d6c117bad1fd4b11a",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/validity.json",
+          "sha256": "0d477788935e29fb689448ca4a7275e59d50b8e70fac98cabc4d1f0fbaf8992d"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "2dd32413731715770ecbbeefba1c7a602a0aa7bd",
+          "path": "results/phase-5/raw/phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d/workload.json",
+          "sha256": "09934c32dc4401417488b0858f1eb2c5756d38500584f2251d36d689498b0bc4"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 5,
+      "repetition": 1,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 5,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-005-dependency-latency-v1-automated-20260810T170957745082Z-688da99d"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "12dc031a07667752866318f0f8f07e50351fc1ef",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/events.jsonl",
+          "sha256": "5283efce8d82cd8265d47e376eceb61d2520929aa0ab44bc57c19618a9b2bc47"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "d2a84d354668c87e7b1ccf642e91ba9d4b05e004",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/metadata.json",
+          "sha256": "7b04448a9a14c310d533abcf72e596b0ebb921c1e20218238998336a712736f5"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "0ff4244ee20637162701247fb504fe834b08ce27",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/otel-payloads.json",
+          "sha256": "17cff4878bedd23398f2574241a3ef72898771d03873ed20602c9f7171de97ec"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "1c1b5ee9020d9848213645dc70e4726a8de823eb",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/otel-spans.json",
+          "sha256": "c66297701ca332f96c23a68eab255e803abdb2c2c863048057b858e977160c83"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "27107e603fcd9075413e4bd96e570244c2b306b6",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/service-events.jsonl",
+          "sha256": "3e47a5b67ed0b66f197cbc2784c4fb3aa600bc331a3fab72c2fa3fcfc3ea04a3"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "cb4cf41c7118db32be29f30b1f45b2ac6c35b5d2",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/trial-manifest.json",
+          "sha256": "97970e0415c8c200edcc6ad22bdfbfffe7b60af6b815968cdcd3da30f347e81a"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "70d77b65fe78cb98d932418e1611091476ebbdff",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/validity.json",
+          "sha256": "89f8fcf0918ae6e8bafa4d2586afe6586df7e6a6f8d0b71b6340c5a1bb3740d9"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "efd49908b5f31b6340f2da0a079fdc3bfa908666",
+          "path": "results/phase-5/raw/phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a/workload.json",
+          "sha256": "0d6ba038b16fcbd9995937ff91d3fa1ddd46bd47f8ba7fbd5f802705657bd52a"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 6,
+      "repetition": 2,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 6,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-006-service-termination-v1-automated-20260810T171427604469Z-02e52c3a"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "e9153c2a38cd1dc7c46b20061aaacc7ea98fabea",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/events.jsonl",
+          "sha256": "5cd982d273c140ce8d52562a53749d03b450105c16eb7d54951eb0fb886ae7f1"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "d989ab0d5eaae6fc423a157ebca7e797818a23dd",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/metadata.json",
+          "sha256": "443c6ca89515983892d301d65115062aaa6b5057d281dfe4089ad0f2806da4cc"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "983c3f06aeb1a040ab3d51369e52a5d49be496eb",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/otel-payloads.json",
+          "sha256": "31cc0efe640df65d9747e3e4ef6b1b4af3856869c7fc9a10e7b753cf4841069f"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "8762e31d613b1660051cdd3d9d98a83633abbb49",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/otel-spans.json",
+          "sha256": "6c95d872cdf43dc005eeef6dd02c929fee7ccda706cb115309b00aed7095c62b"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "e1f786bb7b464cec064e50f2dd0160b1cfdc0230",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/service-events.jsonl",
+          "sha256": "6b64a691d0b0caa1c87f6b6351a701e4f0cef9aac85a87ef197b87b38101f77a"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "97481acd50a1c1e5dba23ef472783d2b526520a9",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/trial-manifest.json",
+          "sha256": "bc71677c3c7c7be068783a426ca1d8d70545ab8bdb9f6105609bd175dbed7938"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "5a82db3c9aa4e5429a9296733711ceba0408942d",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/validity.json",
+          "sha256": "9a4d1729c43378924fb0daf1d3fff57d6c958719cf9ba7e29c8ea310ed5ea03c"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "08e97d3874ebf26b902138d4b00ba3e2586b4ea4",
+          "path": "results/phase-5/raw/phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a/workload.json",
+          "sha256": "e4592c76f3f051e062c6cdffa42f72595a7bfd92dbd25ee10ada3df501ebecd0"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 7,
+      "repetition": 2,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 7,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-007-service-termination-v1-manual-20260810T171841807222Z-40c74e3a"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "55c3f66cab75a7669226fea9622b6a7d68ceee06",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/events.jsonl",
+          "sha256": "301bae378ebf02617fc7610ad0692199c7f0db5a878323b65dd0cb2f24533e27"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "7a726379170673c560fce20f713311491a213be4",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/metadata.json",
+          "sha256": "baf46614bf8b43be8ff2dbc16d084e89a8a1befa36b0dc911ac70bebdd663c90"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "cc91971592305f7198e8cd9305e35266357a5954",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/otel-payloads.json",
+          "sha256": "fa9e0c9e44e2d792fe3647b0ad9e9a692446cd969542e5bef68ac841246d0037"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "dec14fbf34aaf1052c82c7bc705f433106c88f79",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/otel-spans.json",
+          "sha256": "7ad6121de6059eef804a0dc23c659188ad5980554245be35b8183f55ad578156"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "ea7b73c4aad1a140d835218324d7873f38f62237",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/service-events.jsonl",
+          "sha256": "bfe24a599ec230b91c05e339d713f76ba800a0e178caa1b87c76611ca62e65b2"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "cf4428be49ffc01ce082870bcbf68b6e61658f46",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/trial-manifest.json",
+          "sha256": "00e22bd49be7784f92f84aafccc67c70277fdcb55e1685fdbc3bf66e7455a643"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "95941b6097b1e232d15a896b05c7eee772a3d83b",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/validity.json",
+          "sha256": "888c28d8ebecd68e4faeb96d926f5a28755b0eeed0e534e50106c80f53c058a1"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "6a12ec58d1f07539c46981ff0a15eafcbfc354c2",
+          "path": "results/phase-5/raw/phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0/workload.json",
+          "sha256": "908dc1d202a87210293d297658281077a5cbf8784e94e11d22098e72dc2977c8"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 8,
+      "repetition": 2,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 8,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-008-dependency-latency-v1-manual-20260810T172235299517Z-c97bb2c0"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "339bb8ba16c00f28f35bc252cde360920283a16b",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/events.jsonl",
+          "sha256": "ca635caa56b35c09baec6be71c344a5919621919f083741641e25ff46fcc7ab1"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "5a948e40b9bef403366ecbf9ce56c1b9a17d1dac",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/metadata.json",
+          "sha256": "99489bc839c8f20fcbe216e2d949df7b3820b804b1b12ecec718041469f847c9"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "9143b91966fd859118e7f90e113712a7ef06ec09",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/otel-payloads.json",
+          "sha256": "f867069430e47bf8323badea04d434a8d7dc199b63dd8f4c175291532cb8d25b"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "496504aa9011186b8298e14c142ea619fef25d6e",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/otel-spans.json",
+          "sha256": "b89fc607fc65c36b69eada41dc8ab7e833e3efc5a2a8a1e9b62bd8887b8d75a4"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "d551169d1da0d18bc01c941a2ba7f1f3dfe1e8a7",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/service-events.jsonl",
+          "sha256": "79f015a925355e0675e9ea6f5dca827760e3c93a5468e774b9cfc265fcd77bec"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "ddbab1885665a847368039f52d26195bd0a4399b",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/trial-manifest.json",
+          "sha256": "de1735ab97aaddb771f71b8e023b28b208f47370b5d1cd7d0f7d903de46e2757"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "b397b3e6caa1c9d3b3f86a0b8e9af427b7340490",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/validity.json",
+          "sha256": "97ff53a5435a6309f778d00828b2e5cc31d086431b4fbfa2746157eb1c493726"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "e49ad6b50c275c5712de0f4b15586b98714be758",
+          "path": "results/phase-5/raw/phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5/workload.json",
+          "sha256": "20cf97b44af8f9b8f06b5a99f960bfcb4f0173e545ac6dc4bec598d7a83e0af1"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 9,
+      "repetition": 2,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 9,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-009-no-fault-v1-control-20260810T172604890260Z-b7650ee5"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "38706acd2194c322588bbd64e420d851e35ccd78",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/events.jsonl",
+          "sha256": "e8dde5783e9ad967c46404dcf67fe8ac5cc1dea726657a67b1d61d06ac3fc463"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "099d5fc70795ee939ca399cade28c23f406bd2f4",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/metadata.json",
+          "sha256": "23037f9ca5299109249608a8c3b595d5cb9b785908325958df771572d000fdf4"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "bc48a460ee4cfbc6ccb5afdc76815e28b236cdb9",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/otel-payloads.json",
+          "sha256": "fbb8bf6d0f241ff53e7d3c9c570aed9e8a37a9efd715f51e71e98efeac8a4fe7"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "d5265eeebac8b0b3072b196275d9b6c9dfa58652",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/otel-spans.json",
+          "sha256": "4bdfa81c9e8dfa2454f730d5cb5f097a2ff52a623689408d8b075b5203c7519a"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "c4ffd9594bd6514702c21eb96cae3333be8bd3cd",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/service-events.jsonl",
+          "sha256": "f2a05b617e052a3cbfd5037ab8d6e04036329e05136b1f1efa2f295f53a54eaf"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "2939c733a09d08573874bab181e80263cccb8de6",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/trial-manifest.json",
+          "sha256": "ebe0df558bb449e93fddcd5c9627e865b0e5e03a45ebc2b264315a5cefb2072f"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "9cf7326a642169e9dbf538fa46880fd635387a72",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/validity.json",
+          "sha256": "e3790f820d08ca213416ef2bf9b312226a7f968296fa2f1acb4a3fe9328fa1e9"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "41d3d2bb68d991f585a59a12c761b633db98e748",
+          "path": "results/phase-5/raw/phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022/workload.json",
+          "sha256": "53beefbbaf038a20892b2328c9bdd23d26dc3511521b237f5ff0326fb4f73413"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 10,
+      "repetition": 2,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 10,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-010-dependency-latency-v1-automated-20260810T172950622065Z-7a1ff022"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "a900beeb40c70297987a41bc7c09f05a84ef4213",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/events.jsonl",
+          "sha256": "24697acadb7920d76fbfc062a3807f0881bbeed4e6d1bd595e12e3638ad97dc4"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "fe85a6b0fec23f83cf63b50d35678b6ac54cf48f",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/metadata.json",
+          "sha256": "2fe1a618b171618ca8959fc12f27136a067425a80d28653e236c492f45ef23c8"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "a7c4f62270fce177c8c31eb4b52d27b7c335ec08",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/otel-payloads.json",
+          "sha256": "36ac22003fe7516d8d42520a06ab7f77d1bcc33aaa9b06cda50cec7e65f42f9e"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "50ef5924fd988e6eb559b90a58a91d49054478a3",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/otel-spans.json",
+          "sha256": "ed78a025314ba5f9bb218584fc9600667b3e9d2f265aa136a476a192662224f4"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "05ea6983714817e33e3041b7064788d546cfe561",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/service-events.jsonl",
+          "sha256": "ee04d81b167d7ebc8cd9459bbd6bd0161c9bde5ea82599dce09d815ff58170bb"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "e91e883bf4912c1f7488a80aa98c9547967b0b5b",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/trial-manifest.json",
+          "sha256": "6db31d83e8949b2ba47da3258517a0869012704caee556d66ca31e835f7bcff5"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "e75db1eb436b406960abc8a4af0f9c95c3871770",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/validity.json",
+          "sha256": "32df16f30928beb4090eb9c8581643c20914b7e185c0b5f17a78bcbc1789fc72"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "e50ce8c316a51bd9166167a02172ad7c9943c979",
+          "path": "results/phase-5/raw/phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189/workload.json",
+          "sha256": "e5772597356f8cb2cc1a9ee71ed23de0d555df6e7ab91dc88f61ef806473f8a6"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 11,
+      "repetition": 3,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 11,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-011-dependency-latency-v1-automated-20260810T173337099313Z-c7256189"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "b03ac59f64eb5b92bdd63cdcad992607a2e292e2",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/events.jsonl",
+          "sha256": "636a75fc3bb0d5e712efd490b055fd12e3d02c4158093aa51a1e8a362d7a0219"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "bde47183608db0dcf6b0720d2d6879b1c3baf71c",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/metadata.json",
+          "sha256": "9fb76979ae697f31a1364e7af0895f845fa83dd69105d4330f519904c3619486"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "c08a632cada264e89ee60d9eb888c049dff9d6fc",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/otel-payloads.json",
+          "sha256": "473fc63418677df54cbe633806dd86de87c71ab5b8fbbecdd7790401d0feeef0"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "793cc47e8e7293453ae512d655a907929c258bcb",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/otel-spans.json",
+          "sha256": "752ea40e1567b7d9b6f17c209ba02aa0f0c1372dd8debf67a6c35813f6641a08"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "9a80f9c7a15b310bb5cee03b3f5b2ca4d22cd411",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/service-events.jsonl",
+          "sha256": "9a0add011461863b2d5692f4058171c86da9fa34e2c5b98f236fc8b5ea697477"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "d20cf7e46eceaa1f2403138faa5a7108ea9a3f7e",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/trial-manifest.json",
+          "sha256": "520ea790a8f5bd9da248444aefe279885cc40b68ae8859f37db15440499298f9"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "101dfe86eb265005d6971d16543bbae0ae54c5b3",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/validity.json",
+          "sha256": "a1d99f3a5b4b93ffe7c6620ac74d5da991d91eb3dcb0b934c349b5dd4bb07dcf"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "6c4c835860258ab19fa4eb94edb8e97995264fb5",
+          "path": "results/phase-5/raw/phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907/workload.json",
+          "sha256": "1d518930ec4169610f857eaffd037faca682609b8a82bcb82f029b26fb72dca6"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 12,
+      "repetition": 3,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 12,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-012-dependency-latency-v1-manual-20260810T173709924343Z-255e6907"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "2fb0ce272f4a71bc47778df4c639a75e6260f981",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/events.jsonl",
+          "sha256": "06d0e338a4d95a36e6196662b0ad0f9807e6f8e6e6f9fe57ca5ef345c3bad281"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "71f2e87521fc1dd4b0aa581a515cc3e5a4bf5054",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/metadata.json",
+          "sha256": "a180eab8ac2cff8f99ef18a287933cc31e9857a03d0bfc2d0a7f3d506d86f6cd"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "0edb093a5d44a9da6c15bbbb5067c226a65b7b6a",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/otel-payloads.json",
+          "sha256": "69b6728d3e140ed5176c5a0ef2207c8911157190d612a577713ad87c921cda80"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "1e468cda848d416a41915200ae751987c4580991",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/otel-spans.json",
+          "sha256": "51067638d82457adec7ac04b1e707b41ba69a6df28eb06b498462304e33ee50b"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "85c3163b1bc7ac3e40ead32e5aec30ec782b9b70",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/service-events.jsonl",
+          "sha256": "0fa33d4b3e307a396ce972efa71a38b81397b3afc996d611cf05848c5939b902"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "ac3ec89d4b7db5904bb21bcd95e0e6637c2cc0eb",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/trial-manifest.json",
+          "sha256": "ce98bba9cb5f654067a996c721033bdb13df94ba69edb736affe9e2b7e48d839"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "0fb999733cfb1c179437d9ec04f82b3009965121",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/validity.json",
+          "sha256": "73c1fdf7438711db119f3db51fa04dafde41ef9f1d1aa09f0c783a9f5756b932"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "b61726e009dc299767174f68f3d5eea93779a4b3",
+          "path": "results/phase-5/raw/phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391/workload.json",
+          "sha256": "3916ee1c326870ad72edf6812274390fdfee5c90d976800ca4bdcdb53ea76da7"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 13,
+      "repetition": 3,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 13,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-013-service-termination-v1-manual-20260810T174044815689Z-8c0b8391"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "7e076a75d8f48e812e00ca76ba5a2189c9f1a1a5",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/events.jsonl",
+          "sha256": "5a6f845d9859438366355ea95c162deb13ce3f2a3d58083e3b46cdc9f02288b1"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "7821bfe444bfc6ab4ef53e7a1ae328c7fe5aab3b",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/metadata.json",
+          "sha256": "081e3ea472ce4addb685a94ac99c2391664a67be2028bbf2bd9ba48129c7d53f"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "4a65fce26088ce5e9fb02b259d2331316639453f",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/otel-payloads.json",
+          "sha256": "dd264bb45e9315a694dc51eaa48376eecb02fc9055f45e2b5591bd835ae5005b"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "f6c378c35e6467a20fc792259824e4204a8d60e0",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/otel-spans.json",
+          "sha256": "5397ab59a8c1d631fe088a94a8788014ad9185739354c2c48dd86061673e6415"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "0e25cae9bff5763bdd58734786faa41154691c0e",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/service-events.jsonl",
+          "sha256": "4d3e46d9be9d2a0d835b2236038d7ec5727358581c9a2d45190c8dc12e2ed9fd"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3c7fb747f206c7e8732e35155f9d233594ad822b",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/trial-manifest.json",
+          "sha256": "882fcf8b050ca2451438c82beb1f9e6d3aa9957c79d42ddf4088c3881e9867a5"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "4b3e2697308649f9463f0b17e0a8e02b1c2fc787",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/validity.json",
+          "sha256": "0775fa3f1445079c14de12ac67c69ae321db6c0d783100840f9dbb86cc72eec2"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "f0266c83869772c134ee53d020675953139b283b",
+          "path": "results/phase-5/raw/phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640/workload.json",
+          "sha256": "8c90879257cce4f1b89dd22a6b7db34a94cb57530920f04e5c17ccc70844b8e7"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 14,
+      "repetition": 3,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 14,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "14bb21d42b8de9d44360127120aa36cdc0a9f44a",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/events.jsonl",
+          "sha256": "bddbe617efd704ebac63b360f392687a218d2493eba50ac7eac3ec3305071387"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "e8146506b96ed11915ab1903d0e186a124916181",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/metadata.json",
+          "sha256": "90c2137740bd014c7372674e3e90901d77f54bcf7a9f30f6d5ab6210609967d3"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "602fa1bd6ec83bb95a7027d789100052e39f2e4d",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/otel-payloads.json",
+          "sha256": "2e4272eaa14f738e25b287feacdd7f2e7b277c4f46d90b87ed210c3590dcd0a1"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "39a03aa10a0865f476e2524b9253c29ebf83449a",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/otel-spans.json",
+          "sha256": "93ca93192196a2ac55aae807041e37390cb78f3b2463225aeae81057e91836aa"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "e8a060b296c3fe50a4b965c1658903b4bf4263cc",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/service-events.jsonl",
+          "sha256": "cbc7d79010e9ac7e89ae3978a17df18b1545e3585c3fee89d765b69329b1c776"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "d9e8dfa8568cd2be361d31bedf5236dec7a8f7f3",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/trial-manifest.json",
+          "sha256": "5c85cc33b1abc959f8a8b3b3953b25c738c5277050151531e9bccdc2b50567aa"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "7aebb36265e3ccc810978f101a13d0acd160552c",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/validity.json",
+          "sha256": "ca58856833f7c4c6dea22a1a13e6440a2da2554285066728e7f758aa69271720"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "35d0eba4f38c347da8d0b47205422c11d9a7c83c",
+          "path": "results/phase-5/raw/phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0/workload.json",
+          "sha256": "db2af4fceb9ce621feee6becaa7b4ea31bdad788606480346569a6160f1dd9c3"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 15,
+      "repetition": 3,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 15,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-015-service-termination-v1-automated-20260810T174818200775Z-f817dad0"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "20c049148331dfd3b59cdf681879d6ec19871622",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/events.jsonl",
+          "sha256": "5344ea79c82e07a73491c2b121b9b90976b8265cfe7765933576ff46019004c4"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "24d2dac469c94ea9376fcbe96b07cbe1e1d9fcdd",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/metadata.json",
+          "sha256": "a012562e9a21c9c0e34ab4777fbc72d85dab2f46a43a399ade2c9ea91427fbaf"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "81f7e6930b0d98ee9387cb3204b2628c599a3c47",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/otel-payloads.json",
+          "sha256": "171deb8aa78a085c86c12c6d63245a51499a0300021a70c90ee4a82fa211efda"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "815efa06ad4c014c6f4f0ecccca092dbbdc51a83",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/otel-spans.json",
+          "sha256": "faec133e5d97bb68737fae2fe033c39ada05302b721d75d3481a917f9b6e19f7"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "03bb5513a38659e1b7936ebc7eca13f3819fae2b",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/service-events.jsonl",
+          "sha256": "fcaabeeca378f5ee2b7be3b75429bb56e879c2f2d89a296fdb4d947c6a8c32bf"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "6075f4afa31067f10e7a2c5140ae46ea89739eb0",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/trial-manifest.json",
+          "sha256": "4983f27b2cf9973df021e39b13682c0dc2691ed580e2d68bbb8645c653492d24"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "e89ac28189ef1767d4741dc92fe61d4b2b99e6b1",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/validity.json",
+          "sha256": "5d93fa67362426f7e2a6832a79a96509b7ab8585857ef1640f361e54a75b05d7"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a6e0f3e685930cf822147c9d39bcbe7540f992e0",
+          "path": "results/phase-5/raw/phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5/workload.json",
+          "sha256": "427893254ebd860b6d2490ec1352c43ea9feaef6f3123c4c33a62076c614a451"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 16,
+      "repetition": 4,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 16,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-016-no-fault-v1-control-20260810T175217594000Z-00be5aa5"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "e5db1d5784548eb610aacad5fa892861f7aa1543",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/events.jsonl",
+          "sha256": "d3ffd08e1864d31657f45c78d1a8095fe2ae572ae221871c9548d2274a64fa9d"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "6ed2940815b03012b3597e7839ebefd4b0bd93a6",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/metadata.json",
+          "sha256": "4e417dc504af19a716c6e9c8cb187b5712c11a2c6091d23af480ce81e66936ee"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "ac5e003e2f1d55a96de814e297b9870d7bae841d",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/otel-payloads.json",
+          "sha256": "3e0ed027f4ad2827564c19d81dc5111f78bc9f8a3229fdaa3c1275aa7057c99b"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "ab658206e30e6f8d44457c995dd66c64a06255c4",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/otel-spans.json",
+          "sha256": "100a38912d30ce94278eb3a3e08f41157a2b5208e815e7f720db8e4c7cd4b927"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "32ec48ebbc987ce91ab1d383fbc1cb7b73dd1cdb",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/service-events.jsonl",
+          "sha256": "702a8a452a36148233eb9bbaa5df25546bd167c49dfa294bc350aefb475b84ff"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "1357c89e2be4b618abc01d19063b45ed2478fc35",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/trial-manifest.json",
+          "sha256": "d6b5a01fd6ebdd44e7e201c1b024e5ca8670cf615c76dc8b975ebc6c887a4115"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "c64d0c564edec721fbbb6b3a44600ea70fcbf8f6",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/validity.json",
+          "sha256": "3014b04bebe40acef3557d8d0683fe4b62eea006653d3f1e8b71f4ab5ed9e2f1"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "e797e95ab0abd97853b1ff53947b383b1f2904a6",
+          "path": "results/phase-5/raw/phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475/workload.json",
+          "sha256": "fec56c17c1e18ebe6f3b0d5f8df532106865c141bf67ab355fb621d81ada7ba3"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 17,
+      "repetition": 4,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 17,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-017-dependency-latency-v1-automated-20260810T175551472674Z-4d327475"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "d77a1ac5866f4fcf07e5d7a78f921fdb49b1b889",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/events.jsonl",
+          "sha256": "f6d5a28a02b2c42c0114b58bda4404f3ef29db1293b9aadf2e71a3b4f37f3c59"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "ca206fe37a56317fc81581a1a584bf0934957e2b",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/metadata.json",
+          "sha256": "146ff540d5a4a205e953264ef19454e07590eaeecabcfb62ad6ac139bcaa9f5f"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "59e5791b53260d4946e1199f2226e809664cbb20",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/otel-payloads.json",
+          "sha256": "bf2b78dfe6c4b483609864a6e7698076ba549cedd00b2681309ef53e39fc5f2e"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "fc62b2d8ec9a7a744728b15b40e4dd10338e7146",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/otel-spans.json",
+          "sha256": "3e323a60cfa2e7b39bbcfff4e8246da3033205df9b86d6e96b14e4b64bd20e52"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "f1e4db570a7b7c610fb14f2c93047258fc1056d9",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/service-events.jsonl",
+          "sha256": "78c8c48ea9bc5f172cc46fb288b8131578d1d3a441351d97ef3bb9a549ff004d"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "49850580b4695edb2b0c6fbaf563dc40f61bb957",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/trial-manifest.json",
+          "sha256": "fcbb78bab4659627c49c92741d842a7738a75366acc126b39acc61e044a3d6f6"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "bf27f46fd8fcaa47da90baff50a12ec723ff5f45",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/validity.json",
+          "sha256": "cd86ac644158321640de203a0c3f6a96fc1f3580d63526d327a7648752204dc5"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a1596e91dfab1edde1741325228cfac22db759ae",
+          "path": "results/phase-5/raw/phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f/workload.json",
+          "sha256": "49cebc7d31e451253d7b366bfa2a5a3082caf4daf6058562e033166a334ac7a5"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 18,
+      "repetition": 4,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 18,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "invalid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "7589aad6c24f10e0413b7a993dbca27fb0e02c84",
+          "path": "results/phase-5/raw/phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8/events.jsonl",
+          "sha256": "55ee0dda768a47685911a8a4ca501bcebbfe0c547613d9bc1143509f51415938"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "73214f9cd8775cf10c24b11524014624d732bf76",
+          "path": "results/phase-5/raw/phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8/metadata.json",
+          "sha256": "666237bba171de9812e0a408ceb355ae234b4ebcdbf0c246ade36020315c8ca3"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "3cbd872d91c489f895c6e08a616c52578e94c214",
+          "path": "results/phase-5/raw/phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8/service-events.jsonl",
+          "sha256": "1c136ab86bfb3517201117720e4ff889e694de481312ee6e56b402135432db32"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "0c7815c06abb4824ce5d6a8019cef716874e82fe",
+          "path": "results/phase-5/raw/phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8/trial-manifest.json",
+          "sha256": "ce634f2a558ab0f79f007b162f4ca376ca3401bef25d18616b10c177d977485b"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "dce6dab206a742118c3bdd5a60d40a357859f4e1",
+          "path": "results/phase-5/raw/phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8/validity.json",
+          "sha256": "b44d3335caecb32c9e90b7d05450aa759c1c2c637ea6ea0c55ed11b99aec335f"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "863be8167ad13569e41922b4bc16b8758f8d1e02",
+          "path": "results/phase-5/raw/phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8/workload.json",
+          "sha256": "25ef781ed6ee53cffdafbebdd0e310ed97c4943f86e9c232589a875708a1f795"
+        }
+      ],
+      "passed": false,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 19,
+      "repetition": 4,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 19,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": false,
+      "trial_id": "phase5-primary-slot-019-service-termination-v1-automated-20260810T180302207425Z-e9323ee8"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "565b316b233f2e9a0c082340c9fdd15dab06e541",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/events.jsonl",
+          "sha256": "1107b862e2bcc162f7beb21e52ab4ed90c8aefc1ad6fedad3cf9a39ec823da65"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "956ecdd867a34573024b6611764c3f3f5533daf3",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/metadata.json",
+          "sha256": "5aa86fc9dfbca32727b2eb1fbdf7e786e2efce763f8eb888af3044f4e9bfc021"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "e30ebbe8ace5d00b8c8df5818e4ba5e550bdc71b",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/otel-payloads.json",
+          "sha256": "8a1e8676a8079d48475e9081eb7ec4b7e822e2fad16eedf6c96fda630b3d7d18"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "bd7abf35f7e1966f6f981346b8f93b279eacd166",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/otel-spans.json",
+          "sha256": "b1d577126cf77bc8ed7df78d01a086fc264489dc437a1b8a6f85a0e3201afe15"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "535c4ec10818ae651f9ef6580664a58900f255a5",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/service-events.jsonl",
+          "sha256": "b5809a374205a7d41dfcfb51b1a9747c96fc452abe56508fe5eaee21b81fea8b"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "de273477efd147f0e5868df1b7927279f222e023",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/trial-manifest.json",
+          "sha256": "4a5147c5ed7a3a7484f9657e5a9b909560b0a5d2766bb063492137ac4fccfe58"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "81b7acdf7727910a8e5f4808a8bc95990ad9e2a7",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/validity.json",
+          "sha256": "7bff7f08600b8855b047935df0cade2a9f47fdf9f7a7d873e266440845f94881"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "09c66bfaf8665873fd2307929e7048bbae579822",
+          "path": "results/phase-5/raw/phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986/workload.json",
+          "sha256": "755eeafffc5a9a45cf68ddc141c064d96b2fa810eb3b43ca415a0e4996413598"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 19,
+      "repetition": 4,
+      "reserve": true,
+      "reserve_ordinal": 1,
+      "run_order": 20,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-reserve-slot-019-service-termination-v1-automated-20260810T180938469074Z-39185986"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "invalid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "890cbee695b244e1cb741a76b72da03f2e095acd",
+          "path": "results/phase-5/raw/phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879/events.jsonl",
+          "sha256": "03479d3c213d8e583ee13eddb8d4508a78564ae37bd0b9be478392810571e041"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "f88ebafc8c19d814f36ee3b732a00614a1880584",
+          "path": "results/phase-5/raw/phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879/metadata.json",
+          "sha256": "96a09e4d5838d8e7ff2361ff88cf712c50df4c0d84ce7ccfa114bd622112f64b"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "e9ba565d73d18c36e1476ca30bf49281fbb60bb2",
+          "path": "results/phase-5/raw/phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879/service-events.jsonl",
+          "sha256": "00d71faa61f2a5cbc5b98551c58a85f7247a4398dd1e33354444190d2c7b591b"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "0d3d7ff80ee68d02d33bcd289e5b61acc3e08d69",
+          "path": "results/phase-5/raw/phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879/trial-manifest.json",
+          "sha256": "5147821c6f1fd4a3b35873e705cae1c8190126fb48c12ac9a3757af8b7851aea"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "426f53ab51c51bbee277923fe8d5b3226e50eab5",
+          "path": "results/phase-5/raw/phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879/validity.json",
+          "sha256": "3bf037206fa9fa2871ecc9351a4fa354795e6d3b107173119dba0885c8384b17"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "089e51aa8b8b49126ad185529556b306a5993115",
+          "path": "results/phase-5/raw/phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879/workload.json",
+          "sha256": "5d520d94ff70477b7493acd6c356bf517111a0a39345e2f16af7abf8404b4bbf"
+        }
+      ],
+      "passed": false,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 20,
+      "repetition": 4,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 21,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": false,
+      "trial_id": "phase5-primary-slot-020-service-termination-v1-manual-20260810T181536410216Z-0b8d9879"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "invalid-primary-pilot-trial",
+      "directory": "phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "59ddfa3978371f8f5a6785bf84f4da270e3f7d08",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1/events.jsonl",
+          "sha256": "dac9d4f16ca95038772974e6046e40f81f0fc6ebf67d24be10df3af59d66a93f"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "5420f31d01ace1a54144041cf24cafdbd7e0d852",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1/metadata.json",
+          "sha256": "c3a24fc9f7b3d42266526ade66cd96c8338a91a0063cc45c7928168c3f723306"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "decb1875ff24f4bd3f48cb77bfc6760f8a3b4332",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1/service-events.jsonl",
+          "sha256": "5f8a467b88f548c23c669ebf28fb0f12b0b8a74a030b89b5adc71d8e82a63b88"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "a11340f9dcbaeecc92cc59589ae8c74b65e4829a",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1/trial-manifest.json",
+          "sha256": "89447294407bf207ffa8fd677aa6d0bd34440df0fc91c4a649d86bbcba9fa25a"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "2803f0faeb17328751c057893b74d8d895e328d4",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1/validity.json",
+          "sha256": "b6a16c4f268f62a63338536640406916698e2e9f92e222823797b9d95b7b1081"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "4d0ecd04122564eec1f1fbc14db0c8c1e1de25de",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1/workload.json",
+          "sha256": "8c9b4e1fd9849498d038f60415ad7c5920b01e3e69de99cef3c6f254773bdc0e"
+        }
+      ],
+      "passed": false,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 20,
+      "repetition": 4,
+      "reserve": true,
+      "reserve_ordinal": 1,
+      "run_order": 22,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": false,
+      "trial_id": "phase5-reserve-slot-020-service-termination-v1-manual-20260810T182109426725Z-0ae09ec1"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "30424da162bd1539f5783f64f4a17a60855c7bdb",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/events.jsonl",
+          "sha256": "7f4bead5cd64ba92fe4a84997ca133d9964bbb5be0cba0e0bf61c73733db2953"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "8ab380371cc0b16852c4ec6a9f3fd2d93b779d15",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/metadata.json",
+          "sha256": "8eab07fd922c1e69a5e1ff6540888f3c2984421d31a494003ffdbd415cbd9db4"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "a86f3ffe82a6b5b8cae4933018329354a0861c8b",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/otel-payloads.json",
+          "sha256": "259962c9e3dd3155c38b14319858cbdc779f1793947ea284a79bdf7997c377d0"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "3d1172767a7c61c1bab6f60856bbed0f44236350",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/otel-spans.json",
+          "sha256": "23c9d6292ddd821f62b533d6c50943cfa35259a16abe623e2a3dee2169cc4370"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "21cc3889dd91cb6602831358d1e6076b6da4e29e",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/service-events.jsonl",
+          "sha256": "37e4726121c963979b8b5944ff15da8a3738c4bb0bff2b14a3d0147fb5ba9a98"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3a07026822ececf228cd5b177bd5efb480206495",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/trial-manifest.json",
+          "sha256": "ee593607662836666eec40d9b452d26202770b31eb0f20b4ee6bfa7495c2b3c5"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "8dc19eef13da296356a2f93b83d7fe2844a4bb78",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/validity.json",
+          "sha256": "0770f0fed37da5b0329819c903bbcbcda8c4760117aaceb6b8fe6345dfe01620"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "0904a43fb8895d41c788babf177965d23c5f8697",
+          "path": "results/phase-5/raw/phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675/workload.json",
+          "sha256": "716f4865cf3c75fba5d9c9d31c9878a7d7e56b816c1b82b1722ca74f8301328b"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 20,
+      "repetition": 4,
+      "reserve": true,
+      "reserve_ordinal": 2,
+      "run_order": 23,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-reserve-slot-020-service-termination-v1-manual-20260810T182536547966Z-eba9b675"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "e4fd1f4cb0a80c36d7874bfd3d77d19ce4b2778d",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/events.jsonl",
+          "sha256": "050ad1af3677c6ac5a0895e9b094411206309fa4a46153fc6895c0c047b35603"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "b86a0e6fdc2908e14f16e666054e4b4bfea3147f",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/metadata.json",
+          "sha256": "02c76edb6c2e3074d1ee95a3f32e5180f2396cd6f1aad80f76214af839d7cd81"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "663b0e120405e5f8c0a8c830f7f8d79f3a790596",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/otel-payloads.json",
+          "sha256": "6efa9d9839cb6a48d20d5506a5374836a35a406311e9b72bf42b0507e80b70b0"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "9c64c898236faef9e254f4356fb75b199f321bdc",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/otel-spans.json",
+          "sha256": "4503f2826425bbcd3baff69de1924d15ab22107d3741cb51dc4dac6d3c895ba2"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "06807a38c415781cc1dc16288dcda6c98ce91f8d",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/service-events.jsonl",
+          "sha256": "548bc4969d93f53a6a33875447aa8f35c40c6d36d641cc385cf77e5558536a73"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "a454bc7e94741e91ae7f4f8d80dc13dafdf4d008",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/trial-manifest.json",
+          "sha256": "80959a3e621f266c7b9079b93037e290f1428ea5eb0156de2132ecb016788184"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "ec365190e27ec5aed4c6db1f94685f25de1cb525",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/validity.json",
+          "sha256": "b51190bd334da809fa6cff486ae40a27309111cd923254fd5b58f49965c2eeb4"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "139afd7c02795af60cc55d164305b014ad3ca4da",
+          "path": "results/phase-5/raw/phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4/workload.json",
+          "sha256": "4fe9bda5c6e707a395bfc03153745e26abf5f8d1c333e95c5adbfade6368e1a0"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 21,
+      "repetition": 5,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 24,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-021-dependency-latency-v1-automated-20260810T182946834121Z-ad4587f4"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "58577ac29973e0eabbe3f6faad795ff93a8baa0d",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/events.jsonl",
+          "sha256": "4ecf5c278cd8c3f37bc37ede5d284ff233f0c787442f5e8a53605ab6244df9dd"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "ed28d6c51bc5e686ee9107fa10d71ab856a203d1",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/metadata.json",
+          "sha256": "e0b484151454ed15fd94c724dbb816449b02b2f9937b84dd4f47ab16e46c6203"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "dbec7d9bf3e2fb491c492ddb17b01900a49feba3",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/otel-payloads.json",
+          "sha256": "4276313083a08269afd6d7258a43d3e2f17221ec0ed8bf2f8d294dc582464f33"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "4ee9e0561d6d0a94ac26614dfa443867fe77a9a3",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/otel-spans.json",
+          "sha256": "cb6f5578969582396e381a6406e8c82edf36c4acc5d9e6ec47bbf4cb2cce8f69"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "c7d176a5e6d352c8746c88d0a91aeb05fc8eecdf",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/service-events.jsonl",
+          "sha256": "2d9024df92b68f523dd30c44a49659a2940dfe4a1f3e288925720a1ac19885b5"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "23b508328ac4622270113768492b44e9966e5857",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/trial-manifest.json",
+          "sha256": "b601e486ef82fc2c42ba1281e4d36ae52585b17b3265648ee698237de7191038"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "c333a1e608f0459b4c221482b016563e8691bafd",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/validity.json",
+          "sha256": "bac2b7d0116767a5635be67c952fda8d8e818d6db824569766de70fced4e0442"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "cef297408bf4c6a9de789a393ac88fba3922798e",
+          "path": "results/phase-5/raw/phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01/workload.json",
+          "sha256": "d6b1d5812963179b9cbd2350e9bb0c5476dca44237ef7262021d403f32a85659"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 22,
+      "repetition": 5,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 25,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-022-dependency-latency-v1-manual-20260810T183325877068Z-339c7b01"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "a254cf1c3b7fd01aa32e8a4dfa16dc358fd4eee6",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/events.jsonl",
+          "sha256": "c7157f0dc86d6c2321be65b979cf9bb556ddb6061925f7e2847de8f7acabe1f5"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "143388597a8b351d6f2af4bd830a35ef4d39a6b1",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/metadata.json",
+          "sha256": "5548ac32dbf8334712d13ef31295af8cb58a46a6c8f772ce480c665511ba91cc"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "e47a0db85297162301d45772da55566d2c39b9b1",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/otel-payloads.json",
+          "sha256": "0e894623a869b37cde16c04fd9d0d55e1c28b3cf57299481ae04f1498f45b207"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "9022c6a00363274732cf59d281bc74336e9fd9ba",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/otel-spans.json",
+          "sha256": "74e60d8e9249ea59337f44b18253edd8db9298452cae358a2c540e2f1d604acc"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "89780d0cfce1fe39cf38847d681c26c126d15986",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/service-events.jsonl",
+          "sha256": "430e6344bc598d838b4411fcfd300f9eb0716868611a86e61592dbfcf62e017f"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "ea177ea78507f33baed69b7fe35c4af595f642f0",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/trial-manifest.json",
+          "sha256": "daad9a08bbf1e9257c1e4802f4e4f2f02b1e74562100b87ca91980c121a6e91b"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "0e7ce35e7d80b24d17165eb38a222c2e7ddabdc2",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/validity.json",
+          "sha256": "0155953bf9a84569ed19aa10cd68ed7e7ef8316a49e40fe30cf2863e33d213b7"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "8e6a148cabfde8fca6278f324a2ccc2daf877c78",
+          "path": "results/phase-5/raw/phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f/workload.json",
+          "sha256": "2f503c948fab9f945cc462a868c0319bd1e2557f347a396dabfe970ab6e7ac45"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 23,
+      "repetition": 5,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 26,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-023-service-termination-v1-automated-20260810T183704609750Z-037d534f"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "69f20f935a546be0a1261899df8a4dbbf66fd7f5",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/events.jsonl",
+          "sha256": "9d90a64d84c730bc449a9ba1827e20c98ac793e93fe3bf3242d2078754258a61"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "dcb523c6cb1a7ff94ee4fc4236bb281ccc077bd1",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/metadata.json",
+          "sha256": "7e86159c80d81130f6931d7bc777ddc07150d09e055722ffd4c07a84682753de"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "660b68eb8eb023c34a07e6f8ddf825727aa425f4",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/otel-payloads.json",
+          "sha256": "2b020370a4b76356d13602769c15b5e17ba4d55691e8e1c7e61186657419e380"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "e492c27449b930a507729ba248367cdbdb45f465",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/otel-spans.json",
+          "sha256": "5eba471f8127faaee19b7b8c03839875ebddb32f9791e51665365ab7285c8ebd"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "8be04ed15a5a514693f5a3486372473f7cb2e82c",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/service-events.jsonl",
+          "sha256": "704829c97c4ee3c3fa252b3278e70903dcaf0e04e2f48a8cdcda6f34f98a657c"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "e5037886ab01dabf0064f9466220a708891397df",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/trial-manifest.json",
+          "sha256": "bef9b562dca13cfe11f89e6b94561e5a1decbd79aa38ff5f948c8d3240c6a40b"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "cb286c12315588fe688f5279d95e0e932b25b744",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/validity.json",
+          "sha256": "37aabed786da3ced9fbb0007029ba670a46b6ffac80740873fa62b869488c96e"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "63db1e85c2149ff0778f73a7b43e7dee7dccae26",
+          "path": "results/phase-5/raw/phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06/workload.json",
+          "sha256": "f010d8bc22603bff8ef07fa40f272fcb67325745aa388e1cc267188f745ce0fc"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 24,
+      "repetition": 5,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 27,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-024-service-termination-v1-manual-20260810T184055844000Z-2e9b0e06"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "b262402a95acfcefaaa0e7e2bff694236a512913",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/events.jsonl",
+          "sha256": "393e20fa2af82e723620f82174263722b3310de91f7cfbd9ff3bf2fb7d8139d3"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "03e6ae6e8c33b6982477c56ccdd81e06758b5048",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/metadata.json",
+          "sha256": "5a65fd89097fcfed3e083c6f437972e7616be47922a3f0879fad251f739151b0"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "fa2e641b93d9737c0d160203117f3007d9bea5a5",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/otel-payloads.json",
+          "sha256": "aafe5af0d7ac85a07a4966e2a28e82ef7ea00d793895832808e80ff4d47edfb0"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "1699bef8a86bb5a3aea387bcc9ace0417b346ce6",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/otel-spans.json",
+          "sha256": "bfa96b7a1d24f559f449ddca42eadfd559360e95ded88855e99968239e0d2cac"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "837f6afdcd5b0690afccf238ade487effd1b925b",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/service-events.jsonl",
+          "sha256": "47fc189bfc3b4a2d54a904681b8e583a59933ae1af1eefc359fec3b95cbf8b51"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "326d9759e7622fe521605bc27ed1755e98aaa98f",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/trial-manifest.json",
+          "sha256": "fe1eb27514e2d7263cb9b4f90aefd377ee13996ba4535a7aedb7761f7cbb5bf0"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "83769728dec960844627c99fcbe57f54479124cd",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/validity.json",
+          "sha256": "fa21ee9bc7a53e66b4d1331ef4fedabc4995378fcddb035e812a64beb6789328"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a0d486e23adb8daaed8e011aadf35ed12743445f",
+          "path": "results/phase-5/raw/phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403/workload.json",
+          "sha256": "b0c12ebfe19df8c5452520937d0c3a5ed5c20908e9b29bf30a126a2ef7cc2c59"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 25,
+      "repetition": 5,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 28,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-025-no-fault-v1-control-20260810T184524665699Z-f9629403"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "75ff3c61827b6e6ca78c8afb0d8f843ac51ef4d5",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/events.jsonl",
+          "sha256": "87fc5c1ea7241d4bf7f848b8d7101206aa839a0758508267a9a057304668b02e"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "d6bc4d8bc6f6d2924df404cc6742671eebfd033b",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/metadata.json",
+          "sha256": "bf11693a8aea7c623bc213490968fe585090e7b0cd66efbfa221ce521badfa87"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "e7585b64b49b73c155e5f673b190d38e26095eeb",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/otel-payloads.json",
+          "sha256": "fa65dbfa493bdc0a15b16da7a2c1cf8e3aec925386408aefb129485a39716882"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "32592a58078347d1b869357b3d8df4148b07214e",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/otel-spans.json",
+          "sha256": "c29b774ac3fc7986b5b91f2c77b009e34d5839bc38161229207db5a35a0f8aab"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "cd9a972bc096174269a1676dae700d238970dcc1",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/service-events.jsonl",
+          "sha256": "c22862cc49342d04fc1660581e3682f987e0e25455f82a40ebb1fafab68efd05"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "793c7b516e4a371d966c5498255140894a1fb3af",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/trial-manifest.json",
+          "sha256": "f18ecb32d26db5c2ddd4791812458c435920a21de6a392d31ba839db6e3e81c1"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "068e2836a95283e7d92c7ba99accc616f7b764f8",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/validity.json",
+          "sha256": "914e9b102f0f401300302b23ec0bdc8317304ed070f8be66b307612f75acd1e4"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "392064edcb56854e6413c65a69a40b9d4a1a7346",
+          "path": "results/phase-5/raw/phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5/workload.json",
+          "sha256": "ac444238a52eb3f49ff5405fc4c3e6ea97e89cd075bb9cf90612960b264be44f"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 26,
+      "repetition": 6,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 29,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-026-service-termination-v1-automated-20260810T184915408256Z-cad535c5"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "d390f9fc8f64e0e0090fa7f96f5157e4056b719b",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/events.jsonl",
+          "sha256": "45a24369248eb16dfcf329fe159603ffbe5bd79991307669c88b29dd5fff043f"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "b9d95f1e376e4c6d37fef60064dd423ed7cd2d90",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/metadata.json",
+          "sha256": "f480e0956d0df154e349d51ec2d1c41db86413d82b9b99498fe430761364d93f"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "0bc3da3488c71392b649dd20eb8b0790c56f9239",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/otel-payloads.json",
+          "sha256": "40e6e5d252b09bced738bc86821c2787e05dfd60b65e5f287722852a7a8fda9c"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "fc22c1ef463b2cd2a6ea82124da912045efba15a",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/otel-spans.json",
+          "sha256": "24c3181c6330e53073da7d0b3d1c3efeabaef5fe404db0a5297993d1870a44f8"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "8553331f783cae7c389064cb8f8cbf73a6b0a445",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/service-events.jsonl",
+          "sha256": "a222b013e23985e43876b324da2b79e0fa2c0f9c6879b5976624f94d13b2ede6"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "8e6d0aeaf3c1309dd48d3b27cecd03343910f1b3",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/trial-manifest.json",
+          "sha256": "2c1f3569d0660c73230da00e2d7f5a4b60ca498d59f9a41d9653d4af2230e3ef"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "0bb4181643b7615828f3061fedfb4804fe45b723",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/validity.json",
+          "sha256": "6e86464aa237ec9d76a94eb7cb1b7f942de1680e478ac94256a182a38c7da90e"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "6ab8d28b5678a13d4278c15a09b2c4cf2a3d6240",
+          "path": "results/phase-5/raw/phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395/workload.json",
+          "sha256": "871ea82834bc84041eaa37681e76a4d216ae95785342ce95137d1c902011117e"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 27,
+      "repetition": 6,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 30,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-027-no-fault-v1-control-20260810T185310141635Z-483b9395"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "4c5a063e13d59a4d240cb52b8c94d4b73333764d",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/events.jsonl",
+          "sha256": "d2baffe4612644266b6cc2d44e21570cca6d32a7f8dc3c0a966dced0d24a6802"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "d900723da371a78d30b9c8d837ff7ce7423cfd08",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/metadata.json",
+          "sha256": "147d9c0481850da7a1fd5c73de687b55514dedcb6e21eb01fa9ba4cf1c266886"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "fb9ebda9d9999e3a462daef322e1ab1770aec030",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/otel-payloads.json",
+          "sha256": "88433a7474d2f6ddac8332d342ae708886e9504e1bae8e39e9a5634e6fb0bf08"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "b95b7695c018cafff6afbdd8601b6b0c02cff7c2",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/otel-spans.json",
+          "sha256": "79a3bff10a26f04e260023d6f1a84450a9cc468b71c4614a4f60e37c45e84fed"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "14e84bafd646bcc0909bbabe8c0cf395ca380324",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/service-events.jsonl",
+          "sha256": "5c548e367d420ece90e92d7dd98b92ec037de9f4ad1b8e429012ae3a122a0533"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "1113187179341a461511e036690731bb7af3247e",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/trial-manifest.json",
+          "sha256": "d4403f14da58a8bda6b31f7f3e1b3c05441bdd6c2daf72b89bc8f631b1fab1ae"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "de827b9149423d2448aadeb20075b28460350e6c",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/validity.json",
+          "sha256": "860cf67ae328f931e6fd70afaafeed547b46445cd629e7aacff3f711e7d4b909"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "95b9b3d68064d231b066b1262c0be3bb9ad49329",
+          "path": "results/phase-5/raw/phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a/workload.json",
+          "sha256": "c8e66ba7407416ca2de1df7915ba4066bed663bf9ed30a783e4de450ca7fc6e4"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 28,
+      "repetition": 6,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 31,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-028-service-termination-v1-manual-20260810T185652677951Z-5576fe8a"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "a0c78839c6a7e7859f3c00e51e7e158396ecbd35",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/events.jsonl",
+          "sha256": "1ab0e8ea450ca001f174eab24cf0340eaeda79c697bdde1a4976b5338197b3d0"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "a711dc29aa05fad6e55d5e4e5df3f6e764f6e154",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/metadata.json",
+          "sha256": "964c9b1e92467f5c5624099003c95aa11eaf570470b7ab291b7b2d65c25da8c8"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "d254d4a8bced735679b135963f8947f881219633",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/otel-payloads.json",
+          "sha256": "b1587b4cc4358dd33ff4bc543ebe24fe5963adf2ec945c225ca3ab5b08e6aabf"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "b139e9655ee536584cade16b3406f70503e1de16",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/otel-spans.json",
+          "sha256": "601700adf27d27f8ca2b4b308c1292b3b93683fbfdd8abf8f095e3d994bd6de9"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "c5f0335a29bb0bf8951d82bfa8c2e44c4bdc2ef2",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/service-events.jsonl",
+          "sha256": "53fefeac1d5c58792eb2924b6ec092131b7fd455175b7a08c411456db0fac8ff"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "4505959c30de87ec1c0695924a6aea966a086d66",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/trial-manifest.json",
+          "sha256": "825e9a6bb33c31cb0613e745b90f485ecbef4b2d7c1a560609e0540933bce061"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "c29bb2163a1da7c09ef61446b85b6c671cf99cc5",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/validity.json",
+          "sha256": "10bd60f23fbf273cb9d7d6da2afed87a28c3ece360cf7ea9f5385eb09978fab8"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "8259cfdbf59a00e22aaaad6f417e57d51bf4bf81",
+          "path": "results/phase-5/raw/phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd/workload.json",
+          "sha256": "e0c69157ad14a40e5ad9b0206cdb061c331914ad91f9e8520e1b48b522a30d40"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 29,
+      "repetition": 6,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 32,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-029-dependency-latency-v1-manual-20260810T190049811350Z-a3fd39cd"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "2ba5e63d4955c4997b0b070f48f4dda027eccc9c",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/events.jsonl",
+          "sha256": "2047e036225d8bcf4b1262ed1b078a11f1f0950d370b9af1cd49d3e3bb25a8c6"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "3b5352c85dbf59c5e88a997b3b63f0181757d2a9",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/metadata.json",
+          "sha256": "14e359ed91211256e44d69b404a338c22f3b26e4bbc9cb79afab14f8f582d751"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "6f34240791513ede7c972b6ee59ddc8b595f6a51",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/otel-payloads.json",
+          "sha256": "c4f0887d567566b97c351d0b3475051626954e852a2f07eb55d6d7ee99f82f78"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "4cd3f544ce82622a8f0f73cab16580bc584ba603",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/otel-spans.json",
+          "sha256": "620f7d59e7cca172d87d340400b343bee5663dfa6d6b852d9182f24d8d13ec9f"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "ea8769bcb6b0a300026c3f04676fa2aaa185add0",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/service-events.jsonl",
+          "sha256": "1926425b941804d719920f3ce8ac56d8f9e7796ab4ea06f735ce63967a58b95d"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "07d008acd586aef5325fb45d6c20b424d73c066a",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/trial-manifest.json",
+          "sha256": "a3fbdaf86471a84a2506576cc08670ecc761dd6cafe82fee4bd38a3da371a12e"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "5423a62ced9b8eb18236af3d6147217263eb69ed",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/validity.json",
+          "sha256": "4ef1d53143115c57f3f27ef0668afa604feb8cae45c3e5e7c456a7805a4a6f19"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "aadacebbd2804f56b1cf7dd1843950f5146abfc0",
+          "path": "results/phase-5/raw/phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e/workload.json",
+          "sha256": "0dc3320d4b428bf70817ccc67f254dbb67720ef27ea73a29216796a4332dcbd9"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 30,
+      "repetition": 6,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 33,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-030-dependency-latency-v1-automated-20260810T190415770983Z-d3554a3e"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "745731262b441ecc5b4034307c2c698f924fa1a9",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/events.jsonl",
+          "sha256": "12b2ca55019c0f00ac282ad07d426c8551852728bf9ef089881223d5e276c58a"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "5c6f9437376013982bd9975f510a7fd8fc99df0f",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/metadata.json",
+          "sha256": "f30078791559fa524a12594e8729cbd7d63c3d23d0c93eae537e919639825193"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "473bf9862ddd907de65daf73b16eaad0fa0a64a8",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/otel-payloads.json",
+          "sha256": "216aae415e7f804d767dbc745e4db05cc15a7757263c5924a08c60d4d4232395"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "bbd60547a3724ef3447e326ae25f429854d088ad",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/otel-spans.json",
+          "sha256": "358abf47a027b35297928500448a88a78d4a117b2cfffeae42b39b90101a5868"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "2e93d7731274b46724131b8450ca40b7e8b91b7a",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/service-events.jsonl",
+          "sha256": "cd41b0eca4c79014ba283633030f853b9feb9924ede6b21e5a48566811062034"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3102d09a02e64650aec1b9ab1ba92e22445d623b",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/trial-manifest.json",
+          "sha256": "8962c8248a03f0039ea166ca3bb24f059a93b5b1197c7a550ececdf77803bcfa"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "e14a67fea5493de2cca006b5fa5eb1e4190c544f",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/validity.json",
+          "sha256": "7e8798387d2d5fe88d6ff513d32eaec14e7c00f2b939fcabc6fbdc0b3c655d62"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "77c0f0dba8410e094db7464e68a6b737803269b5",
+          "path": "results/phase-5/raw/phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6/workload.json",
+          "sha256": "f16b78677d23442c80409a436a5237238efbfe951fb1171aa96ab32e1a9b25e1"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 31,
+      "repetition": 7,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 34,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-031-dependency-latency-v1-automated-20260810T190807297076Z-e059b2c6"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "42e8beb5ba48010a175abcc78989dada0a68a951",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/events.jsonl",
+          "sha256": "01fe4afe1156704e776c77003e69d4fbcd121777616f27d6e6287609976f5497"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "fef368eafcbb83ee1920c197fdcf65e446331a87",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/metadata.json",
+          "sha256": "5e12cd995aca45d7643858fc1e32d1c582a639088f7c24245f2091675ac193c2"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "eeaf87fb2049a5087fdcaf5b5527365b188f93ab",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/otel-payloads.json",
+          "sha256": "9e5f9035a6b55a6e976df1bd416ce2fa0ed380d2a6b2c1913f911f3af387ed78"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "b69231d7ab9e398223e6aa5023e84d312412ba55",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/otel-spans.json",
+          "sha256": "6eacc59cf888590e651c44066b60975ec5c0b120fe7329d9d2cee8bda912119f"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "57219a6d7e47d28144d1f22a2a6cccfdfacbadc1",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/service-events.jsonl",
+          "sha256": "b7d1d1b72e3f0aacda0769111b69f549664c970d7a7f5691d4c314e9d3e8ef4d"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "b06694bef1ee59740d40fe84b9e88c07e0fb7b54",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/trial-manifest.json",
+          "sha256": "8abe8a38e6f808b849983921ba6c5a3e65bbf44070f3ff7044caaee8e2237251"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "7d36c3902524363966824b8e51b16fc507956246",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/validity.json",
+          "sha256": "c23a723d0fc6cd27f80b8bd506fef24935a6eca1a0bdbb580224e4b58567f8e3"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "b9c3e512893267c6476b05d814fce54a0454641b",
+          "path": "results/phase-5/raw/phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119/workload.json",
+          "sha256": "d0947367c854af18a901e14bb0224389e539f992252844a51574d7367057ab0a"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 32,
+      "repetition": 7,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 35,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-032-no-fault-v1-control-20260810T191217424116Z-c9e56119"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "202c644dad7ebf7cd7c0f021994dc3cf96a74444",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/events.jsonl",
+          "sha256": "ceadaa98c2da9a2f66668f103082640b13c9c5c691b594d24cc81b73e3f72fda"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "6a63dd770cf2c462a7eb3b0962898c713c572a74",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/metadata.json",
+          "sha256": "57e98edb321bf58608fd269c98d7da7ad768cd7af28e8ebaaf367a3b676ed905"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "e49bd5ef14273be5a850a70cf5ed81ce7e20f4e1",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/otel-payloads.json",
+          "sha256": "438be73d2015ab85e8a5eb0ef706bf03c8f50a89b34940359c3f3533afa04ced"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "1fa1c7d5850830179ee94ea5c1b476a1063a433b",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/otel-spans.json",
+          "sha256": "87f9c28b9c9df3017efe3af1ff479701faf6b48f8857de5853997d04ccf37074"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "4433533db3c1959e60f7ef05961af02d79eb6fc5",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/service-events.jsonl",
+          "sha256": "c681cacf90c57ee54df40f45cfd0dc59f3d2513f7450fe56c3e9a03fde282a89"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "783fc17d569a2e60207e56cf5354830c08ef7635",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/trial-manifest.json",
+          "sha256": "97a87066855437579af436bdcdb0df7fe7642809e5a6ea3f6ff1df614d9cf0fa"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "f402a7f0bd8cf39dd01eb5d8f2241ba83de8be19",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/validity.json",
+          "sha256": "9c2c222c9a6ea16bac8562adb41e614f25260c1b446166c6684c06c3d2871789"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "4521712ed0f252612f8d51125a3492f7ddbf1abf",
+          "path": "results/phase-5/raw/phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415/workload.json",
+          "sha256": "e16824f32e2e59cc7dac69b1815a78bc49995dcdae62753aaf3225feefc239ce"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 33,
+      "repetition": 7,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 36,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-033-dependency-latency-v1-manual-20260810T191548272005Z-02cf4415"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "040932d3deee57b9b358986a28836d872983906c",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/events.jsonl",
+          "sha256": "072d89ae6818d5951f86a0afc724e7caae429747b840329615e9b0187d2d3f31"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "13eef0d65111a9297a7ff1ea136c836eabd14e01",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/metadata.json",
+          "sha256": "90fb8add0e4617708d089c86837e38023547146659ff3418cb5d800986493bbd"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "4f9ec6fa7b2f5ef9ca56514745889812446ab1ba",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/otel-payloads.json",
+          "sha256": "db3f6c5a73412f889e7b2420fa44d386b4d5fb0ec99dd756c1593bcbfdfdd5ac"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "170944ea6f3e55ee903d105857c27108fd245316",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/otel-spans.json",
+          "sha256": "603d2434de2c1da626b4a2b63668d3bbb0ed04e7e17fe00e6fad1b6fe26a085c"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "10202b3746f2951f09f89810fd1d7317da707455",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/service-events.jsonl",
+          "sha256": "e0d4c73664cb321169ac9a207467c68aaee3d8aaaf99efa9f3fc533c68edf7d3"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "16aeb73130fad416929e308c5fa321db9ef31c45",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/trial-manifest.json",
+          "sha256": "8bb390e1a6829d00a64e9eaa6ff89d4980274fab7e55e2a156119d8adc441627"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "24f4f50e80cb26e334f943b20072bafeb68a9fb9",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/validity.json",
+          "sha256": "18d67ffdd57575e6f6b9506b0823dcfcde06b3514c6b4fcc05da81afb0cf4d6d"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "e71b1b4f3158720f2ca10f2ddb65797dcdbfe306",
+          "path": "results/phase-5/raw/phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c/workload.json",
+          "sha256": "9ef2522dc1d6ba56b5df9bc0ec0554a49438f5ba1966a7c497b1a3b707e72077"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 34,
+      "repetition": 7,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 37,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-034-service-termination-v1-manual-20260810T192026969950Z-73c8e59c"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "75e1e3d4e5205d263852b6c5f6def1a922e5c636",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/events.jsonl",
+          "sha256": "e16d4c993ecc9295aee952c8332f80685e0d25023437bffc4e87dfa1ecc2eb14"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "18094bceda9507d8b04742d06555572700934886",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/metadata.json",
+          "sha256": "8fb79230598365417790cc0ad1dafdc9f76c8938aea856444c8f38023cf6bc0a"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "59b82606cba591a92f39c537eb40b9d1e4be4a37",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/otel-payloads.json",
+          "sha256": "8b226f1b178cc32108dcbaa5122a14a0f4609049b007f65af558a075d366e9ce"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "5946af2810c1aa1d7956a63bbe94656303863bff",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/otel-spans.json",
+          "sha256": "1a9287c59404c6d2c2dac81b53ae543207e779bd8b4feff06224f44ab65dcd9c"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "2cda326edf56c49831f7aeb1d95faf30f5aee403",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/service-events.jsonl",
+          "sha256": "200f326fc4f80b2a51b2fcd22d9d4351677669328f89dd99369cdb0c7ef27984"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "727f016658fbabb904f4e49fa908c99285a5a10e",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/trial-manifest.json",
+          "sha256": "206b63ea7fb167bdf360a9b00855c39c58beac5b9dd252ac2e92efc259f4e32e"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "4670ba1d92258198be349f4417c0c998ec62f370",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/validity.json",
+          "sha256": "7a214015e01669c6a48b00a3129aa3d1e7c6f55af57eb3305a565e66dd4d2479"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a01cc63de14779871217d8325b342f22999b733f",
+          "path": "results/phase-5/raw/phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1/workload.json",
+          "sha256": "15ccd39d6b1c3d9357815491bbfcc2a1cc43a46ff59dc3c944e9a649ebf774ef"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 35,
+      "repetition": 7,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 38,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-035-service-termination-v1-automated-20260810T192433621099Z-3eaad1c1"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "1e175ef6dd09e27160e184d50d30aca418d9aff2",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/events.jsonl",
+          "sha256": "4c451b82341477b7667ecee0e2c710f8b4abd0301146b3fd181851ec1307dcd5"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "ee5176f761097ae559c813a9d4f47420900fac05",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/metadata.json",
+          "sha256": "22d5f6b1d5c13c897a2a358dbb823e2bded406e0604bd2847013b2fd3e9ee4e5"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "652250c8ce5c6315e734c98a5a67f007dfdd8a0e",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/otel-payloads.json",
+          "sha256": "1d828e61aa0cb815d549231503345dd3c769a971be6ed5af375212c64a3f98a1"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "60b87396420e4df5b99cd69f2ffa5b5a6b6becc6",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/otel-spans.json",
+          "sha256": "bd18a7c560a08d4122e7839ffad21e5778b461029100aae3c9e8423ea996da8f"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "90aeed1b93c56d5354489731fbed2c243f60e52b",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/service-events.jsonl",
+          "sha256": "de9fc066ba1234e0e47755585c6940909fe8db6df236a584703d7b7032cb7e0e"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "221841d64cb8e8acf47c25d88cabc83072b0ac25",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/trial-manifest.json",
+          "sha256": "4c6b65da16f2f93fc98b9907baf3dfb5017a20411e7bfc81be3b32e69076b442"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "20d65ed8e17ca0e0feda86b1695b9f6d71be9d02",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/validity.json",
+          "sha256": "8ac53b52c0ee3402690cdf7c71798a6337363e50ec296536dd2762d005204d43"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "761b00c529dfe19a2a1b9c1d9b4b0176ebd2c9be",
+          "path": "results/phase-5/raw/phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77/workload.json",
+          "sha256": "a78b1a080da57290eb8d8520dc857b51745073f9fbd33f20d0776ad9034b15d3"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 36,
+      "repetition": 8,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 39,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-036-dependency-latency-v1-automated-20260810T192843017413Z-0e41ab77"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "3d478a0ff196c2a129270f8885811cc69caaa934",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/events.jsonl",
+          "sha256": "5588bde07ad516d6a7d0fd02957a73c44d6d2b61214bd809f9debc05f46bd623"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "5caeea24c2a801405ca83f72a071b8ed1d9c9205",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/metadata.json",
+          "sha256": "a46e16c3a47a1950ddf48cd2d6d34a9f09e3b9a19354380e09b4fce8318f7ddc"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "5043a9139d146e8b19d48c4afd4e07caf9027c01",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/otel-payloads.json",
+          "sha256": "cdf6d3fc6d5428a8d31c202aebd272c591266d721217d8a3dca7d7006da4b6fd"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "2f79f40789990f8918b986cf5b0424be151b0dc7",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/otel-spans.json",
+          "sha256": "c13432dc0fcca5cd08358f887014f434eca57da700ba4ce55f36760ca6ada002"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "284359ab88e4b9fd193908913591668cc205a979",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/service-events.jsonl",
+          "sha256": "3e90477afd1c4090467ccc670701ed0b8d9d0aa6db3ecb799c90243bd44a3b32"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "a695592d33686320e4e7a41c22b77c0f3ddcf28b",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/trial-manifest.json",
+          "sha256": "0c920678b0de0251d7280f8597292011f85cc335913db33afb84ab0ca743ae98"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "bea63519a61f16be477ee2a13467423f07d501c4",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/validity.json",
+          "sha256": "00f307c15152541de0de55cdac999ce3ab3d926348a1d606d02b568c9f473e3a"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "8cee088ebbdd85aeb08c400406429faf6170621e",
+          "path": "results/phase-5/raw/phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0/workload.json",
+          "sha256": "bbb89e79727be340a40f97d3f2ed23f260b1463357693e020570efa1a2fa5653"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 37,
+      "repetition": 8,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 40,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-037-dependency-latency-v1-manual-20260810T193157749951Z-e7d6e3e0"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "6e5a4f07b6fdbe34318964123f8517d04692da89",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/events.jsonl",
+          "sha256": "12bab949c08fa43501ccacf70721d181aadb9138dcaa5ac0f3ac4f2f0adb04c5"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "2bad555fc8a5b167d02741d87a8df3483ec9e840",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/metadata.json",
+          "sha256": "6b978d92940d540103bdd7fce305cb7fc3a364c9ccf7ed6f7f1a94dc19636b1b"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "c7e4aa4d1a8ff201c07fc59d0f098d6c6928360b",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/otel-payloads.json",
+          "sha256": "b8b73c0fd4b2d691bf9c70196d530c0b508eaedb4eaeb8db96b9380cc17181e9"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "23a7f127ee27029d2651e88dbe79cf150aa59d91",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/otel-spans.json",
+          "sha256": "73e49551467f49eea6d38e164b2d800f5df30ca7ec06341a3a3e8c2248cd5b3f"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "60d3c25af30945e1ede4118fdc313a615e1a9bcc",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/service-events.jsonl",
+          "sha256": "b4210b4a5d99081f50c70b15555f775d4a7cb8ad2d7d4bc1813a667844e63192"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "611cb32050987a7ce9ab9d4bb7df2308e6f11eef",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/trial-manifest.json",
+          "sha256": "fd1ce561a31a6b04f692520e0a5ef602ad89e7a4d3767197243437b5b4cf3669"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "dd4ab21a1f69f6c7a87d46dcce19bd248dad4737",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/validity.json",
+          "sha256": "64fb1a91c1f3b5dba5f31c6e3ac1e881fa22c0de58b8c1f5909255e386b7f8ba"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "eb70fb8170cca9dcbfabf64388e24159b3f4baa9",
+          "path": "results/phase-5/raw/phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9/workload.json",
+          "sha256": "295bd2e3c329e8b4dfc2e5f88983f2dc2ebf7ecbfe4fcafd9b808f952ca67f27"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 38,
+      "repetition": 8,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 41,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-038-no-fault-v1-control-20260810T193535612181Z-19f71eb9"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "b84ecee0e7f03f188c57d7942ca8ac24661cba16",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/events.jsonl",
+          "sha256": "0b637aea8ba60adf4b08af367427e2d5321e1f3f62e01877b66dd85ae3366443"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "ffb1f8c72fd458f6e0e7fd85c7ebdca339ed8a24",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/metadata.json",
+          "sha256": "59298b92e080476d4d775b4a2c8115103087133be5c7a9292ce51c9913182991"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "b08299774aca15b684f5afb5ea8338a4544cf151",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/otel-payloads.json",
+          "sha256": "de7384e1035d7074ef8dbb1e2e59f764ed91f1485b643e0d02de88a088bb1eb3"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "8db15f3ff4050555f2bf4f6f9e5b18b9a21400d5",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/otel-spans.json",
+          "sha256": "acf3c5a2af3bac28365eef806d021ae92fdab189c79f19f0c36c6f3517c45ebc"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "345ba85791dec0c03765dea51316655d97faeedc",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/service-events.jsonl",
+          "sha256": "9bd2a75d307914390f824b30522dd414471d3aaad5d418847879c53c8f223eed"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3b8445eff994751030b8e26f36d90156c71b0392",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/trial-manifest.json",
+          "sha256": "b645da7d9a08f6fb8dbbc57a084bac517fe330c2bc672db3b7b4ab321bda6c92"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "3c706a1c7cac79ebd5194a68c41390e4a3e9447a",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/validity.json",
+          "sha256": "7ad9adce7d30d27f01c435fe97d1661e555974d1fea7c817b316bc6bb45c07db"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a447c2ae1690df0cb8634f022e7ce886a9a80992",
+          "path": "results/phase-5/raw/phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269/workload.json",
+          "sha256": "6cd19dab69962a1bce67e145714536a744228bd50c5256e332f768b3c71ef259"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 39,
+      "repetition": 8,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 42,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-039-service-termination-v1-automated-20260810T193920334888Z-64e9d269"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "11768472dd6a24a8205659cb56f8fc31920e0b84",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/events.jsonl",
+          "sha256": "84f0e30a57b8e95a11c9b8a0a3ff1b61a1025397f1e0c5c4d8f7122f730ec173"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "e1b26d18ada5c3d2c25c6faba5f02f8440a076b8",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/metadata.json",
+          "sha256": "ab8cb79f5056a584688c9525c8a3399bf793b6b7a4683562096709d3472be307"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "00b68e0ab0d23956e38a021a1cc3de48ed827e6b",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/otel-payloads.json",
+          "sha256": "acfe01436f5e6ba637cdd8bb0120c0f27d7d76aabcbed25d0f2d38098850007f"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "b552d029cede36167d9414f710ee6febfe2bc763",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/otel-spans.json",
+          "sha256": "efd80cf145d29f7e353ae0f37b26c0db6c7da6f9697ea8b7bb8a40d0b01e2c97"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "a2d2909b239beffb8a851448744a9ea054232c93",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/service-events.jsonl",
+          "sha256": "a4d0afdaad54db620478d4e3bc9bb80eac7809f3a9a51aa66fe0744fedf1dc17"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "93533436183be2d6fe942fe7381ef287f5e2ccdc",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/trial-manifest.json",
+          "sha256": "2d66405fbf0e05126d9be2191bf3cc6ca3bd195a98aff2305fdedb88f3636c03"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "bc4d8719c293ad54c0f714598f5c765204e13e0c",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/validity.json",
+          "sha256": "1f6883d1cf7abeb361204ced3cb8530fec4b6230e84de25402ef2b12d378b270"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "c8530d116396511c98df5ac07b9ee8ed78e165a5",
+          "path": "results/phase-5/raw/phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4/workload.json",
+          "sha256": "865108f5f64c3953fbfdd67991521c23b92f44ab4acf93fabd784aeab958c372"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 40,
+      "repetition": 8,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 43,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-040-service-termination-v1-manual-20260810T195034067397Z-0c74e4b4"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "7141d11d7541e6ed1db18c53a84e8b648927f99a",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/events.jsonl",
+          "sha256": "ab008036772209539210f14c1f15dc87919f6e653222682bd850f359ae901242"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "10199a994eee25e8bd2e625b0eefe0e1032a814d",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/metadata.json",
+          "sha256": "ecbff9183133e67f7f4886943c39aa798668e8f12831551f338d3c876e76580b"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "a60ca0dc185466c999d320dfa932d1b210fc3d92",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/otel-payloads.json",
+          "sha256": "5d647d68abf09fab1987b38d25496a2928c28169c38ec4e3b042ae733e0ea094"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "644d2cd64a541d9b982d42b041e22d7755d3e475",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/otel-spans.json",
+          "sha256": "33acc74f477f448f1b40677cf59d35136f325dac9b96345f7edefa756135e6e2"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "41b39d5ebe604a5678aa62bd3d7e832d7b329c60",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/service-events.jsonl",
+          "sha256": "756bf5f2e0128cafdaf07c6dada0b2307d651772dabba48ddafa657f6406114c"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "2b400f763a5fd0151b5191f71f817d0ea8fba346",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/trial-manifest.json",
+          "sha256": "f420cf5e94383e10539e4f5288d9c46035147ad81d412ed6452920b4161b916e"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "135b47ee51d63349c7f2bfd196a954b4f5113ca2",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/validity.json",
+          "sha256": "87ad70c0c22c887aae6e0d8c8d0035e24ff0369d53cbd3a4c97b0ca95a3c6984"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "06e8a9207e596464927aacd7d022eef318c55a77",
+          "path": "results/phase-5/raw/phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a/workload.json",
+          "sha256": "8658b72864374c77d215faf932d2bd338861f723a33c193e415369698223189d"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 41,
+      "repetition": 9,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 44,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-041-no-fault-v1-control-20260810T195426402362Z-e97b703a"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "241132977ee2558bb19462285fb4fcd6d0856c59",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/events.jsonl",
+          "sha256": "f5f1fa2a9ce4bd881386dd82ea8526d8558ae20bea0e33ddeeb3abcad0896ae3"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "5bb367614cb4f921cec10e9956355d423aeadb79",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/metadata.json",
+          "sha256": "fc2bf1d1d8991aa8dd330bd738e5092d636cfb31af9f91d767b81b2e820eff3a"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "6cc21ac141cff6f05e1a6121948ad7c5a07ebb14",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/otel-payloads.json",
+          "sha256": "0d59c030840de350d3d17fcb5bfb037f00c0f154ef7b79af90b315996fa53964"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "4ecec7a6f677caf0904f2b71fda70daac8296672",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/otel-spans.json",
+          "sha256": "5cb4aa383478fae34bca9e5c4699735dbdd94be916d397668ba8bd9dee50c127"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "ebb676fd4e4c81213121e2cac2ff90546ddb50b4",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/service-events.jsonl",
+          "sha256": "9c93b21fdf893511782d540a237f3d5a06aa32b4b081076c0ad0e1858816e07a"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "a3e3d8cf91e27b2aac8e3b22c04b55364ac55c5f",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/trial-manifest.json",
+          "sha256": "7d1b061d7cd0d1a5c896ee768c21f4fc00584b76ed187def4b4e0582f410c512"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "89e8860a2b66f7e6445fec13d6f2c3d021093e2e",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/validity.json",
+          "sha256": "ef825c8128a68277b1af76324bda0d306a4d5c53f38965f8f8b3b2913adb14fc"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "4aa81bb762028fc19940bfaf11ece6a4a3884c75",
+          "path": "results/phase-5/raw/phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309/workload.json",
+          "sha256": "5ea2f742d017da39e3c3ed69467b6958c7bd9aae3b9eabdbd2f731f6433093a6"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 42,
+      "repetition": 9,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 45,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-042-service-termination-v1-manual-20260810T195724474727Z-672f6309"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "08d758d88e93e58d95b7fe22ebe619c505922862",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/events.jsonl",
+          "sha256": "901f288c4808fde45d4838ee7dd9b946d00495390f6360b8d9c1bee58428b346"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "9047f77bdde6f01ec2f1e9af840e547792b30d5d",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/metadata.json",
+          "sha256": "841c5a09aebf9893ddbcf653cdd96edaec01a1a87b5c369114ad44d514ffa025"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "5f08ae3c5e550ef93d1039f4c3546435f62a0ed1",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/otel-payloads.json",
+          "sha256": "7aa2406b3acaca77653e8aea9c50aa872aadf2de2dc63bb31492e851c1f1f1f7"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "50de529e03ab1d89a3f6c7680feb4760ebb162e5",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/otel-spans.json",
+          "sha256": "df35fe29249f3bbd77edb1733426a082c5a2dd8344eb22b538d285483b3ef665"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "139c4f5ff742f8cfe93255cd70bdfe2b763b76ce",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/service-events.jsonl",
+          "sha256": "a7d2c37bd48cec91a9889a90df0e33a709730a3038bec71fffe4f6fb6130285e"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "e790a347697fed0d2926f88546f0e93750d944f9",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/trial-manifest.json",
+          "sha256": "738aa43933b679f9da490d53dd05ac86dcbadfe60760d27755b1ea0083268753"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "076124ec006be7cb7b45b076495679b4f2c8736b",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/validity.json",
+          "sha256": "356bc7b094513d413e7c3261f68d456cbedcf54f9fdd30746455f3ff94459fbd"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a3a3d4ebd760eb1dfe871e32ec27a0a7fcbfbbe1",
+          "path": "results/phase-5/raw/phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471/workload.json",
+          "sha256": "0fbdf595caaf3dbad88c95837fe2b8c11c2959af2931c3c571c01bacfd8eba5a"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 43,
+      "repetition": 9,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 46,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-043-service-termination-v1-automated-20260810T200112753061Z-861c8471"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "bd4d314b1598bf4bedcb9dac477fa3ce04264ec3",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/events.jsonl",
+          "sha256": "5c65fddb849efb92debe72b16e73c44277680fd45052bf329136b897505ab97d"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "edab0794b57f1a9547983bb1652e6b3240d31979",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/metadata.json",
+          "sha256": "f3128262479af10187f9991e78f666da1ac994c9ccab3042e434c0bd2e8fa735"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "e3ddcdd446f12d3794c4cdddece0a55be2684a6f",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/otel-payloads.json",
+          "sha256": "ee10fd3ec2326c069fdc0d4a56bce234de11ef05469bd792fa5f5220133b1b63"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "0c4240710bae5dc09683a9c25597af3484354cdb",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/otel-spans.json",
+          "sha256": "673264c241e4e1f7e4771ac68810e27c9ab39e910f6a007f2c670dcf4c4cd854"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "d37cc120e5f3ae498721036f5e2cb18144d121d9",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/service-events.jsonl",
+          "sha256": "9b12822eb330119c281de802bcc22fb57cbf278ac6a5e81119baa7a231600471"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "a7dd92901fd02eb8944d21e38aa4e8145ce18066",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/trial-manifest.json",
+          "sha256": "aa98c46cda4e7cbc87cfc2449b803af86989c66fa1a179f6a61e3ffe12f6ab24"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "b447706bbe847dad7ddc5ff203eef34f3dd06a07",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/validity.json",
+          "sha256": "c9ff6c2f4597d8a4361c78339c4e63e02ebd426f2761f078a503eaa6761f133a"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "54db6160f83fb91e99a2c130b629ef8adf753646",
+          "path": "results/phase-5/raw/phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331/workload.json",
+          "sha256": "d2e76ae76f44059f2978caa794cd27c499c327f41f2df910f9733cc0db5553b3"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 44,
+      "repetition": 9,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 47,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-044-dependency-latency-v1-manual-20260810T200604256747Z-4cb08331"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "c6719e4d14360a8e094f9612ab9ec37a649e3cbd",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/events.jsonl",
+          "sha256": "f7f44d549af584b8437cd7ee3bd8f6d79f6e794a40b8ecd998420cb101b128ab"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "c14eb8e4444bb461140ce646a3c5fc5cb394289e",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/metadata.json",
+          "sha256": "e54435074bf01ab0fb7fdeb8cb7249c8b43cd80a90cf0aa68e4877d88ad3969b"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "b65f6d22919432a1c2f15c8fc4900d120ecb714c",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/otel-payloads.json",
+          "sha256": "4a10da78486803182e738a8af14c603cda66f839001e4aa0bf2d9387ed612942"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "029b78ca5649ab01d7d3f9f02343f59e35237817",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/otel-spans.json",
+          "sha256": "dfabffc5c517c6af0bbf23ea20a0d66eed9aeec4e3cdd34446f0ea35cef8f248"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "b2d3621ff34e0edcd2bcb928a6da8fa360950608",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/service-events.jsonl",
+          "sha256": "93ff449ccd4bfad784fc0ede4d730502bbd33375ff3be0be9c09bbee9705da26"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "57d52c443ca69e703e7abcb9416a1241ce7aa306",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/trial-manifest.json",
+          "sha256": "49c53676be96c7c80a2a2e5bbedb66342e76d618f926b79db3d389e880507820"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "cfd5675e29d48f575b954aa944cabd214e9e111a",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/validity.json",
+          "sha256": "0befa1df0d93638f75eed7956e92f181f7007ecb842c1d86141a4cd252a6ce1d"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "a9a06f5620bbffde67d266cd04b3840f94001d62",
+          "path": "results/phase-5/raw/phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928/workload.json",
+          "sha256": "51c33032f36cd05c4eaeff78bbe3a86cfd23274552c1e083fe2b84c8b57e7a7e"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 45,
+      "repetition": 9,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 48,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-045-dependency-latency-v1-automated-20260810T200923431591Z-4e3de928"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "2453bdaf07a60e7e562fc3c622ab87eaa1f50ad6",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/events.jsonl",
+          "sha256": "a457c2739945a43fa6e2eb0ff3a348fd48258fd3e6307f20e16fed0d370dd930"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "12f49e0f330de525dc9da4141c26390593deec03",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/metadata.json",
+          "sha256": "3ee7c5881c19d7fca9de1813db2eb37a3bd83ad44b559170f71750c86ebe3b7b"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "26c5244173240edf4569659d8c6d584e7b9f0373",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/otel-payloads.json",
+          "sha256": "7cd645b3f7cd3e1c4397719f23417c9684c9437d251d831815e61124b252f0f6"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "4ac7cab58cea857160ccc58de63ba27b400c8569",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/otel-spans.json",
+          "sha256": "5344fc7225b43caa3681c910b4f1821537c74c68b816b2a220235470a4981579"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "26e9ea373f4c0378faf40f7003e1a966ab97d3bd",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/service-events.jsonl",
+          "sha256": "2a4620f2cba346edc0de09c49be72d2255e555d3d380ef4f60ea87a34324d19c"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "40c832ae6e1e0757558825baaf8811dbfbefe1f4",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/trial-manifest.json",
+          "sha256": "4bceb3072a9d3349ef648cab689a94012d085754bb234994c479dfced9e76f6e"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "a93318fbe7eb8bce97921de5e564a1821952b143",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/validity.json",
+          "sha256": "ff8b8fd08560e1ae1a9364eb26a2909167c45cbb93d82af4c1d6fa2a52a0d08e"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "575c2fb33dbc1015ac8df7f1bce89d4c7183a730",
+          "path": "results/phase-5/raw/phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570/workload.json",
+          "sha256": "52771a6175adf4dfb06c538c82bcceacdf4d4597630a6dbd95f97738d5a0fc61"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 46,
+      "repetition": 10,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 49,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-046-service-termination-v1-manual-20260810T201234528785Z-d3b51570"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "a8fe7504cdd208986bfe97da066d401cab8b7245",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/events.jsonl",
+          "sha256": "bd6b08f1b70c1186cb8019742e97eb9a27f8a8df70f38866f7e0629907909f88"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "2b145e5c8836a60c20501fb5a2318cb3ccbdaecd",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/metadata.json",
+          "sha256": "eb4ef9ca3e442fa33507b5e7e812b3b79f338259b4bda76e504cd7fa2f96779a"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "4f6dbbb5385e58800bfd772eaad24c4cfecded66",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/otel-payloads.json",
+          "sha256": "1693ef122a84e644e58c9498e8ed48ee30a10c370aa11793e7d9e57100e4c3cf"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "a1c9be23919fe689a76c808d5b6fd14cbc6b31d3",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/otel-spans.json",
+          "sha256": "e6339597ea3c1478f7dc2c540086648dbf8bde2324a164005a02a9921d3e93e4"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "09e37ffd00abf3f78c99855369585f1691787b04",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/service-events.jsonl",
+          "sha256": "20dcece0b638beac2db9e6d079de7701e7efcb43b5b67e937354d3f288aac281"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "b110769c242b9a37bbcf1170da00ebe077aeaae8",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/trial-manifest.json",
+          "sha256": "889e135832628f4b1b6039313d7e290883105395d656ac1e79d55710853efef2"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "d9ae907128b79aef168b42159c53d4031c35cd67",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/validity.json",
+          "sha256": "7668c196d2cf480f760c70b44bde0773cd661508a06ee91f856c0384c4f0647e"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "03e8c027423b6c09352f87c614d353e94104f26e",
+          "path": "results/phase-5/raw/phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4/workload.json",
+          "sha256": "cf08d100499052868a5dfe6acf5407154abffcee2b7f2a16f47484d41cb93dee"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 47,
+      "repetition": 10,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 50,
+      "scenario_id": "service-termination-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-047-service-termination-v1-automated-20260810T201630698533Z-3b9270b4"
+    },
+    {
+      "automation_condition": "manual",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "6b972264f61182cbb2b62ccec5b87b933b23fd6c",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/events.jsonl",
+          "sha256": "a990743647cda6542a44bec18a6425e79038a7103bff46b6da42da05b66e2637"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "6b7622ee5397fb08f19ba31ee47dc99f3028561a",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/metadata.json",
+          "sha256": "e1e94f837f4dd6cc5db843469df790d9af7fce57ef05710dadd82e48c1f4b933"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "29b9ebab8335392c59c68ad043604eb9b8381974",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/otel-payloads.json",
+          "sha256": "73b51137de515cad2e7ba5bb9ed22cb3206a333c01122f2aa02d169cc8eec313"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "5a5369f149ed4a3dbd804041d27efe77e2f78e25",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/otel-spans.json",
+          "sha256": "ba0c4fa258814cd7c4f1570b902f6481b9a3bff71f887b4f553fad455883f566"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "1375affc08901a99ba402636027bb0b79a121971",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/service-events.jsonl",
+          "sha256": "602a32e4a621b5fd513a37701576263a88a5798bfe26ad67b244700035c14819"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3c7e0e58a6b3574ceece688603c32a8644abbffd",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/trial-manifest.json",
+          "sha256": "e33d4715fc8d793213ecc16da00a72fc02093cddc3e51de3a37da5d37fc8cdcd"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "350a91cf6b889ad0901cfedcafb414ddd37efeb6",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/validity.json",
+          "sha256": "accbbc0bc2b7a0fae938af0129ace13e30dbf767834f4999c5a3d80397dd7275"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "6b9c83d2cca1f6b855995031c2b7a0f115428991",
+          "path": "results/phase-5/raw/phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592/workload.json",
+          "sha256": "a68531a99227db0f04f428e80282e9fe6c07c511a4c3525b8a3b6ab6d47bf716"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 48,
+      "repetition": 10,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 51,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-048-dependency-latency-v1-manual-20260810T202016349432Z-78d0a592"
+    },
+    {
+      "automation_condition": "automated",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "f705eb7e0f73386eb92fd8f5e95b2468eeba4523",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/events.jsonl",
+          "sha256": "b99b3f3c7ae42baaef736f822ae9baa71fa5f5f9c31b44b503015a187c72191e"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "7ae1c3b8fa68b255222c18f6c6e33aed4f657ff9",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/metadata.json",
+          "sha256": "46f0f1cf77a437080814411c97ac07eb657eba18fb42c5dd3bb2d2c7de160c73"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "e759815c727b8d53e0db45df433d482a12d34b52",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/otel-payloads.json",
+          "sha256": "b92cf1854479592afb94625c96642d368044818a7e5db4744a5ea500f6239340"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "e6e67edec5e3ce99e0ca7d38c896f00b4eef5a70",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/otel-spans.json",
+          "sha256": "bddca11289efb5d4f9d8eaaa82996cbea6a3067260cb7162db99d57157f96ec0"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "f4a6e4021f61682f5ab0d8ed91cc22d4068d01d6",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/service-events.jsonl",
+          "sha256": "c8f3665dae7944487db759b6bd4ba5037065b15511b262369c9934afed1967d7"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "3688cf404947e9baf961da982f69abe32e6755ad",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/trial-manifest.json",
+          "sha256": "fd0ca729d8b9a06462f082be9bd2592fbe759995e352d24770e85686dcb52731"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "b3504235d4d443ad4ad60c3a6abc271bdd9194c6",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/validity.json",
+          "sha256": "628748004258c32a597f97a14b5841590ce580ecebe9cb1a92ebf224cb15865b"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "87cd01ff186b8c62e6b26ef72fea1e2a61db0d51",
+          "path": "results/phase-5/raw/phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2/workload.json",
+          "sha256": "498756b1277434713b9b8513556ac1d2d88dec4f5a49c065e5447303d1746a64"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 49,
+      "repetition": 10,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 52,
+      "scenario_id": "dependency-latency-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-049-dependency-latency-v1-automated-20260810T202336527727Z-99003de2"
+    },
+    {
+      "automation_condition": "control",
+      "classification": "valid-primary-pilot-trial",
+      "directory": "phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b",
+      "files": [
+        {
+          "filename": "events.jsonl",
+          "git_blob_sha": "02af1b0ba293f56ec34026f731362794ab15f4cf",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/events.jsonl",
+          "sha256": "fa0fdd9296be0b07247a9cded29c4baded868384df4da613b256d268c222d44c"
+        },
+        {
+          "filename": "metadata.json",
+          "git_blob_sha": "a395f85eb0d19429cc6b44e3796903d95e0444cd",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/metadata.json",
+          "sha256": "b2d5d05a25084f6009b982a5c886b08632b07ca0b9aedcc4d2d0f927bd6c1616"
+        },
+        {
+          "filename": "otel-payloads.json",
+          "git_blob_sha": "d7091e7958722f77f6580e3fb39691731f73e8ce",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/otel-payloads.json",
+          "sha256": "148106651e8158f7814f2a71dfe72ed4db1cd4517ad8a26017057aac1ebfe1e3"
+        },
+        {
+          "filename": "otel-spans.json",
+          "git_blob_sha": "5f22846bd8cc430c1a2baf7dd8b3a75303feeb1d",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/otel-spans.json",
+          "sha256": "9dd60d98e4db7242f1dabeed20e0dedf7cd48ddeae454436cfc8fe5a330085f7"
+        },
+        {
+          "filename": "service-events.jsonl",
+          "git_blob_sha": "f9e6294a3146e5a3068da836ebeb36e0ab93ae1b",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/service-events.jsonl",
+          "sha256": "a66ab5b3bcd33265a6d37e31e6298ebaff1556dfc91db55ff485c7601da69ed2"
+        },
+        {
+          "filename": "trial-manifest.json",
+          "git_blob_sha": "1f74db01884fce6a925927cb2786bfc1fa32f22f",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/trial-manifest.json",
+          "sha256": "4db6510186029039f2e53af99dba0241b6f92e6d58ffe7e7980958090ddcb9a8"
+        },
+        {
+          "filename": "validity.json",
+          "git_blob_sha": "a2ea733d6bd53bf1c489335cd8798ec2bcaea753",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/validity.json",
+          "sha256": "20c6e1e96f3c7ad8c4a078e90f7ae84409bfa408e712c3e1961ab1881d7478b4"
+        },
+        {
+          "filename": "workload.json",
+          "git_blob_sha": "c0cc288f4bc9bdf59992bf47e7a3e2f1b431aad9",
+          "path": "results/phase-5/raw/phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b/workload.json",
+          "sha256": "c8ba2e7ef62b07288bc1f42646078af302ed7af9140b35fcdbd17dbaddbc9a0b"
+        }
+      ],
+      "passed": true,
+      "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+      "primary_schedule_slot": 50,
+      "repetition": 10,
+      "reserve": false,
+      "reserve_ordinal": null,
+      "run_order": 53,
+      "scenario_id": "no-fault-v1",
+      "selected_for_primary_dataset": true,
+      "trial_id": "phase5-primary-slot-050-no-fault-v1-control-20260810T202658553060Z-dfdea42b"
+    }
+  ],
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "raw_corpus_commit": "b832c96c1dd3665f6025394447b35db58cd0e2a9",
+  "schema_version": "1.0.0",
+  "selection_rule": "exactly-one-valid-resolving-attempt-per-planned-slot",
+  "tool_version": "phase-5-primary-dataset-builder-v1.0.1"
+}

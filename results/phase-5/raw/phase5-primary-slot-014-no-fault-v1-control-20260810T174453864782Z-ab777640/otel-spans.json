@@ -1,0 +1,954 @@
+{
+  "expected_order_span_count": 35,
+  "observed_order_span_count": 35,
+  "run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+  "signatures_match_structured_events": true,
+  "spans": [
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00004",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-001",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "e65ec4f8c64c4aa0",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "989ae997faae4392a13e79a85b338213"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "c49c635b3ca71e71",
+      "trace_id": "f29f777c19b5d9625f9c667dc6d9ccfe"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00005",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-001",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "763b4efd13ef4ac4",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "989ae997faae4392a13e79a85b338213"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "5abd8ce422dee665",
+      "trace_id": "259fac06fb5e62f132f0d05c5d565fe5"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00005",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-001",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "524664ec28ee4ed9",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "3dace5f372b54ceeaad0f80a3162c834"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "d7cf1758f222a10d",
+      "trace_id": "c72988b8b6882bea04f3575931e54780"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00006",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-001",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "e52c6f9e613e4e34",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "3dace5f372b54ceeaad0f80a3162c834"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "9bf23cd96059e254",
+      "trace_id": "ad4a25c4f32b1be411c055cdf15f3a6b"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00006",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-001",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "2eaafe513a0849bb",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "989ae997faae4392a13e79a85b338213"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "99608e7158c1160a",
+      "trace_id": "557b490c78455063ae1c1a9fb1c52632"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00007",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-002",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "2d1337603a4c451e",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "b05a114350f94d99b61a9c103c766173"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "7169b68e75f7d3c7",
+      "trace_id": "30bb9f46717f229ecef0f7fe1091661c"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00008",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-002",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "ccfb25b7fbe04d41",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "b05a114350f94d99b61a9c103c766173"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "d2e46804ce2620c7",
+      "trace_id": "ca44baa8e64c102c45c42041cde0db05"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00007",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-002",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "5ef439f8ab98409e",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "2809320d45444b34a6b3c5603a1c674e"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "42acd03adf35b988",
+      "trace_id": "739bb046b3e9cd72bb50e8e3c18c011b"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00008",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-002",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "fa0f1e4d874040b9",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "2809320d45444b34a6b3c5603a1c674e"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "a5126cad22f20b3e",
+      "trace_id": "03de9006afbd32245acf7a917562e34a"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00009",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-002",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "d28e8776031a4425",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "b05a114350f94d99b61a9c103c766173"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "e417acee10d87f76",
+      "trace_id": "a577bca5308eab505eea6fdd5d4fccfc"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00010",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-003",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "7b8d74c8eef34eff",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "c92719d3bb45449a848cbb05bea36356"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "a2bcfb3e75d97dcd",
+      "trace_id": "93f3f7e980b2a13de6c2614b4e415108"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00011",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-003",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "52d09738e197448c",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "c92719d3bb45449a848cbb05bea36356"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "debe3a604d623d45",
+      "trace_id": "33b7bc5d2e08ffd1b7738f718d1ab233"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00009",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-003",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "fc0f9c3fb9dc4c02",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "8365e0d0ac854d6dbb1b72967901176e"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "f7938718bacd5fa1",
+      "trace_id": "751c967dd9124f92bb077962228a9c08"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00010",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-003",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "bf3129aaffa74d74",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "8365e0d0ac854d6dbb1b72967901176e"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "7cd994cbcdfc3ab5",
+      "trace_id": "329986dbe5cbbcb53b080bcab81c1a71"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00012",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-003",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "8378db08957b4a0a",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "c92719d3bb45449a848cbb05bea36356"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "64457f3750e7664c",
+      "trace_id": "9e38a629c40730613aadad1a0c3efc35"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00013",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-004",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "f14bb6692fb6421e",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "841565daeab94a3f98cd6d6b00fc1e73"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "50c13fee85574b90",
+      "trace_id": "5bfb15b19f1d27f621a2b662220f8b70"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00014",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-004",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "96d97e33d5224591",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "841565daeab94a3f98cd6d6b00fc1e73"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "5729bba394834441",
+      "trace_id": "46a8f09ea5692b00603f4bc5aaf5b9ad"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00011",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-004",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "a197027172d049db",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "605b7acc334842b0915d5874d2a690d1"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "9f2f199fd6f67dc0",
+      "trace_id": "ded66231261b695fb178a620a48e24a8"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00012",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-004",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "447478564cb74454",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "605b7acc334842b0915d5874d2a690d1"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "5c0aa29dd429c744",
+      "trace_id": "81d515504993574369e54580ec6f0ba5"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00015",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-004",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "63a8a50343dc46b4",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "841565daeab94a3f98cd6d6b00fc1e73"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "4b5beefc23e7192f",
+      "trace_id": "b2c7b7ef575d424f866ec4313243020e"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00016",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-005",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "67a3f22450614664",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "33fd9e8ed44b4f7d88c20a05e699a34c"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "1ac2be15048692a3",
+      "trace_id": "5a4f7d31af9e12da1fceb613825f51a4"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00017",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-005",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "e526734cd47e4608",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "33fd9e8ed44b4f7d88c20a05e699a34c"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "3c817a9ca83f00f1",
+      "trace_id": "f3ebbe2fdf72277914866dc8e61852ff"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00013",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-005",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "3ae84a4b1c374bab",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "5bbfccc10e58436e88ca83110b43fd7e"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "999f1c3bb5368931",
+      "trace_id": "d5b5df14679848644ced13340c888b74"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00014",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-005",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "ee8acd1de10e4b66",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "5bbfccc10e58436e88ca83110b43fd7e"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "37d7e62fc784a461",
+      "trace_id": "f018a0ea9dc16178a9ebed95757eb8f9"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00018",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-005",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "08a2621ff21e40ab",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "33fd9e8ed44b4f7d88c20a05e699a34c"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "c6e16b863f2f283e",
+      "trace_id": "7ed2fe96c798f35ff6183ca8d86aa084"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00019",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-006",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "66c0545d40d14bc8",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "7da80a5c74dd46eca9d6833eb74fd58e"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "7d9950767f257a22",
+      "trace_id": "9da41cbe565e800f94d92cdd37339e3a"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00020",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-006",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "6cc632c5700045b6",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "7da80a5c74dd46eca9d6833eb74fd58e"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "1259d8a634e4e224",
+      "trace_id": "0dec0273ad79508d988e3f98a307a064"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00015",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-006",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "cc72edae2aa4470f",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "f970c2ccd3364e46bc00ec57150684c9"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "51f0679c74e69ae9",
+      "trace_id": "58d01c2d34b77116945ca4c6302f9cbf"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00016",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-006",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "b51a08269758433e",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "f970c2ccd3364e46bc00ec57150684c9"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "fbb013104147c8fb",
+      "trace_id": "b0b4b79d695f7b9e9f9ff02d85a87dac"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00021",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-006",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "aeeb0f09b6ac4420",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "7da80a5c74dd46eca9d6833eb74fd58e"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "9e6d7898fe6e0262",
+      "trace_id": "b00bead925757797e374772559820684"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00022",
+        "orderflow.event_type": "workload_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-007",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "4d6631cccefa4476",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "e4686ea486e24c29bea09c444c9a2167"
+      },
+      "name": "orderflow.workload_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "d522d0b16233fbeb",
+      "trace_id": "3f66b2bc3a9588eeda6fe483fecc1cb9"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00023",
+        "orderflow.event_type": "dependency_request_started",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-007",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "1d035070f8d341ba",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "e4686ea486e24c29bea09c444c9a2167"
+      },
+      "name": "orderflow.dependency_request_started",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "1441cc5a93fa8fcb",
+      "trace_id": "83a646c305f54bad85508519a48cae3c"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00017",
+        "orderflow.event_type": "dependency_request_received",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-007",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "71fffeeb76aa4939",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "7e07973a58ae470cb51d1fc86971fe90"
+      },
+      "name": "orderflow.dependency_request_received",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "3d1d007b60a259ca",
+      "trace_id": "3b1576eb2c08b4403de209c03b5f60ac"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-inventory-927d66982a2743d89faba9b5a037b841-00018",
+        "orderflow.event_type": "dependency_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-007",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "inventory-phase5-v1",
+        "orderflow.source_component": "inventory",
+        "orderflow.span_id": "be4248d422504af2",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "7e07973a58ae470cb51d1fc86971fe90"
+      },
+      "name": "orderflow.dependency_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "0319e92e-d7ce-42c4-9805-f0186552aef9",
+        "service.name": "orderflow-inventory",
+        "service.version": "inventory-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "96f24468a1df124e",
+      "trace_id": "48eaecb7f69a68d12dcbbf603d2c5bfc"
+    },
+    {
+      "attributes": {
+        "orderflow.event_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-api-b78f5300c6364f73bde603ffa1583487-00024",
+        "orderflow.event_type": "workload_request_succeeded",
+        "orderflow.order_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-order-007",
+        "orderflow.run_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640-run",
+        "orderflow.scenario_id": "no-fault-v1",
+        "orderflow.software_version": "order-api-phase5-v1",
+        "orderflow.source_component": "order-api",
+        "orderflow.span_id": "c95743054bd540b2",
+        "orderflow.telemetry_contract": "otel-compatible-structured-event-v1",
+        "orderflow.trace_id": "e4686ea486e24c29bea09c444c9a2167"
+      },
+      "name": "orderflow.workload_request_succeeded",
+      "parent_span_id": "",
+      "resource": {
+        "orderflow.telemetry.runtime": "orderflow-otel-runtime-v1",
+        "service.instance.id": "6fea2fed-1710-466f-b3e9-b15f254d42ea",
+        "service.name": "orderflow-order-api",
+        "service.version": "order-api-phase5-v1",
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0"
+      },
+      "span_id": "00e2cc4a30dced23",
+      "trace_id": "0efcaf1c92f4b7a437cfe465634086ff"
+    }
+  ],
+  "trial_id": "phase5-primary-slot-014-no-fault-v1-control-20260810T174453864782Z-ab777640"
+}

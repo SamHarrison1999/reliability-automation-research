@@ -1,0 +1,220 @@
+{
+  "allocation": {
+    "interpretation": "Pilot/feasibility allocation inherited from Phase 3; not a statistical power calculation.",
+    "maximum_attempted_slots": 60,
+    "planned_valid_trials": 50,
+    "primary_slots": 50,
+    "reserve_slots": 10
+  },
+  "analysis_binding": {
+    "descriptive_only": true,
+    "p_values": false,
+    "tool": "analysis/phase_5/phase_5_primary_metrics.py",
+    "utc_fallback_permitted": false
+  },
+  "batch_format_version": "phase-5-primary-batch-v1",
+  "bound_source_commit_sha": "b39bf238dca3df9e74bd7a5f82467100e13b6962",
+  "claim_boundary": {
+    "does_not_support": [
+      "production readiness",
+      "universal reliability improvement",
+      "human performance or workload effects",
+      "generalised causal conclusions"
+    ],
+    "supports": [
+      "bounded technical pilot execution",
+      "descriptive technical reliability observations"
+    ]
+  },
+  "evidence_boundary": "technical-pilot-only",
+  "execution_guard": {
+    "clean_tracked_tree_required": true,
+    "exact_source_binding_match_required": true,
+    "invalid_trial_preservation_required": true,
+    "maximum_reserves_per_cell": 2,
+    "outcome_adaptive_primary_reordering": false,
+    "primary_output_root": "results/phase-5/raw",
+    "reserve_must_immediately_resolve_invalid_attempt": true,
+    "sequential_primary_schedule_required": true
+  },
+  "freeze_generator_version": "phase-5-batch-freeze-generator-v1",
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "pilot_manifest_version": "1.1.0",
+  "primary_run_order": {
+    "balance_summary": {
+      "cell_counts": {
+        "dependency-latency-automated": 10,
+        "dependency-latency-manual": 10,
+        "no-fault-control": 10,
+        "service-termination-automated": 10,
+        "service-termination-manual": 10
+      },
+      "condition_first_counts": {
+        "dependency-latency-v1": {
+          "automated": 5,
+          "manual": 5
+        },
+        "service-termination-v1": {
+          "automated": 5,
+          "manual": 5
+        }
+      },
+      "fault_scenario_first_counts": {
+        "dependency-latency-v1": 5,
+        "service-termination-v1": 5
+      },
+      "no_fault_position_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2
+      }
+    },
+    "generator_version": "phase-5-pilot-run-order-generator-v1",
+    "path": "experiments/manifests/phase-5-primary-run-order.json",
+    "primary_slot_count": 50,
+    "run_order_version": "phase-5-pilot-run-order-v1",
+    "seed": "phase-5-pilot-run-order-v1",
+    "sha256": "b66301d9e441104d59b99b9d1966aaae5d696982750d9ff83ef26d434af71d5c"
+  },
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "reserve_policy": {
+    "activation": "only_after_invalid_attempt_in_same_cell",
+    "activation_reason_required": true,
+    "append_to_primary_schedule": false,
+    "cell_stop_condition": "pause_when_two_reserve_slots_for_cell_are_exhausted",
+    "invalid_trial_preservation_required": true,
+    "source_invalid_trial_id_required": true
+  },
+  "reserve_templates": [
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "reserve_ordinal": 1,
+      "reserve_template_id": "dependency-latency-automated-reserve-1",
+      "scenario_id": "dependency-latency-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "automated",
+      "cell_id": "dependency-latency-automated",
+      "reserve_ordinal": 2,
+      "reserve_template_id": "dependency-latency-automated-reserve-2",
+      "scenario_id": "dependency-latency-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "reserve_ordinal": 1,
+      "reserve_template_id": "dependency-latency-manual-reserve-1",
+      "scenario_id": "dependency-latency-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "manual",
+      "cell_id": "dependency-latency-manual",
+      "reserve_ordinal": 2,
+      "reserve_template_id": "dependency-latency-manual-reserve-2",
+      "scenario_id": "dependency-latency-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "reserve_ordinal": 1,
+      "reserve_template_id": "no-fault-control-reserve-1",
+      "scenario_id": "no-fault-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "control",
+      "cell_id": "no-fault-control",
+      "reserve_ordinal": 2,
+      "reserve_template_id": "no-fault-control-reserve-2",
+      "scenario_id": "no-fault-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "reserve_ordinal": 1,
+      "reserve_template_id": "service-termination-automated-reserve-1",
+      "scenario_id": "service-termination-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "automated",
+      "cell_id": "service-termination-automated",
+      "reserve_ordinal": 2,
+      "reserve_template_id": "service-termination-automated-reserve-2",
+      "scenario_id": "service-termination-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "reserve_ordinal": 1,
+      "reserve_template_id": "service-termination-manual-reserve-1",
+      "scenario_id": "service-termination-v1",
+      "source_invalid_trial_id_required": true
+    },
+    {
+      "activation": "only-after-invalid-attempt-in-same-cell",
+      "automation_condition": "manual",
+      "cell_id": "service-termination-manual",
+      "reserve_ordinal": 2,
+      "reserve_template_id": "service-termination-manual-reserve-2",
+      "scenario_id": "service-termination-v1",
+      "source_invalid_trial_id_required": true
+    }
+  ],
+  "source_bindings": {
+    "analysis/phase_5/phase_5_primary_metrics.py": "39c9b01af1ccfa27b162c876b2b9ee9222be30564ab944cd7fb9145fbe8bf504",
+    "data/schemas/phase-5-primary-processed-observation.md": "850e907f99fbf06bb0a48b174901a6f693b2271fdec5e866956b522bd5dca8b7",
+    "docs/metrics/phase-5-primary-analysis.md": "f722667600a30d8ebdf5d9ce2176547fb6f6b9bf2043f0f954297ffe5c7e5aaa",
+    "docs/protocols/phase-5-technical-pilot.md": "7d9aaf56663e92f6715babcfaef2e4b54020181805adbebd99ed26d543828b43",
+    "experiments/harness/phase_5_batch_freeze.py": "ec7e73791a7df906789d3beb3028b56a1c18350b000c503257e078de29cf6df3",
+    "experiments/harness/phase_5_primary_trial.py": "9c5318bb391c65f9fcea1289786aa9d2af372a763d75fa1fc1cef549c57146cf",
+    "experiments/harness/phase_5_run_order.py": "31925dc81bfdba934194abdef5df10113eb39d9ace4d193e559f51837bff6b1b",
+    "experiments/harness/phase_5_single_trial.py": "b7f2927d2cfdb568582b82888c70135d3593f8c112713d01a5e6c4758b5a04a5",
+    "experiments/manifests/phase-5-pilot-manifest.json": "f8d9007ed7a67f2a9bba8f66c2d82b2aa97938f45cd8a5a4b8e265749699a635",
+    "infrastructure/kubernetes/Dockerfile": "ff9a9f413393060c51d733f0612b5b6ffc235f03f50fcd49ac058ebb970ea59c",
+    "infrastructure/kubernetes/entrypoint.sh": "bbc4a7f3f95ebb115342c13a06aadfb95912410c794d57f402b1384fdf78e541",
+    "infrastructure/kubernetes/orderflow-phase-5.yaml": "294927f8cd0f3099b9931f8937009060ec6ec61ab8863a8f49497f0b44ce4fb9",
+    "infrastructure/prototype/orderflow-phase-4.json": "8f131766f323dcdb5930e0b0ba3ac611bab4089646e40fb32e486674afe79ba5",
+    "infrastructure/prototype/orderflow-phase-5-primary.json": "9e2a10408c9bac4dae483353dc3e40645e5c2bcc0f8760fa4c8f7f67ea8a9ca4",
+    "infrastructure/prototype/orderflow-phase-5.json": "eb01d6b2b50f144de7d1bc58531446e93c3ba35290b39c04b88baf572f189651",
+    "observability/opentelemetry/phase4-requirements.lock": "9b0cd979109fe6054562678dce5ddb6089bf309ab8e0955de68c4e28dbd239e8",
+    "observability/opentelemetry/telemetry_sink.py": "b5a9a898ed2ac7bda16f2b038c7398d96489bf858b8c5597543da8ccca79a3de",
+    "pyproject.toml": "c6e836a21a78180c7e34a5429bc980b612ee0cae8502ec8cb002734bfbfd49dc",
+    "system/orderflow/otel_runtime.py": "337cfc029dd9ec2c45c4a24320d898d84f211bca3f292ddaf0ca312d869b0995",
+    "system/orderflow/service.py": "4c310581f4ac822760c785b48d4d9d085d2f1e8e78ae41896b0e250e27ba435f"
+  },
+  "timing_authority": {
+    "audit_clock": "utc",
+    "audit_clock_field": "timestamp",
+    "duration_clock": "controller-monotonic-ns",
+    "duration_clock_field": "monotonic_ns",
+    "duration_clock_scope": "single-controller-process",
+    "duration_unit_conversion": "milliseconds=(end_monotonic_ns-start_monotonic_ns)/1000000",
+    "fault_interval_end_event": "injection_ended",
+    "fault_interval_start_event": "injection_started",
+    "fault_interval_start_semantics": "after-positive-fault-verification",
+    "opentelemetry_primary_duration_source": false,
+    "primary_duration_clock_required": true,
+    "recovery_completion_event": "recovery_completed",
+    "recovery_completion_semantics": "after-first-successful-functional-post-recovery-order-response",
+    "timing_contract_version": "phase-5-primary-timing-v1"
+  }
+}

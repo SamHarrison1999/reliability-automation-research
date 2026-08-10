@@ -1,0 +1,110 @@
+{
+  "automation_condition": "manual",
+  "requests": [
+    {
+      "latency_ms": 28.318,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-001",
+      "phase": "before-fault",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00030",
+      "request_index": 1,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-001",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00031",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 17.803,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-002",
+      "phase": "before-fault",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00032",
+      "request_index": 2,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-002",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00033",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 1042.958,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-003",
+      "phase": "during-fault",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00036",
+      "request_index": 3,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-003",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00037",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 18.991,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-004",
+      "phase": "during-fault",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00039",
+      "request_index": 4,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-004",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00040",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 14.104,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-005",
+      "phase": "during-fault",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00042",
+      "request_index": 5,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-005",
+        "status": "failed"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00043",
+      "result": "failure",
+      "status": 502
+    },
+    {
+      "latency_ms": 17.159,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-006",
+      "phase": "after-recovery",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00050",
+      "request_index": 6,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-006",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00051",
+      "result": "success",
+      "status": 201
+    },
+    {
+      "latency_ms": 16.981,
+      "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-007",
+      "phase": "after-recovery",
+      "request_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00053",
+      "request_index": 7,
+      "response": {
+        "order_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-order-007",
+        "status": "accepted",
+        "version": "order-api-phase5-v1"
+      },
+      "response_event_id": "phase5-controller-phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-00054",
+      "result": "success",
+      "status": 201
+    }
+  ],
+  "run_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059-run",
+  "scenario_id": "service-termination-v1",
+  "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059"
+}

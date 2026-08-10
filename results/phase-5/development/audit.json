@@ -1,0 +1,470 @@
+{
+  "all_five_development_cells_validated": true,
+  "audit_version": "1.0.0",
+  "cells": [
+    {
+      "automation_condition": "control",
+      "canonical_recovery_action_sha256": null,
+      "controller_event_audit": {
+        "checks": {
+          "no_fault_has_no_automation_decision": true,
+          "no_fault_has_no_fault_detection": true,
+          "no_fault_has_no_manual_intervention": true,
+          "no_fault_has_no_recovery": true
+        },
+        "recovery_hashes": []
+      },
+      "duplicate_service_event_ids": [],
+      "expected_order_span_count": 35,
+      "identity_and_validity_checks": {
+        "all_recorded_validity_checks_true": true,
+        "condition_matches_index": true,
+        "development_classification": true,
+        "development_evidence_boundary": true,
+        "not_pilot_batch_evidence": true,
+        "repetition_zero": true,
+        "repository_sha_matches_index": true,
+        "run_order_zero": true,
+        "scenario_matches_index": true,
+        "trial_id_matches_index": true,
+        "validity_passed": true
+      },
+      "inventory_service_instance_count": 1,
+      "inventory_service_instance_ids": [
+        "cbd8fc0c40224926bcddd6ce0290c5d9"
+      ],
+      "repository_commit_sha": "0eacb9768663995288a9dfdaf33adafe010db873",
+      "scenario_id": "no-fault-v1",
+      "service_event_count": 44,
+      "telemetry_audit": {
+        "expected_span_count_matches_index": true,
+        "observed_span_count_matches_expected": true,
+        "structured_event_otel_parity": true
+      },
+      "trial_id": "phase5-dev-no-fault-v1-control-20260810T145221681613Z-7bb17866",
+      "workload_audit": {
+        "checks": {
+          "all_no_fault_requests_below_latency_detector": true,
+          "all_no_fault_requests_success": true,
+          "seven_no_fault_requests": true
+        },
+        "latencies_ms": [
+          38.751,
+          20.724,
+          20.284,
+          23.05,
+          28.462,
+          17.302,
+          16.854
+        ],
+        "statuses": [
+          201,
+          201,
+          201,
+          201,
+          201,
+          201,
+          201
+        ]
+      }
+    },
+    {
+      "automation_condition": "manual",
+      "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "controller_event_audit": {
+        "checks": {
+          "condition_specific_initiator_only": true,
+          "detection_evaluation": true,
+          "fault_application_verified": true,
+          "fault_detected": true,
+          "injection_ended": true,
+          "injection_started": true,
+          "one_canonical_recovery_hash": true,
+          "post_recovery_check": true,
+          "recovery_action_completed": true,
+          "recovery_completed": true,
+          "recovery_started": true
+        },
+        "event_counts": {
+          "automation_evaluation": 0,
+          "detection_evaluation": 3,
+          "external_intervention": 1,
+          "fault_application_verified": 1,
+          "fault_detected": 1,
+          "injection_ended": 1,
+          "injection_started": 1,
+          "post_recovery_check": 1,
+          "recovery_action_completed": 1,
+          "recovery_completed": 1,
+          "recovery_started": 1
+        },
+        "recovery_hashes": [
+          "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d"
+        ]
+      },
+      "duplicate_service_event_ids": [],
+      "expected_order_span_count": 35,
+      "identity_and_validity_checks": {
+        "all_recorded_validity_checks_true": true,
+        "condition_matches_index": true,
+        "development_classification": true,
+        "development_evidence_boundary": true,
+        "not_pilot_batch_evidence": true,
+        "repetition_zero": true,
+        "repository_sha_matches_index": true,
+        "run_order_zero": true,
+        "scenario_matches_index": true,
+        "trial_id_matches_index": true,
+        "validity_passed": true
+      },
+      "inventory_service_instance_count": 1,
+      "inventory_service_instance_ids": [
+        "3e2b3f241cb24162954ca4423d3eb81b"
+      ],
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "dependency-latency-v1",
+      "service_event_count": 49,
+      "telemetry_audit": {
+        "expected_span_count_matches_index": true,
+        "observed_span_count_matches_expected": true,
+        "structured_event_otel_parity": true
+      },
+      "trial_id": "phase5-dev-dependency-latency-v1-manual-20260810T150051507865Z-4e8fdfb9",
+      "workload_audit": {
+        "checks": {
+          "during_fault_success_and_above_threshold": true,
+          "post_recovery_success_and_below_threshold": true,
+          "pre_fault_success_and_below_threshold": true,
+          "three_during_fault_requests": true,
+          "two_post_recovery_requests": true,
+          "two_pre_fault_requests": true
+        },
+        "latencies_ms": [
+          28.438,
+          18.019,
+          140.822,
+          140.224,
+          141.224,
+          19.071,
+          18.669
+        ],
+        "statuses": [
+          201,
+          201,
+          201,
+          201,
+          201,
+          201,
+          201
+        ]
+      }
+    },
+    {
+      "automation_condition": "automated",
+      "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "controller_event_audit": {
+        "checks": {
+          "condition_specific_initiator_only": true,
+          "detection_evaluation": true,
+          "fault_application_verified": true,
+          "fault_detected": true,
+          "injection_ended": true,
+          "injection_started": true,
+          "one_canonical_recovery_hash": true,
+          "post_recovery_check": true,
+          "recovery_action_completed": true,
+          "recovery_completed": true,
+          "recovery_started": true
+        },
+        "event_counts": {
+          "automation_evaluation": 1,
+          "detection_evaluation": 3,
+          "external_intervention": 0,
+          "fault_application_verified": 1,
+          "fault_detected": 1,
+          "injection_ended": 1,
+          "injection_started": 1,
+          "post_recovery_check": 1,
+          "recovery_action_completed": 1,
+          "recovery_completed": 1,
+          "recovery_started": 1
+        },
+        "recovery_hashes": [
+          "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d"
+        ]
+      },
+      "duplicate_service_event_ids": [],
+      "expected_order_span_count": 35,
+      "identity_and_validity_checks": {
+        "all_recorded_validity_checks_true": true,
+        "condition_matches_index": true,
+        "development_classification": true,
+        "development_evidence_boundary": true,
+        "not_pilot_batch_evidence": true,
+        "repetition_zero": true,
+        "repository_sha_matches_index": true,
+        "run_order_zero": true,
+        "scenario_matches_index": true,
+        "trial_id_matches_index": true,
+        "validity_passed": true
+      },
+      "inventory_service_instance_count": 1,
+      "inventory_service_instance_ids": [
+        "0a28e8fe44e94785a2819d51e0f7aba8"
+      ],
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "dependency-latency-v1",
+      "service_event_count": 48,
+      "telemetry_audit": {
+        "expected_span_count_matches_index": true,
+        "observed_span_count_matches_expected": true,
+        "structured_event_otel_parity": true
+      },
+      "trial_id": "phase5-dev-dependency-latency-v1-automated-20260810T150518995240Z-f8b65dab",
+      "workload_audit": {
+        "checks": {
+          "during_fault_success_and_above_threshold": true,
+          "post_recovery_success_and_below_threshold": true,
+          "pre_fault_success_and_below_threshold": true,
+          "three_during_fault_requests": true,
+          "two_post_recovery_requests": true,
+          "two_pre_fault_requests": true
+        },
+        "latencies_ms": [
+          39.18,
+          24.264,
+          146.422,
+          150.845,
+          147.652,
+          32.791,
+          42.023
+        ],
+        "statuses": [
+          201,
+          201,
+          201,
+          201,
+          201,
+          201,
+          201
+        ]
+      }
+    },
+    {
+      "automation_condition": "manual",
+      "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "controller_event_audit": {
+        "checks": {
+          "condition_specific_initiator_only": true,
+          "detection_evaluation": true,
+          "fault_application_verified": true,
+          "fault_detected": true,
+          "injection_ended": true,
+          "injection_started": true,
+          "one_canonical_recovery_hash": true,
+          "post_recovery_check": true,
+          "recovery_action_completed": true,
+          "recovery_completed": true,
+          "recovery_started": true
+        },
+        "event_counts": {
+          "automation_evaluation": 0,
+          "detection_evaluation": 3,
+          "external_intervention": 1,
+          "fault_application_verified": 1,
+          "fault_detected": 1,
+          "injection_ended": 1,
+          "injection_started": 1,
+          "post_recovery_check": 1,
+          "recovery_action_completed": 1,
+          "recovery_completed": 1,
+          "recovery_started": 1
+        },
+        "recovery_hashes": [
+          "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081"
+        ]
+      },
+      "duplicate_service_event_ids": [],
+      "expected_order_span_count": 32,
+      "identity_and_validity_checks": {
+        "all_recorded_validity_checks_true": true,
+        "condition_matches_index": true,
+        "development_classification": true,
+        "development_evidence_boundary": true,
+        "not_pilot_batch_evidence": true,
+        "repetition_zero": true,
+        "repository_sha_matches_index": true,
+        "run_order_zero": true,
+        "scenario_matches_index": true,
+        "trial_id_matches_index": true,
+        "validity_passed": true
+      },
+      "inventory_service_instance_count": 2,
+      "inventory_service_instance_ids": [
+        "743ec54e1f434b23b2a4bdd6d215f06b",
+        "ab7d835bae5a488ab6c0beb3a971a394"
+      ],
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "service-termination-v1",
+      "service_event_count": 48,
+      "telemetry_audit": {
+        "expected_span_count_matches_index": true,
+        "observed_span_count_matches_expected": true,
+        "structured_event_otel_parity": true
+      },
+      "trial_id": "phase5-dev-service-termination-v1-manual-20260810T152525215977Z-a6603059",
+      "workload_audit": {
+        "checks": {
+          "during_fault_non_success": true,
+          "post_recovery_success": true,
+          "pre_fault_success": true,
+          "three_during_fault_requests": true,
+          "two_post_recovery_requests": true,
+          "two_pre_fault_requests": true
+        },
+        "latencies_ms": [
+          28.318,
+          17.803,
+          1042.958,
+          18.991,
+          14.104,
+          17.159,
+          16.981
+        ],
+        "statuses": [
+          201,
+          201,
+          502,
+          502,
+          502,
+          201,
+          201
+        ]
+      }
+    },
+    {
+      "automation_condition": "automated",
+      "canonical_recovery_action_sha256": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "controller_event_audit": {
+        "checks": {
+          "condition_specific_initiator_only": true,
+          "detection_evaluation": true,
+          "fault_application_verified": true,
+          "fault_detected": true,
+          "injection_ended": true,
+          "injection_started": true,
+          "one_canonical_recovery_hash": true,
+          "post_recovery_check": true,
+          "recovery_action_completed": true,
+          "recovery_completed": true,
+          "recovery_started": true
+        },
+        "event_counts": {
+          "automation_evaluation": 1,
+          "detection_evaluation": 3,
+          "external_intervention": 0,
+          "fault_application_verified": 1,
+          "fault_detected": 1,
+          "injection_ended": 1,
+          "injection_started": 1,
+          "post_recovery_check": 1,
+          "recovery_action_completed": 1,
+          "recovery_completed": 1,
+          "recovery_started": 1
+        },
+        "recovery_hashes": [
+          "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081"
+        ]
+      },
+      "duplicate_service_event_ids": [],
+      "expected_order_span_count": 32,
+      "identity_and_validity_checks": {
+        "all_recorded_validity_checks_true": true,
+        "condition_matches_index": true,
+        "development_classification": true,
+        "development_evidence_boundary": true,
+        "not_pilot_batch_evidence": true,
+        "repetition_zero": true,
+        "repository_sha_matches_index": true,
+        "run_order_zero": true,
+        "scenario_matches_index": true,
+        "trial_id_matches_index": true,
+        "validity_passed": true
+      },
+      "inventory_service_instance_count": 2,
+      "inventory_service_instance_ids": [
+        "b351f31f12b043129f786e5dacdad8c9",
+        "b7d88ebb242745b2adc04a19415fff59"
+      ],
+      "repository_commit_sha": "724f55b5ff651da70d0d49916e34980532c5b746",
+      "scenario_id": "service-termination-v1",
+      "service_event_count": 47,
+      "telemetry_audit": {
+        "expected_span_count_matches_index": true,
+        "observed_span_count_matches_expected": true,
+        "structured_event_otel_parity": true
+      },
+      "trial_id": "phase5-dev-service-termination-v1-automated-20260810T153122719355Z-804582dc",
+      "workload_audit": {
+        "checks": {
+          "during_fault_non_success": true,
+          "post_recovery_success": true,
+          "pre_fault_success": true,
+          "three_during_fault_requests": true,
+          "two_post_recovery_requests": true,
+          "two_pre_fault_requests": true
+        },
+        "latencies_ms": [
+          31.61,
+          19.646,
+          14.269,
+          13.878,
+          13.994,
+          17.202,
+          16.667
+        ],
+        "statuses": [
+          201,
+          201,
+          502,
+          502,
+          502,
+          201,
+          201
+        ]
+      }
+    }
+  ],
+  "claim_boundary": {
+    "does_not_support": [
+      "reliability improvement claims",
+      "condition effect estimates",
+      "production readiness",
+      "generalisation to other systems",
+      "human or developer-practice effects"
+    ],
+    "supports": [
+      "bounded implementation feasibility",
+      "fault application and reversion feasibility",
+      "shared detector execution feasibility",
+      "condition-specific initiator attribution",
+      "same recovery-action identity across paired conditions",
+      "structured-event and OpenTelemetry parity for these development runs",
+      "service-instance provenance across inventory restart"
+    ]
+  },
+  "development_run_count": 5,
+  "evidence_boundary": "phase-5-implementation-feasibility-only",
+  "paired_recovery_action_hashes": {
+    "dependency-latency-v1": {
+      "automated": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+      "manual": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d"
+    },
+    "service-termination-v1": {
+      "automated": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081",
+      "manual": "89888cecddeda01af2e4879f99014acb856b263264714893cdf2e96b6a282081"
+    }
+  },
+  "paired_recovery_action_hashes_match": true,
+  "pilot_evidence": false
+}
