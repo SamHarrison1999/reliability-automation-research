@@ -43,9 +43,9 @@ function Invoke-CheckedCommand {
 }
 
 Set-Location $RepoRoot
-Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'check', 'experiments', 'system', 'tests')
-Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'format', '--check', 'experiments', 'system', 'tests')
-Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'mypy', 'experiments', 'system', 'tests')
+Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'check', 'analysis', 'experiments', 'system', 'tests')
+Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'ruff', 'format', '--check', 'analysis', 'experiments', 'system', 'tests')
+Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'mypy', 'analysis', 'experiments', 'system', 'tests')
 Invoke-CheckedCommand -Command $VenvPython -Arguments @(
     '-m', 'pytest',
     '--basetemp', $PytestBaseTemp,
@@ -54,7 +54,7 @@ Invoke-CheckedCommand -Command $VenvPython -Arguments @(
     '--cov=system.orderflow.service',
     '--cov-branch', '--cov-report=term-missing', '--cov-fail-under=100'
 )
-Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'bandit', '-q', '-r', 'experiments', 'system', '-s', 'B310,B404,B603,B607')
+Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'bandit', '-q', '-r', 'analysis', 'experiments', 'system', '-s', 'B310,B404,B603,B607')
 Invoke-CheckedCommand -Command $VenvPython -Arguments @('-m', 'pip_audit', '--cache-dir', $PipAuditCache)
 & (Join-Path $PSScriptRoot 'check-compliance.ps1')
 if ($LASTEXITCODE -ne 0) {

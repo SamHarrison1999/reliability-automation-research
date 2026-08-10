@@ -41,11 +41,11 @@ QUALITY_TEMP_ROOT="${REPO_ROOT}/tmp/quality"
 PYTEST_BASE_TEMP="${QUALITY_TEMP_ROOT}/pytest-${RUN_ID}"
 PIP_AUDIT_CACHE="${QUALITY_TEMP_ROOT}/pip-audit-cache-${RUN_ID}"
 mkdir -p "${PYTEST_BASE_TEMP}" "${PIP_AUDIT_CACHE}"
-"${PYTHON_BIN}" -m ruff check experiments system tests
-"${PYTHON_BIN}" -m ruff format --check experiments system tests
-"${PYTHON_BIN}" -m mypy experiments system tests
+"${PYTHON_BIN}" -m ruff check analysis experiments system tests
+"${PYTHON_BIN}" -m ruff format --check analysis experiments system tests
+"${PYTHON_BIN}" -m mypy analysis experiments system tests
 "${PYTHON_BIN}" -m pytest --basetemp "${PYTEST_BASE_TEMP}" --cov=experiments.harness.fit_probe --cov=experiments.harness.kubernetes_fit_probe --cov=system.orderflow.service --cov-branch --cov-report=term-missing --cov-fail-under=100
-"${PYTHON_BIN}" -m bandit -q -r experiments system -s B310,B404,B603,B607
+"${PYTHON_BIN}" -m bandit -q -r analysis experiments system -s B310,B404,B603,B607
 "${PYTHON_BIN}" -m pip_audit --cache-dir "${PIP_AUDIT_CACHE}"
 bash scripts/check-compliance.sh
 
