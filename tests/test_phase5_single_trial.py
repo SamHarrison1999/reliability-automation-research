@@ -177,11 +177,16 @@ def test_recovery_initiator_paths_share_same_canonical_action_hash(
                 0.001,
             ),
         )
-        trial.recover()
+        initiator, action, action_hash = trial.recover()
+        assert initiator == ("manual" if condition == "manual" else "automation")
+        assert action_hash == expected_hash
+        assert action["action_id"] == "clear-inventory-fault-v1"
         recovery = [event for event in trial.events if event["event_type"] == "recovery_started"][0]
         hashes[condition] = recovery["canonical_recovery_action_sha256"]
 
         event_types = {event["event_type"] for event in trial.events}
+        assert "recovery_action_completed" in event_types
+        assert "recovery_completed" not in event_types
         if condition == "manual":
             assert "external_intervention" in event_types
             assert "automation_evaluation" not in event_types
@@ -271,3 +276,108 @@ def test_cleanup_deletes_namespace_even_when_fault_restoration_fails(
         event["event_type"] == "cleanup_completed" and event.get("result") == "clean-with-pre-teardown-error"
         for event in trial.events
     )
+
+
+def test_recovery_completed_waits_for_first_functional_post_recovery_request(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    module = load_module()
+    trial = module.Phase5DevelopmentTrial("dependency-latency-v1", "manual", tmp_path, True)
+    trial.run_dir.mkdir(parents=True)
+    action = module.canonical_recovery_action(load_manifest(), "dependency-latency-v1")
+    action_hash = module.sha256_json(action)
+
+    pre_fault = iter(
+        [
+            (201, 20.0),
+            (201, 22.0),
+            (201, 25.0),
+            (201, 24.0),
+        ]
+    )
+
+    def fake_workload(phase: str, request_index: int) -> dict[str, Any]:
+        status, latency = next(pre_fault)
+        response = trial.emit(
+            "workload_response",
+            phase=phase,
+            request_index=request_index,
+            order_id=f"order-{request_index}",
+            status=status,
+            latency_ms=latency,
+        )
+        return {
+            "request_index": request_index,
+            "phase": phase,
+            "order_id": f"order-{request_index}",
+            "status": status,
+            "latency_ms": latency,
+            "response_event_id": response["event_id"],
+        }
+
+    monkeypatch.setattr(trial, "workload_request", fake_workload)
+    monkeypatch.setattr(trial, "apply_fault", lambda: None)
+    monkeypatch.setattr(trial, "detect_fault", lambda index: index)
+    monkeypatch.setattr(
+        trial,
+        "recover",
+        lambda: ("manual", action, action_hash),
+    )
+
+    trial.execute_scenario_workload()
+
+    event_types = [event["event_type"] for event in trial.events]
+    assert event_types.count("recovery_completed") == 1
+    recovery_index = event_types.index("recovery_completed")
+    post_response_indices = [
+        index
+        for index, event in enumerate(trial.events)
+        if event["event_type"] == "workload_response" and event.get("phase") == "after-recovery"
+    ]
+    assert len(post_response_indices) == 2
+    assert post_response_indices[0] < recovery_index < post_response_indices[1]
+
+
+def test_latency_recovery_rejects_post_recovery_request_above_detector_threshold(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    module = load_module()
+    trial = module.Phase5DevelopmentTrial("dependency-latency-v1", "automated", tmp_path, True)
+    trial.run_dir.mkdir(parents=True)
+    action = module.canonical_recovery_action(load_manifest(), "dependency-latency-v1")
+    action_hash = module.sha256_json(action)
+
+    latencies = iter([20.0, 21.0, 101.0])
+
+    def fake_workload(phase: str, request_index: int) -> dict[str, Any]:
+        latency = next(latencies)
+        response = trial.emit(
+            "workload_response",
+            phase=phase,
+            request_index=request_index,
+            order_id=f"order-{request_index}",
+            status=201,
+            latency_ms=latency,
+        )
+        return {
+            "request_index": request_index,
+            "phase": phase,
+            "order_id": f"order-{request_index}",
+            "status": 201,
+            "latency_ms": latency,
+            "response_event_id": response["event_id"],
+        }
+
+    monkeypatch.setattr(trial, "workload_request", fake_workload)
+    monkeypatch.setattr(trial, "apply_fault", lambda: None)
+    monkeypatch.setattr(trial, "detect_fault", lambda index: index)
+    monkeypatch.setattr(
+        trial,
+        "recover",
+        lambda: ("automation", action, action_hash),
+    )
+
+    with pytest.raises(RuntimeError, match="post-recovery latency remained above"):
+        trial.execute_scenario_workload()
+
+    assert not any(event["event_type"] == "recovery_completed" for event in trial.events)

@@ -725,8 +725,8 @@ class Phase5DevelopmentTrial:
                 return first_request_index + offset + 1
         raise RuntimeError("shared detector did not reach the declared three-observation boundary")
 
-    def recover(self) -> None:
-        """Invoke the selected initiator path around one canonical recovery action."""
+    def recover(self) -> tuple[str, dict[str, Any], str]:
+        """Apply the canonical recovery action but defer functional completion."""
 
         action = canonical_recovery_action(self.design, self.scenario_id)
         action_hash = sha256_json(action)
@@ -786,7 +786,7 @@ class Phase5DevelopmentTrial:
                 raise RuntimeError(f"latency recovery verification failed: {body}")
 
         self.emit(
-            "recovery_completed",
+            "recovery_action_completed",
             initiator=initiator,
             recovery_action_version=action["version"],
             recovery_action_id=action["action_id"],
@@ -797,6 +797,7 @@ class Phase5DevelopmentTrial:
             fault_id=self.scenario["fault"]["fault_id"],
             result="reverted",
         )
+        return initiator, action, action_hash
 
     def execute_scenario_workload(self) -> None:
         """Run the selected no-fault or fault-scenario workload."""
@@ -821,23 +822,47 @@ class Phase5DevelopmentTrial:
 
         self.apply_fault()
         next_index = self.detect_fault(next_index)
-        self.recover()
+        initiator, action, action_hash = self.recover()
 
-        first_success: dict[str, Any] | None = None
-        for _ in range(2):
+        post_recovery_records: list[dict[str, Any]] = []
+        latency_threshold_ms = (
+            float(self.scenario["detection_rule"]["threshold_ms"])
+            if self.scenario_id == "dependency-latency-v1"
+            else None
+        )
+
+        for post_recovery_index in range(2):
             record = self.workload_request("after-recovery", next_index)
             if record["status"] != 201:
                 raise RuntimeError(f"post-recovery request failed: {record}")
-            if first_success is None:
-                first_success = record
+            if latency_threshold_ms is not None and float(record["latency_ms"]) > latency_threshold_ms:
+                raise RuntimeError(
+                    "post-recovery latency remained above the detector threshold: "
+                    f"latency_ms={record['latency_ms']}, threshold_ms={latency_threshold_ms}"
+                )
+            post_recovery_records.append(record)
+
+            if post_recovery_index == 0:
+                self.emit(
+                    "recovery_completed",
+                    initiator=initiator,
+                    recovery_action_version=action["version"],
+                    recovery_action_id=action["action_id"],
+                    canonical_recovery_action_sha256=action_hash,
+                    post_recovery_order_id=record["order_id"],
+                    post_recovery_response_event_id=record["response_event_id"],
+                )
             next_index += 1
-        if first_success is None:
-            raise RuntimeError("post-recovery workload completed without a successful request")
+
+        first_success = post_recovery_records[0]
         self.emit(
             "post_recovery_check",
             result="passed",
             first_success_order_id=first_success["order_id"],
             first_success_response_event_id=first_success["response_event_id"],
+            request_count=len(post_recovery_records),
+            maximum_latency_ms=max(float(record["latency_ms"]) for record in post_recovery_records),
+            latency_threshold_ms=latency_threshold_ms,
         )
         self.emit("workload_completed", request_count=len(self.workload_records))
 
