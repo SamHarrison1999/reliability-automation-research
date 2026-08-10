@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: orderflow-phase4
+  labels:
+    research-prototype: orderflow-phase-4-v1
+    evidence-boundary: reproducibility-only
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+  namespace: orderflow-phase4
+  labels:
+    app: inventory
+    research-prototype: orderflow-phase-4-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+        research-prototype: orderflow-phase-4-v1
+    spec:
+      containers:
+        - name: inventory
+          image: orderflow/inventory:phase4-v1
+          imagePullPolicy: Never
+          env:
+            - name: ORDERFLOW_ROLE
+              value: inventory
+            - name: ORDERFLOW_PORT
+              value: "8081"
+            - name: ORDERFLOW_VERSION
+              value: inventory-phase4-v1
+            - name: ORDERFLOW_RUN_ID
+              value: phase4-validation-placeholder
+            - name: ORDERFLOW_SCENARIO_ID
+              value: phase4-reproducibility-validation
+          ports:
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory
+  namespace: orderflow-phase4
+spec:
+  selector:
+    app: inventory
+  ports:
+    - port: 8081
+      targetPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-api
+  namespace: orderflow-phase4
+  labels:
+    app: order-api
+    research-prototype: orderflow-phase-4-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-api
+  template:
+    metadata:
+      labels:
+        app: order-api
+        research-prototype: orderflow-phase-4-v1
+    spec:
+      containers:
+        - name: order-api
+          image: orderflow/order-api:phase4-v1
+          imagePullPolicy: Never
+          env:
+            - name: ORDERFLOW_ROLE
+              value: order-api
+            - name: ORDERFLOW_PORT
+              value: "8080"
+            - name: ORDERFLOW_VERSION
+              value: order-api-phase4-v1
+            - name: ORDERFLOW_RUN_ID
+              value: phase4-validation-placeholder
+            - name: ORDERFLOW_SCENARIO_ID
+              value: phase4-reproducibility-validation
+            - name: ORDERFLOW_DEPENDENCY_URL
+              value: http://inventory:8081
+            - name: INVENTORY_URL
+              value: http://inventory:8081
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-api
+  namespace: orderflow-phase4
+spec:
+  selector:
+    app: order-api
+  ports:
+    - port: 8080
+      targetPort: 8080
