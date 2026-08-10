@@ -69,7 +69,7 @@ def validate_manifest(manifest: dict[str, Any]) -> None:
 
     if manifest.get("protocol_id") != "phase-5-technical-pilot-v1":
         raise ValueError("unexpected Phase 5 protocol ID")
-    if manifest.get("manifest_version") != "1.0.0":
+    if manifest.get("manifest_version") != "1.1.0":
         raise ValueError("unexpected Phase 5 manifest version")
 
     target = manifest.get("target", {})
