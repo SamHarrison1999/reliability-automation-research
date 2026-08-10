@@ -25,7 +25,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-TOOL_VERSION = "phase-5-primary-dataset-builder-v1.0"
+TOOL_VERSION = "phase-5-primary-dataset-builder-v1.0.1"
 
 EXPECTED_BATCH_ID = "phase5-primary-16f9cefff0d6b017"
 EXPECTED_ATTEMPTS = 53
@@ -295,7 +295,7 @@ def build_attempt_index(
             "passed": passed,
             "classification": classification,
             "files": file_records,
-            "_local_dir": local_dir,
+            "_local_dir": repo / RAW_ROOT / trial_directory,
         }
 
         attempts.append(attempt)
@@ -443,6 +443,53 @@ def build_dataset(
     )
     tooling_commit_resolved = str(
         run_git(repo, "rev-parse", tooling_commit)
+    )
+
+    # The existing primary metric CLI deliberately accepts trial
+    # directories only beneath the repository's immutable raw-evidence
+    # root. Corpus indexing and hashing still read bytes directly from
+    # raw_corpus_commit, but metric derivation runs against the
+    # corresponding repository trial after proving that the raw tree is
+    # unchanged.
+    run_git(
+        repo,
+        "diff",
+        "--exit-code",
+        raw_commit_resolved,
+        tooling_commit_resolved,
+        "--",
+        RAW_ROOT,
+    )
+
+    run_git(
+        repo,
+        "diff",
+        "--exit-code",
+        "--",
+        RAW_ROOT,
+    )
+
+    run_git(
+        repo,
+        "diff",
+        "--cached",
+        "--exit-code",
+        "--",
+        RAW_ROOT,
+    )
+
+    raw_status = run_git(
+        repo,
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all",
+        "--",
+        RAW_ROOT,
+    )
+
+    require(
+        raw_status == "",
+        "working raw corpus contains tracked or untracked changes",
     )
 
     current_metric_blob = git_blob_sha(

@@ -70,3 +70,22 @@ hypothesis testing or generalized causal interpretation.
 
 Substantive descriptive analysis begins only after the processed
 dataset has been reproduced byte-for-byte and committed.
+
+## Dataset-builder implementation correction
+
+`phase-5-primary-dataset-builder-v1.0` attempted to invoke the
+existing primary metric derivation CLI against temporary copies of raw
+trial directories. The metric derivation CLI correctly rejected those
+paths because its provenance guard requires a trial directory beneath
+`results/phase-5/raw`.
+
+`phase-5-primary-dataset-builder-v1.0.1` retains immutable Git-commit
+bytes as the source for corpus indexing and cryptographic hashes, while
+metric derivation is performed against the corresponding repository raw
+trial directory only after verifying that the raw tree is unchanged
+between the raw-corpus and tooling commits and contains no staged,
+unstaged or untracked modifications.
+
+The primary metric derivation guard itself is not weakened or changed.
+No processed dataset was accepted or committed from the rejected v1.0
+generation attempt.
