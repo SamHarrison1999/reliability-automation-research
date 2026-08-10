@@ -1,0 +1,75 @@
+{
+  "automation_condition": "manual",
+  "batch_manifest_sha256": "7eb391047c4903238443177a35b1e9d9226466126b74efcc297b2092c8adac44",
+  "bound_source_commit_sha": "b39bf238dca3df9e74bd7a5f82467100e13b6962",
+  "canonical_recovery_action_sha256": "64f207eb821235753b38e869eeb4e95eba745957269bfcca502b8d5f786b241d",
+  "cell_id": "dependency-latency-manual",
+  "controller_version": "phase-5-single-trial-controller-v0.2",
+  "evidence_boundary": "technical-pilot-only",
+  "kubernetes_manifest_sha256": "294927f8cd0f3099b9931f8937009060ec6ec61ab8863a8f49497f0b44ce4fb9",
+  "manifest_type": "phase-5-primary-trial-manifest",
+  "manifest_version": "1.1.0",
+  "pilot_batch_id": "phase5-primary-16f9cefff0d6b017",
+  "pilot_manifest_sha256": "f8d9007ed7a67f2a9bba8f66c2d82b2aa97938f45cd8a5a4b8e265749699a635",
+  "primary_execution_controller_version": "phase-5-primary-trial-controller-v1.0",
+  "primary_run_order_sha256": "b66301d9e441104d59b99b9d1966aaae5d696982750d9ff83ef26d434af71d5c",
+  "primary_schedule_slot": 18,
+  "protocol_id": "phase-5-technical-pilot-v1",
+  "protocol_sha256": "7d9aaf56663e92f6715babcfaef2e4b54020181805adbebd99ed26d543828b43",
+  "prototype_manifest_sha256": "9e2a10408c9bac4dae483353dc3e40645e5c2bcc0f8760fa4c8f7f67ea8a9ca4",
+  "repetition": 4,
+  "repository_commit_sha": "822c5cbaba40343f0a2e4f8be100e100646b875f",
+  "reserve": false,
+  "reserve_ordinal": null,
+  "run_id": "phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f-run",
+  "run_order": 18,
+  "scenario": {
+    "condition_ids": [
+      "manual",
+      "automated"
+    ],
+    "detection_rule": {
+      "condition": "three consecutive completed order requests with observed latency above 100 ms",
+      "detection_window_request_count": 3,
+      "rule_id": "three-orders-over-100ms-v1",
+      "threshold_ms": 100,
+      "version": "detection-v1"
+    },
+    "fault": {
+      "apply_action": {
+        "action_id": "set-inventory-latency-120-v1",
+        "kind": "inventory-control",
+        "method": "POST",
+        "path": "/__control",
+        "payload": {
+          "latency_ms": 120,
+          "mode": "latency"
+        }
+      },
+      "exposure_window": "until_declared_recovery_action_begins",
+      "fault_id": "inventory-latency-v1",
+      "latency_ms": 120,
+      "mode": "inventory-control-latency",
+      "target": "inventory",
+      "trigger": "after_two_successful_pre_fault_requests",
+      "verification": "returned_mode_latency_and_latency_ms_120"
+    },
+    "recovery_action": {
+      "action_id": "clear-inventory-fault-v1",
+      "completion": "returned_mode_none_inventory_readiness_and_post_recovery_check",
+      "kind": "inventory-control",
+      "method": "POST",
+      "path": "/__control",
+      "payload": {
+        "mode": "none"
+      },
+      "version": "recovery-v1"
+    },
+    "role": "fault-comparison"
+  },
+  "scenario_id": "dependency-latency-v1",
+  "source_invalid_trial_id": null,
+  "started_at": "2026-08-10T17:59:23.046Z",
+  "timing_contract_version": "phase-5-primary-timing-v1",
+  "trial_id": "phase5-primary-slot-018-dependency-latency-v1-manual-20260810T175922737616Z-728bd34f"
+}
