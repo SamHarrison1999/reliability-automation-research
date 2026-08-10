@@ -1,0 +1,1123 @@
+{
+  "analysis_scope": "phase-5-technical-pilot-descriptive-only",
+  "analysis_tool_version": "phase-5-primary-descriptive-analysis-v1.0.1",
+  "cell_summaries": {
+    "dependency-latency-v1|automated": {
+      "n": 10,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "observed": {
+            "max": 479.0956,
+            "mean": 455.49917,
+            "median": 457.1632,
+            "min": 436.6985,
+            "n": 10,
+            "p25": 439.59985,
+            "p75": 467.7453,
+            "p95": 477.592015
+          },
+          "role": "shared-detector-fidelity-and-balance-check",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failure_impact_rate": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_time_ms": {
+          "observed": {
+            "max": 546.1542,
+            "mean": 501.8765,
+            "median": 498.71105,
+            "min": 469.1436,
+            "n": 10,
+            "p25": 490.163875,
+            "p75": 508.933975,
+            "p95": 541.84203
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      },
+      "repetitions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "observed": {
+            "max": 65.554,
+            "mean": 44.32332,
+            "median": 47.93965,
+            "min": 29.7187,
+            "n": 10,
+            "p25": 31.531475,
+            "p75": 52.059925,
+            "p95": 61.2745
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "automation_decision_count": {
+          "observed": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failed_requests_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "latency_inflation_ratio": {
+          "observed": {
+            "max": 6.686189,
+            "mean": 5.093246,
+            "median": 5.119439,
+            "min": 3.800731,
+            "n": 10,
+            "p25": 4.242721,
+            "p75": 5.798897,
+            "p95": 6.433156
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "manual_intervention_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_success": {
+          "observed_binary_counts": {
+            "0": 0,
+            "1": 10
+          },
+          "representation": "integer-0-or-1",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "observed": {
+            "max": 545.2894,
+            "mean": 500.92243,
+            "median": 497.89575,
+            "min": 468.1488,
+            "n": 10,
+            "p25": 489.3298,
+            "p75": 508.0171,
+            "p95": 540.67537
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      }
+    },
+    "dependency-latency-v1|manual": {
+      "n": 10,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "observed": {
+            "max": 499.7506,
+            "mean": 474.09967,
+            "median": 475.1216,
+            "min": 450.7183,
+            "n": 10,
+            "p25": 454.071075,
+            "p75": 492.55075,
+            "p95": 498.53182
+          },
+          "role": "shared-detector-fidelity-and-balance-check",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failure_impact_rate": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_time_ms": {
+          "observed": {
+            "max": 575.291,
+            "mean": 521.89816,
+            "median": 520.4768,
+            "min": 482.7804,
+            "n": 10,
+            "p25": 497.778775,
+            "p75": 532.833075,
+            "p95": 571.310885
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      },
+      "repetitions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "observed": {
+            "max": 72.7108,
+            "mean": 45.81306,
+            "median": 37.3337,
+            "min": 30.787,
+            "n": 10,
+            "p25": 32.171625,
+            "p75": 62.9795,
+            "p95": 71.81926
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "automation_decision_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failed_requests_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "latency_inflation_ratio": {
+          "observed": {
+            "max": 6.444355,
+            "mean": 5.518618,
+            "median": 5.595159,
+            "min": 3.924724,
+            "n": 10,
+            "p25": 5.004472,
+            "p75": 6.154944,
+            "p95": 6.357063
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "manual_intervention_count": {
+          "observed": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_success": {
+          "observed_binary_counts": {
+            "0": 0,
+            "1": 10
+          },
+          "representation": "integer-0-or-1",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "observed": {
+            "max": 574.2335,
+            "mean": 520.93862,
+            "median": 519.3677,
+            "min": 481.9536,
+            "n": 10,
+            "p25": 496.822925,
+            "p75": 531.943475,
+            "p95": 570.30545
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      }
+    },
+    "no-fault-v1|control": {
+      "n": 10,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "role": "shared-detector-fidelity-and-balance-check",
+          "status_counts": {
+            "not_applicable": 10
+          }
+        },
+        "failure_impact_rate": {
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "not_applicable": 10
+          }
+        },
+        "recovery_time_ms": {
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "not_applicable": 10
+          }
+        }
+      },
+      "repetitions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "status_counts": {
+            "not_applicable": 10
+          }
+        },
+        "automation_decision_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failed_requests_count": {
+          "status_counts": {
+            "not_applicable": 10
+          }
+        },
+        "latency_inflation_ratio": {
+          "status_counts": {
+            "not_applicable": 10
+          }
+        },
+        "manual_intervention_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_success": {
+          "observed_binary_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "representation": "integer-0-or-1",
+          "status_counts": {
+            "not_applicable": 10
+          }
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "status_counts": {
+            "not_applicable": 10
+          }
+        }
+      }
+    },
+    "service-termination-v1|automated": {
+      "n": 10,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "observed": {
+            "max": 1083.3762,
+            "mean": 270.344,
+            "median": 75.1891,
+            "min": 55.9391,
+            "n": 10,
+            "p25": 62.010475,
+            "p75": 86.203175,
+            "p95": 1072.78014
+          },
+          "role": "shared-detector-fidelity-and-balance-check",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failure_impact_rate": {
+          "observed": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_time_ms": {
+          "observed": {
+            "max": 12693.6306,
+            "mean": 5248.71238,
+            "median": 2369.4146,
+            "min": 2005.4102,
+            "n": 10,
+            "p25": 2231.335375,
+            "p75": 9277.685275,
+            "p95": 12614.64813
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      },
+      "repetitions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "observed": {
+            "max": 11608.3201,
+            "mean": 4976.84781,
+            "median": 2299.0568,
+            "min": 1941.0895,
+            "n": 10,
+            "p25": 2153.0974,
+            "p75": 9179.065925,
+            "p95": 11558.309035
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "automation_decision_count": {
+          "observed": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failed_requests_count": {
+          "observed": {
+            "max": 3.0,
+            "mean": 3.0,
+            "median": 3.0,
+            "min": 3.0,
+            "n": 10,
+            "p25": 3.0,
+            "p75": 3.0,
+            "p95": 3.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "latency_inflation_ratio": {
+          "observed": {
+            "max": 1.202016,
+            "mean": 0.805998,
+            "median": 0.67639,
+            "min": 0.476349,
+            "n": 10,
+            "p25": 0.583819,
+            "p75": 1.078852,
+            "p95": 1.179527
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "manual_intervention_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_success": {
+          "observed_binary_counts": {
+            "0": 0,
+            "1": 10
+          },
+          "representation": "integer-0-or-1",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "observed": {
+            "max": 12692.7741,
+            "mean": 5247.70428,
+            "median": 2368.4407,
+            "min": 2004.5408,
+            "n": 10,
+            "p25": 2230.152575,
+            "p75": 9276.7185,
+            "p95": 12613.69083
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      }
+    },
+    "service-termination-v1|manual": {
+      "n": 10,
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "observed": {
+            "max": 1099.358,
+            "mean": 479.64644,
+            "median": 103.23475,
+            "min": 52.8743,
+            "n": 10,
+            "p25": 68.379975,
+            "p75": 1072.604525,
+            "p95": 1094.47757
+          },
+          "role": "shared-detector-fidelity-and-balance-check",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failure_impact_rate": {
+          "observed": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_time_ms": {
+          "observed": {
+            "max": 12717.3745,
+            "mean": 6377.94597,
+            "median": 3328.69335,
+            "min": 2044.9264,
+            "n": 10,
+            "p25": 2241.295875,
+            "p75": 11487.990425,
+            "p95": 12685.288735
+          },
+          "role": "treatment-relevant-technical-outcome",
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      },
+      "repetitions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "secondary_metrics": {
+        "active_recovery_duration_ms": {
+          "observed": {
+            "max": 11616.8641,
+            "mean": 5896.75601,
+            "median": 2331.8462,
+            "min": 1989.1736,
+            "n": 10,
+            "p25": 2104.900475,
+            "p75": 11420.816575,
+            "p95": 11597.706025
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "automation_decision_count": {
+          "observed": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "failed_requests_count": {
+          "observed": {
+            "max": 3.0,
+            "mean": 3.0,
+            "median": 3.0,
+            "min": 3.0,
+            "n": 10,
+            "p25": 3.0,
+            "p75": 3.0,
+            "p95": 3.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "latency_inflation_ratio": {
+          "observed": {
+            "max": 1.845471,
+            "mean": 0.86145,
+            "median": 0.788156,
+            "min": 0.391299,
+            "n": 10,
+            "p25": 0.501931,
+            "p75": 0.958656,
+            "p95": 1.611613
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "manual_intervention_count": {
+          "observed": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "recovery_success": {
+          "observed_binary_counts": {
+            "0": 0,
+            "1": 10
+          },
+          "representation": "integer-0-or-1",
+          "status_counts": {
+            "observed": 10
+          }
+        },
+        "time_to_first_post_recovery_success_ms": {
+          "observed": {
+            "max": 12716.4918,
+            "mean": 6376.91462,
+            "median": 3327.71255,
+            "min": 2044.0586,
+            "n": 10,
+            "p25": 2240.2771,
+            "p75": 11486.56575,
+            "p95": 12684.395505
+          },
+          "status_counts": {
+            "observed": 10
+          }
+        }
+      }
+    }
+  },
+  "claim_boundary": {
+    "detection_latency_interpretation": "shared-detector-fidelity-and-balance-check",
+    "human_effect_claims_permitted": false,
+    "inferential_statistics_performed": false,
+    "nhst_performed": false,
+    "p_values_included": false,
+    "production_readiness_claims_permitted": false,
+    "statistical_significance_claims_permitted": false,
+    "universal_causal_claims_permitted": false
+  },
+  "collection_execution_stability": {
+    "by_design_cell": {
+      "dependency-latency-v1|automated": {
+        "attempt_count": 10,
+        "invalid_attempt_count": 0,
+        "invalid_attempt_fraction": 0.0,
+        "primary_attempt_count": 10,
+        "reserve_attempt_count": 0,
+        "valid_attempt_count": 10
+      },
+      "dependency-latency-v1|manual": {
+        "attempt_count": 10,
+        "invalid_attempt_count": 0,
+        "invalid_attempt_fraction": 0.0,
+        "primary_attempt_count": 10,
+        "reserve_attempt_count": 0,
+        "valid_attempt_count": 10
+      },
+      "no-fault-v1|control": {
+        "attempt_count": 10,
+        "invalid_attempt_count": 0,
+        "invalid_attempt_fraction": 0.0,
+        "primary_attempt_count": 10,
+        "reserve_attempt_count": 0,
+        "valid_attempt_count": 10
+      },
+      "service-termination-v1|automated": {
+        "attempt_count": 11,
+        "invalid_attempt_count": 1,
+        "invalid_attempt_fraction": 0.090909,
+        "primary_attempt_count": 10,
+        "reserve_attempt_count": 1,
+        "valid_attempt_count": 10
+      },
+      "service-termination-v1|manual": {
+        "attempt_count": 12,
+        "invalid_attempt_count": 2,
+        "invalid_attempt_fraction": 0.166667,
+        "primary_attempt_count": 10,
+        "reserve_attempt_count": 2,
+        "valid_attempt_count": 10
+      }
+    },
+    "interpretation": "execution-stability-descriptor-only;invalid-attempts-excluded-from-valid-metric-summaries",
+    "overall": {
+      "attempt_count": 53,
+      "invalid_attempt_count": 3,
+      "invalid_run_orders": [
+        19,
+        21,
+        22
+      ],
+      "primary_attempt_count": 50,
+      "reserve_attempt_count": 3,
+      "reserve_run_orders": [
+        20,
+        22,
+        23
+      ],
+      "resolved_planned_slot_count": 50,
+      "valid_attempt_count": 50
+    }
+  },
+  "dataset": {
+    "dataset_artifact_sha256": {
+      "corpus-index.json": "ed3c39c41fe7a21b8d1142ae4e4367c9a79094b7b38eb3c398577181a2fc3bad",
+      "observations.json": "ff63303abb89c8d6ccc8f059a8bceca4f54039641d1cf1382663838ffe85dedb",
+      "provenance.json": "d42fbaea197abcd582a32814bdefc2689d52d47a452b3eea81d2423f27f0c657",
+      "summary.json": "be44fb5d84a4c15f938daf636ee88b3823b4c4b0311aec4bc325afdcf4a90860"
+    },
+    "dataset_tooling_commit": "77d8a65fa4bd672d54865b7cc71980c5f0357d72",
+    "processed_dataset_commit": "be3119d44842a8b737a86e0f40dca37b3aa4dbf7",
+    "processed_observation_count": 50,
+    "raw_corpus_commit": "b832c96c1dd3665f6025394447b35db58cd0e2a9"
+  },
+  "provenance": {
+    "dataset_provenance_verified": true,
+    "descriptive_analysis_tool_git_blob_sha": "33264c915e517b609a9f5f9e7603612884b2a801",
+    "descriptive_analysis_tooling_commit": "fe4b9e2c42f6c453a88be3dfe0a59a54ec10a60e",
+    "input_policy": "read-directly-from-immutable-processed-dataset-commit"
+  },
+  "scenario_comparisons": {
+    "dependency-latency-v1": {
+      "pair_count": 10,
+      "pairing": "manual-versus-automated-by-repetition",
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "automated": {
+            "max": 479.0956,
+            "mean": 455.49917,
+            "median": 457.1632,
+            "min": 436.6985,
+            "n": 10,
+            "p25": 439.59985,
+            "p75": 467.7453,
+            "p95": 477.592015
+          },
+          "difference_definition": "automated-minus-manual",
+          "direction_counts": {
+            "automated_higher": 2,
+            "automated_lower": 8,
+            "equal": 0
+          },
+          "manual": {
+            "max": 499.7506,
+            "mean": 474.09967,
+            "median": 475.1216,
+            "min": 450.7183,
+            "n": 10,
+            "p25": 454.071075,
+            "p75": 492.55075,
+            "p95": 498.53182
+          },
+          "pair_count": 10,
+          "paired_difference": {
+            "max": 15.6905,
+            "mean": -18.6005,
+            "median": -14.8129,
+            "min": -60.3437,
+            "n": 10,
+            "p25": -28.661225,
+            "p75": -10.904175,
+            "p95": 9.88946
+          },
+          "pairing": "same-repetition",
+          "role": "shared-detector-fidelity-and-balance-check"
+        },
+        "failure_impact_rate": {
+          "automated": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "difference_definition": "automated-minus-manual",
+          "direction_counts": {
+            "automated_higher": 0,
+            "automated_lower": 0,
+            "equal": 10
+          },
+          "manual": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "pair_count": 10,
+          "paired_difference": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "pairing": "same-repetition",
+          "role": "treatment-relevant-technical-outcome"
+        },
+        "recovery_time_ms": {
+          "automated": {
+            "max": 546.1542,
+            "mean": 501.8765,
+            "median": 498.71105,
+            "min": 469.1436,
+            "n": 10,
+            "p25": 490.163875,
+            "p75": 508.933975,
+            "p95": 541.84203
+          },
+          "difference_definition": "automated-minus-manual",
+          "direction_counts": {
+            "automated_higher": 1,
+            "automated_lower": 9,
+            "equal": 0
+          },
+          "manual": {
+            "max": 575.291,
+            "mean": 521.89816,
+            "median": 520.4768,
+            "min": 482.7804,
+            "n": 10,
+            "p25": 497.778775,
+            "p75": 532.833075,
+            "p95": 571.310885
+          },
+          "pair_count": 10,
+          "paired_difference": {
+            "max": 19.5862,
+            "mean": -20.02166,
+            "median": -19.4675,
+            "min": -64.9101,
+            "n": 10,
+            "p25": -28.53055,
+            "p75": -11.6955,
+            "p95": 8.27527
+          },
+          "pairing": "same-repetition",
+          "role": "treatment-relevant-technical-outcome"
+        }
+      }
+    },
+    "service-termination-v1": {
+      "pair_count": 10,
+      "pairing": "manual-versus-automated-by-repetition",
+      "primary_metrics": {
+        "detection_latency_ms": {
+          "automated": {
+            "max": 1083.3762,
+            "mean": 270.344,
+            "median": 75.1891,
+            "min": 55.9391,
+            "n": 10,
+            "p25": 62.010475,
+            "p75": 86.203175,
+            "p95": 1072.78014
+          },
+          "difference_definition": "automated-minus-manual",
+          "direction_counts": {
+            "automated_higher": 4,
+            "automated_lower": 6,
+            "equal": 0
+          },
+          "manual": {
+            "max": 1099.358,
+            "mean": 479.64644,
+            "median": 103.23475,
+            "min": 52.8743,
+            "n": 10,
+            "p25": 68.379975,
+            "p75": 1072.604525,
+            "p95": 1094.47757
+          },
+          "pair_count": 10,
+          "paired_difference": {
+            "max": 998.7979,
+            "mean": -209.30244,
+            "median": -16.48505,
+            "min": -1037.6477,
+            "n": 10,
+            "p25": -754.02405,
+            "p75": 9.09175,
+            "p95": 553.85536
+          },
+          "pairing": "same-repetition",
+          "role": "shared-detector-fidelity-and-balance-check"
+        },
+        "failure_impact_rate": {
+          "automated": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "difference_definition": "automated-minus-manual",
+          "direction_counts": {
+            "automated_higher": 0,
+            "automated_lower": 0,
+            "equal": 10
+          },
+          "manual": {
+            "max": 1.0,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p25": 1.0,
+            "p75": 1.0,
+            "p95": 1.0
+          },
+          "pair_count": 10,
+          "paired_difference": {
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 10,
+            "p25": 0.0,
+            "p75": 0.0,
+            "p95": 0.0
+          },
+          "pairing": "same-repetition",
+          "role": "treatment-relevant-technical-outcome"
+        },
+        "recovery_time_ms": {
+          "automated": {
+            "max": 12693.6306,
+            "mean": 5248.71238,
+            "median": 2369.4146,
+            "min": 2005.4102,
+            "n": 10,
+            "p25": 2231.335375,
+            "p75": 9277.685275,
+            "p95": 12614.64813
+          },
+          "difference_definition": "automated-minus-manual",
+          "direction_counts": {
+            "automated_higher": 5,
+            "automated_lower": 5,
+            "equal": 0
+          },
+          "manual": {
+            "max": 12717.3745,
+            "mean": 6377.94597,
+            "median": 3328.69335,
+            "min": 2044.9264,
+            "n": 10,
+            "p25": 2241.295875,
+            "p75": 11487.990425,
+            "p95": 12685.288735
+          },
+          "pair_count": 10,
+          "paired_difference": {
+            "max": 10139.8712,
+            "mean": -1129.23359,
+            "median": -457.64505,
+            "min": -10694.0903,
+            "n": 10,
+            "p25": -9402.1944,
+            "p75": 7018.84415,
+            "p95": 9858.13421
+          },
+          "pairing": "same-repetition",
+          "role": "treatment-relevant-technical-outcome"
+        }
+      }
+    }
+  },
+  "schema_version": "1.0.0"
+}
