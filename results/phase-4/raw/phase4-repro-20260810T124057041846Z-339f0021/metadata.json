@@ -1,0 +1,41 @@
+{
+  "base_image": "python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+  "build_platform": "linux/amd64",
+  "controller_version": "phase-4-reproducibility-controller-v1",
+  "created_at": "2026-08-10T12:43:12.832Z",
+  "docker_version": "Client=29.6.2 Server=29.6.2",
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "host": {
+    "hostname": "DESKTOP-BP0C686",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6"
+  },
+  "images": {
+    "inventory": {
+      "image_id": "sha256:4a159d4c01ff9ec2fa43256fd4de5cb9772e0e3df9d92f7b42c14eb0c53a44b3",
+      "repo_digests": "[\"orderflow/inventory@sha256:4a159d4c01ff9ec2fa43256fd4de5cb9772e0e3df9d92f7b42c14eb0c53a44b3\"]",
+      "tag": "orderflow/inventory:phase4-v1"
+    },
+    "order-api": {
+      "image_id": "sha256:69dbf214255ad511259b7aa253253592728aa319516dc9c448dcdc2616068c13",
+      "repo_digests": "[\"orderflow/order-api@sha256:69dbf214255ad511259b7aa253253592728aa319516dc9c448dcdc2616068c13\"]",
+      "tag": "orderflow/order-api:phase4-v1"
+    }
+  },
+  "kubectl_version": "Client Version: v1.36.1\nKustomize Version: v5.8.1\nServer Version: v1.36.1",
+  "kubernetes_context": "docker-desktop",
+  "kubernetes_manifest": "infrastructure\\kubernetes\\orderflow-phase-4.yaml",
+  "kubernetes_manifest_sha256": "23db509e2b13cca9d7b0dc8353b70d2643fb85feddc173e2122d8792f6d2164d",
+  "prototype_id": "orderflow-phase-4-v1",
+  "prototype_manifest": "infrastructure\\prototype\\orderflow-phase-4.json",
+  "prototype_manifest_sha256": "71237da2cf2a230273d00b3ad11321f8eba7c75f7da10d41d8526cb25031f4fe",
+  "prototype_version": "1.0.0",
+  "raw_files": {
+    "controller_events": "results\\phase-4\\raw\\phase4-repro-20260810T124057041846Z-339f0021\\events.jsonl",
+    "service_events": "results\\phase-4\\raw\\phase4-repro-20260810T124057041846Z-339f0021\\service-events.jsonl",
+    "workload": "results\\phase-4\\raw\\phase4-repro-20260810T124057041846Z-339f0021\\workload.json"
+  },
+  "repository_commit_sha": "095dfc7ed11607d69e0eb81d3487de00874172a3",
+  "run_id": "phase4-repro-20260810T124057041846Z-339f0021",
+  "target_model": "docker-desktop-kubernetes"
+}

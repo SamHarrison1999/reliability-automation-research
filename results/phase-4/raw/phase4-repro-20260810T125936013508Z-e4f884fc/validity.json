@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "clean_after_run": true,
+    "clean_before_deploy": true,
+    "deployment_completed": false,
+    "fresh_output_directory": true,
+    "images_built": true,
+    "no_execution_error": false,
+    "node_images_available": false,
+    "observation_verified": false,
+    "preflight_completed": true,
+    "provenance_written": true,
+    "readiness_verified": false,
+    "source_tree_verified": true,
+    "version_verified": false,
+    "workload_completed": false
+  },
+  "created_at": "2026-08-10T12:59:44.380Z",
+  "evidence_boundary": "phase-4-reproducibility-only",
+  "execution_error": "RuntimeError: command failed (1): docker exec desktop-control-plane ctr -n k8s.io images import /tmp/phase4-repro-20260810T125936013508Z-e4f884fc-inventory.tar\nctr: open /tmp/phase4-repro-20260810T125936013508Z-e4f884fc-inventory.tar: no such file or directory",
+  "passed": false,
+  "run_id": "phase4-repro-20260810T125936013508Z-e4f884fc"
+}
