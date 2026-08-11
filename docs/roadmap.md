@@ -10,32 +10,37 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 | 3 | Fault model, metrics and experiment protocol | Bounded fault catalogue, condition comparison, metric operationalisations, trial/reset procedure and validity risks are reviewed; protocol-supporting dry-run passes. |
 | 4 | Reproducible technical prototype | The smallest benchmark system can be reset, deployed and observed reproducibly. |
 | 5 | Experiment harness and technical pilot | Repeated technical runs produce validated raw records and analysis from raw data. |
-| 6 | Human-participant protocol and ethics | Recruitment, tasks, consent, data handling and analysis plans are approved through the relevant process. |
-| 7 | Participant feasibility study | Feasibility data is collected under the approved protocol; no claims exceed the sample and design. |
-| 8 | Proposal revision and supervisor engagement | OU-length proposal, supporting dossier and supervisor-facing materials reflect the evidence and limitations. |
+| 6 | Human-participant protocol and ethics readiness | Recruitment, tasks, consent, data handling and analysis plans are internally validated and ready for institutional review; participant execution still requires a favourable ethics opinion and any other required approvals. |
+| 7 | Participant feasibility study | Feasibility data is collected only after the required approvals exist; until then this phase remains explicitly deferred. |
+| 8 | Proposal revision and supervisor engagement | OU-length proposal, supporting dossier and supervisor-facing materials reflect completed evidence, the ethics-ready participant plan and any participant feasibility evidence that has actually been approved and collected. |
 
 ## Current gate
 
-Phase 5 is complete.
+Phase 6 application-preparation work is protocol-ready.
 
-The frozen technical pilot resolved all 50 planned schedule slots using
-53 preserved attempts: 50 primary attempts and three reserve attempts.
-The resulting 50 valid observations are balanced across five design
-cells and have been processed and analysed through deterministic,
-byte-for-byte reproduced tooling.
+The human-participant design now specifies:
 
-The immutable primary descriptive-result anchor is:
+- population and recruitment;
+- matched incident tasks;
+- counterbalancing;
+- primary and secondary human measures;
+- participant information and consent;
+- withdrawal and risk controls;
+- data management and pseudonymisation; and
+- descriptive feasibility analysis.
 
-`76396710e96088f79323039ae3a91aa3e53732c0`
+No participant has been recruited and no participant data have been collected.
 
-The Phase 5 exit criterion is satisfied:
+Formal ethics approval has not been obtained.
 
-> Repeated technical runs produce validated raw records and analysis
-> from raw data.
+Phase 7 is therefore blocked until the relevant favourable ethics opinion and
+any additional required approvals exist.
 
-The next gate is Phase 6: human-participant protocol and ethics.
+For the pre-application research programme, Phase 8 may proceed while Phase 7
+is deferred, provided all proposal material clearly distinguishes:
 
-Phase 5 authorises bounded descriptive technical-pilot findings only.
-It does not authorise statistical-significance, production-readiness,
-human-effect or universal causal claims. Participant-derived evidence
-must remain separate and requires the relevant ethics process.
+- completed Phase 5 technical-pilot evidence;
+- completed Phase 6 protocol preparation; and
+- unexecuted future participant feasibility work.
+
+Protocol readiness must never be represented as ethics approval.

@@ -1,0 +1,188 @@
+{
+  "conditions": {
+    "H-A": {
+      "automation_recommendation_visible": true,
+      "name": "automation-assisted-decision"
+    },
+    "H-M": {
+      "automation_recommendation_visible": false,
+      "name": "manual-decision-baseline"
+    }
+  },
+  "evidence_boundary": "future-human-participant-evidence",
+  "participant_execution_authorised": false,
+  "protocol_id": "phase-6-human-participant-task-protocol-v1",
+  "schema_version": "1.0.0",
+  "sequences": {
+    "S1": [
+      {
+        "condition": "H-M",
+        "task_id": "DL-A"
+      },
+      {
+        "condition": "H-A",
+        "task_id": "ST-A"
+      },
+      {
+        "condition": "H-A",
+        "task_id": "DL-B"
+      },
+      {
+        "condition": "H-M",
+        "task_id": "ST-B"
+      }
+    ],
+    "S2": [
+      {
+        "condition": "H-A",
+        "task_id": "DL-A"
+      },
+      {
+        "condition": "H-M",
+        "task_id": "ST-A"
+      },
+      {
+        "condition": "H-M",
+        "task_id": "DL-B"
+      },
+      {
+        "condition": "H-A",
+        "task_id": "ST-B"
+      }
+    ],
+    "S3": [
+      {
+        "condition": "H-M",
+        "task_id": "ST-B"
+      },
+      {
+        "condition": "H-A",
+        "task_id": "DL-B"
+      },
+      {
+        "condition": "H-A",
+        "task_id": "ST-A"
+      },
+      {
+        "condition": "H-M",
+        "task_id": "DL-A"
+      }
+    ],
+    "S4": [
+      {
+        "condition": "H-A",
+        "task_id": "ST-B"
+      },
+      {
+        "condition": "H-M",
+        "task_id": "DL-B"
+      },
+      {
+        "condition": "H-M",
+        "task_id": "ST-A"
+      },
+      {
+        "condition": "H-A",
+        "task_id": "DL-A"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "appropriate_action": "remove-dependency-latency",
+      "authority_profile": "remediation-authorised",
+      "automation_recommendation": {
+        "action": "remove-dependency-latency",
+        "correct": true
+      },
+      "diagnosis_key": "dependency-latency",
+      "escalation_expected": false,
+      "evidence": [
+        "order-api remains available",
+        "inventory dependency latency exceeds the scenario threshold",
+        "inventory service remains ready",
+        "no service-termination signal is present"
+      ],
+      "permitted_choices": [
+        "remove-dependency-latency",
+        "restart-inventory",
+        "escalate"
+      ],
+      "scenario_family": "dependency-latency",
+      "task_id": "DL-A",
+      "variant": "A"
+    },
+    {
+      "appropriate_action": "escalate",
+      "authority_profile": "observe-only",
+      "automation_recommendation": {
+        "action": "remove-dependency-latency",
+        "correct": false
+      },
+      "diagnosis_key": "dependency-latency",
+      "escalation_expected": true,
+      "evidence": [
+        "order-api remains available",
+        "inventory dependency latency exceeds the scenario threshold",
+        "inventory service remains ready",
+        "participant role is observe-only"
+      ],
+      "permitted_choices": [
+        "remove-dependency-latency",
+        "restart-inventory",
+        "escalate"
+      ],
+      "scenario_family": "dependency-latency",
+      "task_id": "DL-B",
+      "variant": "B"
+    },
+    {
+      "appropriate_action": "restore-inventory-service",
+      "authority_profile": "remediation-authorised",
+      "automation_recommendation": {
+        "action": "restore-inventory-service",
+        "correct": true
+      },
+      "diagnosis_key": "service-termination",
+      "escalation_expected": false,
+      "evidence": [
+        "inventory desired replica count is one",
+        "inventory ready replica count is zero",
+        "order requests return dependency failures",
+        "no dependency-latency injection signal is present"
+      ],
+      "permitted_choices": [
+        "restore-inventory-service",
+        "remove-dependency-latency",
+        "escalate"
+      ],
+      "scenario_family": "service-termination",
+      "task_id": "ST-A",
+      "variant": "A"
+    },
+    {
+      "appropriate_action": "escalate",
+      "authority_profile": "observe-only",
+      "automation_recommendation": {
+        "action": "restore-inventory-service",
+        "correct": false
+      },
+      "diagnosis_key": "service-termination",
+      "escalation_expected": true,
+      "evidence": [
+        "inventory desired replica count is one",
+        "inventory ready replica count is zero",
+        "order requests return dependency failures",
+        "participant role is observe-only"
+      ],
+      "permitted_choices": [
+        "restore-inventory-service",
+        "remove-dependency-latency",
+        "escalate"
+      ],
+      "scenario_family": "service-termination",
+      "task_id": "ST-B",
+      "variant": "B"
+    }
+  ]
+}

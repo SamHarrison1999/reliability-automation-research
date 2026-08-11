@@ -2,12 +2,12 @@
 
 ## Project status
 
-- **Current phase:** Phase 5 - experiment harness and technical pilot (complete); Phase 6 human-participant protocol and ethics is the next gate
-- **Status:** Phase 5 exit criterion satisfied; 50 planned slots resolved from 53 preserved attempts, with deterministic processed data and descriptive analysis committed
+- **Current phase:** Phase 6 human-participant protocol preparation is protocol-ready; Phase 7 is blocked pending ethics approval; Phase 8 is the next application-preparation gate
+- **Status:** Phase 6 protocol package internally validated; formal ethics approval not obtained
 - **Empirical data collected:** Phase 5 comparative technical-pilot evidence plus earlier feasibility/reproducibility records; no participant or production data
-- **Participant recruitment:** Not started
-- **Ethics approval:** Not obtained
-- **Application implementation:** Minimal reproducible OrderFlow prototype and frozen Phase 5 technical-pilot harness complete; participant protocol execution has not started
+- **Participant recruitment:** Not started; prohibited until required approvals exist
+- **Ethics approval:** Not obtained; protocol-ready is not approval
+- **Application implementation:** Technical OrderFlow pilot complete; human task protocol designed but participant execution not started
 
 ## Phase 0 record
 
@@ -284,3 +284,73 @@ Human-participant evidence remains a separate Phase 6/7 stream.
 | 2026-08-10 | Treat detection latency as a shared-detector fidelity/balance measure | Both recovery conditions use the same detector | Phase 5 descriptive-analysis contract |
 | 2026-08-10 | Keep the Phase 5 analysis descriptive | The technical pilot is not a powered confirmatory study | No NHST, p-values or significance claims |
 | 2026-08-10 | Close Phase 5 without additional post-result trials | The frozen schedule is complete and the exit criterion is met | `docs/pilot/phase-5-closeout.md` |
+
+## Phase 6 record
+
+### Objective
+
+Prepare an ethics-ready human-participant protocol that directly addresses RQ2
+without conflating participant evidence with Phase 5 technical telemetry.
+
+### Deliverables
+
+- [x] Human/technical evidence boundary
+- [x] Within-participant H-M/H-A design
+- [x] Human outcome hierarchy
+- [x] NASA-TLX/raw workload plan
+- [x] Behavioural reliance-calibration plan
+- [x] Participant eligibility/recruitment protocol
+- [x] Accessibility and risk safeguards
+- [x] Four matched synthetic incident variants
+- [x] Four deterministic counterbalance sequences
+- [x] Correct/incorrect recommendation balance
+- [x] Participant observation schema
+- [x] Scoring rubrics
+- [x] Descriptive Phase 7 feasibility analysis plan
+- [x] Participant Information Sheet draft
+- [x] Consent draft
+- [x] Debrief draft
+- [x] Withdrawal procedure
+- [x] Ethics risk assessment
+- [x] Draft DMP
+- [x] Data-protection plan
+- [x] Pseudonymisation boundary
+- [x] Synthetic protocol validation
+
+### Phase 6 status
+
+`protocol-ready`
+
+This means the package is ready for supervisor/institutional review when the
+researcher is eligible to use the relevant institutional process.
+
+It does not mean `ethics-approved`.
+
+### Participant evidence
+
+None collected.
+
+### Execution gate
+
+Phase 7 participant recruitment/data collection remains blocked until a
+favourable ethics opinion and any other required approvals actually exist.
+
+### Application-preparation pathway
+
+Phase 8 may proceed without Phase 7 execution because Phase 7 depends on an
+external ethics/registration gate.
+
+The proposal must state that participant feasibility is planned and not yet
+executed.
+
+### Phase 6 decision log
+
+| Date | Decision | Reason |
+|---|---|---|
+| 2026-08-11 | Separate protocol-ready from ethics-approved | Application preparation can design the study but cannot claim institutional approval |
+| 2026-08-12 | Use a within-participant H-M/H-A design | Provides direct paired decision evidence while controlling between-person expertise variation |
+| 2026-08-12 | Use four matched task variants and four counterbalance sequences | Balances scenario, condition, recommendation correctness and order |
+| 2026-08-12 | Use NASA-TLX dimensions with explicit raw feasibility scoring | Provides bounded workload evidence without hiding the scoring variant |
+| 2026-08-12 | Measure reliance primarily through accept/override/escalate behaviour | Keeps trust-related interpretation tied to observable decisions |
+| 2026-08-12 | Keep participant records outside public Git | Protects personal/pseudonymised data while retaining public protocol reproducibility |
+| 2026-08-12 | Keep Phase 7 blocked until actual approval | Prevents informal or retrospective ethics workarounds |
