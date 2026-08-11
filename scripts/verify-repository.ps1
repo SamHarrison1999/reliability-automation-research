@@ -76,7 +76,34 @@ $Required = @(
     'tests/test_phase5_primary_trial.py',
     'tests/test_phase5_primary_metrics.py',
     'tests/test_phase5_primary_dataset.py',
-    'tests/test_phase5_primary_descriptive.py'
+    'tests/test_phase5_primary_descriptive.py',
+    'docs/research-design/phase-6.md',
+    'docs/adr/0020-phase-6-human-study-and-ethics-boundary.md',
+    'docs/adr/0021-phase-6-human-measurement-boundary.md',
+    'docs/adr/0022-phase-6-task-counterbalancing.md',
+    'docs/adr/0023-phase-6-human-analysis-boundary.md',
+    'docs/adr/0024-phase-6-participant-data-boundary.md',
+    'docs/ethics/phase-6-human-evidence-and-instrument-review.md',
+    'docs/metrics/phase-6-human-measures.md',
+    'docs/protocols/phase-6-recruitment.md',
+    'docs/ethics/phase-6-accessibility-and-risk.md',
+    'docs/protocols/phase-6-participant-tasks.md',
+    'experiments/manifests/phase-6-participant-task-manifest.json',
+    'data/schemas/phase-6-participant-task-record.md',
+    'docs/protocols/phase-6-human-analysis-plan.md',
+    'docs/metrics/phase-6-scoring-rubrics.md',
+    'data/schemas/phase-6-participant-observation.md',
+    'docs/ethics/phase-6-participant-information-sheet.md',
+    'docs/ethics/phase-6-consent-form.md',
+    'docs/ethics/phase-6-debrief.md',
+    'docs/ethics/phase-6-withdrawal-procedure.md',
+    'docs/ethics/phase-6-ethics-risk-assessment.md',
+    'docs/data-management/phase-6-data-management-plan.md',
+    'docs/ethics/phase-6-data-protection-plan.md',
+    'data/schemas/phase-6-pseudonymisation-boundary.md',
+    'docs/ethics/phase-6-protocol-readiness-checklist.md',
+    'docs/ethics/phase-6-closeout.md',
+    'tests/test_phase6_protocol.py'
 )
 
 $Missing = @($Required | Where-Object { -not (Test-Path -LiteralPath $_ -PathType Leaf) })
@@ -127,5 +154,6 @@ if ($LASTEXITCODE -eq 0) {
 }
 
 Write-Host 'Repository verification passed.'
-Write-Host 'Phase: 5 - experiment harness and technical pilot complete.'
-Write-Host 'Next gate: Phase 6 - human-participant protocol and ethics.'
+Write-Host 'Phase: 6 - human-participant protocol package is protocol-ready.'
+Write-Host 'Phase 7: blocked pending favourable ethics opinion and required approvals.'
+Write-Host 'Application-preparation next gate: Phase 8 - proposal revision and supervisor engagement.'
