@@ -1,0 +1,12 @@
+claim_id,claim,evidence,status,limitation,allowed_wording
+A01,OU School proposal target is 600-1000 words,Official OU School guidance,current-verified,Must re-check before submission,Current School guidance requests a 600-1000-word proposal
+T01,OrderFlow can be reset deployed and observed reproducibly,Phase 4 reproducibility evidence,completed,Bounded Docker Desktop environment,Phase 4 established reproducible execution for the bounded OrderFlow prototype
+T02,Phase 5 resolved 50 planned slots from 53 attempts,Phase 5 raw and processed evidence,completed,Pilot only,The technical pilot resolved all 50 planned slots from 53 preserved attempts
+T03,Phase 5 contains 50 valid resolving observations,Phase 5 processed dataset,completed,Descriptive pilot evidence only,The pilot produced 50 valid resolving observations
+T04,Dependency-latency automated recovery was lower in 9 of 10 pairs,Phase 5 descriptive analysis,completed,Small descriptive pilot and detector variation,The pilot showed a directionally consistent descriptive pattern in dependency-latency recovery time
+T05,Service-termination automation has a consistent directional advantage,Phase 5 descriptive analysis,not-supported,Five pairs favoured each condition,Do not make this claim
+H01,A human-participant protocol has been designed,Phase 6 protocol package,completed-design,No participant execution,Phase 6 produced a protocol-ready participant-study design
+H02,Engineers perform better with automation,none,not-supported,No participant data,Do not make this claim
+E01,Ethics approval has been obtained,none,not-supported,Formal review not undertaken,Do not make this claim
+L01,A definitive literature gap has been established,Phase 1 seed map only,not-supported,Full named searches and charting incomplete,Preliminary mapping motivates the question but the full review remains outstanding
+S01,The proposed work is technically feasible,Phase 4 and Phase 5,completed-bounded,Does not establish full doctoral-study feasibility,Pre-application technical work demonstrates bounded methodological feasibility

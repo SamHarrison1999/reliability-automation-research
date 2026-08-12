@@ -2,12 +2,12 @@
 
 ## Project status
 
-- **Current phase:** Phase 6 human-participant protocol preparation is protocol-ready; Phase 7 is blocked pending ethics approval; Phase 8 is the next application-preparation gate
-- **Status:** Phase 6 protocol package internally validated; formal ethics approval not obtained
+- **Current phase:** Phase 8 application preparation complete; Phase 7 remains blocked pending ethics/institutional approval
+- **Status:** Phase 8 proposal/application package internally validated and ready for external supervisor/application review
 - **Empirical data collected:** Phase 5 comparative technical-pilot evidence plus earlier feasibility/reproducibility records; no participant or production data
 - **Participant recruitment:** Not started; prohibited until required approvals exist
-- **Ethics approval:** Not obtained; protocol-ready is not approval
-- **Application implementation:** Technical OrderFlow pilot complete; human task protocol designed but participant execution not started
+- **Ethics approval:** Not obtained; no participant execution authorised
+- **Application implementation:** Technical pilot complete; human protocol ready; Phase 8 proposal and supervisor dossier complete
 
 ## Phase 0 record
 
@@ -354,3 +354,78 @@ executed.
 | 2026-08-12 | Measure reliance primarily through accept/override/escalate behaviour | Keeps trust-related interpretation tied to observable decisions |
 | 2026-08-12 | Keep participant records outside public Git | Protects personal/pseudonymised data while retaining public protocol reproducibility |
 | 2026-08-12 | Keep Phase 7 blocked until actual approval | Prevents informal or retrospective ethics workarounds |
+
+## Phase 8 record
+
+### Objective
+
+Convert Phases 0-6 into a concise, evidence-traceable OU PhD application
+package while retaining all empirical and ethics boundaries.
+
+### Deliverables
+
+- [x] current application-requirements snapshot
+- [x] application evidence audit
+- [x] literature-status boundary
+- [x] two-RQ freeze
+- [x] contribution freeze
+- [x] claim/evidence matrix
+- [x] feedback-response matrix
+- [x] proposal architecture
+- [x] reference shortlist
+- [x] OU-length proposal
+- [x] methods dossier
+- [x] technical-pilot application summary
+- [x] doctoral work plan
+- [x] study/evidence diagrams
+- [x] supervisor-alignment assessment
+- [x] supervisor briefing
+- [x] supervisor follow-up email draft
+- [x] covering-letter draft
+- [x] CV evidence checklist
+- [x] adversarial application review
+- [x] submission-readiness assessment
+- [x] automated Phase 8 application validation
+
+### Phase 8 evidence boundary
+
+The application may report completed Phase 4/5 technical preparation.
+
+It may report Phase 6 as protocol-ready.
+
+It may not claim:
+
+- participant results;
+- ethics approval;
+- completion of the full Phase 1 scoping review;
+- confirmed supervision; or
+- admission.
+
+### Literature carry-forward
+
+The original Phase 1 incomplete items remain intentionally open:
+
+- named database searches;
+- complete full-text charting;
+- final literature-map synthesis.
+
+### Phase 7
+
+Blocked pending required approval.
+
+### Application state
+
+`application-document-ready`
+
+This is an internal preparation state rather than evidence of submission.
+
+### Phase 8 decision log
+
+| Date | Decision | Reason |
+|---|---|---|
+| 2026-08-12 | Use exactly two primary application RQs | Tightens scope and separates technical/human evidence |
+| 2026-08-12 | Keep full Phase 1 review explicitly open | Prevents seed literature from becoming a fabricated systematic finding |
+| 2026-08-12 | Name OrderFlow and its construction | Directly resolves empirical-software ambiguity |
+| 2026-08-12 | Treat Phase 5 primarily as feasibility evidence | Avoids overclaiming descriptive pilot observations |
+| 2026-08-12 | Treat Phase 6 as protocol-ready only | No participant data or ethics approval exists |
+| 2026-08-12 | Prepare supervisor-alignment material without claiming availability | Supervisory fit remains an external decision |

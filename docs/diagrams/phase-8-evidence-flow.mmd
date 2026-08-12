@@ -1,0 +1,16 @@
+flowchart TD
+    C[Versioned protocol/configuration] --> T[Technical trial]
+    T --> RAW[Immutable technical raw record]
+    RAW --> PA[Deterministic processing/analysis]
+    PA --> TF[Bounded technical findings]
+
+    E[Ethics-approved participant protocol] --> P[Participant task]
+    P --> PR[Restricted participant research record]
+    PR --> HA[Human analysis]
+    HA --> HF[Bounded human findings]
+
+    TF --> SYN[Integrated interpretation]
+    HF --> SYN
+
+    RAW -. public reproducibility boundary .-> G[Public Git repository]
+    PR -. never committed .-> X[Approved restricted storage]

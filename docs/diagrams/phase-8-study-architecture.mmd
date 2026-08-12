@@ -1,0 +1,18 @@
+flowchart LR
+    RQ1[RQ1: Technical reliability] --> OF[OrderFlow]
+    OF --> F[Controlled faults]
+    F --> M[Manual recovery]
+    F --> A[Automated recovery]
+    M --> TE[Technical evidence]
+    A --> TE
+    TE --> TR[Recovery / impact / intervention]
+
+    RQ2[RQ2: Engineering practice] --> HT[Structured incident tasks]
+    HT --> HM[H-M manual decision]
+    HT --> HA[H-A automation assisted]
+    HM --> HE[Human evidence]
+    HA --> HE
+    HE --> HR[Diagnosis / recovery / escalation]
+
+    TR --> I[Socio-technical interpretation]
+    HR --> I
