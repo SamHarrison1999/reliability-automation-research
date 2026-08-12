@@ -104,6 +104,36 @@ required=(
   docs/ethics/phase-6-protocol-readiness-checklist.md
   docs/ethics/phase-6-closeout.md
   tests/test_phase6_protocol.py
+  docs/research-design/phase-8.md
+  docs/adr/0025-phase-8-application-evidence-boundary.md
+  docs/adr/0026-phase-8-rq-contribution-freeze.md
+  docs/adr/0027-phase-8-proposal-architecture.md
+  docs/application/phase-8-application-requirements.md
+  docs/application/phase-8-evidence-audit.md
+  docs/application/phase-8-literature-boundary.md
+  docs/application/phase-8-rq-contribution-freeze.md
+  docs/application/phase-8-claim-evidence-matrix.csv
+  docs/application/phase-8-proposal-architecture.md
+  docs/application/phase-8-feedback-response-matrix.md
+  docs/application/phase-8-reference-shortlist.md
+  docs/application/phase-8-ou-proposal-v1.md
+  docs/application/phase-8-proposal-word-count.md
+  docs/application/phase-8-methods-dossier.md
+  docs/application/phase-8-technical-pilot-summary.md
+  docs/application/phase-8-doctoral-work-plan.md
+  docs/diagrams/phase-8-study-architecture.mmd
+  docs/diagrams/phase-8-evidence-flow.mmd
+  docs/application/phase-8-supervisor-alignment.md
+  docs/application/phase-8-supervisor-briefing.md
+  docs/application/phase-8-initial-contact-email.md
+  docs/application/phase-8-cover-letter.md
+  docs/application/phase-8-cv-evidence-checklist.md
+  docs/application/phase-8-adversarial-review.md
+  docs/application/phase-8-ou-proposal-final.md
+  docs/application/phase-8-submission-readiness.md
+  docs/application/phase-8-closeout.md
+  docs/application/phase-8-final-checklist.md
+  tests/test_phase8_application.py
 )
 
 missing=()
@@ -171,6 +201,6 @@ fi
 
 printf '%s\n' \
   'Repository verification passed.' \
-  'Phase: 6 - human-participant protocol package is protocol-ready.' \
+  'Phase: 8 - proposal and supervisor application package complete.' \
   'Phase 7: blocked pending favourable ethics opinion and required approvals.' \
-  'Application-preparation next gate: Phase 8 - proposal revision and supervisor engagement.'
+  'Application package: ready for external supervisor/application review.'

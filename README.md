@@ -4,13 +4,14 @@ Research repository for the provisional PhD project:
 
 > An Empirical Investigation of Reliability Automation and Software Engineering Practice in Continuous Delivery Environments
 
-Phase 6 application-preparation work is protocol-ready. The technical Phase 5
-evidence remains separate from the future human-participant evidence stream.
-Recruitment, tasks, measurement, consent, data management and descriptive
-feasibility analysis have been specified, but ethics approval has not been
-obtained and no participant may be recruited. Phase 7 therefore remains blocked
-pending the relevant approvals. Phase 8 proposal/application preparation may
-proceed with Phase 7 explicitly described as planned rather than completed.
+Phase 8 application preparation is complete and internally validated. The
+repository now contains a current 600-1000-word OU proposal, evidence/claim
+traceability, methods and pilot-support dossiers, supervisor-facing materials
+and an adversarial application review. Phase 7 participant execution remains
+blocked pending the required ethics/institutional approvals, and the full Phase
+1 scoping-review execution remains an explicit carry-forward item. Phase 8
+completion does not imply that an application has been submitted, a supervisor
+has agreed to supervise or admission has been offered.
 
 ## Research direction
 
@@ -112,6 +113,15 @@ The Phase 6 protocol-ready package is recorded in
 [`docs/ethics/phase-6-closeout.md`](docs/ethics/phase-6-closeout.md).
 The package is preparation for future institutional review only. It does not
 record a favourable ethics opinion and does not authorise recruitment.
+
+The Phase 8 application package is recorded in
+[`docs/application/phase-8-ou-proposal-final.md`](docs/application/phase-8-ou-proposal-final.md)
+and
+[`docs/application/phase-8-closeout.md`](docs/application/phase-8-closeout.md).
+
+The package is ready for external supervisor/application review. The current
+OU application route and requirements must still be re-verified immediately
+before submission.
 
 ## Engineering quality
 

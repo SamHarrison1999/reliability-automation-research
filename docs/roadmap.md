@@ -16,31 +16,33 @@ This roadmap is a planning artifact. Completion of a phase requires the validati
 
 ## Current gate
 
-Phase 6 application-preparation work is protocol-ready.
+Phase 8 application preparation is complete.
 
-The human-participant design now specifies:
+The repository now contains:
 
-- population and recruitment;
-- matched incident tasks;
-- counterbalancing;
-- primary and secondary human measures;
-- participant information and consent;
-- withdrawal and risk controls;
-- data management and pseudonymisation; and
-- descriptive feasibility analysis.
+- the final two-question research design;
+- an application evidence/claim boundary;
+- a 600-1000-word OU proposal;
+- a methods dossier;
+- a technical-pilot support summary;
+- a doctoral work plan;
+- study/evidence diagrams;
+- supervisor-alignment and briefing material;
+- covering-letter/contact drafts; and
+- an adversarial proposal review.
 
-No participant has been recruited and no participant data have been collected.
+Phase 7 participant execution remains blocked until a favourable ethics opinion
+and any other required approvals exist.
 
-Formal ethics approval has not been obtained.
+The full Phase 1 scoping-review execution remains open and must not be described
+as complete.
 
-Phase 7 is therefore blocked until the relevant favourable ethics opinion and
-any additional required approvals exist.
+External actions now include:
 
-For the pre-application research programme, Phase 8 may proceed while Phase 7
-is deferred, provided all proposal material clearly distinguishes:
+- re-verifying the current OU application route;
+- prospective-supervisor review;
+- application-document finalisation; and
+- formal submission.
 
-- completed Phase 5 technical-pilot evidence;
-- completed Phase 6 protocol preparation; and
-- unexecuted future participant feasibility work.
-
-Protocol readiness must never be represented as ethics approval.
+An optional later application-hardening phase may complete the full literature
+review and incorporate supervisor feedback, but Phase 8 itself is complete.
